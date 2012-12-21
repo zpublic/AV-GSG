@@ -18,8 +18,8 @@
 #include <tchar.h>
 
 #include <time.h>
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 800
 #define MSPERFRAME	30
 
 // TODO: reference additional headers your program requires here

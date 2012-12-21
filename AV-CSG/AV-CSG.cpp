@@ -66,7 +66,41 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	return (int) msg.wParam;
 }
 
+BOOL CenterWindow(HWND hwndWindow)
+{
+    HWND hwndParent;
+    RECT rectWindow, rectParent;
 
+    hwndParent = GetParent(hwndWindow);
+    if (!hwndParent)
+        hwndParent = GetDesktopWindow();
+    if (hwndParent)
+    {
+        GetWindowRect(hwndWindow, &rectWindow);
+        GetWindowRect(hwndParent, &rectParent);
+
+        int nWidth = rectWindow.right - rectWindow.left;
+        int nHeight = rectWindow.bottom - rectWindow.top;
+
+        int nX = ((rectParent.right - rectParent.left) - nWidth) / 2 + rectParent.left;
+        int nY = ((rectParent.bottom - rectParent.top) - nHeight) / 2 + rectParent.top;
+
+        int nScreenWidth = GetSystemMetrics(SM_CXSCREEN);
+        int nScreenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+        // make sure that the dialog box never moves outside of the screen
+        if (nX < 0) nX = 0;
+        if (nY < 0) nY = 0;
+        if (nX + nWidth > nScreenWidth) nX = nScreenWidth - nWidth;
+        if (nY + nHeight > nScreenHeight) nY = nScreenHeight - nHeight;
+
+        MoveWindow(hwndWindow, nX, nY, nWidth, nHeight, FALSE);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 //
 //  FUNCTION: MyRegisterClass()
@@ -118,15 +152,23 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    hInst = hInstance; // Store instance handle in our global variable
 
-   hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
+   hWnd = CreateWindow(
+       szWindowClass,
+       szTitle,
+       WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0,
+      SCREEN_WIDTH, SCREEN_HEIGHT,
+      NULL, NULL, hInstance, NULL);
 
    if (!hWnd)
    {
       return FALSE;
    }
 
-   MoveWindow(hWnd, 200, 300, SCREEN_WIDTH, SCREEN_HEIGHT, true);
+   if (!CenterWindow(hWnd))
+   {
+       MoveWindow(hWnd, 200, 200, SCREEN_WIDTH, SCREEN_HEIGHT, true);
+   }
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
@@ -152,9 +194,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
-	PAINTSTRUCT ps;
-	HDC hdc;
-
 	switch (message)
 	{
 	case WM_KEYDOWN:
