@@ -9,6 +9,7 @@ public:
     CBullet(int x, int y);
     virtual ~CBullet(void);
 
+    bool IsVisible();
 protected:
     int                 m_nPower;           //威力
     BulletType          m_nBulletType;      //子弹类型

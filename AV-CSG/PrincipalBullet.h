@@ -11,8 +11,8 @@ public:
 
     void Render(HDC hDC);
     void Update();
-    bool IsVisible();
-private:
+
+protected:
     int m_nFrameStartY;
 };
 

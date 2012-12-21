@@ -92,6 +92,7 @@
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />
+    <ClInclude Include="PrincipalBigBullet.h" />
     <ClInclude Include="PrincipalBullet.h" />
     <ClInclude Include="PrincipalPlane.h" />
     <ClInclude Include="Resource.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />
+    <ClCompile Include="PrincipalBigBullet.cpp" />
     <ClCompile Include="PrincipalBullet.cpp" />
     <ClCompile Include="PrincipalPlane.cpp" />
     <ClCompile Include="Sprite.cpp" />

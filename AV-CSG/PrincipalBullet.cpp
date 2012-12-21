@@ -59,30 +59,7 @@ CPrincipalBullet::CPrincipalBullet(int x, int y, BulletType bulletType, float an
 
 CPrincipalBullet::~CPrincipalBullet(void)
 {
-}
 
-bool CPrincipalBullet::IsVisible()
-{
-    if (m_nBulletType == emBulletTypeAmmoAll1)
-    {
-        if (m_nCurrentFrame > 11)
-        {
-            return false;
-        }
-        return true;
-    }
-    if (m_bIsVisible == false)
-    {
-        return m_bIsVisible;
-    }
-    if (m_nPosX < -50               ||
-        m_nPosY < -50               ||
-        m_nPosX > SCREEN_WIDTH + 50 ||
-        m_nPosY > SCREEN_HEIGHT + 50)
-    {
-        return false;
-    }
-    return true;
 }
 
 void CPrincipalBullet::Render(HDC hDC)
@@ -96,15 +73,6 @@ void CPrincipalBullet::Render(HDC hDC)
 
 void CPrincipalBullet::Update()
 {
-    if (m_nBulletType == emBulletTypeAmmoAll1)
-    {
-        int row = m_nCurrentFrame / 3;
-        int col = m_nCurrentFrame % 3;
-        m_nFrameStartX = col * 224 + col / 1;
-        m_nFrameStartY = row * 320 + (row + 1) / 1;
-        m_nCurrentFrame++;
-        return;
-    }
     float fDis = (float)m_nSpeed;
     int nStartX = 0, nStartY = 0;
 

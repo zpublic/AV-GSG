@@ -51,22 +51,6 @@ CEnemyBullet::~CEnemyBullet(void)
 {
 }
 
-bool CEnemyBullet::IsVisible()
-{
-    if(m_bIsVisible == false)
-    {
-        return m_bIsVisible;
-    }
-    if (m_nPosX < -50               ||
-        m_nPosY < -50               ||
-        m_nPosX > SCREEN_WIDTH + 50 ||
-        m_nPosY > SCREEN_HEIGHT + 50)
-    {
-        return false;
-    }
-    return true;
-}
-
 void CEnemyBullet::Render(HDC hDC)
 {
     CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(

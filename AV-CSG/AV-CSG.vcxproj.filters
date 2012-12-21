@@ -82,6 +82,7 @@
     <ClInclude Include="IPlane.h">
       <Filter>Source Files\gameobject</Filter>
     </ClInclude>
+    <ClInclude Include="PrincipalBigBullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -122,6 +123,9 @@
     </ClCompile>
     <ClCompile Include="PicturePool.cpp">
       <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="PrincipalBigBullet.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
