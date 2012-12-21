@@ -12,9 +12,14 @@
     <Filter Include="Source Files\gameobject">
       <UniqueIdentifier>{4bfa8ac0-12c0-4331-90d1-00520769a215}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control">
+      <UniqueIdentifier>{bff0e8ca-501a-4e6d-a516-503735ab38e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data">
+      <UniqueIdentifier>{07269852-340e-482e-8dc1-975841fe0a36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
     <None Include="small.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -26,19 +31,7 @@
     <ClInclude Include="AV-CSG.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameControler.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Picture.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
@@ -62,18 +55,21 @@
     <ClInclude Include="Sprite.h">
       <Filter>Source Files\gameobject</Filter>
     </ClInclude>
+    <ClInclude Include="GameControler.h">
+      <Filter>Source Files\control</Filter>
+    </ClInclude>
+    <ClInclude Include="Picture.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AV-CSG.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Picture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameControler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
@@ -96,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files\gameobject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameControler.cpp">
+      <Filter>Source Files\control</Filter>
+    </ClCompile>
+    <ClCompile Include="Picture.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -77,7 +77,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="AV-CSG.ico" />
-    <None Include="ReadMe.txt" />
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
