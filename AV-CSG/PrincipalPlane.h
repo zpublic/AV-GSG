@@ -31,6 +31,10 @@ public:
     void SetBulletType(BulletType bulletType)
     {
         m_nBulletType = bulletType;
+        if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
+        {
+            SetAmmoCount(3);
+        }
         if (m_nBulletType == emBulletTypeAmmoSB)
         {
             SetAmmoCount(5);

@@ -26,7 +26,7 @@ CPrincipalPlane::CPrincipalPlane(int x, int y)
     : PlaneBase(x, y)
 {
     m_nLife = 1;
-    m_nAmmoCount = 3;
+    m_nAmmoCount = 1;
     m_nBulletType = emBulletTypeAMMO0;
     m_nAction = STOP_MOVE;
     m_nWidth = 49;
@@ -149,27 +149,27 @@ void CPrincipalPlane::Update()
                 m_nBulletType, float(2*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 10,
                 m_nBulletType, float(3*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 10,
                 m_nBulletType, float(4*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 10,
                 m_nBulletType, float(5*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 3,
                 m_nBulletType, float(6*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 10,
                 m_nBulletType, float(7*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 5,
+                true, 3, 10,
                 m_nBulletType, float(8*PI/4.0));
             break;
         }
