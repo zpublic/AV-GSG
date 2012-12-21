@@ -10,8 +10,6 @@ CPrincipalBullet::CPrincipalBullet(int x, int y, BulletType bulletType, float an
 	m_nPower = 3;
 	m_nBulletType = bulletType;
 	m_fAngle = angle;
-	m_nCurrentFrame = 0;
-	m_nFrameStartX = 0;
 	m_nFrameStartY = 0;
 	switch(bulletType)
 	{

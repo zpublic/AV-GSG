@@ -11,6 +11,8 @@ CSprite::CSprite(int x, int y):
 {
     this->pNext = g_pHead;
     g_pHead = static_cast<ISprite *>(this);
+
+    m_nFrameStartX = 0;
 }
 
 
