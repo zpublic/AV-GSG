@@ -67,6 +67,12 @@
     <ClInclude Include="targetver.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameDef.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISprite.h">
+      <Filter>Source Files\gameobject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">

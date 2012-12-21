@@ -23,7 +23,7 @@ CPrincipalPlane * CPrincipalPlane::GetInstance()
 
 CPrincipalPlane::CPrincipalPlane(int x, int y):CSprite(x, y)
 {
-	m_nLife = 2;
+	m_nLife = 1;
 	m_nAmmoCount = 3;
 	m_nBulletType = AMMO2;
 	m_nAction = STOP_MOVE;

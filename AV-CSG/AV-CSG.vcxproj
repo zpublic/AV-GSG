@@ -86,6 +86,8 @@
     <ClInclude Include="EnemyPlane.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameControler.h" />
+    <ClInclude Include="GameDef.h" />
+    <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PrincipalBullet.h" />
     <ClInclude Include="PrincipalPlane.h" />

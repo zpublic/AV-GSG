@@ -18,8 +18,7 @@
 #include <tchar.h>
 
 #include <time.h>
-#define SCREEN_WIDTH 600
-#define SCREEN_HEIGHT 800
-#define MSPERFRAME	30
+
+#include "GameDef.h"
 
 // TODO: reference additional headers your program requires here
