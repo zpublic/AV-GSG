@@ -88,6 +88,7 @@
     <ClInclude Include="GameControler.h" />
     <ClInclude Include="GameDef.h" />
     <ClInclude Include="GameFrame.h" />
+    <ClInclude Include="IPlane.h" />
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />

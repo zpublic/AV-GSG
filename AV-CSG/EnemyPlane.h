@@ -3,10 +3,10 @@
 *	add by hels	2012-5-13
 *	敌机类，记录生命，提供渲染，进行碰撞检测，记录子弹类型等。
 */
-#include "Sprite.h"
+#include "IPlane.h"
 #include "Picture.h"
 
-class CEnemyPlane : public CSprite
+class CEnemyPlane : public PlaneBase
 {
 public:
 	CEnemyPlane(EnemyType enemyType);

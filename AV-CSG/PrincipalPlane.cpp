@@ -21,7 +21,8 @@ CPrincipalPlane * CPrincipalPlane::GetInstance()
 	return pCPrincipalPlane;
 }
 
-CPrincipalPlane::CPrincipalPlane(int x, int y):CSprite(x, y)
+CPrincipalPlane::CPrincipalPlane(int x, int y)
+    : PlaneBase(x, y)
 {
 	m_nLife = 1;
 	m_nAmmoCount = 3;

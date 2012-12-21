@@ -3,10 +3,10 @@
 *	add by hels	2012-5-12
 *	主控飞机类，记录生命，提供渲染，进行碰撞检测，记录子弹类型等.主控飞机只有一架，可以使用单例模式控制
 */
-#include "Sprite.h"
+#include "IPlane.h"
 #include "Picture.h"
 
-class CPrincipalPlane : public CSprite
+class CPrincipalPlane : public PlaneBase
 {
 public:
 	//控制生成单例

@@ -79,6 +79,9 @@
     <ClInclude Include="PicturePool.h">
       <Filter>Source Files\data</Filter>
     </ClInclude>
+    <ClInclude Include="IPlane.h">
+      <Filter>Source Files\gameobject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">

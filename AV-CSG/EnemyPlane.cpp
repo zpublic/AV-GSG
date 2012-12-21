@@ -11,8 +11,9 @@ float CEnemyPlane::sfLastCreateTime = 0.0;
 int CEnemyPlane::snEnemyCount = 0;
 CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
 
-CEnemyPlane::CEnemyPlane(EnemyType enemyType):CSprite(0, 0),
-	m_nEnemyType(enemyType)
+CEnemyPlane::CEnemyPlane(EnemyType enemyType)
+    : PlaneBase(0, 0)
+    , m_nEnemyType(enemyType)
 {
 	int nRandom = rand() % 5;//随机随0-2产生的飞机从屏幕上方左中右出现
 							//5号特殊敌机从下方出现
