@@ -1,58 +1,55 @@
 #pragma once
-/*
-*	add by hels	2012-5-12
-*	游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵。也是一个单例模式
-*/
 
 class CPrincipalPlane;
 
+///> 游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵
 class CGameControler
 {
 public:
-	static CGameControler * GetInstance();
-	~CGameControler(void);
+    static CGameControler* GetInstance();
+    ~CGameControler(void);
 
-	//更新游戏场景
-	void UpdateScence();
-	
-	//获取时间间隔
-	float GetElapsedTime(){ return m_fElapsedTime;}
+    //更新游戏场景
+    void UpdateScence();
 
-	//键盘按键处理
-	void KeyDown(WPARAM nKeyCode);
-	void KeyUp(WPARAM nKeyCode);
+    //获取时间间隔
+    float GetElapsedTime(){ return m_fElapsedTime;}
 
-	void SetLastTime(DWORD lastTime){ m_dwLastTime = lastTime; }
-	void SetCurrentTime(DWORD currentTime){ m_dwCurrentTime = currentTime; }
+    //键盘按键处理
+    void KeyDown(WPARAM nKeyCode);
+    void KeyUp(WPARAM nKeyCode);
 
-	void SetWndDC(HDC hDC);
+    void SetLastTime(DWORD lastTime) { m_dwLastTime = lastTime; }
+    void SetCurrentTime(DWORD currentTime) { m_dwCurrentTime = currentTime; }
 
-	void StartGame();
+    void SetWndDC(HDC hDC);
 
-	void Exit();
+    void StartGame();
+
+    void Exit();
 private:
-	CGameControler(void);
+    CGameControler(void);
 
-	//地图循环贴图
-	void CirculationMap();
+    //地图循环贴图
+    void CirculationMap();
 
     void GameOver();
     void GameReady();
 
-	static CGameControler * pGameControler;
-	DWORD m_dwLastTime;//上次绘图时间
-	DWORD m_dwCurrentTime;//当前时间
-	HDC	  m_hMemDC;
-	HBITMAP	m_hBitmapMap;
-	HBITMAP m_hMemBitmap;
-	HDC		m_hWndDC;
-	HDC		m_hMapDC; 
-	int		m_nY; //记录地图被截取的宽度
-	float	m_fElapsedTime;
+    static CGameControler* pGameControler;
+    DWORD   m_dwLastTime;       //上次绘图时间
+    DWORD   m_dwCurrentTime;    //当前时间
+    HDC     m_hMemDC;
+    HBITMAP m_hBitmapMap;
+    HBITMAP m_hMemBitmap;
+    HDC     m_hWndDC;
+    HDC     m_hMapDC; 
+    int     m_nY;               //记录地图被截取的宽度
+    float   m_fElapsedTime;
 
-	int		m_nPreKey;
-	int		m_nCurKey;
+    int     m_nPreKey;
+    int     m_nCurKey;
 
-	CPrincipalPlane *m_pPrincipalPlane;
+    CPrincipalPlane *m_pPrincipalPlane;
 };
 
