@@ -9,14 +9,14 @@
 //定义子弹类型
 enum BulletType
 {
-    AMMO0 = 0,
-    AMMO1,
-    AMMO2,
-    AMMO3,
-    AMMO4,
-    AMMO5,
-    AMMO6,
-    WHOLEFRIED
+    emBulletTypeAMMO0 = 0,
+    emBulletTypeAMMO1,
+    emBulletTypeAMMO2,
+    emBulletTypeAMMO3,
+    emBulletTypeAMMO4,
+    emBulletTypeAMMO5,
+    emBulletTypeAMMO6,
+    emBulletTypeAmmoAll1
 };
 
 //定义动作类型

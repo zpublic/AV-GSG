@@ -14,42 +14,42 @@ CPrincipalBullet::CPrincipalBullet(int x, int y, BulletType bulletType, float an
     m_nFrameStartY = 0;
     switch(bulletType)
     {
-    case AMMO0:
+    case emBulletTypeAMMO0:
         m_nWidth = 16;
         m_nHeight = 16;
         m_nFrameCount = 8;
         break;
-    case AMMO1:
+    case emBulletTypeAMMO1:
         m_nWidth = 16;
         m_nHeight = 16;
         m_nFrameCount = 6;
         break;
-    case AMMO2:
+    case emBulletTypeAMMO2:
         m_nWidth = 11;
         m_nHeight = 11;
         m_nFrameCount = 1;
         break;
-    case AMMO3:
+    case emBulletTypeAMMO3:
         m_nWidth = 16;
         m_nHeight = 16;
         m_nFrameCount = 6;
         break;
-    case AMMO4:
+    case emBulletTypeAMMO4:
         m_nWidth = 12;
         m_nHeight = 60;
         m_nFrameCount = 5;
         break;
-    case AMMO5:
+    case emBulletTypeAMMO5:
         m_nWidth = 23;
         m_nHeight = 49;
         m_nFrameCount = 1;
         break;
-    case AMMO6:
+    case emBulletTypeAMMO6:
         m_nWidth = 26;
         m_nHeight = 31;
         m_nFrameCount = 3;
         break;
-    case WHOLEFRIED:
+    case emBulletTypeAmmoAll1:
         m_nWidth = 224;
         m_nHeight = 320;
         m_nFrameCount = 12;
@@ -63,7 +63,7 @@ CPrincipalBullet::~CPrincipalBullet(void)
 
 bool CPrincipalBullet::IsVisible()
 {
-    if (m_nBulletType == WHOLEFRIED)
+    if (m_nBulletType == emBulletTypeAmmoAll1)
     {
         if (m_nCurrentFrame > 11)
         {
@@ -96,7 +96,7 @@ void CPrincipalBullet::Render(HDC hDC)
 
 void CPrincipalBullet::Update()
 {
-    if (m_nBulletType == WHOLEFRIED)
+    if (m_nBulletType == emBulletTypeAmmoAll1)
     {
         int row = m_nCurrentFrame / 3;
         int col = m_nCurrentFrame % 3;

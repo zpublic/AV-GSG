@@ -26,7 +26,7 @@ CPrincipalPlane::CPrincipalPlane(int x, int y)
 {
 	m_nLife = 1;
 	m_nAmmoCount = 3;
-	m_nBulletType = AMMO2;
+	m_nBulletType = emBulletTypeAMMO0;
 	m_nAction = STOP_MOVE;
 	m_nWidth = 49;
 	m_nHeight = 66;
@@ -187,9 +187,9 @@ void CPrincipalPlane::Control(ActionType actionType)
 	case FIREALL:
 		if (m_nWholeFired)
 		{
-			new CPrincipalBullet(0, SCREEN_HEIGHT / 2 - 320 /2, WHOLEFRIED, 0.0);
-			new CPrincipalBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, WHOLEFRIED, 0.0);
-			new CPrincipalBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, WHOLEFRIED, 0.0);
+			new CPrincipalBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+			new CPrincipalBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+			new CPrincipalBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
 			CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
 			for(;temp!=NULL;temp=temp->m_pEmnemyNext)
 			{

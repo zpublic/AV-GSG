@@ -206,25 +206,25 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
 		m_pPrincipalPlane->Control(FIRE);
 		break;
 	case '1':
-		m_pPrincipalPlane->SetBulletType(AMMO0);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO0);
 		break;
 	case '2':
-		m_pPrincipalPlane->SetBulletType(AMMO1);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO1);
 		break;
 	case '3':
-		m_pPrincipalPlane->SetBulletType(AMMO2);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO2);
 		break;
 	case '4':
-		m_pPrincipalPlane->SetBulletType(AMMO3);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO3);
 		break;
 	case '5':
-		m_pPrincipalPlane->SetBulletType(AMMO4);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO4);
 		break;
 	case '6':
-		m_pPrincipalPlane->SetBulletType(AMMO5);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO5);
 		break;
 	case '7':
-		m_pPrincipalPlane->SetBulletType(AMMO6);
+		m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO6);
 		break;
 	case VK_SPACE:
 		m_pPrincipalPlane->Control(FIREALL);
