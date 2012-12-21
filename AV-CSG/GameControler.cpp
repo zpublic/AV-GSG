@@ -153,6 +153,14 @@ void CGameControler::UpdateScence()
 
 void CGameControler::KeyDown(WPARAM nKeyCode)
 {
+    if (nKeyCode == VK_LEFT)
+        nKeyCode = 'A';
+    if (nKeyCode == VK_DOWN)
+        nKeyCode = 'S';
+    if (nKeyCode == VK_RIGHT)
+        nKeyCode = 'D';
+    if (nKeyCode == VK_UP)
+        nKeyCode = 'W';
     switch (nKeyCode)
     {
     case 'A':
@@ -201,6 +209,7 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
         }
         break;
     case 'J':
+    case 'Z':
         m_pPrincipalPlane->Control(FIRE);
         break;
     case '1':
@@ -225,6 +234,8 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
         m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO6);
         break;
     case VK_SPACE:
+    case 'K':
+    case 'X':
         m_pPrincipalPlane->Control(FIREALL);
         break;
     }
@@ -232,6 +243,14 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
 
 void CGameControler::KeyUp(WPARAM nKeyCode)
 {
+    if (nKeyCode == VK_LEFT)
+        nKeyCode = 'A';
+    if (nKeyCode == VK_DOWN)
+        nKeyCode = 'S';
+    if (nKeyCode == VK_RIGHT)
+        nKeyCode = 'D';
+    if (nKeyCode == VK_UP)
+        nKeyCode = 'W';
     if (nKeyCode == m_nCurKey)
     {
         if (m_nPreKey && (m_nPreKey != m_nCurKey))
@@ -289,7 +308,7 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
             m_pPrincipalPlane->Control(STOP_MOVE);
         }
     }
-    else if ( nKeyCode == 'J')
+    else if ( nKeyCode == 'J' || nKeyCode == 'Z')
     {
         m_pPrincipalPlane->Control(STOP_FIRE);
     }
