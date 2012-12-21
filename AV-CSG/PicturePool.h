@@ -15,7 +15,7 @@ public:
 
 private:
     static CPicture* m_pPictureBlast[2];
-    static CPicture* m_pPictureAmmo[8];
+    static CPicture* m_pPictureAmmo[9];
     static CPicture* m_pPictureEnemy[6];
 };
 

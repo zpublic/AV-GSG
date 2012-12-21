@@ -2,7 +2,7 @@
 #include "PicturePool.h"
 
 CPicture * CPicturePool::m_pPictureBlast[2] = {0};
-CPicture * CPicturePool::m_pPictureAmmo[8] = {0};
+CPicture * CPicturePool::m_pPictureAmmo[9] = {0};
 CPicture * CPicturePool::m_pPictureEnemy[6] = {0};
 
 CPicturePool::CPicturePool(void)
