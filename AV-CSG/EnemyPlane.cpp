@@ -5,8 +5,6 @@
 #include "Explosion.h"
 #include "Bullet.h"
 
-
-CPicture * CEnemyPlane::spPictureEnemy[6] = {0};
 float CEnemyPlane::sfLastCreateTime = 0.0;
 int CEnemyPlane::snEnemyCount = 0;
 CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
@@ -108,28 +106,6 @@ void CEnemyPlane::CreateEnemy()
     }
 }
 
-void CEnemyPlane::FreeBitmap()
-{
-    for(int i = 0; i < 6; ++i)
-    {
-        spPictureEnemy[i]->FreeBitmap();
-    }
-}
-
-void CEnemyPlane::LoadBimap()
-{
-    for(int i = 0; i < 6; ++i)
-    {
-        spPictureEnemy[i] = new CPicture();
-    }
-    spPictureEnemy[0]->LoadBitmap(_T("Resource\\Enemy0.bmp"), RGB(255, 255, 255));
-    spPictureEnemy[1]->LoadBitmap(_T("Resource\\Enemy1.bmp"), RGB(255, 255, 255));
-    spPictureEnemy[2]->LoadBitmap(_T("Resource\\Enemy2.bmp"), RGB(255, 255, 255));
-    spPictureEnemy[3]->LoadBitmap(_T("Resource\\Enemy3.bmp"), RGB(255, 0, 255));
-    spPictureEnemy[4]->LoadBitmap(_T("Resource\\Enemy4.bmp"), RGB(255, 255, 255));
-    spPictureEnemy[5]->LoadBitmap(_T("Resource\\Enemy5.bmp"), RGB(0, 0, 0));
-}
-
 bool CEnemyPlane::IsVisible()
 {
     if(m_nPosX < - m_nWidth	||
@@ -170,8 +146,11 @@ void CEnemyPlane::Update()
 
 void CEnemyPlane::Render(HDC hDC)
 {
-    spPictureEnemy[m_nEnemyType]->DrawBitmap(hDC, m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight, m_nFrameStartX, 0);
+    CPicturePool::GetPicture(emPicTypePlane)[m_nEnemyType]->DrawBitmap(
+        hDC,
+        m_nPosX, m_nPosY,
+        m_nWidth, m_nHeight,
+        m_nFrameStartX, 0);
 }
 
 bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)

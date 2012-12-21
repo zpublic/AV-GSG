@@ -11,13 +11,11 @@ public:
     static void FreeImage();
     static void LoadImage();
 
-    static void LoadBullet();
-    static void FreeBullet();
-
     static CPicture** GetPicture(PictureType picType);
+
 private:
     static CPicture* m_pPictureBlast[2];
     static CPicture* m_pPictureAmmo[8];
-
+    static CPicture* m_pPictureEnemy[6];
 };
 

@@ -24,7 +24,6 @@ CGameControler::CGameControler(void):m_nY(0),
 {
     m_nPreKey = m_nCurKey = 0;
     CPrincipalPlane::LoadBimap();
-    CEnemyPlane::LoadBimap();
     CPicturePool::LoadImage();
     m_pPrincipalPlane = CPrincipalPlane::GetInstance();	
 
@@ -42,7 +41,6 @@ CGameControler::~CGameControler(void)
 void CGameControler::Exit()
 {
     CPrincipalPlane::FreeBitmap();
-    CEnemyPlane::FreeBitmap();
     CPicturePool::FreeImage();
     if (m_hMemDC)
     {

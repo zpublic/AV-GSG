@@ -31,7 +31,6 @@ public:
     CEnemyPlane * m_pEmnemyNext;
 
 private:
-    static CPicture * spPictureEnemy[6];
     static int snEnemyCount;
     static float sfLastCreateTime;
     float   m_fFireTime;
