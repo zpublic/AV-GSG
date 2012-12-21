@@ -37,7 +37,7 @@ void CExplosion::Update()
 
 void CExplosion::Render(HDC hDC)
 {
-    CPicturePool::GetExplosionPic()[m_emBlastType]->DrawBitmap(
+    CPicturePool::GetPicture(emPicTypeExplosion)[m_emBlastType]->DrawBitmap(
         hDC,
         m_nPosX - m_nWidth / 2,
         m_nPosY - m_nHeight / 2,

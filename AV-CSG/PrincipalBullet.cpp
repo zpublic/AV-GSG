@@ -87,7 +87,7 @@ bool CPrincipalBullet::IsVisible()
 
 void CPrincipalBullet::Render(HDC hDC)
 {
-	m_pPictureAmmo[m_nBulletType]->DrawBitmap(hDC, m_nPosX, m_nPosY,
+	CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(hDC, m_nPosX, m_nPosY,
 		m_nWidth, m_nHeight, m_nFrameStartX, m_nFrameStartY);
 }
 

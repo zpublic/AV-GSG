@@ -9,11 +9,15 @@ public:
     ~CPicturePool(void);
 
     static void FreeImage();
-
     static void LoadImage();
 
-    static CPicture** GetExplosionPic();
+    static void LoadBullet();
+    static void FreeBullet();
+
+    static CPicture** GetPicture(PictureType picType);
 private:
-    static CPicture* pPictureBlast[2];
+    static CPicture* m_pPictureBlast[2];
+    static CPicture* m_pPictureAmmo[8];
+
 };
 

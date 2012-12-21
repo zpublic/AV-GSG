@@ -61,3 +61,11 @@ enum GameStatus
     emGameStatusOver,
     emGameStatusPlaying,
 };
+
+// Õº∆¨¿‡–Õ
+enum PictureType
+{
+    emPicTypeBullet = 0,
+    emPicTypeExplosion,
+    emPicTypePlane,
+};
