@@ -10,6 +10,8 @@ public:
     virtual ~CBullet(void);
 
     bool IsVisible();
+    void Render(HDC hDC);
+
 protected:
     int                 m_nPower;           //威力
     BulletType          m_nBulletType;      //子弹类型

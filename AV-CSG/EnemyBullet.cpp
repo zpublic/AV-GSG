@@ -51,15 +51,6 @@ CEnemyBullet::~CEnemyBullet(void)
 {
 }
 
-void CEnemyBullet::Render(HDC hDC)
-{
-    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        m_nFrameStartX, 0);
-}
-
 void CEnemyBullet::Update()
 {
     float tD = CGameControler::GetInstance()->GetElapsedTime();

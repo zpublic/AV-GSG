@@ -62,15 +62,6 @@ CPrincipalBullet::~CPrincipalBullet(void)
 
 }
 
-void CPrincipalBullet::Render(HDC hDC)
-{
-    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        m_nFrameStartX, m_nFrameStartY);
-}
-
 void CPrincipalBullet::Update()
 {
     float fDis = (float)m_nSpeed;

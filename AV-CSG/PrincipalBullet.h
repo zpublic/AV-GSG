@@ -9,7 +9,6 @@ public:
     CPrincipalBullet(int x, int y, BulletType bulletType, float angle);
     virtual ~CPrincipalBullet(void);
 
-    void Render(HDC hDC);
     void Update();
 
 protected:
