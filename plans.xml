@@ -1,0 +1,33 @@
+<title>计划表</title>
+<plans>
+    <plan>
+        <id>1</id>
+        <content>按键设置系统</content>
+        <complete>0</complete>
+    </plan>
+   <plan>
+        <id>2</id>
+        <content>玩家信息记录</content>
+        <complete>0</complete>
+    </plan>
+    <plan>
+        <id>3</id>
+        <content>关卡系统</content>
+        <complete>0</complete>
+    </plan>
+    <plan>
+        <id>4</id>
+        <content>曲线子弹</content>
+        <complete>0</complete>
+    </plan>
+    <plan>
+        <id>5</id>
+        <content>剧情系统</content>
+        <complete>0</complete>
+    </plan>
+    <plan>
+        <id>6</id>
+        <content>代码与数据分离</content>
+        <complete>0</complete>
+    </plan>
+</plans>
