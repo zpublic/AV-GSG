@@ -1,8 +1,8 @@
-// AircraftGame.cpp : Defines the entry point for the application.
+// AV-CSG.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
-#include "AircraftGame.h"
+#include "AV-CSG.h"
 
 #define MAX_LOADSTRING 100
 

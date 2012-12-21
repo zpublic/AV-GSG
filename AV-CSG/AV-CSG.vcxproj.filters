@@ -19,7 +19,7 @@
     <None Include="small.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="AircraftGame.ico">
+    <None Include="AV-CSG.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -33,7 +33,7 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AircraftGame.h">
+    <ClInclude Include="AV-CSG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Picture.h">
@@ -68,7 +68,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AircraftGame.cpp">
+    <ClCompile Include="AV-CSG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Picture.cpp">
@@ -100,7 +100,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="AircraftGame.rc">
+    <ResourceCompile Include="AV-CSG.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

@@ -13,19 +13,21 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC06CE7A-B71F-4383-91C5-C0D808592981}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AircraftGame</RootNamespace>
+    <RootNamespace>AV-CSG</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -74,12 +76,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="AircraftGame.ico" />
+    <None Include="AV-CSG.ico" />
     <None Include="ReadMe.txt" />
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AircraftGame.h" />
+    <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EnemyPlane.h" />
@@ -94,7 +96,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AircraftGame.cpp" />
+    <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
@@ -110,7 +112,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="AircraftGame.rc" />
+    <ResourceCompile Include="AV-CSG.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
