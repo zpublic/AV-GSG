@@ -82,14 +82,14 @@
     <ClInclude Include="PrincipalBullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyPlane.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClInclude>
     <ClInclude Include="PrincipalPlane.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
+      <Filter>Source Files\gameobject\plane</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyPlane.h">
+      <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
     <ClInclude Include="IPlane.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
+      <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -129,11 +129,11 @@
     <ClCompile Include="PrincipalBullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyPlane.cpp">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClCompile>
     <ClCompile Include="PrincipalPlane.cpp">
-      <Filter>Source Files\gameobject\bullet</Filter>
+      <Filter>Source Files\gameobject\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyPlane.cpp">
+      <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
