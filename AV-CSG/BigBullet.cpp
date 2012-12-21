@@ -1,19 +1,19 @@
 #include "stdafx.h"
-#include "PrincipalBigBullet.h"
+#include "BigBullet.h"
 
 
-CPrincipalBigBullet::CPrincipalBigBullet(int x, int y, BulletType bulletType, float angle)
-    : CPrincipalBullet(x, y, bulletType, angle)
+CBigBullet::CBigBullet(int x, int y, BulletType bulletType, float angle)
+    : CBullet(x, y, true, 0, 0, bulletType, angle)
 {
     m_nFrameStartY = 0;
 }
 
 
-CPrincipalBigBullet::~CPrincipalBigBullet(void)
+CBigBullet::~CBigBullet(void)
 {
 }
 
-void CPrincipalBigBullet::Update()
+void CBigBullet::Update()
 {
     int row = m_nCurrentFrame / 3;
     int col = m_nCurrentFrame % 3;
@@ -23,7 +23,7 @@ void CPrincipalBigBullet::Update()
     return;
 }
 
-bool CPrincipalBigBullet::IsVisible()
+bool CBigBullet::IsVisible()
 {
     if (m_nCurrentFrame > 11)
     {
@@ -32,7 +32,7 @@ bool CPrincipalBigBullet::IsVisible()
     return true;
 }
 
-void CPrincipalBigBullet::Render(HDC hDC)
+void CBigBullet::Render(HDC hDC)
 {
     CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
         hDC,

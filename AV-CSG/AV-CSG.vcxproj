@@ -82,7 +82,6 @@
   <ItemGroup>
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EnemyPlane.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameControler.h" />
@@ -92,8 +91,7 @@
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />
-    <ClInclude Include="PrincipalBigBullet.h" />
-    <ClInclude Include="PrincipalBullet.h" />
+    <ClInclude Include="BigBullet.h" />
     <ClInclude Include="PrincipalPlane.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sprite.h" />
@@ -103,15 +101,13 @@
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameControler.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />
-    <ClCompile Include="PrincipalBigBullet.cpp" />
-    <ClCompile Include="PrincipalBullet.cpp" />
+    <ClCompile Include="BigBullet.cpp" />
     <ClCompile Include="PrincipalPlane.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">

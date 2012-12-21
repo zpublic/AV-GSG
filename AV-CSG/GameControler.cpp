@@ -111,7 +111,6 @@ void CGameControler::StartGame()
     CPrincipalPlane::StartGame();
 }
 
-
 void CGameControler::UpdateScence()
 {
     if (!CPrincipalPlane::IsNeedUpdate())

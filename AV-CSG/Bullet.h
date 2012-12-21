@@ -17,7 +17,7 @@ public:
 
     virtual bool IsVisible();
     virtual void Render(HDC hDC);
-
+    virtual void Update();
 protected:
     int                 m_nPower;           //威力
     BulletType          m_nBulletType;      //子弹类型

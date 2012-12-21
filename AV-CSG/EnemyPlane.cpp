@@ -1,9 +1,9 @@
 #include "StdAfx.h"
 #include "EnemyPlane.h"
 #include "GameControler.h"
-#include "EnemyBullet.h"
 #include "PrincipalPlane.h"
 #include "Explosion.h"
+#include "Bullet.h"
 
 
 CPicture * CEnemyPlane::spPictureEnemy[6] = {0};
@@ -154,7 +154,10 @@ void CEnemyPlane::Update()
     if (m_fFireTime <= 0.0f)
     {
         m_fFireTime = 1.0f;
-        new CEnemyBullet(m_nPosX + m_nWidth / 2 - 8, m_nPosY + m_nHeight, (BulletType)(m_nEnemyType % 4), 17.0 * PI / 36.0);
+        new CBullet(
+            m_nPosX + m_nWidth / 2 - 8, m_nPosY + m_nHeight,
+            false, 5, 220,
+            (BulletType)(m_nEnemyType % 4), 17.0 * PI / 36.0);
     }
 
     if (CPrincipalPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))

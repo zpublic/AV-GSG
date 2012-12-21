@@ -2,9 +2,9 @@
 #include "PrincipalPlane.h"
 #include "GameControler.h"
 #include <math.h>
-#include "PrincipalBullet.h"
+#include "Bullet.h"
 #include "EnemyPlane.h"
-#include "PrincipalBigBullet.h"
+#include "BigBullet.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 CPicture * CPrincipalPlane::pPictureLife = NULL;
@@ -110,25 +110,43 @@ void CPrincipalPlane::Update()
             m_nPosY = SCREEN_HEIGHT-m_nHeight;
     }
 
-
-
     if (m_bFire && m_fFrequencyTime >= m_fBulletFrequency)
     {
         switch(m_nAmmoCount)
         {
         case 1:
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 10,
                 m_nBulletType, float(PI * 3.0 / 2.0));
             break;
         case 3:
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16, m_nBulletType, float(17.0*PI/12.0));
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, m_nBulletType, float(3.0*PI/2.0));
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 , m_nPosY - 16, m_nBulletType, float(8.0*PI/5.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(17.0*PI/12.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(3.0*PI/2.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 , m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(8.0*PI/5.0));
             break;
         case 5:
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16, m_nBulletType, float(17.0*PI/12.0));
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, m_nBulletType, float(3.0*PI/2.0));
-            new CPrincipalBullet(m_nPosX + m_nWidth / 2 , m_nPosY - 16, m_nBulletType, float(8.0*PI/5.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(17.0*PI/12.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(3.0*PI/2.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 , m_nPosY - 16,
+                true, 3, 10,
+                m_nBulletType, float(8.0*PI/5.0));
             break;
         }
 
@@ -188,9 +206,9 @@ void CPrincipalPlane::Control(ActionType actionType)
     case FIREALL:
         if (m_nWholeFired && GetGameRuning())
         {
-            new CPrincipalBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CPrincipalBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CPrincipalBigBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CBigBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
             CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {

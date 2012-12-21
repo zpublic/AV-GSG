@@ -70,16 +70,7 @@
     <ClInclude Include="PicturePool.h">
       <Filter>Source Files\data</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyBullet.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="PrincipalBigBullet.h">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="PrincipalBullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClInclude>
     <ClInclude Include="PrincipalPlane.h">
@@ -90,6 +81,9 @@
     </ClInclude>
     <ClInclude Include="IPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBullet.h">
+      <Filter>Source Files\gameobject\bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,16 +111,7 @@
     <ClCompile Include="PicturePool.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyBullet.cpp">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="PrincipalBigBullet.cpp">
-      <Filter>Source Files\gameobject\bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="PrincipalBullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClCompile>
     <ClCompile Include="PrincipalPlane.cpp">
@@ -134,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="EnemyPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="BigBullet.cpp">
+      <Filter>Source Files\gameobject\bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
