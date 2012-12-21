@@ -13,6 +13,7 @@ CSprite::CSprite(int x, int y):
     g_pHead = static_cast<ISprite *>(this);
 
     m_nFrameStartX = 0;
+    m_nCurrentFrame = 0;
 }
 
 

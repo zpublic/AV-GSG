@@ -14,7 +14,6 @@ CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
 CEnemyPlane::CEnemyPlane(EnemyType enemyType):CSprite(0, 0),
 	m_nEnemyType(enemyType)
 {
-	m_nCurrentFrame = 0;
 	int nRandom = rand() % 5;//随机随0-2产生的飞机从屏幕上方左中右出现
 							//5号特殊敌机从下方出现
 	m_fFireTime = 1.0f;

@@ -11,7 +11,6 @@ CEnemyBullet::CEnemyBullet(int x, int y, BulletType bulletType, float angle):CBu
 	m_nSpeed = 220;
 	m_nBulletType = bulletType;
 	m_fAngle = angle;
-	m_nCurrentFrame = 0;
 	m_nPower = 5;
 	switch(bulletType)
 	{

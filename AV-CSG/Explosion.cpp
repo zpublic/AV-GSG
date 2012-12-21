@@ -7,7 +7,6 @@ CExplosion::CExplosion(int x, int y, BlastType blastType)
     : CSprite(x, y)
     , m_emBlastType(blastType)
 {
-    m_nCurrentFrame = 0;
     switch(blastType)
     {
     case BULLETBLAST:
