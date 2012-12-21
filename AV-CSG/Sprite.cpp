@@ -1,7 +1,8 @@
 #include "StdAfx.h"
 #include "Sprite.h"
+#include "GameFrame.h"
 
-CSprite * CSprite::g_pHead = NULL;
+extern ISprite * g_pHead;
 
 CSprite::CSprite(int x, int y):
     m_nPosX(x),
@@ -9,7 +10,7 @@ CSprite::CSprite(int x, int y):
     m_bIsVisible(true)
 {
     this->pNext = g_pHead;
-    g_pHead = this;
+    g_pHead = static_cast<ISprite *>(this);
 }
 
 
@@ -17,16 +18,16 @@ CSprite::~CSprite(void)
 {
     //精灵从画面上删除时，需要更新链表
     //当删除的精灵是表头精灵时
-    if (g_pHead == this)
+    if (g_pHead == static_cast<ISprite *>(this))
     {
         g_pHead = pNext;
         return;
     }
     //当删除的精灵不是表头精灵时
-    CSprite* pTemp = g_pHead;
+    ISprite* pTemp = g_pHead;
     for ( ; pTemp->pNext != NULL; pTemp = pTemp->pNext )
     {
-        if (pTemp->pNext == this)
+        if (pTemp->pNext == static_cast<ISprite *>(this))
         {
             pTemp->pNext = this->pNext;
             return;
@@ -50,35 +51,4 @@ bool CSprite::IsVisible()
     }
 
     return true;
-}
-
-void CSprite::FrameRender(HDC hDC)
-{
-    CSprite* pTemp = g_pHead;
-    for( ; pTemp!=NULL; pTemp=pTemp->pNext )
-    {
-        pTemp->Render(hDC);
-    }
-}
-
-void CSprite::FrameUpdate()
-{
-    //循环更新链上每一个图形
-    CSprite *pTemp = g_pHead;
-    for ( ; pTemp != NULL; )
-    {
-        if (!pTemp->IsVisible())
-        {
-            //不可见则删除，并更新链表
-            CSprite *p = pTemp;
-            p = p->pNext;
-            delete pTemp;
-            pTemp = p;
-        } 
-        else
-        {
-            pTemp->Update();
-            pTemp = pTemp->pNext;
-        }
-    }
 }

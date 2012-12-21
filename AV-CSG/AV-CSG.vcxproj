@@ -87,6 +87,7 @@
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameControler.h" />
     <ClInclude Include="GameDef.h" />
+    <ClInclude Include="GameFrame.h" />
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PrincipalBullet.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="EnemyPlane.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameControler.cpp" />
+    <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PrincipalBullet.cpp" />
     <ClCompile Include="PrincipalPlane.cpp" />

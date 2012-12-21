@@ -5,6 +5,7 @@
 #include "Bullet.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
+#include "GameFrame.h"
 
 CGameControler * CGameControler::pGameControler = NULL;
 
@@ -146,8 +147,8 @@ void CGameControler::UpdateScence()
 	m_dwLastTime = m_dwCurrentTime;
 
 	CEnemyPlane::CreateEnemy();
-	CSprite::FrameUpdate();
-	CSprite::FrameRender(m_hMemDC);
+	CGameFrame::FrameUpdate();
+	CGameFrame::FrameRender(m_hMemDC);
 
 	BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
 }

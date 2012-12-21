@@ -4,7 +4,7 @@
 class ISprite
 {
 public:
-    ISprite() {}
+    ISprite() : pNext(NULL) {}
     virtual ~ISprite() {}
 
     //判断精灵是否可见
@@ -15,4 +15,6 @@ public:
 
     //更新精灵函数（位置，角度等属性）
     virtual void Update() = 0;
+
+    ISprite* pNext;
 };

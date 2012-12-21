@@ -9,21 +9,9 @@ public:
     CSprite(int	x, int y);
     virtual ~CSprite(void);
 
-    //刷新一帧画面
-    static void FrameRender(HDC hDC);
-
-    //统一更新帧数据
-    static void FrameUpdate();
-
 public:
     //判断精灵是否可见
     virtual bool IsVisible();
-
-    //渲染，即绘制函数
-    virtual void Render(HDC hDC) = 0;
-
-    //更新精灵函数（位置，角度等属性）
-    virtual void Update() = 0;
 
     //以下为设置和获取位置函数
     int GetX(){ return m_nPosX; }
@@ -42,7 +30,5 @@ protected:
     int     m_nHeight;
     float   m_fAngle;
     bool    m_bIsVisible;
-    static CSprite* g_pHead;
-    CSprite* pNext;
 };
 

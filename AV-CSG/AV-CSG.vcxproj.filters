@@ -73,6 +73,9 @@
     <ClInclude Include="ISprite.h">
       <Filter>Source Files\gameobject</Filter>
     </ClInclude>
+    <ClInclude Include="GameFrame.h">
+      <Filter>Source Files\control</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -107,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFrame.cpp">
+      <Filter>Source Files\control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
