@@ -7,12 +7,12 @@ CExplosion::CExplosion(int x, int y, BlastType blastType)
 {
     switch(blastType)
     {
-    case BULLETBLAST:
+    case emBlastTypeBullet:
         m_nWidth = 32;
         m_nHeight = 32;
         m_nFrameCount = 5;
         break;
-    case PLANEBLAST:
+    case emBlastTypePlane:
         m_nWidth = 65;
         m_nHeight = 75;
         m_nFrameCount = 12;

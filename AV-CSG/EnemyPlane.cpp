@@ -24,31 +24,31 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
 
     switch (m_nEnemyType)
     {
-    case ENEMY0:
+    case emEnemyTypeENEMY0:
         m_nWidth = 43;
         m_nHeight = 36;
         m_nHP = 4;
         m_nSpeed = 150;
         break;
-    case ENEMY1:
+    case emEnemyTypeENEMY1:
         m_nWidth = 76;
         m_nHeight = 94;
         m_nHP = 10;
         m_nSpeed = 100;
         break;
-    case ENEMY2:
+    case emEnemyTypeENEMY2:
         m_nWidth = 93;
         m_nHeight = 85;
         m_nHP = 10;
         m_nSpeed = 90;
         break;
-    case ENEMY3:
+    case emEnemyTypeENEMY3:
         m_nWidth = 100;
         m_nHeight = 47;
         m_nHP = 6;
         m_nSpeed = 80;
         break;
-    case ENEMY4:
+    case emEnemyTypeENEMY4:
         m_nWidth = 45;
         m_nHeight = 43;
         m_nHP = 8;
@@ -139,7 +139,7 @@ void CEnemyPlane::Update()
     if (CPrincipalPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))
     {
         m_bIsVisible = false;
-        new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, PLANEBLAST);
+        new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
         return;
     }
 }
@@ -168,7 +168,7 @@ bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)
         if (m_nHP <= 0)
         {
             m_bIsVisible = false;
-            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, PLANEBLAST);
+            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypePlane);
         }
         return true;
     }

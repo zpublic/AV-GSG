@@ -14,8 +14,8 @@ public:
     static CPicture** GetPicture(PictureType picType);
 
 private:
-    static CPicture* m_pPictureBlast[2];
-    static CPicture* m_pPictureAmmo[9];
-    static CPicture* m_pPictureEnemy[6];
+    static CPicture* m_pPictureBlast[emBlastTypeMax];
+    static CPicture* m_pPictureAmmo[emBulletTypeMax];
+    static CPicture* m_pPictureEnemy[emEnemyTypeMax];
 };
 

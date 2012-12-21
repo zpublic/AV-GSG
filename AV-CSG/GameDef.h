@@ -18,6 +18,8 @@ enum BulletType
     emBulletTypeAMMO6,
     emBulletTypeAmmoAll1,
     emBulletTypeAmmoSB,
+
+    emBulletTypeMax
 };
 
 //定义动作类型
@@ -40,18 +42,22 @@ enum ActionType
 //敌机类型
 enum EnemyType
 {
-    ENEMY0 = 0,
-    ENEMY1,
-    ENEMY2,
-    ENEMY3,
-    ENEMY4
+    emEnemyTypeENEMY0 = 0,
+    emEnemyTypeENEMY1,
+    emEnemyTypeENEMY2,
+    emEnemyTypeENEMY3,
+    emEnemyTypeENEMY4,
+
+    emEnemyTypeMax
 };
 
 //爆炸效果类型
 enum BlastType
 {
-    BULLETBLAST = 0,
-    PLANEBLAST
+    emBlastTypeBullet = 0,
+    emBlastTypePlane,
+
+    emBlastTypeMax
 };
 
 //游戏状态

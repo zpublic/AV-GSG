@@ -121,7 +121,7 @@ void CBullet::Update()
             if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))
             {
                 m_bIsVisible = false;
-                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, BULLETBLAST);
+                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
                 break;
             }
         }
@@ -134,7 +134,7 @@ void CBullet::Update()
             m_nPower))
         {
             m_bIsVisible = false;
-            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, BULLETBLAST);
+            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
         }
     }
 }
