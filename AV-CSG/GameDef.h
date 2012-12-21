@@ -16,7 +16,8 @@ enum BulletType
     emBulletTypeAMMO4,
     emBulletTypeAMMO5,
     emBulletTypeAMMO6,
-    emBulletTypeAmmoAll1
+    emBulletTypeAmmoAll1,
+    emBulletTypeAmmoSB,
 };
 
 //定义动作类型

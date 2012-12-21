@@ -138,15 +138,39 @@ void CPrincipalPlane::Update()
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(17.0*PI/12.0));
+                m_nBulletType, float(0*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(3.0*PI/2.0));
+                m_nBulletType, float(1*PI/4.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 , m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(8.0*PI/5.0));
+                m_nBulletType, float(2*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(3*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(4*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(5*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(6*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(7*PI/4.0));
+            new CBullet(
+                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
+                true, 3, 5,
+                m_nBulletType, float(8*PI/4.0));
             break;
         }
 

@@ -28,7 +28,14 @@ public:
     static void FreeBitmap();
 
     BulletType GetBulletType(){ return m_nBulletType; }
-    void SetBulletType(BulletType bulletType){ m_nBulletType = bulletType; }
+    void SetBulletType(BulletType bulletType)
+    {
+        m_nBulletType = bulletType;
+        if (m_nBulletType == emBulletTypeAmmoSB)
+        {
+            SetAmmoCount(5);
+        }
+    }
 
     void SetAmmoCount(int nAmmoCount){ m_nAmmoCount = nAmmoCount ;}
 

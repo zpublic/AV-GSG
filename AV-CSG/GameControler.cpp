@@ -230,6 +230,9 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
     case '7':
         m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO6);
         break;
+    case 'Q':
+        m_pPrincipalPlane->SetBulletType(emBulletTypeAmmoSB);
+        break;
     case VK_SPACE:
     case 'K':
     case 'X':

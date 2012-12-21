@@ -34,7 +34,7 @@ void CPicturePool::LoadImage()
     m_pPictureBlast[0]->LoadBitmap(_T("Resource\\BulletBlast.bmp"), RGB(255, 0, 255));
     m_pPictureBlast[1]->LoadBitmap(_T("Resource\\PlaneBlast.bmp"), RGB(0, 0, 0));
 
-    for(int i = 0; i < 8; ++i)
+    for(int i = 0; i < 9; ++i)
     {
         m_pPictureAmmo[i] = new CPicture();
     }
@@ -46,6 +46,7 @@ void CPicturePool::LoadImage()
     m_pPictureAmmo[5]->LoadBitmap(_T("Resource\\Ammo5.bmp"), RGB(0, 0, 0));
     m_pPictureAmmo[6]->LoadBitmap(_T("Resource\\Ammo6.bmp"), RGB(0, 0, 0));
     m_pPictureAmmo[7]->LoadBitmap(_T("Resource\\WholeFried.bmp"), RGB(0, 248, 0));
+    m_pPictureAmmo[8]->LoadBitmap(_T("Resource\\AmmoSb.bmp"), RGB(255, 255, 255));
 }
 
 CPicture** CPicturePool::GetPicture(PictureType picType)

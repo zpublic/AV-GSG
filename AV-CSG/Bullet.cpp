@@ -61,6 +61,11 @@ CBullet::CBullet(int x, int y,
         m_nHeight = 320;
         m_nFrameCount = 12;
         break;
+    case emBulletTypeAmmoSB:
+        m_nWidth = 24;
+        m_nHeight = 24;
+        m_nFrameCount = 1;
+        break;
     }
 }
 
