@@ -6,7 +6,13 @@
 class CBullet : public CSprite
 {
 public:
-    CBullet(int x, int y);
+    CBullet(
+        int x, int y,
+        bool bFriend,
+        int nPower,
+        int nSpeed,
+        BulletType bulletType,
+        float fAngle);
     virtual ~CBullet(void);
 
     bool IsVisible();
@@ -15,5 +21,8 @@ public:
 protected:
     int                 m_nPower;           //威力
     BulletType          m_nBulletType;      //子弹类型
+    bool                m_bFriend;          //敌友
+    int                 m_nSpeed;           //子弹速度
+    float               m_fAngle;           //角度
 };
 
