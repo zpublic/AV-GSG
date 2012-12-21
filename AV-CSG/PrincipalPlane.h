@@ -36,10 +36,11 @@ public:
 
     static bool GetGameOver() { return m_emGameStatus == emGameStatusOver; }
     static bool GetGameReady() { return m_emGameStatus == emGameStatusReady; }
+    static bool GetGameRuning() { return m_emGameStatus == emGameStatusRuning; }
 
     static void ClearGameStatus() { m_emGameStatus = emGameStatusNone; }
     static bool IsNeedUpdate() { return m_emGameStatus != emGameStatusNone; }
-    static void StartGame() { m_emGameStatus = emGameStatusPlaying; }
+    static void StartGame() { m_emGameStatus = emGameStatusRuning; }
 private:
     CPrincipalPlane(int x, int y);
 

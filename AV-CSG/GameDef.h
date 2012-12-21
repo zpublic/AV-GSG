@@ -59,7 +59,7 @@ enum GameStatus
     emGameStatusNone,       ///> 什么都不干
     emGameStatusReady,
     emGameStatusOver,
-    emGameStatusPlaying,
+    emGameStatusRuning,
 };
 
 // 图片类型

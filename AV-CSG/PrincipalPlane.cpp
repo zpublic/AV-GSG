@@ -186,7 +186,7 @@ void CPrincipalPlane::Control(ActionType actionType)
         m_bFire = false;
         break;
     case FIREALL:
-        if (m_nWholeFired)
+        if (m_nWholeFired && GetGameRuning())
         {
             new CPrincipalBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
             new CPrincipalBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
