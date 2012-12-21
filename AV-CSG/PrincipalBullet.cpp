@@ -71,14 +71,14 @@ bool CPrincipalBullet::IsVisible()
         }
         return true;
     }
-    if(m_bIsVisible==false)
+    if (m_bIsVisible == false)
     {
         return m_bIsVisible;
     }
-    if(m_nPosX < -50	||
-        m_nPosY < -50	||
-        m_nPosX > SCREEN_WIDTH+50	||
-        m_nPosY > SCREEN_HEIGHT+50)
+    if (m_nPosX < -50               ||
+        m_nPosY < -50               ||
+        m_nPosX > SCREEN_WIDTH + 50 ||
+        m_nPosY > SCREEN_HEIGHT + 50)
     {
         return false;
     }
@@ -87,8 +87,11 @@ bool CPrincipalBullet::IsVisible()
 
 void CPrincipalBullet::Render(HDC hDC)
 {
-    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(hDC, m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight, m_nFrameStartX, m_nFrameStartY);
+    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
+        hDC,
+        m_nPosX, m_nPosY,
+        m_nWidth, m_nHeight,
+        m_nFrameStartX, m_nFrameStartY);
 }
 
 void CPrincipalBullet::Update()
@@ -97,8 +100,8 @@ void CPrincipalBullet::Update()
     {
         int row = m_nCurrentFrame / 3;
         int col = m_nCurrentFrame % 3;
-        m_nFrameStartX = col*224 + col/1;
-        m_nFrameStartY = row*320 + (row+1)/1;
+        m_nFrameStartX = col * 224 + col / 1;
+        m_nFrameStartY = row * 320 + (row + 1) / 1;
         m_nCurrentFrame++;
         return;
     }
@@ -113,7 +116,7 @@ void CPrincipalBullet::Update()
     m_nCurrentFrame %= m_nFrameCount;
 
     CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
-    for(;temp!=NULL;temp=temp->m_pEmnemyNext)
+    for( ; temp!=NULL; temp=temp->m_pEmnemyNext )
     {
         if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))
         {

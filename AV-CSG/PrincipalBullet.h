@@ -11,7 +11,6 @@ public:
 
     void Render(HDC hDC);
     void Update();
-
     bool IsVisible();
 private:
     int m_nFrameStartY;
