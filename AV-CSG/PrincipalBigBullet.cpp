@@ -5,6 +5,7 @@
 CPrincipalBigBullet::CPrincipalBigBullet(int x, int y, BulletType bulletType, float angle)
     : CPrincipalBullet(x, y, bulletType, angle)
 {
+    m_nFrameStartY = 0;
 }
 
 
@@ -29,4 +30,13 @@ bool CPrincipalBigBullet::IsVisible()
         return false;
     }
     return true;
+}
+
+void CPrincipalBigBullet::Render(HDC hDC)
+{
+    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
+        hDC,
+        m_nPosX, m_nPosY,
+        m_nWidth, m_nHeight,
+        m_nFrameStartX, m_nFrameStartY);
 }

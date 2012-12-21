@@ -4,6 +4,7 @@
 #include <math.h>
 #include "PrincipalBullet.h"
 #include "EnemyPlane.h"
+#include "PrincipalBigBullet.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 CPicture * CPrincipalPlane::pPictureLife = NULL;
@@ -187,9 +188,9 @@ void CPrincipalPlane::Control(ActionType actionType)
     case FIREALL:
         if (m_nWholeFired)
         {
-            new CPrincipalBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CPrincipalBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CPrincipalBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CPrincipalBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CPrincipalBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            new CPrincipalBigBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
             CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {

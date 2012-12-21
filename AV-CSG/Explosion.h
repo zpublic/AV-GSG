@@ -10,8 +10,8 @@ public:
     CExplosion(int x, int y, BlastType blastType);
     virtual ~CExplosion(void);
 
-    void Update();
-    void Render(HDC hDC);
+    virtual void Update();
+    virtual void Render(HDC hDC);
 private:
     BlastType m_emBlastType;
 };

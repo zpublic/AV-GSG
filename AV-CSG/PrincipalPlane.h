@@ -15,13 +15,13 @@ public:
     void InitPlane();
 
     //碰撞检测
-    bool CheckCollision(int x, int y, int width, int height, int power);
+    virtual bool CheckCollision(int x, int y, int width, int height, int power);
 
     //渲染
-    void Render(HDC hDC);
+    virtual void Render(HDC hDC);
 
     //更新精灵函数（位置，角度等属性）
-    void Update();
+    virtual void Update();
 
     //加载飞机图片和血量图片
     static void LoadBimap();

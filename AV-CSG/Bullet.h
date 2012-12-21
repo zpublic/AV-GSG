@@ -15,8 +15,8 @@ public:
         float fAngle);
     virtual ~CBullet(void);
 
-    bool IsVisible();
-    void Render(HDC hDC);
+    virtual bool IsVisible();
+    virtual void Render(HDC hDC);
 
 protected:
     int                 m_nPower;           //ÍþÁ¦
