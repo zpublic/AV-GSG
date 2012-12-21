@@ -148,7 +148,7 @@ void CEnemyPlane::Update()
 	float tD = CGameControler::GetInstance()->GetElapsedTime();
 	float fDis = tD * m_nSpeed;
 
-	m_nPosY += fDis;
+	m_nPosY += (int)fDis;
 
 	m_fFireTime -= tD;
 	if (m_fFireTime <= 0.0f)

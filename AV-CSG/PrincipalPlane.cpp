@@ -40,7 +40,7 @@ void CPrincipalPlane::InitPlane()
 	m_nHP = 100;	
 	m_nPosX = SCREEN_WIDTH/2 - 24;
 	m_nPosY = 480;
-	m_fBulletFrequency = 0.2;//每秒发射5次子弹
+	m_fBulletFrequency = 0.2f;//每秒发射5次子弹
 	m_fFrequencyTime = 0.0f;
 	m_fInvincibletime = 1.0;
 	m_bUnDead = true;
@@ -83,7 +83,7 @@ void CPrincipalPlane::Update()
 	{
 		if (m_bIsStopMove && (m_nPosY > 2 * SCREEN_HEIGHT / 3))
 		{
-			m_nPosY -= fDis;
+			m_nPosY -= (int)fDis;
 		}
 		
 		m_fInvincibletime -= tD;
@@ -97,12 +97,12 @@ void CPrincipalPlane::Update()
 
 	if (!m_bIsStopMove)
 	{
-		m_nPosX += cos(m_fAngle) * fDis;
-		m_nPosY += sin(m_fAngle) * fDis;
-		if(m_nPosX<0.0f)
-			m_nPosX = 0.0f;
-		if(m_nPosY<0.0f)
-			m_nPosY = 0.0f;
+		m_nPosX += int(cos(m_fAngle) * fDis);
+		m_nPosY += int(sin(m_fAngle) * fDis);
+		if(m_nPosX < 0.0f)
+			m_nPosX = 0;
+		if(m_nPosY < 0.0f)
+			m_nPosY = 0;
 		if(m_nPosX>SCREEN_WIDTH-m_nWidth)
 			m_nPosX = SCREEN_WIDTH-m_nWidth;
 		if(m_nPosY>SCREEN_HEIGHT-m_nHeight)

@@ -105,11 +105,11 @@ void CPrincipalBullet::Update()
         m_nCurrentFrame++;
         return;
     }
-    float fDis = m_nSpeed;
+    float fDis = (float)m_nSpeed;
     int nStartX = 0, nStartY = 0;
 
-    m_nPosX += cos(m_fAngle) * fDis;
-    m_nPosY += sin(m_fAngle) * fDis;
+    m_nPosX += int(cos(m_fAngle) * fDis);
+    m_nPosY += int(sin(m_fAngle) * fDis);
 
     m_nFrameStartX = m_nCurrentFrame * m_nWidth;
     ++m_nCurrentFrame;

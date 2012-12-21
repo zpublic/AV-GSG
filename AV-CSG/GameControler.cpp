@@ -142,7 +142,7 @@ void CGameControler::UpdateScence()
 	Rectangle(m_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	CirculationMap();
-	m_fElapsedTime = (m_dwCurrentTime - m_dwLastTime) / 1000.0;
+	m_fElapsedTime = (m_dwCurrentTime - m_dwLastTime) / 1000.0f;
 
 	m_dwLastTime = m_dwCurrentTime;
 
