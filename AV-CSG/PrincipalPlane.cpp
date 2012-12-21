@@ -10,7 +10,7 @@ CPicture * CPrincipalPlane::pPictureLife = NULL;
 CPicture * CPrincipalPlane::pPicturePlane = NULL;
 CPicture * CPrincipalPlane::pPictureHP = NULL;
 CPicture * CPrincipalPlane::pPictureHPSide = NULL;
-bool CPrincipalPlane::m_bGameOver = false;
+GameStatus CPrincipalPlane::m_emGameStatus = emGameStatusReady;
 
 CPrincipalPlane * CPrincipalPlane::GetInstance()
 {
@@ -23,7 +23,7 @@ CPrincipalPlane * CPrincipalPlane::GetInstance()
 
 CPrincipalPlane::CPrincipalPlane(int x, int y):CSprite(x, y)
 {
-	m_nLife = 5;
+	m_nLife = 2;
 	m_nAmmoCount = 3;
 	m_nBulletType = AMMO2;
 	m_nAction = STOP_MOVE;
@@ -261,7 +261,7 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
 			}
 			else
 			{
-				m_bGameOver = true;
+				m_emGameStatus = emGameStatusOver;
 			}
 		}
 		return true;

@@ -176,7 +176,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_pGameControl = CGameControler::GetInstance();
     g_pGameControl->SetWndDC(g_hdc);
-    g_pGameControl->StartGame();
 
     return TRUE;
 }
@@ -213,6 +212,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             break;
         case IDM_EXIT:
             DestroyWindow(hWnd);
+            break;
+        case IDM_BEGIN:
+            g_pGameControl->StartGame();
             break;
         default:
             return DefWindowProc(hWnd, message, wParam, lParam);

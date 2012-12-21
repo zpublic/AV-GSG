@@ -29,14 +29,15 @@ public:
 
 	void StartGame();
 
-	void GameOver();
-
 	void Exit();
 private:
 	CGameControler(void);
 
 	//地图循环贴图
 	void CirculationMap();
+
+    void GameOver();
+    void GameReady();
 
 	static CGameControler * pGameControler;
 	DWORD m_dwLastTime;//上次绘图时间

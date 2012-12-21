@@ -27,6 +27,11 @@ CGameControler::CGameControler(void):m_nY(0),
 	CEnemyPlane::LoadBimap();
 	CExplosion::LoadImage();
 	m_pPrincipalPlane = CPrincipalPlane::GetInstance();	
+
+    m_hBitmapMap = NULL;
+    m_hMemBitmap = NULL;
+    m_hMemDC = NULL;
+    m_hMapDC = NULL;
 }
 
 
@@ -41,19 +46,34 @@ void CGameControler::Exit()
 	CEnemyPlane::FreeBitmap();
 	CExplosion::FreeImage();
 	CBullet::FreeBullet();
-	DeleteDC(m_hMemDC);
-	DeleteDC(m_hMapDC);
-	DeleteObject(m_hBitmapMap);
-	DeleteObject(m_hMemBitmap);
+    if (m_hMemDC)
+    {
+        DeleteDC(m_hMemDC);
+    }
+    if (m_hMapDC)
+    {
+        DeleteDC(m_hMapDC);
+    }
+	if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
+	if (m_hMemBitmap) DeleteObject(m_hMemBitmap);
 }
 
 void CGameControler::GameOver()
 {
-	DeleteObject(m_hBitmapMap);
-	m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameover.bmp"), IMAGE_BITMAP,
-		SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-	SelectObject(m_hMapDC, m_hBitmapMap);
-	BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
+    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
+    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameover.bmp"), IMAGE_BITMAP,
+        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
+    SelectObject(m_hMapDC, m_hBitmapMap);
+    BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
+}
+
+void CGameControler::GameReady()
+{
+    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
+    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameready.bmp"), IMAGE_BITMAP,
+        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
+    SelectObject(m_hMapDC, m_hBitmapMap);
+    BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
 }
 
 void CGameControler::CirculationMap()
@@ -73,29 +93,43 @@ void CGameControler::SetWndDC(HDC hDC)
 	m_hMemDC = CreateCompatibleDC(hDC);
 	m_hMapDC = CreateCompatibleDC(hDC);
 
-	m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
-	SelectObject(m_hMemDC, m_hMemBitmap);
-
-	m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
-		SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-	SelectObject(m_hMapDC, m_hBitmapMap);
+    if (m_hMemBitmap) DeleteObject(m_hBitmapMap);
+    m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
+    SelectObject(m_hMemDC, m_hMemBitmap);
 }
 
 void CGameControler::StartGame()
 {
-	m_dwLastTime = GetTickCount();
-	srand((unsigned)time(0));
+    m_dwLastTime = GetTickCount();
+    srand((unsigned)time(0));
+
+    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
+    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
+        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
+    SelectObject(m_hMapDC, m_hBitmapMap);
+
+    CPrincipalPlane::StartGame();
 }
 
 
 void CGameControler::UpdateScence()
 {
-	//
-	if (CPrincipalPlane::GetGameOver())
-	{
-		GameOver();
-		return;
-	}
+    if (!CPrincipalPlane::IsNeedUpdate())
+    {
+        return;
+    }
+    if (CPrincipalPlane::GetGameOver())
+    {
+        GameOver();
+        CPrincipalPlane::ClearGameStatus();
+        return;
+    }
+    if (CPrincipalPlane::GetGameReady())
+    {
+        GameReady();
+        CPrincipalPlane::ClearGameStatus();
+        return;
+    }
 
 	m_dwCurrentTime = GetTickCount();
 	if (m_dwCurrentTime - m_dwLastTime < MSPERFRAME)

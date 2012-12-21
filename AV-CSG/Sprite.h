@@ -55,6 +55,14 @@ enum BlastType
 	PLANEBLAST
 };
 
+enum GameStatus
+{
+    emGameStatusNone,       ///> 什么都不干
+    emGameStatusReady,
+    emGameStatusOver,
+    emGameStatusPlaying,
+};
+
 class CSprite
 {
 public:
