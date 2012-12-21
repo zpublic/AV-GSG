@@ -12,10 +12,12 @@ CSprite::CSprite(int x, int y):
     this->pNext = g_pHead;
     g_pHead = static_cast<ISprite *>(this);
 
-    m_nFrameStartX = 0;
-    m_nCurrentFrame = 0;
+    m_nFrameStartX      = 0;
+    m_nCurrentFrame     = 0;
+    m_nWidth            = 0;
+    m_nHeight           = 0;
+    m_nFrameCount       = 0;
 }
-
 
 CSprite::~CSprite(void)
 {

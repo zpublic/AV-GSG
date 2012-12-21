@@ -49,7 +49,7 @@ enum EnemyType
 //爆炸效果类型
 enum BlastType
 {
-    BULLETBLAST,
+    BULLETBLAST = 0,
     PLANEBLAST
 };
 

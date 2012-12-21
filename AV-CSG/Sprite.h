@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ISprite.h"
+#include "PicturePool.h"
 
 class CSprite : public ISprite
 {
@@ -22,10 +23,10 @@ public:
 protected:
     int     m_nPosX;
     int     m_nPosY;
-    int     m_nFrameStartX;     //当前帧，图片开始贴图的X坐标
+    int     m_nFrameStartX;     //图片开始贴图的X坐标
+    int     m_nCurrentFrame;    //当前帧
     int     m_nSpeed;           //精灵速度
     int     m_nFrameCount;      //帧数（如一类子弹有几张图）
-    int     m_nCurrentFrame;
     int     m_nWidth;
     int     m_nHeight;
     float   m_fAngle;

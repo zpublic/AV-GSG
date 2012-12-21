@@ -1,8 +1,6 @@
 #include "StdAfx.h"
 #include "Explosion.h"
 
-CPicture * CExplosion::pPictureBlast[2] = {0};
-
 CExplosion::CExplosion(int x, int y, BlastType blastType)
     : CSprite(x, y)
     , m_emBlastType(blastType)
@@ -27,25 +25,6 @@ CExplosion::~CExplosion(void)
 
 }
 
-void CExplosion::FreeImage()
-{
-    for (int i = 0; i < 2; ++i)
-    {
-        pPictureBlast[i]->FreeBitmap();
-    }
-}
-
-void CExplosion::LoadImage()
-{
-    for (int i = 0; i < 2; ++i)
-    {
-        pPictureBlast[i] = new CPicture();
-    }
-
-    pPictureBlast[0]->LoadBitmap(_T("Resource\\BulletBlast.bmp"), RGB(255, 0, 255));
-    pPictureBlast[1]->LoadBitmap(_T("Resource\\PlaneBlast.bmp"), RGB(0, 0, 0));
-}
-
 void CExplosion::Update()
 {
     if (m_nCurrentFrame >= m_nFrameCount)
@@ -58,6 +37,12 @@ void CExplosion::Update()
 
 void CExplosion::Render(HDC hDC)
 {
-    pPictureBlast[m_emBlastType]->DrawBitmap(hDC, m_nPosX - m_nWidth/2, m_nPosY - m_nHeight / 2,
-        m_nWidth, m_nHeight, m_nFrameStartX, 0);
+    CPicturePool::GetExplosionPic()[m_emBlastType]->DrawBitmap(
+        hDC,
+        m_nPosX - m_nWidth / 2,
+        m_nPosY - m_nHeight / 2,
+        m_nWidth,
+        m_nHeight,
+        m_nFrameStartX,
+        0);
 }
