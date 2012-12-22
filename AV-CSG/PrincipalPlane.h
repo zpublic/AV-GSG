@@ -57,7 +57,6 @@ private:
     static CPicture*            pPictureHP;
     static CPicture*            pPictureHPSide;
     BulletType                  m_nBulletType;
-    int                         m_nHP;
     int                         m_nLife;
     float                       m_fBulletFrequency;
     float                       m_fInvincibletime;  //无敌时间(单位秒)

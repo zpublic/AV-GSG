@@ -14,4 +14,7 @@ public:
         int x, int y,
         int width, int height,
         int power) = 0;
+
+protected:
+    int     m_nHP;
 };

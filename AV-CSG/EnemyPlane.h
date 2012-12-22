@@ -22,6 +22,5 @@ public:
 
 private:
     float   m_fFireTime;
-    int     m_nHP;
     EnemyType   m_nEnemyType;
 };
