@@ -18,11 +18,11 @@
     <Filter Include="Source Files\data">
       <UniqueIdentifier>{07269852-340e-482e-8dc1-975841fe0a36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gameobject\plane">
-      <UniqueIdentifier>{90df73ab-0952-47ab-a46c-80cd785e42ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\gameobject\bullet">
       <UniqueIdentifier>{94e875db-57e0-4996-a1db-d09c9716de7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobject\plane">
+      <UniqueIdentifier>{90df73ab-0952-47ab-a46c-80cd785e42ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

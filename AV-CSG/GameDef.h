@@ -18,6 +18,7 @@ enum BulletType
     emBulletTypeAMMO6,
     emBulletTypeAmmoAll1,
     emBulletTypeAmmoSB,
+    emBulletTypeAmmoSB2,
 
     emBulletTypeMax
 };

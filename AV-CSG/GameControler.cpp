@@ -78,7 +78,7 @@ void CGameControler::CirculationMap()
     BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
     m_nY += 1;
-    if(m_nY==480)
+    if(m_nY == SCREEN_HEIGHT)
         m_nY = 0;
 }
 
@@ -230,6 +230,9 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
         break;
     case 'Q':
         m_pPrincipalPlane->SetBulletType(emBulletTypeAmmoSB);
+        break;
+    case 'E':
+        m_pPrincipalPlane->SetBulletType(emBulletTypeAmmoSB2);
         break;
     case VK_SPACE:
     case 'K':

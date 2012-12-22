@@ -52,6 +52,7 @@ void CPicturePool::LoadImage()
     m_pPictureAmmo[6]->LoadBitmap(_T("Resource\\Ammo6.bmp"), RGB(0, 0, 0));
     m_pPictureAmmo[7]->LoadBitmap(_T("Resource\\WholeFried.bmp"), RGB(0, 248, 0));
     m_pPictureAmmo[8]->LoadBitmap(_T("Resource\\AmmoSb.bmp"), RGB(255, 255, 255));
+    m_pPictureAmmo[9]->LoadBitmap(_T("Resource\\AmmoSb2.bmp"), RGB(255, 255, 255));
 
     for(int i = 0; i < emEnemyTypeMax; ++i)
     {
