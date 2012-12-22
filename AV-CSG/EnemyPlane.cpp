@@ -69,7 +69,6 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     spEnemyHead  = this;
 }
 
-
 CEnemyPlane::~CEnemyPlane(void)
 {
     CEnemyGenerate::SubEnemyCount();
@@ -80,9 +79,9 @@ CEnemyPlane::~CEnemyPlane(void)
     else
     {
         CEnemyPlane* temp = spEnemyHead;
-        for(;temp->m_pEmnemyNext!=NULL;temp=temp->m_pEmnemyNext)
+        for( ; temp->m_pEmnemyNext != NULL; temp = temp->m_pEmnemyNext)
         {
-            if(temp->m_pEmnemyNext==this)
+            if(temp->m_pEmnemyNext == this)
             {
                 temp->m_pEmnemyNext = this->m_pEmnemyNext;
                 return;
