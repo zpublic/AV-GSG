@@ -4,9 +4,8 @@
 #include "PrincipalPlane.h"
 #include "Explosion.h"
 #include "Bullet.h"
+#include "EnemyGenerate.h"
 
-float CEnemyPlane::sfLastCreateTime = 0.0;
-int CEnemyPlane::snEnemyCount = 0;
 CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
 
 CEnemyPlane::CEnemyPlane(EnemyType enemyType)
@@ -17,9 +16,9 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     //5号特殊敌机从下方出现
     m_fFireTime = 1.0f;
 
-    if (snEnemyCount < 10)
+    if (CEnemyGenerate::GetEnemyCount() < 10)
     {
-        snEnemyCount++;
+        CEnemyGenerate::AddEnemyCount();
     }
 
     switch (m_nEnemyType)
@@ -73,7 +72,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
 
 CEnemyPlane::~CEnemyPlane(void)
 {
-    snEnemyCount--;
+    CEnemyGenerate::SubEnemyCount();
     if (spEnemyHead == this)
     {
         spEnemyHead = this->m_pEmnemyNext;
@@ -89,20 +88,6 @@ CEnemyPlane::~CEnemyPlane(void)
                 return;
             }
         }
-    }
-}
-
-void CEnemyPlane::CreateEnemy()
-{
-    float tD = CGameControler::GetInstance()->GetElapsedTime();
-    sfLastCreateTime += tD;
-    if (sfLastCreateTime > 0.3f)//0.5秒产生一架敌机
-    {
-        if (snEnemyCount < 10)
-        {
-            new CEnemyPlane((EnemyType)(snEnemyCount % 5));
-        }
-        sfLastCreateTime -= 0.5f;
     }
 }
 

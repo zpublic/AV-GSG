@@ -13,22 +13,14 @@ public:
     //碰撞检测
     virtual bool CheckCollision(int x, int y, int width, int height, int power);
 
-    static void CreateEnemy();
-
-    //渲染
     virtual void Render(HDC hDC);
-
-    //更新精灵函数（位置，角度等属性）
     virtual void Update();
-
-    bool IsVisible();
+    virtual bool IsVisible();
 
     static CEnemyPlane *spEnemyHead;
     CEnemyPlane * m_pEmnemyNext;
 
 private:
-    static int snEnemyCount;
-    static float sfLastCreateTime;
     float   m_fFireTime;
     int     m_nHP;
     EnemyType   m_nEnemyType;

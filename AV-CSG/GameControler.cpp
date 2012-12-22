@@ -6,6 +6,7 @@
 #include "EnemyPlane.h"
 #include "Explosion.h"
 #include "GameFrame.h"
+#include "EnemyGenerate.h"
 
 CGameControler * CGameControler::pGameControler = NULL;
 
@@ -139,7 +140,7 @@ void CGameControler::UpdateScence()
 
     m_dwLastTime = m_dwCurrentTime;
 
-    CEnemyPlane::CreateEnemy();
+    CEnemyGenerate::CreateEnemy();
     CGameFrame::FrameUpdate();
     CGameFrame::FrameRender(m_hMemDC);
 
