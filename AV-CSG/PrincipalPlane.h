@@ -14,13 +14,9 @@ public:
     //初始化飞机，包括血量的更新
     void InitPlane();
 
-    //碰撞检测
     virtual bool CheckCollision(int x, int y, int width, int height, int power);
 
-    //渲染
     virtual void Render(HDC hDC);
-
-    //更新精灵函数（位置，角度等属性）
     virtual void Update();
 
     //加载飞机图片和血量图片

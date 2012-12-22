@@ -85,7 +85,9 @@
     <ClInclude Include="BigBullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyGenerate.h" />
+    <ClInclude Include="EnemyGenerate.h">
+      <Filter>Source Files\gameobject\plane</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -125,7 +127,7 @@
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClCompile>
     <ClCompile Include="EnemyGenerate.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
