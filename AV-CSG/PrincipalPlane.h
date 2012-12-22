@@ -31,9 +31,13 @@ public:
         {
             SetAmmoCount(3);
         }
-        if (m_nBulletType == emBulletTypeAmmoSB)
+        else if (m_nBulletType == emBulletTypeAmmoSB)
         {
-            SetAmmoCount(5);
+            SetAmmoCount(8);
+        }
+        else
+        {
+            SetAmmoCount(1);
         }
     }
 

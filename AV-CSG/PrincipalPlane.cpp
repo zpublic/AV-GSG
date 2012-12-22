@@ -134,7 +134,7 @@ void CPrincipalPlane::Update()
                 true, 3, 10,
                 m_nBulletType, float(8.0*PI/5.0));
             break;
-        case 5:
+        case 8:
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
                 true, 3, 10,
