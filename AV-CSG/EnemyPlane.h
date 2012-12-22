@@ -21,10 +21,6 @@ public:
     //更新精灵函数（位置，角度等属性）
     virtual void Update();
 
-    //加载飞机图片
-    static void LoadBimap();
-    static void FreeBitmap();
-
     bool IsVisible();
 
     static CEnemyPlane *spEnemyHead;
