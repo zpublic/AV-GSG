@@ -31,7 +31,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     {
         m_piEmitter = CEmitterGenerate::Generate(
             6, false,
-            1, 300, 0);
+            1, 200, 0);
         m_fFireTimeMax = 0.1f;
     }
     else
