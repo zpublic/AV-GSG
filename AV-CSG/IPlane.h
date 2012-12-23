@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sprite.h"
+#include "IEmitter.h"
 
 ///> 飞机类基类
 class PlaneBase : public CSprite
@@ -16,5 +17,6 @@ public:
         int power) = 0;
 
 protected:
-    int     m_nHP;
+    int         m_nHP;      ///> 血量
+    IEmitter*   m_piEmitter; ///> 子弹发射器
 };

@@ -8,6 +8,6 @@ public:
     virtual ~IEmitter(void) {};
 
 public:
-    virtual Emit() = 0;
+    virtual void Emit(int nPosX, int nPosY) = 0;
 };
 

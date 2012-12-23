@@ -30,7 +30,7 @@
     <Filter Include="Source Files\data\resourcedata">
       <UniqueIdentifier>{87ff5c45-98a9-4ae8-ac48-84722d5827b0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gameobject\emiter">
+    <Filter Include="Source Files\gameobject\emitter">
       <UniqueIdentifier>{c8f03913-e7a7-4972-8392-978a0dd9241c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -104,7 +104,13 @@
       <Filter>Source Files\control</Filter>
     </ClInclude>
     <ClInclude Include="IEmitter.h">
-      <Filter>Source Files\gameobject\emiter</Filter>
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="LineEmitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterGenerate.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="GameStatus.cpp">
       <Filter>Source Files\control</Filter>
+    </ClCompile>
+    <ClCompile Include="LineEmitter.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterGenerate.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

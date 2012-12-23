@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="EmitterGenerate.h" />
     <ClInclude Include="IEmitter.h" />
     <ClInclude Include="EnemyGenerate.h" />
     <ClInclude Include="EnemyPlane.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="GameStatus.h" />
     <ClInclude Include="IPlane.h" />
     <ClInclude Include="ISprite.h" />
+    <ClInclude Include="LineEmitter.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />
     <ClInclude Include="BigBullet.h" />
@@ -105,12 +107,14 @@
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="EmitterGenerate.cpp" />
     <ClCompile Include="EnemyGenerate.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameControler.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="GameStatus.cpp" />
+    <ClCompile Include="LineEmitter.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />
     <ClCompile Include="BigBullet.cpp" />
