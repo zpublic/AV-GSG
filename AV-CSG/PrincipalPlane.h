@@ -10,6 +10,8 @@ public:
     static CPrincipalPlane * GetInstance();
     virtual ~CPrincipalPlane();
 
+    void InitGame();
+
     virtual bool CheckCollision(int x, int y, int width, int height, int power);
     virtual void Render(HDC hDC);
     virtual void Update();
@@ -20,7 +22,6 @@ public:
 
 private:
     CPrincipalPlane(int x, int y);
-    void InitGame();
     void InitPlane();
     void SetAmmoCount(int nAmmoCount);
 
