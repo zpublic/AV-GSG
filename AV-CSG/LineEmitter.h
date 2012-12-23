@@ -17,7 +17,7 @@ public:
         int nSpeed,
         float fAngle);
 
-private:
+protected:
     bool m_bFriend;
     int m_nPower;
     int m_nSpeed;

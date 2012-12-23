@@ -112,8 +112,18 @@
     <ClInclude Include="EmitterGenerate.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
-    <ClInclude Include="Line3Emitter.h" />
-    <ClInclude Include="Line8Emitter.h" />
+    <ClInclude Include="Line3Emitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="Line8Emitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="CurveBullet.h">
+      <Filter>Source Files\gameobject\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CurveEmitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -167,11 +177,17 @@
     <ClCompile Include="EmitterGenerate.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
+    <ClCompile Include="CurveBullet.cpp">
+      <Filter>Source Files\gameobject\bullet</Filter>
+    </ClCompile>
     <ClCompile Include="Line3Emitter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
     <ClCompile Include="Line8Emitter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="CurveEmitter.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

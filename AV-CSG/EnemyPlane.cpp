@@ -13,11 +13,18 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     : PlaneBase(0, 0)
     , m_nEnemyType(enemyType)
 {
-    if (rand() % 50 == 1)
+    int nEmitterRandom = rand() % 100;
+    if (nEmitterRandom < 5)
     {
         m_piEmitter = CEmitterGenerate::Generate(
             3, false,
             1, 200, 0);
+    }
+    else if (nEmitterRandom < 20)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            4, false,
+            1, 200, 18.0 * PI / 36.0);
     }
     else
     {

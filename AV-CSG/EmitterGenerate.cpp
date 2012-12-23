@@ -3,6 +3,7 @@
 #include "LineEmitter.h"
 #include "Line3Emitter.h"
 #include "Line8Emitter.h"
+#include "CurveEmitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
@@ -37,6 +38,12 @@ IEmitter* CEmitterGenerate::Generate(
     {
         CLine8Emitter* pEmitter = new CLine8Emitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
+        pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+    else if (4 == nType)
+    {
+        CCurveEmitter* pEmitter = new CCurveEmitter();
+        pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
 

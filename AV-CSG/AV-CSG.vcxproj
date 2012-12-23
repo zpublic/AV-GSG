@@ -82,6 +82,8 @@
   <ItemGroup>
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CurveBullet.h" />
+    <ClInclude Include="CurveEmitter.h" />
     <ClInclude Include="EmitterGenerate.h" />
     <ClInclude Include="IEmitter.h" />
     <ClInclude Include="EnemyGenerate.h" />
@@ -109,6 +111,8 @@
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="CurveBullet.cpp" />
+    <ClCompile Include="CurveEmitter.cpp" />
     <ClCompile Include="EmitterGenerate.cpp" />
     <ClCompile Include="EnemyGenerate.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
