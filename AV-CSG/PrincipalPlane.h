@@ -10,19 +10,21 @@ public:
     static CPrincipalPlane * GetInstance();
     virtual ~CPrincipalPlane();
 
-    void InitPlane();
-
     virtual bool CheckCollision(int x, int y, int width, int height, int power);
     virtual void Render(HDC hDC);
     virtual void Update();
 
     void SetBulletType(BulletType bulletType);
-    void SetAmmoCount(int nAmmoCount);
 
     void Control(ActionType actionType);
+
 private:
     CPrincipalPlane(int x, int y);
+    void InitGame();
+    void InitPlane();
+    void SetAmmoCount(int nAmmoCount);
 
+private:
     static CPrincipalPlane*     pCPrincipalPlane;
     BulletType                  m_nBulletType;
     int                         m_nLife;

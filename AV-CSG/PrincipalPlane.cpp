@@ -21,6 +21,11 @@ CPrincipalPlane * CPrincipalPlane::GetInstance()
 CPrincipalPlane::CPrincipalPlane(int x, int y)
     : PlaneBase(x, y)
 {
+    InitGame();
+}
+
+void CPrincipalPlane::InitGame()
+{
     m_nLife = 1;
     m_nAmmoCount = 1;
     m_nBulletType = emBulletTypeAMMO0;
