@@ -5,6 +5,7 @@
 #include "Explosion.h"
 #include "EnemyGenerate.h"
 #include "EmitterGenerate.h"
+#include "Score.h"
 
 CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
 
@@ -177,6 +178,7 @@ bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)
         m_nHP -= power;
         if (m_nHP <= 0)
         {
+            CScore::AddScore(m_nSpeed);
             m_bIsVisible = false;
             new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypePlane);
         }

@@ -8,6 +8,7 @@
 #include "GameFrame.h"
 #include "EnemyGenerate.h"
 #include "GameStatus.h"
+#include "Score.h"
 
 CGameControler * CGameControler::pGameControler = NULL;
 
@@ -61,6 +62,10 @@ void CGameControler::GameOver()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
     BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
+
+    TCHAR szOut[100] = {0};
+    wsprintf(szOut, L"×îÖÕµÃ·Ö£º%d", CScore::GetScore());
+    ::MessageBox(0, szOut, L"", 0);
 }
 
 void CGameControler::GameReady()
@@ -104,6 +109,7 @@ void CGameControler::StartGame()
     SelectObject(m_hMapDC, m_hBitmapMap);
 
     m_pPrincipalPlane->InitGame();
+    CScore::Reset();
     CGameStatus::StartGame();
 }
 
