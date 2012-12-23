@@ -52,32 +52,32 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     switch (m_nEnemyType)
     {
     case emEnemyTypeENEMY0:
-        m_nWidth = 43;
-        m_nHeight = 36;
+        m_nWidth = 32;
+        m_nHeight = 48;
         m_nHP = 4;
         m_nSpeed = 150;
         break;
     case emEnemyTypeENEMY1:
-        m_nWidth = 76;
-        m_nHeight = 94;
+        m_nWidth = 32;
+        m_nHeight = 48;
         m_nHP = 10;
         m_nSpeed = 100;
         break;
     case emEnemyTypeENEMY2:
-        m_nWidth = 93;
-        m_nHeight = 85;
+        m_nWidth = 32;
+        m_nHeight = 48;
         m_nHP = 10;
         m_nSpeed = 90;
         break;
     case emEnemyTypeENEMY3:
-        m_nWidth = 100;
-        m_nHeight = 47;
+        m_nWidth = 32;
+        m_nHeight = 48;
         m_nHP = 6;
         m_nSpeed = 80;
         break;
     case emEnemyTypeENEMY4:
-        m_nWidth = 45;
-        m_nHeight = 43;
+        m_nWidth = 32;
+        m_nHeight = 48;
         m_nHP = 8;
         m_nSpeed = 100;
         break;
