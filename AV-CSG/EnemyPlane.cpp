@@ -12,6 +12,8 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     : PlaneBase(0, 0)
     , m_nEnemyType(enemyType)
 {
+    m_fFireTime = 0.0f;
+    m_fFireTimeMax = 1.0f;
     int nEmitterRandom = rand() % 100;
     if (nEmitterRandom < 5)
     {
@@ -25,6 +27,13 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             4, false,
             1, 200, 18.0 * PI / 36.0);
     }
+    else if (nEmitterRandom < 25)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            6, false,
+            1, 300, 0);
+        m_fFireTimeMax = 0.1f;
+    }
     else
     {
         m_piEmitter = CEmitterGenerate::Generate(
@@ -34,7 +43,6 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     }
 
     int nRandom = rand() % 5;
-    m_fFireTime = 1.0f;
 
     if (CEnemyGenerate::GetEnemyCount() < 10)
     {
@@ -130,10 +138,10 @@ void CEnemyPlane::Update()
 
     m_nPosY += (int)fDis;
 
-    m_fFireTime -= tD;
-    if (m_fFireTime <= 0.0f)
+    m_fFireTime += tD;
+    if (m_fFireTime > m_fFireTimeMax)
     {
-        m_fFireTime = 1.0f;
+        m_fFireTime = 0.0f;
         m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8,
             m_nPosY + m_nHeight,
             (BulletType)(m_nEnemyType % 4));

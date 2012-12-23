@@ -21,5 +21,6 @@ public:
 
 private:
     float   m_fFireTime;
+    float   m_fFireTimeMax;
     EnemyType   m_nEnemyType;
 };

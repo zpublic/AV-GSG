@@ -127,6 +127,9 @@
     <ClInclude Include="BigBulletEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
+    <ClInclude Include="SpinEmitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -193,6 +196,9 @@
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
     <ClCompile Include="BigBulletEmitter.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
   </ItemGroup>

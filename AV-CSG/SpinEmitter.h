@@ -2,11 +2,11 @@
 
 #include "IEmitter.h"
 
-class CLine3Emitter : public IEmitter
+class CSpinEmitter : public IEmitter
 {
 public:
-    CLine3Emitter(void);
-    virtual ~CLine3Emitter(void);
+    CSpinEmitter(void);
+    virtual ~CSpinEmitter(void);
 
     virtual void Emit(int nPosX, int nPosY, BulletType bulletType);
 
@@ -19,4 +19,6 @@ private:
     bool m_bFriend;
     int m_nPower;
     int m_nSpeed;
+    int m_nAngle;
 };
+
