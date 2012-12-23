@@ -30,7 +30,7 @@ CPrincipalPlane::~CPrincipalPlane()
 
 void CPrincipalPlane::InitGame()
 {
-    m_nLife = 1;
+    m_nLifes = 2;
     SetBulletType(emBulletTypeAMMO0);
     m_nAction = STOP_MOVE;
     m_nWidth = 49;
@@ -168,7 +168,7 @@ void CPrincipalPlane::Render(HDC hDC)
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
         0, 0);
-    for (int i = 0; i < m_nLife; ++i)
+    for (int i = 0; i < m_nLifes; ++i)
     {
         CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
@@ -180,23 +180,19 @@ void CPrincipalPlane::Render(HDC hDC)
 
 bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int power)
 {
-    //碰撞检测简单的用区域相交来计算
-    //在网上找到一个算法
     /*
+    碰撞检测简单的用区域相交来计算
     判断两个矩形的中心坐标的水平和垂直距离，只要这两个值满足某种条件就可以相交。
     矩形A的宽 Wa = Xa2-Xa1 高 Ha = Ya2-Ya1
     矩形B的宽 Wb = Xb2-Xb1 高 Hb = Yb2-Yb1
     矩形A的中心坐标 (Xa3,Ya3) = （ (Xa2+Xa1)/2 ，(Ya2+Ya1)/2 ）
     矩形B的中心坐标 (Xb3,Yb3) = （ (Xb2+Xb1)/2 ，(Yb2+Yb1)/2 ）
     所以只要同时满足下面两个式子，就可以说明两个矩形相交。
-
     1） | Xb3-Xa3 | <= Wa/2 + Wb/2 
     2） | Yb3-Ya3 | <= Ha/2 + Hb/2
-
     即：
     | Xb2+Xb1-Xa2-Xa1 | <= Xa2-Xa1 + Xb2-Xb1
     | Yb2+Yb1-Ya2-Ya1 | <=Y a2-Ya1 + Yb2-Yb1
-
     */
 
     if (m_bUnDead)
@@ -216,11 +212,11 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
         m_nHP -= power;
         if (m_nHP <= 0)
         {
-            m_nLife--;
-            if (m_nLife >= 0)
+            if (m_nLifes > 0)
             {
                 //new blast
                 InitPlane();
+                m_nLifes--;
             }
             else
             {

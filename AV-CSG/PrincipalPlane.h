@@ -26,7 +26,7 @@ private:
 private:
     static CPrincipalPlane*     pCPrincipalPlane;
     BulletType                  m_nBulletType;
-    int                         m_nLife;
+    int                         m_nLifes;
     float                       m_fBulletFrequency;
     float                       m_fInvincibletime;  //无敌时间(单位秒)
     float                       m_fFrequencyTime;   //连续发射子弹时间(秒)

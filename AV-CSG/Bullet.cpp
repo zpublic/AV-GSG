@@ -106,9 +106,7 @@ void CBullet::Render(HDC hDC)
 
 void CBullet::Update()
 {
-    float fDis = (float)m_nSpeed;
-    fDis *= CGameControler::GetInstance()->GetElapsedTime();
-
+    float fDis = CGameControler::GetInstance()->GetElapsedTime() * m_nSpeed;
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
 

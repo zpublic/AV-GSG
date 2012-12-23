@@ -16,8 +16,7 @@ CEnemyGenerate::~CEnemyGenerate(void)
 
 void CEnemyGenerate::CreateEnemy()
 {
-    float tD = CGameControler::GetInstance()->GetElapsedTime();
-    m_sfLastCreateTime += tD;
+    m_sfLastCreateTime += CGameControler::GetInstance()->GetElapsedTime();
     if (m_sfLastCreateTime > 0.3f)//0.5秒产生一架敌机
     {
         if (m_snEnemyCount < 10)
