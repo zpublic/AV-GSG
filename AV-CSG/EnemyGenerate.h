@@ -8,9 +8,9 @@ public:
 
     static void CreateEnemy();
 
-    static int GetEnemyCount() { return m_snEnemyCount; }
-    static void AddEnemyCount(int nNum = 1) { m_snEnemyCount += nNum; }
-    static void SubEnemyCount(int nNum = 1) { m_snEnemyCount -= nNum; }
+    static int GetEnemyCount();
+    static void AddEnemyCount(int nNum = 1);
+    static void SubEnemyCount(int nNum = 1);
 
 private:
     static float m_sfLastCreateTime;

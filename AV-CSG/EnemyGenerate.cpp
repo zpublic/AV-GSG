@@ -26,3 +26,18 @@ void CEnemyGenerate::CreateEnemy()
         m_sfLastCreateTime -= 0.5f;
     }
 }
+
+int CEnemyGenerate::GetEnemyCount()
+{
+    return m_snEnemyCount;
+}
+
+void CEnemyGenerate::AddEnemyCount( int nNum /*= 1*/ )
+{
+    m_snEnemyCount += nNum;
+}
+
+void CEnemyGenerate::SubEnemyCount( int nNum /*= 1*/ )
+{
+    m_snEnemyCount -= nNum;
+}
