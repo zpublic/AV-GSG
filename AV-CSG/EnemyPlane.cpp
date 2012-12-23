@@ -43,11 +43,6 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             18.0 * PI / 36.0);
     }
 
-    if (CEnemyGenerate::GetEnemyCount() < 10)
-    {
-        CEnemyGenerate::AddEnemyCount();
-    }
-
     switch (m_nEnemyType)
     {
     case emEnemyTypeENEMY0:

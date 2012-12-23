@@ -22,6 +22,7 @@ void CEnemyGenerate::CreateEnemy()
         if (m_snEnemyCount < 10)
         {
             new CEnemyPlane((EnemyType)(rand() % 5));
+            AddEnemyCount();
         }
         m_sfLastCreateTime -= 0.5f;
     }
