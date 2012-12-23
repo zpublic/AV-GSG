@@ -24,6 +24,11 @@ CPrincipalPlane::CPrincipalPlane(int x, int y)
     InitGame();
 }
 
+CPrincipalPlane::~CPrincipalPlane()
+{
+
+}
+
 void CPrincipalPlane::InitGame()
 {
     m_nLife = 1;
@@ -48,10 +53,6 @@ void CPrincipalPlane::InitPlane()
     m_bUnDead = true;
     m_bFire = false;
     m_nWholeFired = 2;
-}
-
-CPrincipalPlane::~CPrincipalPlane()
-{
 }
 
 void CPrincipalPlane::Update()
@@ -157,7 +158,7 @@ void CPrincipalPlane::Update()
         {
             m_fFrequencyTime -= m_fBulletFrequency;
         }
-    }	
+    }
 }
 
 void CPrincipalPlane::Control(ActionType actionType)
@@ -221,21 +222,23 @@ void CPrincipalPlane::Control(ActionType actionType)
         }
         break;
     }
-
 }
 
 void CPrincipalPlane::Render(HDC hDC)
 {
-    CPicturePool::pPicturePlane->DrawBitmap(hDC, m_nPosX, m_nPosY, m_nWidth, m_nHeight,
+    CPicturePool::pPicturePlane->DrawBitmap(
+        hDC,
+        m_nPosX, m_nPosY,
+        m_nWidth, m_nHeight,
         0, 0);
     for (int i = 0; i < m_nLife; ++i)
     {
-        CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10 , 18, 24,0, 0);
+        CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
 
-    CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20 , 40 , 105, 13,0, 0);
+    CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
 
-    CPicturePool::pPictureHP->DrawBitmap(hDC, 22 , 42 , m_nHP, 9,0, 0);
+    CPicturePool::pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
 }
 
 bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int power)
