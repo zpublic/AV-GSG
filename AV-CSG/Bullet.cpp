@@ -1,8 +1,8 @@
 #include "StdAfx.h"
 #include "Bullet.h"
-#include "PrincipalPlane.h"
-#include "GameControler.h"
 #include <math.h>
+#include "GameControler.h"
+#include "PrincipalPlane.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
 

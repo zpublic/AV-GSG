@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "Sprite.h"
-#include "GameFrame.h"
 
 extern ISprite * g_pHead;
 

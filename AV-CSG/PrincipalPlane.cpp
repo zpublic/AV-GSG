@@ -3,7 +3,6 @@
 #include "GameControler.h"
 #include <math.h>
 #include "EnemyPlane.h"
-#include "BigBullet.h"
 #include "GameStatus.h"
 #include "EmitterGenerate.h"
 

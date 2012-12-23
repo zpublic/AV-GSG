@@ -1,7 +1,6 @@
 #pragma once
 
 #include "IPlane.h"
-#include "Picture.h"
 
 ///> Ö÷¿Ø·É»úÀà
 class CPrincipalPlane : public PlaneBase

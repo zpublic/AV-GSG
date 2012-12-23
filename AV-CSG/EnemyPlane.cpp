@@ -3,7 +3,6 @@
 #include "GameControler.h"
 #include "PrincipalPlane.h"
 #include "Explosion.h"
-#include "Bullet.h"
 #include "EnemyGenerate.h"
 #include "EmitterGenerate.h"
 

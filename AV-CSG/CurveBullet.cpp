@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "CurveBullet.h"
 #include "GameControler.h"
-#include "EnemyPlane.h"
 #include <math.h>
 #include "Explosion.h"
 #include "PrincipalPlane.h"
+#include "EnemyPlane.h"
 
 CCurveBullet::CCurveBullet(
     int x, int y,
