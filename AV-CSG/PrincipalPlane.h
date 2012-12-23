@@ -23,7 +23,6 @@ public:
     static void LoadBimap();
     static void FreeBitmap();
 
-    BulletType GetBulletType();
     void SetBulletType(BulletType bulletType);
     void SetAmmoCount(int nAmmoCount);
 

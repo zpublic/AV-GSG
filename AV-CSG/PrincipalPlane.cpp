@@ -308,8 +308,3 @@ void CPrincipalPlane::SetAmmoCount( int nAmmoCount )
 {
     m_nAmmoCount = nAmmoCount ;
 }
-
-BulletType CPrincipalPlane::GetBulletType()
-{
-    return m_nBulletType;
-}
