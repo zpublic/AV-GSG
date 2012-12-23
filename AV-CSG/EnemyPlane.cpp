@@ -34,8 +34,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             18.0 * PI / 36.0);
     }
 
-    int nRandom = rand() % 5;//随机随0-2产生的飞机从屏幕上方左中右出现
-    //5号特殊敌机从下方出现
+    int nRandom = rand() % 5;
     m_fFireTime = 1.0f;
 
     if (CEnemyGenerate::GetEnemyCount() < 10)

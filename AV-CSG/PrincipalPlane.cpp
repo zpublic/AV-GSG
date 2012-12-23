@@ -2,7 +2,6 @@
 #include "PrincipalPlane.h"
 #include "GameControler.h"
 #include <math.h>
-#include "Bullet.h"
 #include "EnemyPlane.h"
 #include "BigBullet.h"
 #include "GameStatus.h"
@@ -150,9 +149,8 @@ void CPrincipalPlane::Control(ActionType actionType)
     case FIREALL:
         if (m_nWholeFired && CGameStatus::GetGameRuning())
         {
-            new CBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
-            new CBigBullet(SCREEN_WIDTH - 224, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
+            IEmitter* iEmitter = CEmitterGenerate::Generate(5, true, 0, 0, 0);
+            iEmitter->Emit(0, 0, emBulletTypeAmmoAll1);
             CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {

@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AV-CSG.h" />
+    <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CurveBullet.h" />
     <ClInclude Include="CurveEmitter.h" />
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp" />
+    <ClCompile Include="BigBulletEmitter.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />

@@ -2,10 +2,13 @@
 #include "BigBullet.h"
 
 
-CBigBullet::CBigBullet(int x, int y, BulletType bulletType, float angle)
-    : CBullet(x, y, true, 0, 0, bulletType, angle)
+CBigBullet::CBigBullet(int x, int y)
+    : CSprite(x, y)
 {
     m_nFrameStartY = 0;
+    m_nWidth = 224;
+    m_nHeight = 320;
+    m_nFrameCount = 12;
 }
 
 
@@ -34,7 +37,7 @@ bool CBigBullet::IsVisible()
 
 void CBigBullet::Render(HDC hDC)
 {
-    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
+    CPicturePool::GetPicture(emPicTypeBullet)[emBulletTypeAmmoAll1]->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,

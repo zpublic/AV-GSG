@@ -7,7 +7,7 @@ class CSprite : public ISprite
 {
 public:
     //¾«ÁéÎ»ÖÃ
-    CSprite(int x, int y);
+    CSprite(int x = 0, int y = 0);
     virtual ~CSprite(void);
 
 public:

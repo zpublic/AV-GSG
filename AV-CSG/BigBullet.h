@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Bullet.h"
+#include "Sprite.h"
 
 ///> ¥Û’–
-class CBigBullet : public CBullet
+class CBigBullet : public CSprite
 {
 public:
-    CBigBullet(int x, int y, BulletType bulletType, float angle);
+    CBigBullet(int x, int y);
     virtual ~CBigBullet(void);
 
     virtual void Update();

@@ -4,6 +4,7 @@
 #include "Line3Emitter.h"
 #include "Line8Emitter.h"
 #include "CurveEmitter.h"
+#include "BigBulletEmitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
@@ -45,6 +46,11 @@ IEmitter* CEmitterGenerate::Generate(
         CCurveEmitter* pEmitter = new CCurveEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+    else if (5 == nType)
+    {
+        static CBigBulletEmitter BigBulletEmitter;
+        pIEmitter = static_cast<IEmitter *>(&BigBulletEmitter);
     }
 
     return pIEmitter;
