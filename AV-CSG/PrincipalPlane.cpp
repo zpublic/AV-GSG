@@ -168,7 +168,7 @@ void CPrincipalPlane::Render(HDC hDC)
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
         0, 0);
-    for (int i = 0; i < m_nLifes; ++i)
+    for (int i = 1; i < m_nLifes; ++i)
     {
         CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
