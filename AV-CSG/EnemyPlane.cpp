@@ -42,8 +42,6 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             18.0 * PI / 36.0);
     }
 
-    int nRandom = rand() % 5;
-
     if (CEnemyGenerate::GetEnemyCount() < 10)
     {
         CEnemyGenerate::AddEnemyCount();
@@ -83,13 +81,14 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
         break;
     }
 
+    int nRandom = rand() % 100;
     if (nRandom == 0)
     {
         m_nPosX = 0;
     }
     else
     {
-        m_nPosX = nRandom * SCREEN_WIDTH/5 - m_nWidth / 2;
+        m_nPosX = nRandom * SCREEN_WIDTH / 100 - m_nWidth / 2;
     }
     m_nPosY = -m_nHeight + 2; 
 
