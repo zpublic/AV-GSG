@@ -240,18 +240,18 @@ void CPrincipalPlane::SetBulletType( BulletType bulletType )
     {
         m_piEmitter = CEmitterGenerate::Generate(
             2, true,
-            3, 10, 0);
+            3, 200, 0);
     }
     else if (m_nBulletType == emBulletTypeAmmoSB)
     {
         m_piEmitter = CEmitterGenerate::Generate(
             3, true,
-            3, 10, 0);
+            3, 200, 0);
     }
     else
     {
         m_piEmitter = CEmitterGenerate::Generate(
             1, true,
-            3, 10, float(PI * 3 / 2.0));
+            3, 200, float(PI * 3 / 2.0));
     }
 }

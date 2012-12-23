@@ -25,8 +25,7 @@ CCurveBullet::~CCurveBullet(void)
 void CCurveBullet::Update()
 {
     float fDis = (float)m_nSpeed;
-    if (!m_bFriend)
-        fDis *= CGameControler::GetInstance()->GetElapsedTime();
+    fDis *= CGameControler::GetInstance()->GetElapsedTime();
 
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
