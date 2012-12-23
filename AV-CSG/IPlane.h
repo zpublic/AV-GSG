@@ -7,7 +7,12 @@
 class PlaneBase : public CSprite
 {
 public:
-    PlaneBase(int x, int y) : CSprite(x, y) {}
+    PlaneBase(int x, int y)
+        : CSprite(x, y)
+        , m_nHP(0)
+        , m_piEmitter(NULL)
+    {
+    }
     virtual ~PlaneBase() {}
 
     //Åö×²¼ì²â
