@@ -16,7 +16,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     m_piEmitter = CEmitterGenerate::Generate(
         1, false,
         5, 220,
-        (BulletType)(m_nEnemyType % 4), 18.0 * PI / 36.0);
+        18.0 * PI / 36.0);
 
     int nRandom = rand() % 5;//随机随0-2产生的飞机从屏幕上方左中右出现
     //5号特殊敌机从下方出现
@@ -120,7 +120,9 @@ void CEnemyPlane::Update()
     if (m_fFireTime <= 0.0f)
     {
         m_fFireTime = 1.0f;
-        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8, m_nPosY + m_nHeight);
+        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8,
+            m_nPosY + m_nHeight,
+            (BulletType)(m_nEnemyType % 4));
     }
 
     if (CPrincipalPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))

@@ -14,7 +14,6 @@ public:
         bool bFriend,
         int nPower,
         int nSpeed,
-        BulletType bulletType,
         float fAngle);
 };
 

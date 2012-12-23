@@ -15,7 +15,6 @@ IEmitter* CEmitterGenerate::Generate(
     bool bFriend,
     int nPower,
     int nSpeed,
-    BulletType bulletType,
     float fAngle )
 {
     IEmitter* pIEmitter = NULL;
@@ -23,7 +22,7 @@ IEmitter* CEmitterGenerate::Generate(
     {
     case 1:
         CLineEmitter* pEmitter = new CLineEmitter();
-        pEmitter->SetParam(bFriend, nPower, nSpeed, bulletType, fAngle);
+        pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
     return pIEmitter;
