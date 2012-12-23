@@ -211,11 +211,11 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
         m_nHP -= power;
         if (m_nHP <= 0)
         {
+            m_nLifes--;
             if (m_nLifes > 0)
             {
                 //new blast
                 InitPlane();
-                m_nLifes--;
             }
             else
             {
