@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "EmitterGenerate.h"
 #include "LineEmitter.h"
+#include "Line3Emitter.h"
+#include "Line8Emitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
@@ -18,12 +20,25 @@ IEmitter* CEmitterGenerate::Generate(
     float fAngle )
 {
     IEmitter* pIEmitter = NULL;
-    switch (nType)
+    if (1 == nType)
     {
-    case 1:
         CLineEmitter* pEmitter = new CLineEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
+    else if (2 == nType)
+    {
+        CLine3Emitter* pEmitter = new CLine3Emitter();
+        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+
+    else if (3 == nType)
+    {
+        CLine8Emitter* pEmitter = new CLine8Emitter();
+        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+
     return pIEmitter;
 }

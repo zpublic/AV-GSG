@@ -6,6 +6,7 @@
 #include "EnemyPlane.h"
 #include "BigBullet.h"
 #include "GameStatus.h"
+#include "EmitterGenerate.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 
@@ -32,8 +33,7 @@ CPrincipalPlane::~CPrincipalPlane()
 void CPrincipalPlane::InitGame()
 {
     m_nLife = 1;
-    m_nAmmoCount = 1;
-    m_nBulletType = emBulletTypeAMMO0;
+    SetBulletType(emBulletTypeAMMO0);
     m_nAction = STOP_MOVE;
     m_nWidth = 49;
     m_nHeight = 66;
@@ -92,67 +92,7 @@ void CPrincipalPlane::Update()
 
     if (m_bFire && m_fFrequencyTime >= m_fBulletFrequency)
     {
-        switch(m_nAmmoCount)
-        {
-        case 1:
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(PI * 3 / 2.0));
-            break;
-        case 3:
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(17 * PI / 10.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(3 * PI / 2.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 , m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(13 * PI / 10.0));
-            break;
-        case 8:
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(0*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(1*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 , m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(2*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(3*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(4*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(5*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 3,
-                m_nBulletType, float(6*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(7*PI/4.0));
-            new CBullet(
-                m_nPosX + m_nWidth / 3 , m_nPosY - 16,
-                true, 3, 10,
-                m_nBulletType, float(8*PI/4.0));
-            break;
-        }
+        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, m_nBulletType);
 
         while(m_fFrequencyTime > m_fBulletFrequency)
         {
@@ -297,22 +237,24 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
 
 void CPrincipalPlane::SetBulletType( BulletType bulletType )
 {
+    delete m_piEmitter;
     m_nBulletType = bulletType;
     if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
     {
-        SetAmmoCount(3);
+        m_piEmitter = CEmitterGenerate::Generate(
+            2, true,
+            3, 10, 0);
     }
     else if (m_nBulletType == emBulletTypeAmmoSB)
     {
-        SetAmmoCount(8);
+        m_piEmitter = CEmitterGenerate::Generate(
+            3, true,
+            3, 10, 0);
     }
     else
     {
-        SetAmmoCount(1);
+        m_piEmitter = CEmitterGenerate::Generate(
+            1, true,
+            3, 10, float(PI * 3 / 2.0));
     }
-}
-
-void CPrincipalPlane::SetAmmoCount( int nAmmoCount )
-{
-    m_nAmmoCount = nAmmoCount ;
 }

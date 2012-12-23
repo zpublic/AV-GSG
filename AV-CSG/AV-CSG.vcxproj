@@ -93,6 +93,8 @@
     <ClInclude Include="GameStatus.h" />
     <ClInclude Include="IPlane.h" />
     <ClInclude Include="ISprite.h" />
+    <ClInclude Include="Line3Emitter.h" />
+    <ClInclude Include="Line8Emitter.h" />
     <ClInclude Include="LineEmitter.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />
@@ -114,6 +116,8 @@
     <ClCompile Include="GameControler.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="GameStatus.cpp" />
+    <ClCompile Include="Line3Emitter.cpp" />
+    <ClCompile Include="Line8Emitter.cpp" />
     <ClCompile Include="LineEmitter.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />

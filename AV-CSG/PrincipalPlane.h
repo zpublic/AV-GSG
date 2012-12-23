@@ -23,7 +23,6 @@ public:
 private:
     CPrincipalPlane(int x, int y);
     void InitPlane();
-    void SetAmmoCount(int nAmmoCount);
 
 private:
     static CPrincipalPlane*     pCPrincipalPlane;
@@ -31,7 +30,6 @@ private:
     int                         m_nLife;
     float                       m_fBulletFrequency;
     float                       m_fInvincibletime;  //无敌时间(单位秒)
-    int                         m_nAmmoCount;       //每次发射子弹数量
     float                       m_fFrequencyTime;   //连续发射子弹时间(秒)
     bool                        m_bUnDead;
     bool                        m_bIsStopMove;
