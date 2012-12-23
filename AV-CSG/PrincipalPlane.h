@@ -32,10 +32,6 @@ private:
     CPrincipalPlane(int x, int y);
 
     static CPrincipalPlane*     pCPrincipalPlane;
-    static CPicture*            pPicturePlane;      //·É»úÍ¼Æ¬
-    static CPicture*            pPictureLife;       //ÉúÃüÍ¼Æ¬
-    static CPicture*            pPictureHP;
-    static CPicture*            pPictureHPSide;
     BulletType                  m_nBulletType;
     int                         m_nLife;
     float                       m_fBulletFrequency;

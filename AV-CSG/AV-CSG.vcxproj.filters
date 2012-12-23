@@ -98,7 +98,7 @@
       <Filter>Source Files\data\gamedata</Filter>
     </ClInclude>
     <ClInclude Include="GameStatus.h">
-      <Filter>Source Files\data\gamedata</Filter>
+      <Filter>Source Files\control</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +145,7 @@
       <Filter>Source Files\data\gamedata</Filter>
     </ClCompile>
     <ClCompile Include="GameStatus.cpp">
-      <Filter>Source Files\data\gamedata</Filter>
+      <Filter>Source Files\control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

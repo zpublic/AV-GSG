@@ -8,10 +8,6 @@
 #include "GameStatus.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
-CPicture * CPrincipalPlane::pPictureLife = NULL;
-CPicture * CPrincipalPlane::pPicturePlane = NULL;
-CPicture * CPrincipalPlane::pPictureHP = NULL;
-CPicture * CPrincipalPlane::pPictureHPSide = NULL;
 
 CPrincipalPlane * CPrincipalPlane::GetInstance()
 {
@@ -51,28 +47,6 @@ void CPrincipalPlane::InitPlane()
 
 CPrincipalPlane::~CPrincipalPlane()
 {
-}
-
-void CPrincipalPlane::LoadBimap()
-{
-    pPicturePlane = new CPicture();
-    pPictureLife = new CPicture();
-    pPictureHP = new CPicture();
-    pPictureHPSide = new CPicture();
-
-    pPicturePlane->LoadBitmap(_T("Resource\\OurFighter.bmp"), RGB(0, 255, 0));
-    pPictureLife->LoadBitmap(_T("Resource\\Life.bmp"), RGB(255, 0, 255));
-
-    pPictureHP->LoadBitmap(_T("Resource\\HPBar.bmp"), RGB(255, 0, 255));
-    pPictureHPSide->LoadBitmap(_T("Resource\\HPBarSide.bmp"), RGB(255, 0, 255));
-}
-
-void CPrincipalPlane::FreeBitmap()
-{
-    pPicturePlane->FreeBitmap();
-    pPictureLife->FreeBitmap();
-    pPictureHP->FreeBitmap();
-    pPictureHPSide->FreeBitmap();
 }
 
 void CPrincipalPlane::Update()
@@ -247,16 +221,16 @@ void CPrincipalPlane::Control(ActionType actionType)
 
 void CPrincipalPlane::Render(HDC hDC)
 {
-    pPicturePlane->DrawBitmap(hDC, m_nPosX, m_nPosY, m_nWidth, m_nHeight,
+    CPicturePool::pPicturePlane->DrawBitmap(hDC, m_nPosX, m_nPosY, m_nWidth, m_nHeight,
         0, 0);
     for (int i = 0; i < m_nLife; ++i)
     {
-        pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10 , 18, 24,0, 0);
+        CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10 , 18, 24,0, 0);
     }
 
-    pPictureHPSide->DrawBitmap(hDC, 20 , 40 , 105, 13,0, 0);
+    CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20 , 40 , 105, 13,0, 0);
 
-    pPictureHP->DrawBitmap(hDC, 22 , 42 , m_nHP, 9,0, 0);
+    CPicturePool::pPictureHP->DrawBitmap(hDC, 22 , 42 , m_nHP, 9,0, 0);
 }
 
 bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int power)

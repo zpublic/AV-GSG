@@ -4,6 +4,10 @@
 CPicture * CPicturePool::m_pPictureBlast[emBlastTypeMax] = {0};
 CPicture * CPicturePool::m_pPictureAmmo[emBulletTypeMax] = {0};
 CPicture * CPicturePool::m_pPictureEnemy[emEnemyTypeMax] = {0};
+CPicture * CPicturePool::pPictureLife = NULL;
+CPicture * CPicturePool::pPicturePlane = NULL;
+CPicture * CPicturePool::pPictureHP = NULL;
+CPicture * CPicturePool::pPictureHPSide = NULL;
 
 CPicturePool::CPicturePool(void)
 {
@@ -27,6 +31,10 @@ void CPicturePool::FreeImage()
     {
         m_pPictureEnemy[i]->FreeBitmap();
     }
+    pPicturePlane->FreeBitmap();
+    pPictureLife->FreeBitmap();
+    pPictureHP->FreeBitmap();
+    pPictureHPSide->FreeBitmap();
 }
 
 void CPicturePool::LoadImage()
@@ -63,6 +71,15 @@ void CPicturePool::LoadImage()
     m_pPictureEnemy[2]->LoadBitmap(_T("Resource\\Enemy2.bmp"), RGB(255, 255, 255));
     m_pPictureEnemy[3]->LoadBitmap(_T("Resource\\Enemy3.bmp"), RGB(255, 0, 255));
     m_pPictureEnemy[4]->LoadBitmap(_T("Resource\\Enemy4.bmp"), RGB(255, 255, 255));
+
+    pPicturePlane = new CPicture();
+    pPictureLife = new CPicture();
+    pPictureHP = new CPicture();
+    pPictureHPSide = new CPicture();
+    pPicturePlane->LoadBitmap(_T("Resource\\OurFighter.bmp"), RGB(0, 255, 0));
+    pPictureLife->LoadBitmap(_T("Resource\\Life.bmp"), RGB(255, 0, 255));
+    pPictureHP->LoadBitmap(_T("Resource\\HPBar.bmp"), RGB(255, 0, 255));
+    pPictureHPSide->LoadBitmap(_T("Resource\\HPBarSide.bmp"), RGB(255, 0, 255));
 }
 
 CPicture** CPicturePool::GetPicture(PictureType picType)
