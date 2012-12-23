@@ -88,6 +88,7 @@
     <ClInclude Include="GameControler.h" />
     <ClInclude Include="GameDef.h" />
     <ClInclude Include="GameFrame.h" />
+    <ClInclude Include="GameStatus.h" />
     <ClInclude Include="IPlane.h" />
     <ClInclude Include="ISprite.h" />
     <ClInclude Include="Picture.h" />
@@ -95,6 +96,7 @@
     <ClInclude Include="BigBullet.h" />
     <ClInclude Include="PrincipalPlane.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -107,10 +109,12 @@
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameControler.cpp" />
     <ClCompile Include="GameFrame.cpp" />
+    <ClCompile Include="GameStatus.cpp" />
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />
     <ClCompile Include="BigBullet.cpp" />
     <ClCompile Include="PrincipalPlane.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

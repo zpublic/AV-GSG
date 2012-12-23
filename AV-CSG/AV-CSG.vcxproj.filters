@@ -24,6 +24,12 @@
     <Filter Include="Source Files\gameobject\plane">
       <UniqueIdentifier>{90df73ab-0952-47ab-a46c-80cd785e42ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\data\gamedata">
+      <UniqueIdentifier>{0e69066d-42cf-4bc4-bcea-f0fc366f3376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data\resourcedata">
+      <UniqueIdentifier>{87ff5c45-98a9-4ae8-ac48-84722d5827b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -49,9 +55,6 @@
     <ClInclude Include="GameControler.h">
       <Filter>Source Files\control</Filter>
     </ClInclude>
-    <ClInclude Include="Picture.h">
-      <Filter>Source Files\data</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -66,9 +69,6 @@
     </ClInclude>
     <ClInclude Include="GameFrame.h">
       <Filter>Source Files\control</Filter>
-    </ClInclude>
-    <ClInclude Include="PicturePool.h">
-      <Filter>Source Files\data</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
@@ -88,6 +88,18 @@
     <ClInclude Include="EnemyGenerate.h">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
+    <ClInclude Include="Picture.h">
+      <Filter>Source Files\data\resourcedata</Filter>
+    </ClInclude>
+    <ClInclude Include="PicturePool.h">
+      <Filter>Source Files\data\resourcedata</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Source Files\data\gamedata</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStatus.h">
+      <Filter>Source Files\data\gamedata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -102,17 +114,11 @@
     <ClCompile Include="GameControler.cpp">
       <Filter>Source Files\control</Filter>
     </ClCompile>
-    <ClCompile Include="Picture.cpp">
-      <Filter>Source Files\data</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="GameFrame.cpp">
       <Filter>Source Files\control</Filter>
-    </ClCompile>
-    <ClCompile Include="PicturePool.cpp">
-      <Filter>Source Files\data</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
@@ -128,6 +134,18 @@
     </ClCompile>
     <ClCompile Include="EnemyGenerate.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="Picture.cpp">
+      <Filter>Source Files\data\resourcedata</Filter>
+    </ClCompile>
+    <ClCompile Include="PicturePool.cpp">
+      <Filter>Source Files\data\resourcedata</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Source Files\data\gamedata</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatus.cpp">
+      <Filter>Source Files\data\gamedata</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

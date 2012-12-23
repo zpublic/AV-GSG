@@ -5,13 +5,13 @@
 #include "Bullet.h"
 #include "EnemyPlane.h"
 #include "BigBullet.h"
+#include "GameStatus.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 CPicture * CPrincipalPlane::pPictureLife = NULL;
 CPicture * CPrincipalPlane::pPicturePlane = NULL;
 CPicture * CPrincipalPlane::pPictureHP = NULL;
 CPicture * CPrincipalPlane::pPictureHPSide = NULL;
-GameStatus CPrincipalPlane::m_emGameStatus = emGameStatusReady;
 
 CPrincipalPlane * CPrincipalPlane::GetInstance()
 {
@@ -228,7 +228,7 @@ void CPrincipalPlane::Control(ActionType actionType)
         m_bFire = false;
         break;
     case FIREALL:
-        if (m_nWholeFired && GetGameRuning())
+        if (m_nWholeFired && CGameStatus::GetGameRuning())
         {
             new CBigBullet(0, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
             new CBigBullet(SCREEN_WIDTH/2 - 224 /2, SCREEN_HEIGHT / 2 - 320 /2, emBulletTypeAmmoAll1, 0.0);
@@ -305,10 +305,37 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
             }
             else
             {
-                m_emGameStatus = emGameStatusOver;
+                CGameStatus::SetGameOver();
             }
         }
         return true;
     }
     return false; 
+}
+
+void CPrincipalPlane::SetBulletType( BulletType bulletType )
+{
+    m_nBulletType = bulletType;
+    if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
+    {
+        SetAmmoCount(3);
+    }
+    else if (m_nBulletType == emBulletTypeAmmoSB)
+    {
+        SetAmmoCount(8);
+    }
+    else
+    {
+        SetAmmoCount(1);
+    }
+}
+
+void CPrincipalPlane::SetAmmoCount( int nAmmoCount )
+{
+    m_nAmmoCount = nAmmoCount ;
+}
+
+BulletType CPrincipalPlane::GetBulletType()
+{
+    return m_nBulletType;
 }

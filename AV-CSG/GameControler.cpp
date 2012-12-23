@@ -7,6 +7,7 @@
 #include "Explosion.h"
 #include "GameFrame.h"
 #include "EnemyGenerate.h"
+#include "GameStatus.h"
 
 CGameControler * CGameControler::pGameControler = NULL;
 
@@ -104,25 +105,25 @@ void CGameControler::StartGame()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
 
-    CPrincipalPlane::StartGame();
+    CGameStatus::StartGame();
 }
 
 void CGameControler::UpdateScence()
 {
-    if (!CPrincipalPlane::IsNeedUpdate())
+    if (!CGameStatus::IsNeedUpdate())
     {
         return;
     }
-    if (CPrincipalPlane::GetGameOver())
+    if (CGameStatus::GetGameOver())
     {
         GameOver();
-        CPrincipalPlane::ClearGameStatus();
+        CGameStatus::ClearGameStatus();
         return;
     }
-    if (CPrincipalPlane::GetGameReady())
+    if (CGameStatus::GetGameReady())
     {
         GameReady();
-        CPrincipalPlane::ClearGameStatus();
+        CGameStatus::ClearGameStatus();
         return;
     }
 

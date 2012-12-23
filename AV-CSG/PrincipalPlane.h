@@ -23,35 +23,11 @@ public:
     static void LoadBimap();
     static void FreeBitmap();
 
-    BulletType GetBulletType(){ return m_nBulletType; }
-    void SetBulletType(BulletType bulletType)
-    {
-        m_nBulletType = bulletType;
-        if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
-        {
-            SetAmmoCount(3);
-        }
-        else if (m_nBulletType == emBulletTypeAmmoSB)
-        {
-            SetAmmoCount(8);
-        }
-        else
-        {
-            SetAmmoCount(1);
-        }
-    }
-
-    void SetAmmoCount(int nAmmoCount){ m_nAmmoCount = nAmmoCount ;}
+    BulletType GetBulletType();
+    void SetBulletType(BulletType bulletType);
+    void SetAmmoCount(int nAmmoCount);
 
     void Control(ActionType actionType);
-
-    static bool GetGameOver() { return m_emGameStatus == emGameStatusOver; }
-    static bool GetGameReady() { return m_emGameStatus == emGameStatusReady; }
-    static bool GetGameRuning() { return m_emGameStatus == emGameStatusRuning; }
-
-    static void ClearGameStatus() { m_emGameStatus = emGameStatusNone; }
-    static bool IsNeedUpdate() { return m_emGameStatus != emGameStatusNone; }
-    static void StartGame() { m_emGameStatus = emGameStatusRuning; }
 private:
     CPrincipalPlane(int x, int y);
 
@@ -71,5 +47,4 @@ private:
     bool                        m_bFire;
     int                         m_nWholeFired;      //È«Õ¨ÊýÁ¿
     ActionType                  m_nAction;
-    static GameStatus           m_emGameStatus;
 };
