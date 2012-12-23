@@ -13,7 +13,10 @@ public:
         , m_piEmitter(NULL)
     {
     }
-    virtual ~PlaneBase() {}
+    virtual ~PlaneBase()
+    {
+        delete m_piEmitter;
+    }
 
     //Åö×²¼ì²â
     virtual bool CheckCollision(

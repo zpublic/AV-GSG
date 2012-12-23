@@ -77,7 +77,6 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
 
 CEnemyPlane::~CEnemyPlane(void)
 {
-    delete m_piEmitter;
     CEnemyGenerate::SubEnemyCount();
     if (spEnemyHead == this)
     {
