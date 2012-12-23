@@ -23,5 +23,6 @@ public:
     static CPicture*            pPictureLife;       //ÉúÃüÍ¼Æ¬
     static CPicture*            pPictureHP;
     static CPicture*            pPictureHPSide;
+    static CPicture*            pPictureNum;
 };
 

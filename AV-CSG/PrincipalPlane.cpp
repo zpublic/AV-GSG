@@ -5,6 +5,7 @@
 #include "EnemyPlane.h"
 #include "GameStatus.h"
 #include "EmitterGenerate.h"
+#include "Score.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 
@@ -160,6 +161,40 @@ void CPrincipalPlane::Control(ActionType actionType)
     }
 }
 
+inline int GetNumX(int nScore, int i)
+{
+    switch (i)
+    {
+    case 0:
+        return (nScore / 10000000) % 10;
+        break;
+    case 1:
+        return (nScore / 1000000) % 10;
+        break;
+    case 2:
+        return (nScore / 100000) % 10;
+        break;
+    case 3:
+        return (nScore / 10000) % 10;
+        break;
+    case 4:
+        return (nScore / 1000) % 10;
+        break;
+    case 5:
+        return (nScore / 100) % 10;
+        break;
+    case 6:
+        return (nScore / 10) % 10;
+        break;
+    case 7:
+        return nScore % 10;
+        break;
+    default:
+        break;
+    }
+    return 0;
+}
+
 void CPrincipalPlane::Render(HDC hDC)
 {
     CPicturePool::pPicturePlane->DrawBitmap(
@@ -171,6 +206,13 @@ void CPrincipalPlane::Render(HDC hDC)
     {
         CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
+    int nScore = CScore::GetScore();
+    ///> ÏÔÊ¾°ËÎ»ÉúÃü
+    for (int i = 0; i < 8; ++i)
+    {
+        CPicturePool::pPictureNum->DrawBitmap(hDC, 440 + i * 16, 25, 16, 18, GetNumX(nScore, i) * 16, 0);
+    }
+
 
     CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
 
