@@ -7,21 +7,14 @@
 class CPrincipalPlane : public PlaneBase
 {
 public:
-    //控制生成单例
     static CPrincipalPlane * GetInstance();
     virtual ~CPrincipalPlane();
 
-    //初始化飞机，包括血量的更新
     void InitPlane();
 
     virtual bool CheckCollision(int x, int y, int width, int height, int power);
-
     virtual void Render(HDC hDC);
     virtual void Update();
-
-    //加载飞机图片和血量图片
-    static void LoadBimap();
-    static void FreeBitmap();
 
     void SetBulletType(BulletType bulletType);
     void SetAmmoCount(int nAmmoCount);
