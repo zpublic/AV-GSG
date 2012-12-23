@@ -13,10 +13,19 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     : PlaneBase(0, 0)
     , m_nEnemyType(enemyType)
 {
-    m_piEmitter = CEmitterGenerate::Generate(
-        1, false,
-        5, 220,
-        18.0 * PI / 36.0);
+    if (rand() % 50 == 1)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            3, false,
+            1, 200, 0);
+    }
+    else
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            1, false,
+            5, 220,
+            18.0 * PI / 36.0);
+    }
 
     int nRandom = rand() % 5;//随机随0-2产生的飞机从屏幕上方左中右出现
     //5号特殊敌机从下方出现
