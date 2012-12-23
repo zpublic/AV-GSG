@@ -25,7 +25,6 @@ CPrincipalPlane::CPrincipalPlane(int x, int y)
 
 CPrincipalPlane::~CPrincipalPlane()
 {
-
 }
 
 void CPrincipalPlane::InitGame()
@@ -33,8 +32,8 @@ void CPrincipalPlane::InitGame()
     m_nLifes = 2;
     SetBulletType(emBulletTypeAMMO0);
     m_nAction = STOP_MOVE;
-    m_nWidth = 49;
-    m_nHeight = 66;
+    m_nWidth = 20;
+    m_nHeight = 26;
     m_nSpeed = 350;
     InitPlane();
 }
