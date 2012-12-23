@@ -117,7 +117,7 @@ void CEnemyPlane::Update()
         new CBullet(
             m_nPosX + m_nWidth / 2 - 8, m_nPosY + m_nHeight,
             false, 5, 220,
-            (BulletType)(m_nEnemyType % 4), 17.0 * PI / 36.0);
+            (BulletType)(m_nEnemyType % 4), 18.0 * PI / 36.0);
     }
 
     if (CPrincipalPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))

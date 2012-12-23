@@ -98,21 +98,21 @@ void CPrincipalPlane::Update()
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(PI * 3.0 / 2.0));
+                m_nBulletType, float(PI * 3 / 2.0));
             break;
         case 3:
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 16, m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(17.0*PI/12.0));
+                m_nBulletType, float(17 * PI / 10.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(3.0*PI/2.0));
+                m_nBulletType, float(3 * PI / 2.0));
             new CBullet(
                 m_nPosX + m_nWidth / 2 , m_nPosY - 16,
                 true, 3, 10,
-                m_nBulletType, float(8.0*PI/5.0));
+                m_nBulletType, float(13 * PI / 10.0));
             break;
         case 8:
             new CBullet(
@@ -292,7 +292,7 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
         }
         return true;
     }
-    return false; 
+    return false;
 }
 
 void CPrincipalPlane::SetBulletType( BulletType bulletType )

@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="IEmitter.h" />
     <ClInclude Include="EnemyGenerate.h" />
     <ClInclude Include="EnemyPlane.h" />
     <ClInclude Include="Explosion.h" />
