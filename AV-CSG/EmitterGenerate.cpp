@@ -76,3 +76,49 @@ IEmitter* CEmitterGenerate::Generate(
 
     return pIEmitter;
 }
+
+IEmitter* CEmitterGenerate::GenerateEnemyEmitter()
+{
+    IEmitter* piEmitter = NULL;
+    int nEmitterRandom = rand() % 100;
+    if (nEmitterRandom < 5)
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            3, false,
+            1, 200, 0);
+    }
+    else if (nEmitterRandom < 20)
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            4, false,
+            1, 200, PI / 2.0);
+    }
+    else if (nEmitterRandom < 25)
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            6, false,
+            1, 200, 0);
+        piEmitter->SetFireTimeMax(0.1f);
+    }
+    else if (nEmitterRandom < 30)
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            7, false,
+            1, 300, 0);
+        piEmitter->SetFireTimeMax(0.3f);
+    }
+    else if (nEmitterRandom < 33)
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            8, false,
+            1, 300, 0);
+        piEmitter->SetFireTimeMax(2.0f);
+    }
+    else
+    {
+        piEmitter = CEmitterGenerate::Generate(
+            1, false,
+            5, 220, PI / 2.0);
+    }
+    return piEmitter;
+}

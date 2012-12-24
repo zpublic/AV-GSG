@@ -15,5 +15,7 @@ public:
         int nPower,
         int nSpeed,
         float fAngle);
+
+    static IEmitter* GenerateEnemyEmitter();
 };
 

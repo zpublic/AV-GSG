@@ -12,47 +12,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     , m_nEnemyType(enemyType)
 {
     m_fFireTime = 0.0f;
-    m_fFireTimeMax = 1.0f;
-    int nEmitterRandom = rand() % 100;
-    if (nEmitterRandom < 5)
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            3, false,
-            1, 200, 0);
-    }
-    else if (nEmitterRandom < 20)
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            4, false,
-            1, 200, PI / 2.0);
-    }
-    else if (nEmitterRandom < 25)
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            6, false,
-            1, 200, 0);
-        m_fFireTimeMax = 0.1f;
-    }
-    else if (nEmitterRandom < 30)
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            7, false,
-            1, 300, 0);
-        m_fFireTimeMax = 0.3f;
-    }
-    else if (nEmitterRandom < 33)
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            8, false,
-            1, 300, 0);
-        m_fFireTimeMax = 2.0f;
-    }
-    else
-    {
-        m_piEmitter = CEmitterGenerate::Generate(
-            1, false,
-            5, 220, PI / 2.0);
-    }
+    m_piEmitter = CEmitterGenerate::GenerateEnemyEmitter();
 
     switch (m_nEnemyType)
     {
@@ -126,7 +86,7 @@ void CEnemyPlane::Update()
     m_nPosY += (int)fDis;
 
     m_fFireTime += tD;
-    if (m_fFireTime > m_fFireTimeMax)
+    if (m_fFireTime > m_piEmitter->GetFireTimeMax())
     {
         m_fFireTime = 0.0f;
         m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8,
