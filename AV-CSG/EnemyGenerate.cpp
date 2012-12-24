@@ -28,14 +28,15 @@ void CEnemyGenerate::CreateEnemy()
             spEnemyHead  = pEnemy;
             AddEnemyCount();
         }
-        int x = rand() % 1000;
-        if (x < 90)
+        int x = rand() % 500;
+        if (x < 30)
         {
+            EnemyType pp = (EnemyType)(rand() % 5);
             for (int i = 0; i < 10; i++)
             {
                 CEnemyPlane* pEnemy = new CEnemyPlane(
-                    (EnemyType)(rand() % 5),
-                    x + i);
+                    pp,
+                    x + 3 * i);
                 pEnemy->m_pEmnemyNext = spEnemyHead;
                 spEnemyHead = pEnemy;
             }
