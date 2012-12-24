@@ -19,4 +19,3 @@ public:
 private:
     static GameStatus           m_emGameStatus;
 };
-
