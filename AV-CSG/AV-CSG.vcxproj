@@ -80,6 +80,7 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AimEmitter.h" />
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
@@ -111,6 +112,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AimEmitter.cpp" />
     <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="BigBulletEmitter.cpp" />
     <ClCompile Include="Bullet.cpp" />

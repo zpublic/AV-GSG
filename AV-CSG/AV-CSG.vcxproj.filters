@@ -130,6 +130,7 @@
     <ClInclude Include="SpinEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
+    <ClInclude Include="AimEmitter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -200,6 +201,9 @@
     </ClCompile>
     <ClCompile Include="SpinEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="AimEmitter.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

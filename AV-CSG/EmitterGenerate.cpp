@@ -6,6 +6,7 @@
 #include "CurveEmitter.h"
 #include "BigBulletEmitter.h"
 #include "SpinEmitter.h"
+#include "AimEmitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
@@ -56,6 +57,12 @@ IEmitter* CEmitterGenerate::Generate(
     else if (6 == nType)
     {
         CSpinEmitter* pEmitter = new CSpinEmitter();
+        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+    else if (7 == nType)
+    {
+        CAimEmitter* pEmitter = new CAimEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }

@@ -24,7 +24,7 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     {
         m_piEmitter = CEmitterGenerate::Generate(
             4, false,
-            1, 200, 18.0 * PI / 36.0);
+            1, 200, PI / 2.0);
     }
     else if (nEmitterRandom < 25)
     {
@@ -33,12 +33,18 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             1, 200, 0);
         m_fFireTimeMax = 0.1f;
     }
+    else if (nEmitterRandom < 30)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            7, false,
+            1, 300, 0);
+        m_fFireTimeMax = 0.3f;
+    }
     else
     {
         m_piEmitter = CEmitterGenerate::Generate(
             1, false,
-            5, 220,
-            18.0 * PI / 36.0);
+            5, 220, PI / 2.0);
     }
 
     switch (m_nEnemyType)
