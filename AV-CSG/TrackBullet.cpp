@@ -1,12 +1,13 @@
 #include "stdafx.h"
-#include "CurveBullet.h"
-#include "GameControler.h"
-#include "Explosion.h"
+#include "TrackBullet.h"
 #include "PrincipalPlane.h"
-#include "EnemyPlane.h"
+#include "GameControler.h"
 #include "EnemyGenerate.h"
+#include "Explosion.h"
+#include "EnemyPlane.h"
 
-CCurveBullet::CCurveBullet(
+
+CTrackBullet::CTrackBullet(
     int x, int y,
     bool bFriend,
     int nPower,
@@ -15,28 +16,31 @@ CCurveBullet::CCurveBullet(
     float fAngle)
     : CBullet(x, y, bFriend, nPower, nSpeed, bulletType, fAngle)
 {
-    m_nStatus = 7;
+    m_bNeedTrack = true;
 }
 
-CCurveBullet::~CCurveBullet(void)
+
+CTrackBullet::~CTrackBullet(void)
 {
 }
 
-void CCurveBullet::Update()
+void CTrackBullet::Update()
 {
+    int x = CPrincipalPlane::GetInstance()->GetX();
+    int y = CPrincipalPlane::GetInstance()->GetY();
+    if (m_bNeedTrack)
+    {
+        if (y < m_nPosY)
+            m_bNeedTrack = false;
+    }
+    if (m_bNeedTrack)
+    {
+        m_fAngle = Unit::CalcAngle(m_nPosX, m_nPosY, x, y);
+    }
+
     float fDis = CGameControler::GetInstance()->GetElapsedTime() * m_nSpeed;
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
-    if (m_nStatus < 15)
-    {
-        m_nPosX += 5;
-    }
-    else
-    {
-        m_nPosX -= 5;
-    }
-    m_nStatus++;
-    m_nStatus %= 30;
 
     m_nFrameStartX = m_nCurrentFrame * m_nWidth;
     ++m_nCurrentFrame;

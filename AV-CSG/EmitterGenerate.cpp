@@ -7,6 +7,7 @@
 #include "BigBulletEmitter.h"
 #include "SpinEmitter.h"
 #include "AimEmitter.h"
+#include "TrackEmitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
@@ -63,6 +64,12 @@ IEmitter* CEmitterGenerate::Generate(
     else if (7 == nType)
     {
         CAimEmitter* pEmitter = new CAimEmitter();
+        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        pIEmitter = static_cast<IEmitter *>(pEmitter);
+    }
+    else if (8 == nType)
+    {
+        CTrackEmitter* pEmitter = new CTrackEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }

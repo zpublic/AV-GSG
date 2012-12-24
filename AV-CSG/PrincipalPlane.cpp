@@ -1,7 +1,6 @@
 #include "StdAfx.h"
 #include "PrincipalPlane.h"
 #include "GameControler.h"
-#include <math.h>
 #include "EnemyPlane.h"
 #include "GameStatus.h"
 #include "EmitterGenerate.h"
@@ -177,7 +176,7 @@ void CPrincipalPlane::Render(HDC hDC)
     ///> ÏÔÊ¾°ËÎ»ÉúÃü
     for (int i = 0; i < 8; ++i)
     {
-        CPicturePool::pPictureNum->DrawBitmap(hDC, 440 + i * 16, 25, 16, 18, GetNumX(nScore, i) * 16, 0);
+        CPicturePool::pPictureNum->DrawBitmap(hDC, 440 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
     }
 
     CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);

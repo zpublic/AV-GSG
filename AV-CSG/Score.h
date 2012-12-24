@@ -17,5 +17,3 @@ public:
 private:
     static int m_nScore;
 };
-
-int GetNumX(int nScore, int i);

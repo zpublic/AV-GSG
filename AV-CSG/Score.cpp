@@ -42,37 +42,3 @@ int CScore::SubScore( int nValue /*= 1*/ )
     }
     return m_nScore;
 }
-
-int GetNumX(int nScore, int i)
-{
-    switch (i)
-    {
-    case 0:
-        return (nScore / 10000000) % 10;
-        break;
-    case 1:
-        return (nScore / 1000000) % 10;
-        break;
-    case 2:
-        return (nScore / 100000) % 10;
-        break;
-    case 3:
-        return (nScore / 10000) % 10;
-        break;
-    case 4:
-        return (nScore / 1000) % 10;
-        break;
-    case 5:
-        return (nScore / 100) % 10;
-        break;
-    case 6:
-        return (nScore / 10) % 10;
-        break;
-    case 7:
-        return nScore % 10;
-        break;
-    default:
-        break;
-    }
-    return 0;
-}

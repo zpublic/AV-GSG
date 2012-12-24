@@ -19,6 +19,8 @@
 
 #include <time.h>
 
-#include "GameDef.h"
+#include <math.h>
 
-// TODO: reference additional headers your program requires here
+#include "GameDef.h"
+#include "Unit.h"
+

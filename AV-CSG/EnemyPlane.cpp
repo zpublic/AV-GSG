@@ -40,6 +40,13 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
             1, 300, 0);
         m_fFireTimeMax = 0.3f;
     }
+    else if (nEmitterRandom < 33)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            8, false,
+            1, 300, 0);
+        m_fFireTimeMax = 2.0f;
+    }
     else
     {
         m_piEmitter = CEmitterGenerate::Generate(

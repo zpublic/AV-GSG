@@ -130,7 +130,18 @@
     <ClInclude Include="SpinEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
-    <ClInclude Include="AimEmitter.h" />
+    <ClInclude Include="AimEmitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackBullet.h">
+      <Filter>Source Files\gameobject\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackEmitter.h">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -202,8 +213,17 @@
     <ClCompile Include="SpinEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
+    <ClCompile Include="TrackBullet.cpp">
+      <Filter>Source Files\gameobject\bullet</Filter>
+    </ClCompile>
     <ClCompile Include="AimEmitter.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackEmitter.cpp">
+      <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
