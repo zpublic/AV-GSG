@@ -20,7 +20,7 @@ void CEnemyGenerate::CreateEnemy()
     m_sfLastCreateTime += CGameControler::GetInstance()->GetElapsedTime();
     if (m_sfLastCreateTime > 0.3f)//0.5秒产生一架敌机
     {
-        if (m_snEnemyCount < 10)
+        if (m_snEnemyCount < 20)
         {
             CEnemyPlane* pEnemy = new CEnemyPlane((EnemyType)(rand() % 5));
 
