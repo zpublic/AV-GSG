@@ -6,7 +6,7 @@
 class CEnemyPlane : public PlaneBase
 {
 public:
-    CEnemyPlane(EnemyType enemyType);
+    CEnemyPlane(EnemyType enemyType, int nPosX = -1);
     virtual ~CEnemyPlane(void);
 
     //Åö×²¼ì²â

@@ -28,6 +28,20 @@ void CEnemyGenerate::CreateEnemy()
             spEnemyHead  = pEnemy;
             AddEnemyCount();
         }
+        int x = rand() % 1000;
+        if (x < 90)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                CEnemyPlane* pEnemy = new CEnemyPlane(
+                    (EnemyType)(rand() % 5),
+                    x + i);
+                pEnemy->m_pEmnemyNext = spEnemyHead;
+                spEnemyHead = pEnemy;
+            }
+
+            AddEnemyCount(10);
+        }
         m_sfLastCreateTime -= 0.5f;
     }
 }

@@ -7,7 +7,7 @@
 #include "EmitterGenerate.h"
 #include "Score.h"
 
-CEnemyPlane::CEnemyPlane(EnemyType enemyType)
+CEnemyPlane::CEnemyPlane(EnemyType enemyType, int nPosX /* = -1 */ )
     : PlaneBase(0, 0)
     , m_nEnemyType(enemyType)
 {
@@ -48,15 +48,23 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
         break;
     }
 
-    int nRandom = rand() % 100;
-    if (nRandom == 0)
+    if (nPosX == -1)
     {
-        m_nPosX = 0;
+        int nRandom = rand() % 100;
+        if (nRandom == 0)
+        {
+            m_nPosX = 0;
+        }
+        else
+        {
+            m_nPosX = nRandom * SCREEN_WIDTH / 100 - m_nWidth / 2;
+        }
     }
     else
     {
-        m_nPosX = nRandom * SCREEN_WIDTH / 100 - m_nWidth / 2;
+        m_nPosX = nPosX * SCREEN_WIDTH / 100 - m_nWidth / 2;
     }
+
     m_nPosY = -m_nHeight + 2; 
 }
 
