@@ -26,11 +26,35 @@ CTrackBullet::~CTrackBullet(void)
 
 void CTrackBullet::Update()
 {
-    int x = CPrincipalPlane::GetInstance()->GetX();
-    int y = CPrincipalPlane::GetInstance()->GetY();
+    int x = 0, y = 0;
+    if (m_bFriend)
+    {
+        CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
+        if (temp == NULL)
+        {
+            m_bNeedTrack = false;
+        }
+        else
+        {
+            while (temp->m_pEmnemyNext != NULL)
+            {
+                temp = temp->m_pEmnemyNext;
+            }
+
+            {
+                x = temp->GetX();
+                y = temp->GetY();
+            }
+        }
+    }
+    else
+    {
+        x = CPrincipalPlane::GetInstance()->GetX();
+        y = CPrincipalPlane::GetInstance()->GetY();
+    }
     if (m_bNeedTrack)
     {
-        if (y < m_nPosY)
+        if ((y < m_nPosY) != m_bFriend)
             m_bNeedTrack = false;
     }
     if (m_bNeedTrack)

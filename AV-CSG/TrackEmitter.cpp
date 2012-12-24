@@ -14,9 +14,16 @@ CTrackEmitter::~CTrackEmitter(void)
 void CTrackEmitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 {
     float fAngle;
-    int x = CPrincipalPlane::GetInstance()->GetX();
-    int y = CPrincipalPlane::GetInstance()->GetY();
-    fAngle = Unit::CalcAngle(nPosX, nPosY, x, y);
+    if (m_bFriend)
+    {
+        fAngle = 1.5f * PI;
+    }
+    else
+    {
+        int x = CPrincipalPlane::GetInstance()->GetX();
+        int y = CPrincipalPlane::GetInstance()->GetY();
+        fAngle = Unit::CalcAngle(nPosX, nPosY, x, y);
+    }
 
     new CTrackBullet(
         nPosX, nPosY,

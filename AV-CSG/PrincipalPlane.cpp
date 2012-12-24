@@ -238,7 +238,13 @@ void CPrincipalPlane::SetBulletType( BulletType bulletType )
 {
     delete m_piEmitter;
     m_nBulletType = bulletType;
-    if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
+    if (m_nBulletType == emBulletTypeAMMO4)
+    {
+        m_piEmitter = CEmitterGenerate::Generate(
+            8, true,
+            10, 800, 0);
+    }
+    else if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
     {
         m_piEmitter = CEmitterGenerate::Generate(
             2, true,
