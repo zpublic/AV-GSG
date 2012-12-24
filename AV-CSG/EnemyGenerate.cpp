@@ -5,6 +5,7 @@
 
 float CEnemyGenerate::m_sfLastCreateTime = 0.0;
 int CEnemyGenerate::m_snEnemyCount = 0;
+CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
 
 CEnemyGenerate::CEnemyGenerate(void)
 {
@@ -21,11 +22,35 @@ void CEnemyGenerate::CreateEnemy()
     {
         if (m_snEnemyCount < 10)
         {
-            new CEnemyPlane((EnemyType)(rand() % 5));
+            CEnemyPlane* pEnemy = new CEnemyPlane((EnemyType)(rand() % 5));
+
+            pEnemy->m_pEmnemyNext = spEnemyHead;
+            spEnemyHead  = pEnemy;
             AddEnemyCount();
         }
         m_sfLastCreateTime -= 0.5f;
     }
+}
+
+void CEnemyGenerate::ReleaseEnemy(CEnemyPlane* pEnemy)
+{
+    if (spEnemyHead == pEnemy)
+    {
+        spEnemyHead = pEnemy->m_pEmnemyNext;
+    }
+    else
+    {
+        CEnemyPlane* temp = spEnemyHead;
+        for( ; temp->m_pEmnemyNext != NULL; temp = temp->m_pEmnemyNext)
+        {
+            if(temp->m_pEmnemyNext == pEnemy)
+            {
+                temp->m_pEmnemyNext = pEnemy->m_pEmnemyNext;
+                break;
+            }
+        }
+    }
+    SubEnemyCount();
 }
 
 int CEnemyGenerate::GetEnemyCount()

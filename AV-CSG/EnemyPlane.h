@@ -16,7 +16,6 @@ public:
     virtual void Update();
     virtual bool IsVisible();
 
-    static CEnemyPlane *spEnemyHead;
     CEnemyPlane * m_pEmnemyNext;
 
 private:

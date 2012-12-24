@@ -7,8 +7,6 @@
 #include "EmitterGenerate.h"
 #include "Score.h"
 
-CEnemyPlane * CEnemyPlane::spEnemyHead = NULL;
-
 CEnemyPlane::CEnemyPlane(EnemyType enemyType)
     : PlaneBase(0, 0)
     , m_nEnemyType(enemyType)
@@ -87,30 +85,11 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType)
         m_nPosX = nRandom * SCREEN_WIDTH / 100 - m_nWidth / 2;
     }
     m_nPosY = -m_nHeight + 2; 
-
-    m_pEmnemyNext = spEnemyHead;
-    spEnemyHead  = this;
 }
 
 CEnemyPlane::~CEnemyPlane(void)
 {
-    CEnemyGenerate::SubEnemyCount();
-    if (spEnemyHead == this)
-    {
-        spEnemyHead = this->m_pEmnemyNext;
-    }
-    else
-    {
-        CEnemyPlane* temp = spEnemyHead;
-        for( ; temp->m_pEmnemyNext != NULL; temp = temp->m_pEmnemyNext)
-        {
-            if(temp->m_pEmnemyNext == this)
-            {
-                temp->m_pEmnemyNext = this->m_pEmnemyNext;
-                return;
-            }
-        }
-    }
+    CEnemyGenerate::ReleaseEnemy(this);
 }
 
 bool CEnemyPlane::IsVisible()

@@ -5,6 +5,7 @@
 #include "PrincipalPlane.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
+#include "EnemyGenerate.h"
 
 CBullet::CBullet(int x, int y,
                  bool bFriend,
@@ -116,7 +117,7 @@ void CBullet::Update()
 
     if (m_bFriend)
     {
-        CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
+        CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
         for( ; temp!=NULL; temp=temp->m_pEmnemyNext )
         {
             if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))

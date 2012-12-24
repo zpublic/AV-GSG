@@ -6,6 +6,7 @@
 #include "GameStatus.h"
 #include "EmitterGenerate.h"
 #include "Score.h"
+#include "EnemyGenerate.h"
 
 CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
 
@@ -150,7 +151,7 @@ void CPrincipalPlane::Control(ActionType actionType)
         {
             IEmitter* iEmitter = CEmitterGenerate::Generate(5, true, 0, 0, 0);
             iEmitter->Emit(0, 0, emBulletTypeAmmoAll1);
-            CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
+            CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {
                 temp->CheckCollision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 100);

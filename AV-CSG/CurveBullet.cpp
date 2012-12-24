@@ -5,6 +5,7 @@
 #include "Explosion.h"
 #include "PrincipalPlane.h"
 #include "EnemyPlane.h"
+#include "EnemyGenerate.h"
 
 CCurveBullet::CCurveBullet(
     int x, int y,
@@ -44,7 +45,7 @@ void CCurveBullet::Update()
 
     if (m_bFriend)
     {
-        CEnemyPlane* temp = CEnemyPlane::spEnemyHead;
+        CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
         for( ; temp!=NULL; temp=temp->m_pEmnemyNext )
         {
             if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))
