@@ -54,7 +54,7 @@ void CTrackBullet::Update()
     }
     if (m_bNeedTrack)
     {
-        if ((y < m_nPosY) != m_bFriend)
+        if ((y < m_nPosY) && !m_bFriend)
             m_bNeedTrack = false;
     }
     if (m_bNeedTrack)
