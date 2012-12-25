@@ -225,21 +225,6 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
     case '4':
         m_pSelfPlane->SetBulletType(emBulletTypeAMMO3);
         break;
-    case '5':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO4);
-        break;
-    case '6':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO5);
-        break;
-    case '7':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO6);
-        break;
-    case 'Q':
-        m_pSelfPlane->SetBulletType(emBulletTypeAmmoSB);
-        break;
-    case 'E':
-        m_pSelfPlane->SetBulletType(emBulletTypeAmmoSB2);
-        break;
     case VK_SPACE:
     case 'K':
     case 'X':
