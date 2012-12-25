@@ -1,7 +1,7 @@
 #pragma once
 
-#define SCREEN_WIDTH        600
-#define SCREEN_HEIGHT       800
+#define SCREEN_WIDTH        500
+#define SCREEN_HEIGHT       700
 #define MSPERFRAME          30
 
 #define PI                  3.141592f
