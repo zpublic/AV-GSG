@@ -18,6 +18,6 @@ public:
 
     static IEmitter* GenerateEnemyEmitter();
 
-    static IEmitter* GenerateSelfEmitter();
+    static IEmitter* SelectSelfEmitter(int nLevel);
 };
 

@@ -122,3 +122,37 @@ IEmitter* CEmitterGenerate::GenerateEnemyEmitter()
     }
     return piEmitter;
 }
+
+IEmitter* CEmitterGenerate::SelectSelfEmitter( int nLevel )
+{
+    IEmitter* piEmitter = NULL;
+    switch (nLevel)
+    {
+    case 1:
+        piEmitter = CEmitterGenerate::Generate(
+            1, true,
+            3, 200, float(PI * 3 / 2.0));
+        break;
+    case 2:
+        piEmitter = CEmitterGenerate::Generate(
+            2, true,
+            3, 200, 0);
+        break;
+    case 3:
+        piEmitter = CEmitterGenerate::Generate(
+            3, true,
+            3, 200, 0);
+        break;
+    case 4:
+        piEmitter = CEmitterGenerate::Generate(
+            8, true,
+            10, 800, 0);
+        break;
+    default:
+        piEmitter = CEmitterGenerate::Generate(
+            1, true,
+            3, 200, float(PI * 3 / 2.0));
+        break;
+    }
+    return piEmitter;
+}

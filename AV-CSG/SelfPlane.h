@@ -24,7 +24,7 @@ private:
     void InitPlane();
 
 private:
-    static CSelfPlane*     pCSelfPlane;
+    static CSelfPlane*          pCSelfPlane;
     BulletType                  m_nBulletType;
     int                         m_nLifes;
     float                       m_fBulletFrequency;

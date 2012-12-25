@@ -240,26 +240,18 @@ void CSelfPlane::SetBulletType( BulletType bulletType )
     m_nBulletType = bulletType;
     if (m_nBulletType == emBulletTypeAMMO4)
     {
-        m_piEmitter = CEmitterGenerate::Generate(
-            8, true,
-            10, 800, 0);
+        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(4);
     }
     else if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
     {
-        m_piEmitter = CEmitterGenerate::Generate(
-            2, true,
-            3, 200, 0);
+        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(2);
     }
     else if (m_nBulletType == emBulletTypeAmmoSB)
     {
-        m_piEmitter = CEmitterGenerate::Generate(
-            3, true,
-            3, 200, 0);
+        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(3);
     }
     else
     {
-        m_piEmitter = CEmitterGenerate::Generate(
-            1, true,
-            3, 200, float(PI * 3 / 2.0));
+        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(1);
     }
 }
