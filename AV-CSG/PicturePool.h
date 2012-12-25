@@ -6,6 +6,7 @@ class CPicturePool
 {
 public:
     CPicture** GetPicture(PictureType picType);
+    CPicture** GetPicture(PicID picID);
     void FreeImage();
 
     static CPicturePool * GetInstance();

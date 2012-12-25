@@ -130,3 +130,14 @@ CPicture** CPicturePool::GetPicture(PictureType picType)
     }
     return ppPic;
 }
+
+CPicture** CPicturePool::GetPicture( PicID picID )
+{
+    CPicture** ppPic = NULL;
+    auto it = m_mapPic.find(picID);
+    if (it != m_mapPic.end())
+    {
+        ppPic = &it->second;
+    }
+    return ppPic;
+}
