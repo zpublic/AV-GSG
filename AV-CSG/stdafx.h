@@ -18,8 +18,9 @@
 #include <tchar.h>
 
 #include <time.h>
-
 #include <math.h>
+#include <map>
+#include <string>
 
 #include "GameDef.h"
 #include "Unit.h"

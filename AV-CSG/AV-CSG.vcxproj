@@ -103,6 +103,7 @@
     <ClInclude Include="Line8Emitter.h" />
     <ClInclude Include="LineEmitter.h" />
     <ClInclude Include="Picture.h" />
+    <ClInclude Include="PictureMap.h" />
     <ClInclude Include="PicturePool.h" />
     <ClInclude Include="BigBullet.h" />
     <ClInclude Include="SelfPlane.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Line8Emitter.cpp" />
     <ClCompile Include="LineEmitter.cpp" />
     <ClCompile Include="Picture.cpp" />
+    <ClCompile Include="PictureMap.cpp" />
     <ClCompile Include="PicturePool.cpp" />
     <ClCompile Include="BigBullet.cpp" />
     <ClCompile Include="SelfPlane.cpp" />
