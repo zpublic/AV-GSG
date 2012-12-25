@@ -15,6 +15,8 @@ private:
     CPicture* m_pPictureAmmo[emBulletTypeMax];
     CPicture* m_pPictureEnemy[emEnemyTypeMax];
 
+    std::map<int, CPicture*> m_mapPic;
+
     static CPicturePool* m_pPicturePool;
 
     CPicturePool(void);

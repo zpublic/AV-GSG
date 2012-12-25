@@ -23,6 +23,11 @@ CPicturePool::~CPicturePool(void)
 
 void CPicturePool::FreeImage()
 {
+    for (auto i = m_mapPic.begin(); i != m_mapPic.end(); ++i)
+    {
+        i->second->FreeBitmap();
+    }
+    m_mapPic.clear();
     for (int i = 0; i < emBlastTypeMax; ++i)
     {
         m_pPictureBlast[i]->FreeBitmap();
