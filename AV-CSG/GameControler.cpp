@@ -172,7 +172,6 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
         m_nPreKey = m_nCurKey;
         m_nCurKey = nKeyCode;
 
-
         if ( (m_nPreKey + m_nCurKey)%'A' == 0)
         {
             m_pSelfPlane->Control(LEFT);
