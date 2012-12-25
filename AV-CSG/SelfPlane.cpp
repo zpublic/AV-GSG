@@ -176,7 +176,7 @@ void CSelfPlane::Render(HDC hDC)
     ///> ÏÔÊ¾°ËÎ»ÉúÃü
     for (int i = 0; i < 8; ++i)
     {
-        CPicturePool::pPictureNum->DrawBitmap(hDC, 440 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
+        CPicturePool::pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
     }
 
     CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
