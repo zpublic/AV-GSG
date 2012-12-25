@@ -36,6 +36,9 @@
     <Filter Include="Source Files\gameobject\generate">
       <UniqueIdentifier>{88925edc-52ba-4f9b-b1f0-adec8de6eca7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\data\tinyxml">
+      <UniqueIdentifier>{f23f0d2f-4807-4d10-a04f-1f56670b27b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -145,6 +148,9 @@
     <ClInclude Include="SelfPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml-2.6.2\tinyxml.h">
+      <Filter>Source Files\data\tinyxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -227,6 +233,15 @@
     </ClCompile>
     <ClCompile Include="SelfPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml-2.6.2\tinyxml.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml-2.6.2\tinyxmlerror.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml-2.6.2\tinyxmlparser.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
