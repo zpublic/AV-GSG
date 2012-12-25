@@ -40,11 +40,8 @@ void CTrackBullet::Update()
             {
                 temp = temp->m_pEmnemyNext;
             }
-
-            {
-                x = temp->GetX();
-                y = temp->GetY();
-            }
+            x = temp->GetX();
+            y = temp->GetY();
         }
     }
     else
