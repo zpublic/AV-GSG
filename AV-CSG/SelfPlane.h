@@ -3,11 +3,11 @@
 #include "IPlane.h"
 
 ///> Ö÷¿Ø·É»úÀà
-class CPrincipalPlane : public PlaneBase
+class CSelfPlane : public PlaneBase
 {
 public:
-    static CPrincipalPlane * GetInstance();
-    virtual ~CPrincipalPlane();
+    static CSelfPlane * GetInstance();
+    virtual ~CSelfPlane();
 
     void InitGame();
 
@@ -20,11 +20,11 @@ public:
     void Control(ActionType actionType);
 
 private:
-    CPrincipalPlane(int x, int y);
+    CSelfPlane(int x, int y);
     void InitPlane();
 
 private:
-    static CPrincipalPlane*     pCPrincipalPlane;
+    static CSelfPlane*     pCSelfPlane;
     BulletType                  m_nBulletType;
     int                         m_nLifes;
     float                       m_fBulletFrequency;

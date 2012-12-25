@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TrackEmitter.h"
 #include "TrackBullet.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 
 CTrackEmitter::CTrackEmitter(void)
 {
@@ -20,8 +20,8 @@ void CTrackEmitter::Emit( int nPosX, int nPosY, BulletType bulletType )
     }
     else
     {
-        int x = CPrincipalPlane::GetInstance()->GetX();
-        int y = CPrincipalPlane::GetInstance()->GetY();
+        int x = CSelfPlane::GetInstance()->GetX();
+        int y = CSelfPlane::GetInstance()->GetY();
         fAngle = Unit::CalcAngle(nPosX, nPosY, x, y);
     }
 

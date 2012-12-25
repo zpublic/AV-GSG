@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "TrackBullet.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "GameControler.h"
 #include "EnemyGenerate.h"
 #include "Explosion.h"
@@ -46,8 +46,8 @@ void CTrackBullet::Update()
     }
     else
     {
-        x = CPrincipalPlane::GetInstance()->GetX();
-        y = CPrincipalPlane::GetInstance()->GetY();
+        x = CSelfPlane::GetInstance()->GetX();
+        y = CSelfPlane::GetInstance()->GetY();
     }
     if (m_bNeedTrack)
     {
@@ -82,7 +82,7 @@ void CTrackBullet::Update()
     }
     else
     {
-        if (CPrincipalPlane::GetInstance()->CheckCollision(
+        if (CSelfPlane::GetInstance()->CheckCollision(
             m_nPosX, m_nPosY,
             m_nWidth, m_nHeight,
             m_nPower))

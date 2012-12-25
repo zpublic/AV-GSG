@@ -2,7 +2,7 @@
 #include "CurveBullet.h"
 #include "GameControler.h"
 #include "Explosion.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "EnemyPlane.h"
 #include "EnemyGenerate.h"
 
@@ -57,7 +57,7 @@ void CCurveBullet::Update()
     }
     else
     {
-        if (CPrincipalPlane::GetInstance()->CheckCollision(
+        if (CSelfPlane::GetInstance()->CheckCollision(
             m_nPosX, m_nPosY,
             m_nWidth, m_nHeight,
             m_nPower))

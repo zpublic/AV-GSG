@@ -33,6 +33,9 @@
     <Filter Include="Source Files\gameobject\emitter">
       <UniqueIdentifier>{c8f03913-e7a7-4972-8392-978a0dd9241c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gameobject\generate">
+      <UniqueIdentifier>{88925edc-52ba-4f9b-b1f0-adec8de6eca7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -76,9 +79,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClInclude>
-    <ClInclude Include="PrincipalPlane.h">
-      <Filter>Source Files\gameobject\plane</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
@@ -87,9 +87,6 @@
     </ClInclude>
     <ClInclude Include="BigBullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyGenerate.h">
-      <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
     <ClInclude Include="Picture.h">
       <Filter>Source Files\data\resourcedata</Filter>
@@ -107,9 +104,6 @@
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
     <ClInclude Include="LineEmitter.h">
-      <Filter>Source Files\gameobject\emitter</Filter>
-    </ClInclude>
-    <ClInclude Include="EmitterGenerate.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
     <ClInclude Include="Line3Emitter.h">
@@ -142,6 +136,15 @@
     <ClInclude Include="TrackEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
+    <ClInclude Include="EmitterGenerate.h">
+      <Filter>Source Files\gameobject\generate</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGenerate.h">
+      <Filter>Source Files\gameobject\generate</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfPlane.h">
+      <Filter>Source Files\gameobject\plane</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -165,17 +168,11 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
     </ClCompile>
-    <ClCompile Include="PrincipalPlane.cpp">
-      <Filter>Source Files\gameobject\plane</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
     <ClCompile Include="BigBullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyGenerate.cpp">
-      <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
     <ClCompile Include="Picture.cpp">
       <Filter>Source Files\data\resourcedata</Filter>
@@ -190,9 +187,6 @@
       <Filter>Source Files\control</Filter>
     </ClCompile>
     <ClCompile Include="LineEmitter.cpp">
-      <Filter>Source Files\gameobject\emitter</Filter>
-    </ClCompile>
-    <ClCompile Include="EmitterGenerate.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
     <ClCompile Include="CurveBullet.cpp">
@@ -224,6 +218,15 @@
     </ClCompile>
     <ClCompile Include="TrackEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitterGenerate.cpp">
+      <Filter>Source Files\gameobject\generate</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGenerate.cpp">
+      <Filter>Source Files\gameobject\generate</Filter>
+    </ClCompile>
+    <ClCompile Include="SelfPlane.cpp">
+      <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

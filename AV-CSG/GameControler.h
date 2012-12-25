@@ -1,6 +1,6 @@
 #pragma once
 
-class CPrincipalPlane;
+class CSelfPlane;
 
 ///> 游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵
 class CGameControler
@@ -50,6 +50,6 @@ private:
     int     m_nPreKey;
     int     m_nCurKey;
 
-    CPrincipalPlane *m_pPrincipalPlane;
+    CSelfPlane *m_pSelfPlane;
 };
 

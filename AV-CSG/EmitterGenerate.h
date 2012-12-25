@@ -17,5 +17,7 @@ public:
         float fAngle);
 
     static IEmitter* GenerateEnemyEmitter();
+
+    static IEmitter* GenerateSelfEmitter();
 };
 

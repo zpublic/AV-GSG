@@ -103,7 +103,7 @@
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PicturePool.h" />
     <ClInclude Include="BigBullet.h" />
-    <ClInclude Include="PrincipalPlane.h" />
+    <ClInclude Include="SelfPlane.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="SpinEmitter.h" />
@@ -134,7 +134,7 @@
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PicturePool.cpp" />
     <ClCompile Include="BigBullet.cpp" />
-    <ClCompile Include="PrincipalPlane.cpp" />
+    <ClCompile Include="SelfPlane.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="SpinEmitter.cpp" />
     <ClCompile Include="Sprite.cpp" />

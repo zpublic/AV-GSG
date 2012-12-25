@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Bullet.h"
 #include "GameControler.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
 #include "EnemyGenerate.h"
@@ -129,7 +129,7 @@ void CBullet::Update()
     }
     else
     {
-        if (CPrincipalPlane::GetInstance()->CheckCollision(
+        if (CSelfPlane::GetInstance()->CheckCollision(
             m_nPosX, m_nPosY,
             m_nWidth, m_nHeight,
             m_nPower))

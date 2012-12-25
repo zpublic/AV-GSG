@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "GameControler.h"
 #include "EnemyPlane.h"
 #include "GameStatus.h"
@@ -7,28 +7,28 @@
 #include "Score.h"
 #include "EnemyGenerate.h"
 
-CPrincipalPlane * CPrincipalPlane::pCPrincipalPlane = NULL;
+CSelfPlane * CSelfPlane::pCSelfPlane = NULL;
 
-CPrincipalPlane * CPrincipalPlane::GetInstance()
+CSelfPlane * CSelfPlane::GetInstance()
 {
-    if (NULL == pCPrincipalPlane)
+    if (NULL == pCSelfPlane)
     {
-        pCPrincipalPlane = new CPrincipalPlane(SCREEN_WIDTH/2 - 24, 350);
+        pCSelfPlane = new CSelfPlane(SCREEN_WIDTH/2 - 24, 350);
     }
-    return pCPrincipalPlane;
+    return pCSelfPlane;
 }
 
-CPrincipalPlane::CPrincipalPlane(int x, int y)
+CSelfPlane::CSelfPlane(int x, int y)
     : PlaneBase(x, y)
 {
     InitGame();
 }
 
-CPrincipalPlane::~CPrincipalPlane()
+CSelfPlane::~CSelfPlane()
 {
 }
 
-void CPrincipalPlane::InitGame()
+void CSelfPlane::InitGame()
 {
     m_nLifes = 2;
     SetBulletType(emBulletTypeAMMO0);
@@ -39,7 +39,7 @@ void CPrincipalPlane::InitGame()
     InitPlane();
 }
 
-void CPrincipalPlane::InitPlane()
+void CSelfPlane::InitPlane()
 {
     m_bIsStopMove = true;
     m_nHP = 100;	
@@ -53,7 +53,7 @@ void CPrincipalPlane::InitPlane()
     m_nWholeFired = 2;
 }
 
-void CPrincipalPlane::Update()
+void CSelfPlane::Update()
 {
     float tD = CGameControler::GetInstance()->GetElapsedTime();
     float fDis = tD * m_nSpeed;
@@ -99,7 +99,7 @@ void CPrincipalPlane::Update()
     }
 }
 
-void CPrincipalPlane::Control(ActionType actionType)
+void CSelfPlane::Control(ActionType actionType)
 {
     m_nAction = actionType;
     switch(actionType)
@@ -161,7 +161,7 @@ void CPrincipalPlane::Control(ActionType actionType)
     }
 }
 
-void CPrincipalPlane::Render(HDC hDC)
+void CSelfPlane::Render(HDC hDC)
 {
     CPicturePool::pPicturePlane->DrawBitmap(
         hDC,
@@ -184,7 +184,7 @@ void CPrincipalPlane::Render(HDC hDC)
     CPicturePool::pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
 }
 
-bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int power)
+bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
 {
     /*
     碰撞检测简单的用区域相交来计算
@@ -234,7 +234,7 @@ bool CPrincipalPlane::CheckCollision(int x, int y, int width, int height, int po
     return false;
 }
 
-void CPrincipalPlane::SetBulletType( BulletType bulletType )
+void CSelfPlane::SetBulletType( BulletType bulletType )
 {
     delete m_piEmitter;
     m_nBulletType = bulletType;

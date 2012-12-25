@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "EnemyPlane.h"
 #include "GameControler.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "Explosion.h"
 #include "EnemyGenerate.h"
 #include "EmitterGenerate.h"
@@ -102,7 +102,7 @@ void CEnemyPlane::Update()
             (BulletType)(m_nEnemyType % 4));
     }
 
-    if (CPrincipalPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))
+    if (CSelfPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))
     {
         m_bIsVisible = false;
         new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);

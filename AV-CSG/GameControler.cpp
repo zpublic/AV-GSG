@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "GameControler.h"
 #include "Sprite.h"
-#include "PrincipalPlane.h"
+#include "SelfPlane.h"
 #include "Bullet.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
@@ -27,7 +27,7 @@ CGameControler::CGameControler(void):m_nY(0),
 {
     m_nPreKey = m_nCurKey = 0;
     CPicturePool::LoadImage();
-    m_pPrincipalPlane = CPrincipalPlane::GetInstance();	
+    m_pSelfPlane = CSelfPlane::GetInstance();	
 
     m_hBitmapMap = NULL;
     m_hMemBitmap = NULL;
@@ -108,7 +108,7 @@ void CGameControler::StartGame()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
 
-    m_pPrincipalPlane->InitGame();
+    m_pSelfPlane->InitGame();
     CScore::Reset();
     CGameStatus::StartGame();
 }
@@ -175,76 +175,76 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
 
         if ( (m_nPreKey + m_nCurKey)%'A' == 0)
         {
-            m_pPrincipalPlane->Control(LEFT);
+            m_pSelfPlane->Control(LEFT);
         }
         else if ((m_nPreKey + m_nCurKey)%'D'==0)
         {
-            m_pPrincipalPlane->Control(RIGHT);
+            m_pSelfPlane->Control(RIGHT);
         }
         else if ((m_nPreKey + m_nCurKey)%'W' == 0)
         {
-            m_pPrincipalPlane->Control(UP);
+            m_pSelfPlane->Control(UP);
         }
         else if ((m_nPreKey + m_nCurKey)%'S' == 0)
         {
-            m_pPrincipalPlane->Control(DOWN);
+            m_pSelfPlane->Control(DOWN);
         }
         else if ((m_nPreKey + m_nCurKey) == ('A' + 'W'))
         {
-            m_pPrincipalPlane->Control(LEFT_UP);
+            m_pSelfPlane->Control(LEFT_UP);
 
         }
         else if ((m_nPreKey + m_nCurKey) == ('A' + 'S'))
         {
-            m_pPrincipalPlane->Control(LEFT_DOWN);
+            m_pSelfPlane->Control(LEFT_DOWN);
 
         }
         else if ((m_nPreKey + m_nCurKey) == ('D' + 'W'))
         {
-            m_pPrincipalPlane->Control(RIGHT_UP);
+            m_pSelfPlane->Control(RIGHT_UP);
 
         }
         else if ((m_nPreKey + m_nCurKey) == ('D' + 'S'))
         {
-            m_pPrincipalPlane->Control(RIGHT_DOWN);
+            m_pSelfPlane->Control(RIGHT_DOWN);
 
         }
         break;
     case 'J':
     case 'Z':
-        m_pPrincipalPlane->Control(FIRE);
+        m_pSelfPlane->Control(FIRE);
         break;
     case '1':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO0);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO0);
         break;
     case '2':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO1);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO1);
         break;
     case '3':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO2);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO2);
         break;
     case '4':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO3);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO3);
         break;
     case '5':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO4);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO4);
         break;
     case '6':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO5);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO5);
         break;
     case '7':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAMMO6);
+        m_pSelfPlane->SetBulletType(emBulletTypeAMMO6);
         break;
     case 'Q':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAmmoSB);
+        m_pSelfPlane->SetBulletType(emBulletTypeAmmoSB);
         break;
     case 'E':
-        m_pPrincipalPlane->SetBulletType(emBulletTypeAmmoSB2);
+        m_pSelfPlane->SetBulletType(emBulletTypeAmmoSB2);
         break;
     case VK_SPACE:
     case 'K':
     case 'X':
-        m_pPrincipalPlane->Control(FIREALL);
+        m_pSelfPlane->Control(FIREALL);
         break;
     }
 }
@@ -267,25 +267,25 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
             m_nPreKey = 0;
             if ((m_nPreKey + m_nCurKey) % 'A' ==0)
             {
-                m_pPrincipalPlane->Control(LEFT);
+                m_pSelfPlane->Control(LEFT);
             }
             else if ((m_nPreKey + m_nCurKey) % 'D' == 0)
             {
-                m_pPrincipalPlane->Control(RIGHT);
+                m_pSelfPlane->Control(RIGHT);
             }
             else if ((m_nPreKey + m_nCurKey) % 'W' == 0)
             {
-                m_pPrincipalPlane->Control(UP);
+                m_pSelfPlane->Control(UP);
             }
             else if ( (m_nPreKey + m_nCurKey) % 'S' == 0)
             {
-                m_pPrincipalPlane->Control(DOWN);
+                m_pSelfPlane->Control(DOWN);
             }
         }
         else
         {
             m_nCurKey = 0;
-            m_pPrincipalPlane->Control(STOP_MOVE);
+            m_pSelfPlane->Control(STOP_MOVE);
         }
     }
     else if (nKeyCode == m_nPreKey)
@@ -295,29 +295,29 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
             m_nPreKey = 0;
             if ((m_nPreKey + m_nCurKey) % 'A' ==0)
             {
-                m_pPrincipalPlane->Control(LEFT);
+                m_pSelfPlane->Control(LEFT);
             }
             else if ((m_nPreKey + m_nCurKey) % 'D' == 0)
             {
-                m_pPrincipalPlane->Control(RIGHT);
+                m_pSelfPlane->Control(RIGHT);
             }
             else if ((m_nPreKey + m_nCurKey) % 'W' == 0)
             {
-                m_pPrincipalPlane->Control(UP);
+                m_pSelfPlane->Control(UP);
             }
             else if ( (m_nPreKey + m_nCurKey) % 'S' == 0)
             {
-                m_pPrincipalPlane->Control(DOWN);
+                m_pSelfPlane->Control(DOWN);
             }
         }
         else
         {
             m_nPreKey = 0;
-            m_pPrincipalPlane->Control(STOP_MOVE);
+            m_pSelfPlane->Control(STOP_MOVE);
         }
     }
     else if ( nKeyCode == 'J' || nKeyCode == 'Z')
     {
-        m_pPrincipalPlane->Control(STOP_FIRE);
+        m_pSelfPlane->Control(STOP_FIRE);
     }
 }
