@@ -1,11 +1,10 @@
 #include "stdafx.h"
 #include "Unit.h"
-
+#include <shlwapi.h>
 
 Unit::Unit(void)
 {
 }
-
 
 Unit::~Unit(void)
 {
@@ -75,4 +74,32 @@ float Unit::CalcAngle(int nPosX, int nPosY, int x, int y)
             fAngle = Result;
     }
     return fAngle;
+}
+
+BOOL Unit::GetXmlStrAttribute( TiXmlElement *pElement, char *pName, std::wstring &strData )
+{
+    if (pElement)
+    {
+        const char *pStr = pElement->Attribute(pName);
+        if (pStr)
+        {
+            strData = std::wstring(CA2W(pStr));
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+BOOL Unit::GetXmlIntAttribute( TiXmlElement *pElement, char *pName, int &nData )
+{
+    if (pElement)
+    {
+        const char *pStr = pElement->Attribute(pName);
+        if (pStr)
+        {
+            nData = ::StrToIntA(pStr);
+            return TRUE;
+        }
+    }
+    return FALSE;
 }

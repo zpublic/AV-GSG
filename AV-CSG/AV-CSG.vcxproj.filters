@@ -151,7 +151,9 @@
     <ClInclude Include="tinyxml-2.6.2\tinyxml.h">
       <Filter>Source Files\data\tinyxml</Filter>
     </ClInclude>
-    <ClInclude Include="PictureMap.h" />
+    <ClInclude Include="PictureMap.h">
+      <Filter>Source Files\data\resourcedata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -245,7 +247,7 @@
       <Filter>Source Files\data\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="PictureMap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\data\resourcedata</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

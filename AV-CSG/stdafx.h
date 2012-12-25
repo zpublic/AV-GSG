@@ -17,10 +17,15 @@
 #include <memory.h>
 #include <tchar.h>
 
+#include <atlbase.h>
+#include <atlconv.h>
+
 #include <time.h>
 #include <math.h>
 #include <map>
 #include <string>
+
+#include "tinyxml.h"
 
 #include "GameDef.h"
 #include "Unit.h"

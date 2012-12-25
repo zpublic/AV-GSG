@@ -10,7 +10,7 @@ typedef struct _PictureNode
     }
 
     std::wstring strPath;
-    BYTE r,g,b;
+    int r,g,b;
 }PictureNode;
 
 ///> Õº∆¨◊ ‘¥xmlº”‘ÿ
@@ -20,6 +20,9 @@ public:
     CPictureMap(void);
     ~CPictureMap(void);
 
-    BOOL LoadXml(LPCWSTR lpFilePath, std::map<int, PictureNode>& m_mapPicture);
+    bool LoadXml(LPCWSTR lpFilePath, std::map<int, PictureNode>& mapPicture);
+
+private:
+    void GetPictureNode( TiXmlElement* pElement, std::map<int, PictureNode>& mapPicture );
 };
 
