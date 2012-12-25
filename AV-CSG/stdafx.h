@@ -27,6 +27,7 @@
 
 #include "tinyxml.h"
 
+#include "PictureDef.h"
 #include "GameDef.h"
 #include "Unit.h"
 

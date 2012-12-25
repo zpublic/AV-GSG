@@ -105,6 +105,7 @@
     <ClInclude Include="Line8Emitter.h" />
     <ClInclude Include="LineEmitter.h" />
     <ClInclude Include="Picture.h" />
+    <ClInclude Include="PictureDef.h" />
     <ClInclude Include="PictureMap.h" />
     <ClInclude Include="PicturePool.h" />
     <ClInclude Include="BigBullet.h" />

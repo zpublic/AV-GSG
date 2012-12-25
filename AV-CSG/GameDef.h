@@ -4,13 +4,6 @@
 #define SCREEN_HEIGHT       700
 #define MSPERFRAME          30
 
-#define XML_ROOT_ELEMENT_NAME   "root"
-#define XML_PIC_ELEMENT_ID      "id"
-#define XML_PIC_ELEMENT_R       "r"
-#define XML_PIC_ELEMENT_G       "g"
-#define XML_PIC_ELEMENT_B       "b"
-#define XML_PIC_ELEMENT_PATH    "path"
-
 #define PI                  3.141592f
 
 //定义子弹类型

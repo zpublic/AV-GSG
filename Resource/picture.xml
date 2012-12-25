@@ -1,9 +1,9 @@
 <root>
-    <item id="1" path="Resource\\Ammo0.bmp" r="255" g="0" b="255" />;
-    <item id="2" path="Resource\\Ammo1.bmp" r="255" g="0" b="255" />;
-    <item id="3" path="Resource\\Ammo2.bmp" r="255" g="0" b="255" />;
-    <item id="4" path="Resource\\Ammo3.bmp" r="255" g="0" b="255" />;
-    <item id="5" path="Resource\\Ammo4.bmp" r="255" g="0" b="255" />;
-    <item id="6" path="Resource\\Ammo5.bmp" r="0" g="0" b="0" />;
-    <item id="7" path="Resource\\Ammo6.bmp" r="0" g="0" b="0" />;
+    <item id="1" path="Resource\Ammo0.bmp" r="255" g="0" b="255" />
+    <item id="2" path="Resource\Ammo1.bmp" r="255" g="0" b="255" />
+    <item id="3" path="Resource\Ammo2.bmp" r="255" g="0" b="255" />
+    <item id="4" path="Resource\Ammo3.bmp" r="255" g="0" b="255" />
+    <item id="5" path="Resource\Ammo4.bmp" r="255" g="0" b="255" />
+    <item id="6" path="Resource\Ammo5.bmp" r="0" g="0" b="0" />
+    <item id="7" path="Resource\Ammo6.bmp" r="0" g="0" b="0" />
 </root>

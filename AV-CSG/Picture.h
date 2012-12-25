@@ -19,7 +19,7 @@ public:
         int nYOriginSrc);           //位图起始Y坐标
 
     //需要提供文件名和用于设置透明的掩码色，因为找到的图片背景有白有红有绿，因此设置了此参数
-    void LoadBitmap(TCHAR *szFileName, COLORREF clTransparent);
+    void LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent);
 
     //获取位图资源句柄
     HBITMAP GetBitmap(){ return m_hBitmap; }
@@ -30,7 +30,7 @@ public:
     void FreeBitmap();
 private:
     //加载位图资源
-    void LoadBitmap(TCHAR *szFileName);
+    void LoadBitmap(const TCHAR *szFileName);
 
     //将图片进行透明处理
     void TransparentBitmap();

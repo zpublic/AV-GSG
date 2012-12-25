@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "PicturePool.h"
+#include "PictureMap.h"
 
 CPicturePool * CPicturePool::m_pPicturePool = NULL;
 
@@ -49,6 +50,22 @@ void CPicturePool::FreeImage()
 
 void CPicturePool::LoadImage()
 {
+    CPictureMap picMap;
+    std::map<int, PictureNode> mapPicture;
+    TCHAR filePath[MAX_PATH] = {0};
+    ::GetModuleFileName(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpec(filePath);
+    ::PathAppend(filePath, _T("Resource\\picture.xml"));
+    picMap.LoadXml(filePath, mapPicture);
+    for (auto i = mapPicture.begin(); i != mapPicture.end(); ++i)
+    {
+        CPicture* pPic = new CPicture();
+        pPic->LoadBitmap(
+            i->second.strPath.c_str(),
+            RGB(i->second.r, i->second.g, i->second.b));
+        m_mapPic[i->first] = pPic;
+    }
+
     for (int i = 0; i < emBlastTypeMax; ++i)
     {
         m_pPictureBlast[i] = new CPicture();

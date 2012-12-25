@@ -24,7 +24,7 @@ void CPicture::FreeBitmap()
     }
 }
 
-void CPicture::LoadBitmap(TCHAR *szFileName)
+void CPicture::LoadBitmap(const TCHAR *szFileName)
 {
     if (m_hBitmap)
     {
@@ -40,7 +40,7 @@ void CPicture::LoadBitmap(TCHAR *szFileName)
     m_nHeight = bmpTemp.bmHeight;
 }
 
-void CPicture::LoadBitmap(TCHAR *szFileName, COLORREF clTransparent)
+void CPicture::LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent)
 {
     LoadBitmap(szFileName);
     m_TransColor = clTransparent;
