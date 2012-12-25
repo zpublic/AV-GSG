@@ -26,7 +26,6 @@ CGameControler::CGameControler(void):m_nY(0),
     m_fElapsedTime(0)
 {
     m_nPreKey = m_nCurKey = 0;
-    CPicturePool::LoadImage();
     m_pSelfPlane = CSelfPlane::GetInstance();	
 
     m_hBitmapMap = NULL;
@@ -42,7 +41,7 @@ CGameControler::~CGameControler(void)
 
 void CGameControler::Exit()
 {
-    CPicturePool::FreeImage();
+    CPicturePool::GetInstance()->FreeImage();
     if (m_hMemDC)
     {
         DeleteDC(m_hMemDC);

@@ -112,7 +112,7 @@ void CEnemyPlane::Update()
 
 void CEnemyPlane::Render(HDC hDC)
 {
-    CPicturePool::GetPicture(emPicTypePlane)[m_nEnemyType]->DrawBitmap(
+    CPicturePool::GetInstance()->GetPicture(emPicTypePlane)[m_nEnemyType]->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,

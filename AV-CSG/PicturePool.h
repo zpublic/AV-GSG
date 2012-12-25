@@ -5,24 +5,28 @@
 class CPicturePool
 {
 public:
+    CPicture** GetPicture(PictureType picType);
+    void FreeImage();
+
+    static CPicturePool * GetInstance();
+
+private:
+    CPicture* m_pPictureBlast[emBlastTypeMax];
+    CPicture* m_pPictureAmmo[emBulletTypeMax];
+    CPicture* m_pPictureEnemy[emEnemyTypeMax];
+
+    static CPicturePool* m_pPicturePool;
+
     CPicturePool(void);
     ~CPicturePool(void);
 
-    static void FreeImage();
-    static void LoadImage();
-
-    static CPicture** GetPicture(PictureType picType);
-
-private:
-    static CPicture* m_pPictureBlast[emBlastTypeMax];
-    static CPicture* m_pPictureAmmo[emBulletTypeMax];
-    static CPicture* m_pPictureEnemy[emEnemyTypeMax];
+    void LoadImage();
 
 public:
-    static CPicture*            pPicturePlane;      //·É»úÍ¼Æ¬
-    static CPicture*            pPictureLife;       //ÉúÃüÍ¼Æ¬
-    static CPicture*            pPictureHP;
-    static CPicture*            pPictureHPSide;
-    static CPicture*            pPictureNum;
+    CPicture*            pPicturePlane;      //·É»úÍ¼Æ¬
+    CPicture*            pPictureLife;       //ÉúÃüÍ¼Æ¬
+    CPicture*            pPictureHP;
+    CPicture*            pPictureHPSide;
+    CPicture*            pPictureNum;
 };
 

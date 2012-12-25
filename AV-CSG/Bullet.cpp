@@ -97,7 +97,7 @@ bool CBullet::IsVisible()
 
 void CBullet::Render(HDC hDC)
 {
-    CPicturePool::GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
+    CPicturePool::GetInstance()->GetPicture(emPicTypeBullet)[m_nBulletType]->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,

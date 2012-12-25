@@ -1,14 +1,17 @@
 #include "stdafx.h"
 #include "PicturePool.h"
 
-CPicture* CPicturePool::m_pPictureBlast[emBlastTypeMax] = {0};
-CPicture* CPicturePool::m_pPictureAmmo[emBulletTypeMax] = {0};
-CPicture* CPicturePool::m_pPictureEnemy[emEnemyTypeMax] = {0};
-CPicture* CPicturePool::pPictureLife = NULL;
-CPicture* CPicturePool::pPicturePlane = NULL;
-CPicture* CPicturePool::pPictureHP = NULL;
-CPicture* CPicturePool::pPictureHPSide = NULL;
-CPicture* CPicturePool::pPictureNum = NULL;
+CPicturePool * CPicturePool::m_pPicturePool = NULL;
+
+CPicturePool * CPicturePool::GetInstance()
+{
+    if (NULL == m_pPicturePool)
+    {
+        m_pPicturePool = new CPicturePool();
+        m_pPicturePool->LoadImage();
+    }
+    return m_pPicturePool;
+}
 
 CPicturePool::CPicturePool(void)
 {

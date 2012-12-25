@@ -163,25 +163,25 @@ void CSelfPlane::Control(ActionType actionType)
 
 void CSelfPlane::Render(HDC hDC)
 {
-    CPicturePool::pPicturePlane->DrawBitmap(
+    CPicturePool::GetInstance()->pPicturePlane->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
         0, 0);
     for (int i = 0; i < m_nLifes - 1; ++i)
     {
-        CPicturePool::pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
+        CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
     int nScore = CScore::GetScore();
     ///> œ‘ æ∞ÀŒª…˙√¸
     for (int i = 0; i < 8; ++i)
     {
-        CPicturePool::pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
+        CPicturePool::GetInstance()->pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
     }
 
-    CPicturePool::pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
+    CPicturePool::GetInstance()->pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
 
-    CPicturePool::pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
+    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
 }
 
 bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
