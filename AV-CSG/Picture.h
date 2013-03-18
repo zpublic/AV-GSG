@@ -4,9 +4,6 @@
 *	但是有另一种方法实现动态屏蔽图以达到透明的效果。原理请看http://qsjming.blog.51cto.com/1159640/536331和http://blog.csdn.net/suolao/article/details/4582206
 */
 
-#include "GameDef.h"
-#include "PictureDef.h"
-
 class CPicture
 {
 public:

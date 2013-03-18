@@ -19,8 +19,6 @@ public:
     int PosY;
 }PosObject;
 
-/*
-
 class CCustomXMLOBject
 {
 public:
@@ -78,5 +76,4 @@ private:
 
 CCustomXMLParse CCustomXMLParse::m_XMLParse;
 
-*/
 #endif

@@ -132,11 +132,9 @@
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
     <ClCompile Include="CustomXMLParser.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="EasyCustom.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="EasyCustom.cpp" />
     <ClCompile Include="EmitterGenerate.cpp" />
     <ClCompile Include="EnemyGenerate.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
