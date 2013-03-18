@@ -37,7 +37,8 @@ enum ActionType
     STOP_MOVE,
     FIRE,
     STOP_FIRE,
-    FIREALL
+    FIREALL,
+    WILL,
 };
 
 //敌机类型
@@ -68,6 +69,7 @@ enum GameStatus
     emGameStatusReady,
     emGameStatusOver,
     emGameStatusRuning,
+    emGameStatusPause,  ///> 暂停
 };
 
 // 图片类型

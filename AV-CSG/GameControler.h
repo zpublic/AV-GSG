@@ -25,6 +25,10 @@ public:
     void SetWndDC(HDC hDC);
 
     void StartGame();
+    void PauseGame();
+    void RecoveGame();
+
+    bool IsPause();
 
     void Exit();
 private:
@@ -49,6 +53,8 @@ private:
 
     int     m_nPreKey;
     int     m_nCurKey;
+
+    bool    m_IsPause;
 
     CSelfPlane *m_pSelfPlane;
 };

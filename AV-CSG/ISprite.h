@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Windows.h>
+
 ///> 精灵类的接口定义
 class ISprite
 {

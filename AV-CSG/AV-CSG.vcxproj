@@ -88,9 +88,12 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CustomXMLParser.h" />
     <ClInclude Include="CurveBullet.h" />
     <ClInclude Include="CurveEmitter.h" />
+    <ClInclude Include="EasyCustom.h" />
     <ClInclude Include="EmitterGenerate.h" />
+    <ClInclude Include="ICustom.h" />
     <ClInclude Include="IEmitter.h" />
     <ClInclude Include="EnemyGenerate.h" />
     <ClInclude Include="EnemyPlane.h" />
@@ -128,6 +131,12 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="CustomXMLParser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EasyCustom.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="EmitterGenerate.cpp" />
     <ClCompile Include="EnemyGenerate.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
