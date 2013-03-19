@@ -42,7 +42,7 @@
     <Filter Include="unit">
       <UniqueIdentifier>{f4451db4-dced-4fed-a994-47cfc5e9a2f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\control\Customs">
+    <Filter Include="Source Files\control\XmlParser">
       <UniqueIdentifier>{4b02a30f-69a6-44d3-a891-884b627c01e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -163,14 +163,23 @@
     <ClInclude Include="PictureDef.h">
       <Filter>unit</Filter>
     </ClInclude>
-    <ClInclude Include="ICustom.h">
-      <Filter>Source Files\control\Customs</Filter>
+    <ClInclude Include="StageXMLParser.h">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
-    <ClInclude Include="EasyCustom.h">
-      <Filter>Source Files\control\Customs</Filter>
+    <ClInclude Include="Parse_def.h">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
-    <ClInclude Include="CustomXMLParser.h">
-      <Filter>Source Files\control\Customs</Filter>
+    <ClInclude Include="StageXMLEnemyOBject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLItemOBject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLStageObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -267,11 +276,20 @@
     <ClCompile Include="Unit.cpp">
       <Filter>unit</Filter>
     </ClCompile>
-    <ClCompile Include="EasyCustom.cpp">
-      <Filter>Source Files\control\Customs</Filter>
+    <ClCompile Include="StageXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClCompile>
-    <ClCompile Include="CustomXMLParser.cpp">
-      <Filter>Source Files\control\Customs</Filter>
+    <ClCompile Include="StageXMLStageObject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLItemOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLEnemyOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

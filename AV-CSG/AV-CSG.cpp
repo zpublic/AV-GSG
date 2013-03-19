@@ -176,6 +176,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_pGameControl = CGameControler::GetInstance();
     g_pGameControl->SetWndDC(g_hdc);
+    g_pGameControl->SetStageXML("../Stage/stage.xml");
 
     return TRUE;
 }

@@ -18,6 +18,7 @@ public:
     static CEnemyPlane *spEnemyHead;
 
 private:
+    static long m_Schedule;
     static float m_sfLastCreateTime;
     static int m_snEnemyCount;
 };

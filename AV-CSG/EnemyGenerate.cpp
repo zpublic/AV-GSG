@@ -5,7 +5,10 @@
 
 float CEnemyGenerate::m_sfLastCreateTime = 0.0;
 int CEnemyGenerate::m_snEnemyCount = 0;
+long CEnemyGenerate::m_Schedule = 0;
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
+
+#define MAX_SCHEDULE 1000000000
 
 CEnemyGenerate::CEnemyGenerate(void)
 {
@@ -18,8 +21,34 @@ CEnemyGenerate::~CEnemyGenerate(void)
 void CEnemyGenerate::CreateEnemy()
 {
     m_sfLastCreateTime += CGameControler::GetInstance()->GetElapsedTime();
-    if (m_sfLastCreateTime > 0.3f)//0.5秒产生一架敌机
+    if (m_Schedule > MAX_SCHEDULE)
     {
+        return;
+    }
+    m_Schedule++;
+    CStageXMLParse& XmlParse = CStageXMLParse::GetInstance();
+    for (auto it = XmlParse.Begin(); it != XmlParse.End(); it++)
+    {
+        if (XmlParse.Get("1") != NULL)
+        {
+            for (auto ItEnemy = XmlParse.Get("1")->EnemyBegin();
+                ItEnemy != XmlParse.Get("1")->EnemyEnd(); ItEnemy++)
+            {
+                if (ItEnemy->second->GetAppear() == m_Schedule)
+                {
+                    CEnemyPlane* pEnemy = new CEnemyPlane((EnemyType)(1),
+                    ItEnemy->second->GetPoint().PosX);
+                    pEnemy->m_pEmnemyNext = spEnemyHead;
+                    spEnemyHead = pEnemy;
+                    AddEnemyCount();
+                }
+            }
+            m_sfLastCreateTime -= 0.5f;
+        }
+    }
+    //if (m_sfLastCreateTime > 0.3f)//0.5秒产生一架敌机
+    {
+        /*
         if (m_snEnemyCount < 20)
         {
             CEnemyPlane* pEnemy = new CEnemyPlane((EnemyType)(rand() % 5));
@@ -43,7 +72,8 @@ void CEnemyGenerate::CreateEnemy()
 
             AddEnemyCount(10);
         }
-        m_sfLastCreateTime -= 0.5f;
+        */
+        //m_sfLastCreateTime -= 0.5f;
     }
 }
 

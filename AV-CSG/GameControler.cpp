@@ -25,7 +25,8 @@ CGameControler* CGameControler::GetInstance()
 CGameControler::CGameControler(void)
     : m_nY(0),
     m_fElapsedTime(0),
-    m_IsPause(false)
+    m_IsPause(false),
+    m_PresentStage(0)
 {
     m_nPreKey = m_nCurKey = 0;
     m_pSelfPlane = CSelfPlane::GetInstance();	
@@ -39,6 +40,11 @@ CGameControler::CGameControler(void)
 CGameControler::~CGameControler(void)
 {
 
+}
+
+void CGameControler::SetStageXML(const std::string& strPath)
+{
+    CStageXMLParse::GetInstance().LoadXML(strPath);
 }
 
 void CGameControler::Exit()
@@ -175,7 +181,7 @@ void CGameControler::UpdateScence()
     m_dwLastTime = m_dwCurrentTime;
     if (!CGameStatus::GetGamePause())
     {
-        CEnemyGenerate::CreateEnemy();
+        CEnemyGenerate::CreateEnemy(m_nY);
         CGameFrame::FrameUpdate();
         CGameFrame::FrameRender(m_hMemDC);
     }

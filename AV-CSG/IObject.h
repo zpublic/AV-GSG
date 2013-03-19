@@ -1,5 +1,5 @@
-#ifndef _CUSTOM_I
-#define _CUSTOM_I
+#ifndef _Object_I
+#define _Object_I
 
 #include <string>
 #include <vector>
@@ -12,15 +12,15 @@ using std::vector;
 typedef std::vector<std::pair<CEnemyPlane*, int> > EnemyList;
 typedef std::basic_string<TCHAR> TString;
 
-class ICustom
+class IObject
 {
 public:
-    ICustom() {}
-    virtual ~ICustom() {}
+    IObject() {}
+    virtual ~IObject() {}
     virtual void SetName(const TString& strName) = 0;
     virtual const TString& GetName() = 0;
-    virtual void SetCustomId(int strName) = 0;
-    virtual int GetCustomId() = 0;
+    virtual void SetId(int strName) = 0;
+    virtual int GetId() = 0;
 
     virtual void SetEnemyBoss(const CEnemyPlane& epBoss) = 0;
     virtual const CEnemyPlane& GetEnemyBoss() = 0;
