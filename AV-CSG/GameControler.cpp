@@ -181,7 +181,7 @@ void CGameControler::UpdateScence()
     m_dwLastTime = m_dwCurrentTime;
     if (!CGameStatus::GetGamePause())
     {
-        CEnemyGenerate::CreateEnemy(m_nY);
+        CEnemyGenerate::CreateEnemy();
         CGameFrame::FrameUpdate();
         CGameFrame::FrameRender(m_hMemDC);
     }
