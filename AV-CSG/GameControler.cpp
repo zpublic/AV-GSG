@@ -22,8 +22,7 @@ CGameControler* CGameControler::GetInstance()
     return pGameControler;
 }
 
-CGameControler::CGameControler(void):m_nY(0),
-    m_fElapsedTime(0)
+CGameControler::CGameControler(void) : m_nY(0)
 {
     m_nPreKey = m_nCurKey = 0;
     m_pSelfPlane = CSelfPlane::GetInstance();	
@@ -131,19 +130,17 @@ void CGameControler::UpdateScence()
         return;
     }
 
-    m_dwCurrentTime = GetTickCount();
-    if (m_dwCurrentTime - m_dwLastTime < MSPERFRAME)
+    DWORD dwElapsed = ::GetTickCount() - m_dwLastTime;
+    if (dwElapsed < MSPERFRAME)
     {
-        return;
+        Sleep((DWORD)MSPERFRAME - dwElapsed);
     }
+    m_dwLastTime = ::GetTickCount();
 
     SelectObject(m_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(m_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
     CirculationMap();
-    m_fElapsedTime = (m_dwCurrentTime - m_dwLastTime) / 1000.0f;
-
-    m_dwLastTime = m_dwCurrentTime;
 
     CEnemyGenerate::CreateEnemy();
     CGameFrame::FrameUpdate();
@@ -303,4 +300,9 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
     {
         m_pSelfPlane->Control(STOP_FIRE);
     }
+}
+
+float CGameControler::GetElapsedTime()
+{
+    return MSPERFRAME / 1000.0f;
 }
