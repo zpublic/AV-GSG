@@ -1,12 +1,11 @@
 #pragma once
-
 #include "IPlane.h"
 
 ///> µÐ»úÀà
 class CEnemyPlane : public PlaneBase
 {
 public:
-    CEnemyPlane(EnemyType enemyType, int nPosX = -1);
+    CEnemyPlane(EnemyType enemyType, IEmitter* piEmitter, int nPosX = -1);
     virtual ~CEnemyPlane(void);
 
     //Åö×²¼ì²â
@@ -19,6 +18,8 @@ public:
     CEnemyPlane * m_pEmnemyNext;
 
 private:
+    CEnemyPlane();
+
     float   m_fFireTime;
     EnemyType   m_nEnemyType;
 };

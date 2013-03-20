@@ -23,9 +23,9 @@ CGameControler* CGameControler::GetInstance()
 }
 
 CGameControler::CGameControler(void)
-    : m_nY(0),
-    m_IsPause(false),
-    m_PresentStage(0)
+    : m_nY(0)
+    , m_IsPause(false)
+    , m_PresentStage(0)
 {
     m_nPreKey = m_nCurKey = 0;
     m_pSelfPlane = CSelfPlane::GetInstance();	
@@ -88,9 +88,12 @@ void CGameControler::CirculationMap()
     BitBlt(m_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
     BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
+        if (!m_IsPause)
+        {
     m_nY += 1;
     if(m_nY == SCREEN_HEIGHT)
         m_nY = 0;
+    }
 }
 
 void CGameControler::SetWndDC(HDC hDC)
@@ -130,21 +133,13 @@ void CGameControler::PauseGame()
     {
         return;
     }
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gamepause.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     m_IsPause = true;
-    SelectObject(m_hMapDC, m_hBitmapMap);
     CGameStatus::PauseGame();
 }
 
 void CGameControler::RecoveGame()
 {
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     m_IsPause = false;
-    SelectObject(m_hMapDC, m_hBitmapMap);
     CGameStatus::StartGame();
 }
 
@@ -152,18 +147,21 @@ void CGameControler::UpdateScence()
 {
     if (!CGameStatus::IsNeedUpdate())
     {
+        Sleep(100);
         return;
     }
     if (CGameStatus::GetGameOver())
     {
         GameOver();
         CGameStatus::ClearGameStatus();
+        Sleep(100);
         return;
     }
     if (CGameStatus::GetGameReady())
     {
         GameReady();
         CGameStatus::ClearGameStatus();
+        Sleep(100);
         return;
     }
 
@@ -181,17 +179,28 @@ void CGameControler::UpdateScence()
     {
         CEnemyGenerate::CreateEnemy();
         CGameFrame::FrameUpdate();
-        CGameFrame::FrameRender(m_hMemDC);
     }
+    CGameFrame::FrameRender(m_hMemDC);
 
     BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
 }
 
 void CGameControler::KeyDown(WPARAM nKeyCode)
 {
+    if (nKeyCode == 'P')
+    {
+        if (IsPause())
+        {
+            RecoveGame();
+        }
+        else
+        {
+            PauseGame();
+        m_pSelfPlane->Control(STOP_MOVE);
+        }
+    }
     if (m_IsPause == true)
     {
-        m_pSelfPlane->Control(STOP_MOVE);
         return;
     }
     if (nKeyCode == VK_LEFT)
@@ -347,9 +356,4 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
     {
         m_pSelfPlane->Control(STOP_FIRE);
     }
-}
-
-float CGameControler::GetElapsedTime()
-{
-    return MSPERFRAME / 1000.0f;
 }

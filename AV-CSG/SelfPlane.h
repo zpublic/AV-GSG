@@ -1,5 +1,4 @@
 #pragma once
-
 #include "IPlane.h"
 
 ///> Ö÷¿Ø·É»úÀà

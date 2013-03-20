@@ -155,9 +155,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     hWnd = CreateWindow(
         g_szWindowClass,
         g_szTitle,
-        WS_OVERLAPPEDWINDOW,
+        WS_CLIPCHILDREN|WS_CLIPSIBLINGS|WS_POPUP,
         CW_USEDEFAULT, 0,
-        SCREEN_WIDTH + 20, SCREEN_HEIGHT + 68,
+        SCREEN_WIDTH, SCREEN_HEIGHT,
         NULL, NULL, hInstance, NULL);
 
     if (!hWnd)
@@ -167,7 +167,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     if (!CenterWindow(hWnd))
     {
-        MoveWindow(hWnd, 200, 200, SCREEN_WIDTH + 20, SCREEN_HEIGHT + 68, true);
+        MoveWindow(hWnd, 200, 200, SCREEN_WIDTH, SCREEN_HEIGHT, true);
     }
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
@@ -198,17 +198,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_KEYDOWN:
         g_pGameControl->KeyDown(wParam);
-        if (wParam == 'P')
-        {
-            if (g_pGameControl->IsPause())
-            {
-                g_pGameControl->RecoveGame();
-            }
-            else
-            {
-                g_pGameControl->PauseGame();
-            }
-        }
         break;
     case WM_KEYUP:
         g_pGameControl->KeyUp(wParam);

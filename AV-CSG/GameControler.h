@@ -14,9 +14,6 @@ public:
     //更新游戏场景
     void UpdateScence();
 
-    //获取时间间隔
-    float GetElapsedTime();
-
     //键盘按键处理
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);

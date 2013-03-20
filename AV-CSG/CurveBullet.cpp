@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "CurveBullet.h"
-#include "GameControler.h"
 #include "Explosion.h"
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
@@ -24,7 +23,7 @@ CCurveBullet::~CCurveBullet(void)
 
 void CCurveBullet::Update()
 {
-    float fDis = CGameControler::GetInstance()->GetElapsedTime() * m_nSpeed;
+    float fDis = ElapsedTime * m_nSpeed;
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
     if (m_nStatus < 15)
