@@ -15,14 +15,11 @@ public:
     void UpdateScence();
 
     //获取时间间隔
-    float GetElapsedTime(){ return m_fElapsedTime;}
+    float GetElapsedTime();
 
     //键盘按键处理
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);
-
-    void SetLastTime(DWORD lastTime) { m_dwLastTime = lastTime; }
-    void SetCurrentTime(DWORD currentTime) { m_dwCurrentTime = currentTime; }
 
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
@@ -45,14 +42,12 @@ private:
 
     static CGameControler* pGameControler;
     DWORD   m_dwLastTime;       //上次绘图时间
-    DWORD   m_dwCurrentTime;    //当前时间
     HDC     m_hMemDC;
     HBITMAP m_hBitmapMap;
     HBITMAP m_hMemBitmap;
     HDC     m_hWndDC;
     HDC     m_hMapDC; 
     int     m_nY;               //记录地图被截取的宽度
-    float   m_fElapsedTime;
 
     int     m_nPreKey;
     int     m_nCurKey;
