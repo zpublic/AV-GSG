@@ -148,9 +148,6 @@
     <ClInclude Include="SelfPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
-    <ClInclude Include="tinyxml-2.6.2\tinyxml.h">
-      <Filter>Source Files\data\tinyxml</Filter>
-    </ClInclude>
     <ClInclude Include="PictureMap.h">
       <Filter>Source Files\data\resourcedata</Filter>
     </ClInclude>
@@ -180,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="StageXMLStageObject.h">
       <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h">
+      <Filter>Source Files\data\tinyxml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -261,15 +261,6 @@
     <ClCompile Include="SelfPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
-    <ClCompile Include="tinyxml-2.6.2\tinyxml.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxml-2.6.2\tinyxmlerror.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxml-2.6.2\tinyxmlparser.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
-    </ClCompile>
     <ClCompile Include="PictureMap.cpp">
       <Filter>Source Files\data\resourcedata</Filter>
     </ClCompile>
@@ -290,6 +281,15 @@
     </ClCompile>
     <ClCompile Include="StageXMLEnemyOBject.cpp">
       <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxml.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlerror.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlparser.cpp">
+      <Filter>Source Files\data\tinyxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

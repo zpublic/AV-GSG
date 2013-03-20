@@ -1,7 +1,7 @@
 #ifndef STAGE_PARSERXML_
 #define STAGE_PARSERXML_
 
-#include "tinyxml-2.6.2\tinyxml.h"
+#include "tinyxml.h"
 #include "Parse_def.h"
 #include "StageXMLStageObject.h"
 
