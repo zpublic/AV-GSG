@@ -24,7 +24,6 @@ CGameControler* CGameControler::GetInstance()
 
 CGameControler::CGameControler(void)
     : m_nY(0)
-    , m_IsPause(false)
     , m_PresentStage(0)
 {
     m_nPreKey = m_nCurKey = 0;
@@ -85,11 +84,11 @@ void CGameControler::GameReady()
 
 void CGameControler::CirculationMap()
 {
-        BitBlt(m_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-        BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
+    BitBlt(m_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
+    BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
-        if (!m_IsPause)
-        {
+    if (!CGameStatus::GetGamePause())
+    {
         m_nY += 1;
         if(m_nY == SCREEN_HEIGHT)
             m_nY = 0;
@@ -105,11 +104,6 @@ void CGameControler::SetWndDC(HDC hDC)
     if (m_hMemBitmap) DeleteObject(m_hBitmapMap);
     m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
     SelectObject(m_hMemDC, m_hMemBitmap);
-}
-
-bool CGameControler::IsPause()
-{
-    return m_IsPause;
 }
 
 void CGameControler::StartGame()
@@ -133,13 +127,11 @@ void CGameControler::PauseGame()
     {
         return;
     }
-    m_IsPause = true;
     CGameStatus::PauseGame();
 }
 
 void CGameControler::RecoveGame()
 {
-    m_IsPause = false;
     CGameStatus::StartGame();
 }
 
@@ -189,7 +181,7 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
 {
     if (nKeyCode == 'P')
     {
-        if (IsPause())
+        if (CGameStatus::GetGamePause())
         {
             RecoveGame();
         }
@@ -199,7 +191,7 @@ void CGameControler::KeyDown(WPARAM nKeyCode)
             m_pSelfPlane->Control(STOP_MOVE);
         }
     }
-    if (m_IsPause == true)
+    if (CGameStatus::GetGamePause())
     {
         return;
     }
