@@ -147,18 +147,21 @@ void CGameControler::UpdateScence()
 {
     if (!CGameStatus::IsNeedUpdate())
     {
+        Sleep(100);
         return;
     }
     if (CGameStatus::GetGameOver())
     {
         GameOver();
         CGameStatus::ClearGameStatus();
+        Sleep(100);
         return;
     }
     if (CGameStatus::GetGameReady())
     {
         GameReady();
         CGameStatus::ClearGameStatus();
+        Sleep(100);
         return;
     }
 
