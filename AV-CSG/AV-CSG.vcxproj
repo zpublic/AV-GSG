@@ -88,6 +88,11 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Parse_def.h" />
+    <ClInclude Include="StageXMLEnemyOBject.h" />
+    <ClInclude Include="StageXMLItemOBject.h" />
+    <ClInclude Include="StageXMLObject.h" />
+    <ClInclude Include="StageXMLParser.h" />
     <ClInclude Include="CurveBullet.h" />
     <ClInclude Include="CurveEmitter.h" />
     <ClInclude Include="EmitterGenerate.h" />
@@ -114,6 +119,7 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="SpinEmitter.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="StageXMLStageObject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tinyxml-2.6.2\tinyxml.h" />
@@ -128,6 +134,12 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="StageXMLEnemyOBject.cpp" />
+    <ClCompile Include="StageXMLItemOBject.cpp" />
+    <ClCompile Include="StageXMLOBject.cpp" />
+    <ClCompile Include="StageXMLParser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="EmitterGenerate.cpp" />
     <ClCompile Include="EnemyGenerate.cpp" />
     <ClCompile Include="EnemyPlane.cpp" />
@@ -146,6 +158,7 @@
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="SpinEmitter.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="StageXMLStageObject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

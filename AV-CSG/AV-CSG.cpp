@@ -176,6 +176,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_pGameControl = CGameControler::GetInstance();
     g_pGameControl->SetWndDC(g_hdc);
+    g_pGameControl->SetStageXML("../Stage/stage.xml");
 
     return TRUE;
 }
@@ -197,6 +198,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_KEYDOWN:
         g_pGameControl->KeyDown(wParam);
+        if (wParam == 'P')
+        {
+            if (g_pGameControl->IsPause())
+            {
+                g_pGameControl->RecoveGame();
+            }
+            else
+            {
+                g_pGameControl->PauseGame();
+            }
+        }
         break;
     case WM_KEYUP:
         g_pGameControl->KeyUp(wParam);

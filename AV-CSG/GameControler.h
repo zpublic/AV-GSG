@@ -1,5 +1,7 @@
 #pragma once
 
+#include "StageXMLParser.h"
+
 class CSelfPlane;
 
 ///> 游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵
@@ -20,8 +22,13 @@ public:
     void KeyUp(WPARAM nKeyCode);
 
     void SetWndDC(HDC hDC);
+    void SetStageXML(const std::string& strPath);
 
     void StartGame();
+    void PauseGame();
+    void RecoveGame();
+
+    bool IsPause();
 
     void Exit();
 private:
@@ -44,6 +51,10 @@ private:
 
     int     m_nPreKey;
     int     m_nCurKey;
+
+    bool    m_IsPause;
+
+    int     m_PresentStage;
 
     CSelfPlane *m_pSelfPlane;
 };

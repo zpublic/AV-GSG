@@ -3,6 +3,7 @@
 *	CPicture类：完成对图片资源的加载和绘制由于下载到的图片都是带单色背景的位图，因此不能用背景图加屏蔽图的方式实现透明位图。
 *	但是有另一种方法实现动态屏蔽图以达到透明的效果。原理请看http://qsjming.blog.51cto.com/1159640/536331和http://blog.csdn.net/suolao/article/details/4582206
 */
+
 class CPicture
 {
 public:

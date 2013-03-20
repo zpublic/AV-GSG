@@ -42,6 +42,9 @@
     <Filter Include="unit">
       <UniqueIdentifier>{f4451db4-dced-4fed-a994-47cfc5e9a2f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser">
+      <UniqueIdentifier>{4b02a30f-69a6-44d3-a891-884b627c01e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -160,6 +163,24 @@
     <ClInclude Include="PictureDef.h">
       <Filter>unit</Filter>
     </ClInclude>
+    <ClInclude Include="StageXMLParser.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Parse_def.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLEnemyOBject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLItemOBject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLStageObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -254,6 +275,21 @@
     </ClCompile>
     <ClCompile Include="Unit.cpp">
       <Filter>unit</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLStageObject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLItemOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLEnemyOBject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

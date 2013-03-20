@@ -27,6 +27,11 @@ bool CGameStatus::GetGameRuning()
     return m_emGameStatus == emGameStatusRuning;
 }
 
+bool CGameStatus::GetGamePause()
+{
+    return m_emGameStatus == emGameStatusPause;
+}
+
 void CGameStatus::ClearGameStatus()
 {
     m_emGameStatus = emGameStatusNone;
@@ -40,6 +45,11 @@ bool CGameStatus::IsNeedUpdate()
 void CGameStatus::StartGame()
 {
     m_emGameStatus = emGameStatusRuning;
+}
+
+void CGameStatus::PauseGame()
+{
+    m_emGameStatus = emGameStatusPause;
 }
 
 void CGameStatus::SetGameOver()

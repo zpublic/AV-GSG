@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Picture.h"
+#include <map>
 
 class CPicturePool
 {

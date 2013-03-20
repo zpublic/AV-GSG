@@ -30,8 +30,8 @@ CSelfPlane::~CSelfPlane()
 
 void CSelfPlane::InitGame()
 {
-    m_nLifes = 2;
-    SetBulletType(emBulletTypeAMMO0);
+    m_nLifes = 4;
+    SetBulletType(emBulletTypeAMMO1);
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
     m_nHeight = 26;
@@ -42,7 +42,7 @@ void CSelfPlane::InitGame()
 void CSelfPlane::InitPlane()
 {
     m_bIsStopMove = true;
-    m_nHP = 100;	
+    m_nHP = 100;
     m_nPosX = SCREEN_WIDTH/2 - 24;
     m_nPosY = 480;
     m_fBulletFrequency = 0.2f;//每秒发射5次子弹
@@ -139,8 +139,8 @@ void CSelfPlane::Control(ActionType actionType)
     case STOP_MOVE:
         m_bIsStopMove = true;
         break;
-    case FIRE:	
-        m_bFire = true;	
+    case FIRE:
+        m_bFire = true;
         break;
     case STOP_FIRE:
         m_bFire = false;
