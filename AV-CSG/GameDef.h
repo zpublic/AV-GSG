@@ -1,7 +1,7 @@
 #pragma once
 
 #define SCREEN_WIDTH        500
-#define SCREEN_HEIGHT       700
+#define SCREEN_HEIGHT       650
 
 ///> 帧数定为60，这是一个非常合理的数字，飞机子弹的速度将根据这个固定的帧数来计算
 #define MSPERFRAME          16.666f // 1000/60

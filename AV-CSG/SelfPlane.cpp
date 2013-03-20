@@ -82,10 +82,10 @@ void CSelfPlane::Update()
             m_nPosX = 0;
         if(m_nPosY < 0.0f)
             m_nPosY = 0;
-        if(m_nPosX>SCREEN_WIDTH-m_nWidth)
-            m_nPosX = SCREEN_WIDTH-m_nWidth;
-        if(m_nPosY>SCREEN_HEIGHT-m_nHeight)
-            m_nPosY = SCREEN_HEIGHT-m_nHeight;
+        if(m_nPosX > SCREEN_WIDTH - m_nWidth)
+            m_nPosX = SCREEN_WIDTH - m_nWidth;
+        if(m_nPosY > SCREEN_HEIGHT - m_nHeight)
+            m_nPosY = SCREEN_HEIGHT - m_nHeight;
     }
 
     if (m_bFire && m_fFrequencyTime >= m_fBulletFrequency)

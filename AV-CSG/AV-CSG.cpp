@@ -155,9 +155,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     hWnd = CreateWindow(
         g_szWindowClass,
         g_szTitle,
-        WS_OVERLAPPEDWINDOW,
+        WS_CLIPCHILDREN|WS_CLIPSIBLINGS|WS_POPUP,
         CW_USEDEFAULT, 0,
-        SCREEN_WIDTH + 20, SCREEN_HEIGHT + 68,
+        SCREEN_WIDTH, SCREEN_HEIGHT,
         NULL, NULL, hInstance, NULL);
 
     if (!hWnd)
@@ -167,7 +167,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     if (!CenterWindow(hWnd))
     {
-        MoveWindow(hWnd, 200, 200, SCREEN_WIDTH + 20, SCREEN_HEIGHT + 68, true);
+        MoveWindow(hWnd, 200, 200, SCREEN_WIDTH, SCREEN_HEIGHT, true);
     }
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
