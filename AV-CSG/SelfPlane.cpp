@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "SelfPlane.h"
-#include "GameControler.h"
 #include "EnemyPlane.h"
 #include "GameStatus.h"
 #include "EmitterGenerate.h"
@@ -55,8 +54,7 @@ void CSelfPlane::InitPlane()
 
 void CSelfPlane::Update()
 {
-    float tD = CGameControler::GetInstance()->GetElapsedTime();
-    float fDis = tD * m_nSpeed;
+    float fDis = ElapsedTime * m_nSpeed;
 
     if (m_bUnDead)
     {
@@ -65,14 +63,14 @@ void CSelfPlane::Update()
             m_nPosY -= (int)fDis;
         }
 
-        m_fInvincibletime -= tD;
+        m_fInvincibletime -= ElapsedTime;
         if (m_fInvincibletime <= 0)
         {
             m_bUnDead = false;
             m_fInvincibletime = 1.0;
         }
     }
-    m_fFrequencyTime +=tD;
+    m_fFrequencyTime += ElapsedTime;
 
     if (!m_bIsStopMove)
     {

@@ -357,8 +357,3 @@ void CGameControler::KeyUp(WPARAM nKeyCode)
         m_pSelfPlane->Control(STOP_FIRE);
     }
 }
-
-float CGameControler::GetElapsedTime()
-{
-    return MSPERFRAME / 1000.0f;
-}

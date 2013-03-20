@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "TrackBullet.h"
 #include "SelfPlane.h"
-#include "GameControler.h"
 #include "EnemyGenerate.h"
 #include "Explosion.h"
 #include "EnemyPlane.h"
@@ -59,7 +58,7 @@ void CTrackBullet::Update()
         m_fAngle = Unit::CalcAngle(m_nPosX, m_nPosY, x, y);
     }
 
-    float fDis = CGameControler::GetInstance()->GetElapsedTime() * m_nSpeed;
+    float fDis = ElapsedTime * m_nSpeed;
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
 

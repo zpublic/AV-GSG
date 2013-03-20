@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "Bullet.h"
-#include "GameControler.h"
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
@@ -106,7 +105,7 @@ void CBullet::Render(HDC hDC)
 
 void CBullet::Update()
 {
-    float fDis = CGameControler::GetInstance()->GetElapsedTime() * m_nSpeed;
+    float fDis = ElapsedTime * m_nSpeed;
     m_nPosX += int(cos(m_fAngle) * fDis);
     m_nPosY += int(sin(m_fAngle) * fDis);
 
