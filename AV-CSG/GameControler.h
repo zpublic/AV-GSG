@@ -25,8 +25,6 @@ public:
     void PauseGame();
     void RecoveGame();
 
-    bool IsPause();
-
     void Exit();
 private:
     CGameControler(void);
@@ -48,8 +46,6 @@ private:
 
     int     m_nPreKey;
     int     m_nCurKey;
-
-    bool    m_IsPause;
 
     int     m_PresentStage;
 
