@@ -30,7 +30,7 @@ CSelfPlane::~CSelfPlane()
 
 void CSelfPlane::InitGame()
 {
-    m_nLifes = 4;
+    m_nLifes = 2;
     SetBulletType(emBulletTypeAMMO1);
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
