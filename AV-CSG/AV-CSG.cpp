@@ -176,7 +176,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_pGameControl = CGameControler::GetInstance();
     g_pGameControl->SetWndDC(g_hdc);
-    g_pGameControl->SetStageXML("../Stage/stage.xml");
+
+    char filePath[MAX_PATH] = {0};
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "stage/stage.xml");
+    g_pGameControl->SetStageXML(filePath);
 
     return TRUE;
 }
