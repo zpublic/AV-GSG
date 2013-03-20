@@ -89,6 +89,8 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="MenuBase.h" />
+    <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Parse_def.h" />
     <ClInclude Include="StageXMLEnemyOBject.h" />
     <ClInclude Include="StageXMLItemOBject.h" />
