@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Sprite.h"
 #include "IEmitter.h"
 
@@ -7,10 +6,10 @@
 class PlaneBase : public CSprite
 {
 public:
-    PlaneBase(int x, int y)
+    PlaneBase(int x, int y, IEmitter* piEmitter= NULL)
         : CSprite(x, y)
         , m_nHP(0)
-        , m_piEmitter(NULL)
+        , m_piEmitter(piEmitter)
     {
     }
     virtual ~PlaneBase()

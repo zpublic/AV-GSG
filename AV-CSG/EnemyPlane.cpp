@@ -4,15 +4,13 @@
 #include "SelfPlane.h"
 #include "Explosion.h"
 #include "EnemyGenerate.h"
-#include "EmitterGenerate.h"
 #include "Score.h"
 
-CEnemyPlane::CEnemyPlane(EnemyType enemyType, int nPosX /* = -1 */ )
-    : PlaneBase(0, 0)
+CEnemyPlane::CEnemyPlane(EnemyType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
+    : PlaneBase(0, 0, piEmitter)
     , m_nEnemyType(enemyType)
 {
     m_fFireTime = 0.0f;
-    m_piEmitter = CEmitterGenerate::GenerateEnemyEmitter();
 
     switch (m_nEnemyType)
     {
@@ -66,6 +64,11 @@ CEnemyPlane::CEnemyPlane(EnemyType enemyType, int nPosX /* = -1 */ )
     }
 
     m_nPosY = -m_nHeight + 2; 
+}
+
+CEnemyPlane::CEnemyPlane() : PlaneBase(0, 0)
+{
+
 }
 
 CEnemyPlane::~CEnemyPlane(void)

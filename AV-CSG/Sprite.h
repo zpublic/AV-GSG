@@ -1,5 +1,4 @@
 #pragma once
-
 #include "ISprite.h"
 #include "PicturePool.h"
 

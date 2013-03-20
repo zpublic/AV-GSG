@@ -2,6 +2,7 @@
 #include "EnemyGenerate.h"
 #include "GameControler.h"
 #include "EnemyPlane.h"
+#include "EmitterGenerate.h"
 
 long CEnemyGenerate::m_Schedule = 0;
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
@@ -33,8 +34,10 @@ void CEnemyGenerate::CreateEnemy()
             {
                 if (ItEnemy->second->GetAppear() == m_Schedule)
                 {
-                    CEnemyPlane* pEnemy = new CEnemyPlane((EnemyType)(1),
-                    ItEnemy->second->GetPoint().PosX);
+                    CEnemyPlane* pEnemy = new CEnemyPlane(
+                        (EnemyType)(1),
+                        CEmitterGenerate::GenerateEnemyEmitter(),
+                        ItEnemy->second->GetPoint().PosX);
                     pEnemy->m_pEmnemyNext = spEnemyHead;
                     spEnemyHead = pEnemy;
                 }
