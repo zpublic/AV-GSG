@@ -189,9 +189,20 @@ void CGameControler::UpdateScence()
 
 void CGameControler::KeyDown(WPARAM nKeyCode)
 {
+    if (nKeyCode == 'P')
+    {
+        if (IsPause())
+        {
+            RecoveGame();
+        }
+        else
+        {
+            PauseGame();
+            m_pSelfPlane->Control(STOP_MOVE);
+        }
+    }
     if (m_IsPause == true)
     {
-        m_pSelfPlane->Control(STOP_MOVE);
         return;
     }
     if (nKeyCode == VK_LEFT)
