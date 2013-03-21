@@ -92,6 +92,7 @@
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Parse_def.h" />
+    <ClInclude Include="Prop.h" />
     <ClInclude Include="StageXMLEnemyOBject.h" />
     <ClInclude Include="StageXMLItemOBject.h" />
     <ClInclude Include="StageXMLObject.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="Prop.cpp" />
     <ClCompile Include="StageXMLEnemyOBject.cpp" />
     <ClCompile Include="StageXMLItemOBject.cpp" />
     <ClCompile Include="StageXMLOBject.cpp" />

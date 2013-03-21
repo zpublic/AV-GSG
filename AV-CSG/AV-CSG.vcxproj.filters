@@ -33,9 +33,6 @@
     <Filter Include="Source Files\gameobject\emitter">
       <UniqueIdentifier>{c8f03913-e7a7-4972-8392-978a0dd9241c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gameobject\generate">
-      <UniqueIdentifier>{88925edc-52ba-4f9b-b1f0-adec8de6eca7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\data\tinyxml">
       <UniqueIdentifier>{f23f0d2f-4807-4d10-a04f-1f56670b27b3}</UniqueIdentifier>
     </Filter>
@@ -47,6 +44,18 @@
     </Filter>
     <Filter Include="Source Files\unit">
       <UniqueIdentifier>{f4451db4-dced-4fed-a994-47cfc5e9a2f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\control\generate">
+      <UniqueIdentifier>{88925edc-52ba-4f9b-b1f0-adec8de6eca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobject\explosion">
+      <UniqueIdentifier>{97bba4ee-e68a-4016-8e11-c7dd52916ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobject\sprite">
+      <UniqueIdentifier>{627156c6-1a01-4453-951f-598dd14e8c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobject\prop">
+      <UniqueIdentifier>{ef821106-545a-4ae8-87df-a27ef3a05a33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,12 +73,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Explosion.h">
-      <Filter>Source Files\gameobject</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Source Files\gameobject</Filter>
-    </ClInclude>
     <ClInclude Include="GameControler.h">
       <Filter>Source Files\control</Filter>
     </ClInclude>
@@ -78,9 +81,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ISprite.h">
-      <Filter>Source Files\gameobject</Filter>
     </ClInclude>
     <ClInclude Include="GameFrame.h">
       <Filter>Source Files\control</Filter>
@@ -143,10 +143,10 @@
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
     <ClInclude Include="EmitterGenerate.h">
-      <Filter>Source Files\gameobject\generate</Filter>
+      <Filter>Source Files\control\generate</Filter>
     </ClInclude>
     <ClInclude Include="EnemyGenerate.h">
-      <Filter>Source Files\gameobject\generate</Filter>
+      <Filter>Source Files\control\generate</Filter>
     </ClInclude>
     <ClInclude Include="SelfPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
@@ -190,16 +190,22 @@
     <ClInclude Include="MenuItem.h">
       <Filter>Source Files\control\memu</Filter>
     </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Source Files\gameobject\explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="ISprite.h">
+      <Filter>Source Files\gameobject\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Source Files\gameobject\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Prop.h">
+      <Filter>Source Files\gameobject\prop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Explosion.cpp">
-      <Filter>Source Files\gameobject</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\gameobject</Filter>
     </ClCompile>
     <ClCompile Include="GameControler.cpp">
       <Filter>Source Files\control</Filter>
@@ -262,10 +268,10 @@
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
     <ClCompile Include="EmitterGenerate.cpp">
-      <Filter>Source Files\gameobject\generate</Filter>
+      <Filter>Source Files\control\generate</Filter>
     </ClCompile>
     <ClCompile Include="EnemyGenerate.cpp">
-      <Filter>Source Files\gameobject\generate</Filter>
+      <Filter>Source Files\control\generate</Filter>
     </ClCompile>
     <ClCompile Include="SelfPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
@@ -299,6 +305,15 @@
     </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlparser.cpp">
       <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files\gameobject\explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\gameobject\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Prop.cpp">
+      <Filter>Source Files\gameobject\prop</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
