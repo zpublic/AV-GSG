@@ -52,7 +52,7 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
         return false;
     }
     std::string sRootName = tiRoot->Value();
-    if (sRootName != ROOT_GAME)
+    if (sRootName != STAGE_ROOT_GAME)
     {
         return false;
     }
@@ -62,12 +62,12 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
     {
         return false;
     }
-    CStageXMLStage* pStage = new CStageXMLStage;
 
     for (TiXmlElement* tiElement = tiFirst->ToElement();
         tiFirst != NULL;
         tiFirst = tiElement->NextSiblingElement())
     {
+        CStageXMLStage* pStage = new CStageXMLStage;
         if (tiElement->Attribute(ID_OBJECT) != NULL)
         {
             pStage->SetId(tiElement->Attribute(ID_OBJECT));
@@ -85,6 +85,40 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
             pStage->SetDifficulty(::atol(tiElement->Attribute(STAGE_DIFFICULTY_OBJECT)));
         }
         pStage->SetType("-");
+
+        TiXmlNode* tiEnemyItem = tiRoot->FirstChild(ITEM_GAME);
+        if (tiEnemyItem != NULL)
+        {
+            for (TiXmlElement* tiItem = tiEnemyItem->FirstChildElement();
+                tiItem != NULL;
+                tiItem = tiEnemyItem->NextSiblingElement())
+            {
+                CStageXMLItem* pItem = new CStageXMLItem(tiItem->Attribute(ITEM_WAY_OBJECT));
+                if (tiItem->Attribute(ID_OBJECT) != NULL)
+                {
+                    pItem->SetId(tiItem->Attribute(ID_OBJECT));
+                }
+                if (tiItem->Attribute(TYPE_OBJECT) != NULL)
+                {
+                    pItem->SetType(tiItem->Attribute(TYPE_OBJECT));
+                }
+                if (tiItem->Attribute(ITEM_NUMBER_OBJECT) != NULL)
+                {
+                    pItem->SetNumber(atol(tiItem->Attribute(ITEM_NUMBER_OBJECT)));
+                }
+                int PosX = 0, PosY = 0;
+                if (tiItem->Attribute(POSX_OBJECT) != NULL)
+                {
+                    PosX = atoi(tiItem->Attribute(POSX_OBJECT));
+                }
+                if (tiItem->Attribute(POSY_OBJECT) != NULL)
+                {
+                    PosY = atoi(tiItem->Attribute(POSY_OBJECT));
+                }
+                pItem->SetPoint(PosX, PosY);
+                pStage->PushItem(pItem);
+            }
+        }
 
         TiXmlNode* tiEnemy = tiElement->FirstChild(ENEMY_GAME);
         if (tiEnemy == NULL)
@@ -175,41 +209,6 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
         }
         m_mapStage[pStage->GetId()] = pStage;
     }
-
-    TiXmlNode* tiEnemyItem = tiRoot->FirstChild(ITEM_GAME);
-    if (tiEnemyItem != NULL)
-    {
-        for (TiXmlElement* tiItem = tiEnemyItem->FirstChildElement();
-            tiItem != NULL;
-            tiItem = tiEnemyItem->NextSiblingElement())
-        {
-            CStageXMLItem* pItem = new CStageXMLItem(tiItem->Attribute(ITEM_WAY_OBJECT));
-            if (tiItem->Attribute(ID_OBJECT) != NULL)
-            {
-                pItem->SetId(tiItem->Attribute(ID_OBJECT));
-            }
-            if (tiItem->Attribute(TYPE_OBJECT) != NULL)
-            {
-                pItem->SetType(tiItem->Attribute(TYPE_OBJECT));
-            }
-            if (tiItem->Attribute(ITEM_NUMBER_OBJECT) != NULL)
-            {
-                pItem->SetNumber(atol(tiItem->Attribute(ITEM_NUMBER_OBJECT)));
-            }
-            int PosX = 0, PosY = 0;
-            if (tiItem->Attribute(POSX_OBJECT) != NULL)
-            {
-                PosX = atoi(tiItem->Attribute(POSX_OBJECT));
-            }
-            if (tiItem->Attribute(POSY_OBJECT) != NULL)
-            {
-                PosY = atoi(tiItem->Attribute(POSY_OBJECT));
-            }
-            pItem->SetPoint(PosX, PosY);
-            pStage->PushItem(pItem);
-        }
-    }
-
     return true;
 }
 

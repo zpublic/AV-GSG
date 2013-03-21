@@ -45,6 +45,11 @@ void CGameControler::SetStageXML(const std::string& strPath)
     CStageXMLParse::GetInstance().LoadXML(strPath);
 }
 
+void CGameControler::SetPlaneXML(const std::string& strPath)
+{
+    CPlaneXMLParse::GetInstance().LoadXML(strPath);
+}
+
 void CGameControler::Exit()
 {
     CPicturePool::GetInstance()->FreeImage();

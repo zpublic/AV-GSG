@@ -45,22 +45,10 @@ enum ActionType
     WILL,
 };
 
-//敌机类型
-enum EnemyType
-{
-    emEnemyTypeENEMY0 = 0,
-    emEnemyTypeENEMY1,
-    emEnemyTypeENEMY2,
-    emEnemyTypeENEMY3,
-    emEnemyTypeENEMY4,
-
-    emEnemyTypeMax
-};
-
 //爆炸效果类型
 enum BlastType
 {
-    emBlastTypeBullet = 0,
+    emBlastTypeBullet = 16,
     emBlastTypePlane,
 
     emBlastTypeMax

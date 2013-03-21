@@ -48,6 +48,12 @@
     <Filter Include="Source Files\unit">
       <UniqueIdentifier>{f4451db4-dced-4fed-a994-47cfc5e9a2f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\stagexml">
+      <UniqueIdentifier>{83123a20-6a01-453b-8b7e-e5029ab9d226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\control\XmlParser\planexml">
+      <UniqueIdentifier>{101f565b-e841-45cb-bda7-92ddbd562419}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -163,22 +169,7 @@
     <ClInclude Include="PictureDef.h">
       <Filter>Source Files\unit</Filter>
     </ClInclude>
-    <ClInclude Include="StageXMLParser.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
     <ClInclude Include="Parse_def.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLEnemyOBject.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLItemOBject.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLObject.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLStageObject.h">
       <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h">
@@ -189,6 +180,27 @@
     </ClInclude>
     <ClInclude Include="MenuItem.h">
       <Filter>Source Files\control\memu</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLEnemyOBject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLItemOBject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLParser.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="StageXMLStageObject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneXMLParse.h">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneXMLObject.h">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -276,21 +288,6 @@
     <ClCompile Include="Unit.cpp">
       <Filter>Source Files\unit</Filter>
     </ClCompile>
-    <ClCompile Include="StageXMLParser.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLStageObject.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLOBject.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLItemOBject.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLEnemyOBject.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxml.cpp">
       <Filter>Source Files\data\tinyxml</Filter>
     </ClCompile>
@@ -299,6 +296,27 @@
     </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlparser.cpp">
       <Filter>Source Files\data\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLEnemyOBject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLItemOBject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="StageXMLStageObject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneXMLParse.cpp">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLObject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

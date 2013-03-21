@@ -1,12 +1,12 @@
 #ifndef ENEMY_OBJECT
 #define ENEMY_OBJECT
 
-#include "StageXMLObject.h"
+#include "XMLObject.h"
 #include "StageXMLItemOBject.h"
 
 typedef std::map<std::string, CStageXMLItem*> ItemObejctMap;
 
-class CStageXMLEnemy : public CStageXMLOBject
+class CStageXMLEnemy : public CXMLObject
 {
 public:
     CStageXMLEnemy();

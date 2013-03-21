@@ -1,14 +1,14 @@
 #ifndef STAGE_OBJECT
 #define STAGE_OBJECT
 
-#include "StageXMLObject.h"
+#include "XMLObject.h"
 #include "StageXMLEnemyOBject.h"
 #include "StageXMLItemOBject.h"
 
 typedef std::map<std::string, CStageXMLItem*> ItemObejctMap;
 typedef std::map<std::string, CStageXMLEnemy*> EnemyObejctMap;
 
-class CStageXMLStage : public CStageXMLOBject
+class CStageXMLStage : public CXMLObject
 {
 public:
     CStageXMLStage();

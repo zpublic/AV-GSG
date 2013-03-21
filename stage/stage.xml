@@ -1,18 +1,18 @@
 <gamestage>
 <stage name = "这是一个C++群" id = "1" map = "Resur/map.bmp" difficulty = "100">
-	<enemy id = "5" type = "enemy1" posx = "10" posy = "20" appear = "1500" >
+	<enemy id = "5" type = "1" posx = "10" posy = "20" appear = "1500" >
 		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
-	<enemy id = "1" type = "enemy1" posx = "10" posy = "30" appear = "300" >
+	<enemy id = "1" type = "2" posx = "10" posy = "30" appear = "300" >
+		<item id = "1" type = "2" number = "2" pox = "10" posy = "10" way = "1"/>
+	</enemy>
+	<enemy id = "2" type = "1" posx = "70" posy = "10" appear = "100" >
 		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
-	<enemy id = "2" type = "enemy1" posx = "70" posy = "10" appear = "100" >
-		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
-	</enemy>
-	<enemy id = "3" type = "enemy1" posx = "50" posy = "10" appear = "100" >
-		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
+	<enemy id = "3" type = "2" posx = "50" posy = "10" appear = "100" >
+		<item id = "1" type = "2" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>				
-	<enemy id = "4" type = "enemy1" posx = "60" posy = "10" appear = "200" bind = "null">
+	<enemy id = "4" type = "1" posx = "60" posy = "10" appear = "200" bind = "null">
 		<item id = "2" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>	
 </stage>

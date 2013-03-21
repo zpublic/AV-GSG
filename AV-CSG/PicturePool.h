@@ -1,22 +1,18 @@
 #pragma once
 
 #include "Picture.h"
+#include "PlaneXMLParse.h"
 #include <map>
 
 class CPicturePool
 {
 public:
-    CPicture** GetPicture(PictureType picType);
-    CPicture** GetPicture(PicID picID);
+    CPicture* GetPicture(int picID) const;
     void FreeImage();
 
     static CPicturePool * GetInstance();
 
 private:
-    CPicture* m_pPictureBlast[emBlastTypeMax];
-    CPicture* m_pPictureAmmo[emBulletTypeMax];
-    CPicture* m_pPictureEnemy[emEnemyTypeMax];
-
     std::map<int, CPicture*> m_mapPic;
 
     static CPicturePool* m_pPicturePool;

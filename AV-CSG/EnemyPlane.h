@@ -5,7 +5,7 @@
 class CEnemyPlane : public PlaneBase
 {
 public:
-    CEnemyPlane(EnemyType enemyType, IEmitter* piEmitter, int nPosX = -1);
+    CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX = -1);
     virtual ~CEnemyPlane(void);
 
     //碰撞检测
@@ -19,7 +19,8 @@ public:
 
 private:
     CEnemyPlane();
-
+    int m_nSkinType; ///> 飞机类型
+    int m_nBulletType; ///> 子弹类型
     float   m_fFireTime;
     EnemyType   m_nEnemyType;
 };

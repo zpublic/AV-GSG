@@ -1,6 +1,7 @@
 #pragma once
 
 #include "StageXMLParser.h"
+#include "PlaneXMLParse.h"
 
 class CSelfPlane;
 
@@ -20,6 +21,7 @@ public:
 
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
+    void SetPlaneXML(const std::string& strPath);
 
     void StartGame();
     void PauseGame();

@@ -1,9 +1,9 @@
 #ifndef ITEM_OBJECT
 #define ITEM_OBJECT
 
-#include "StageXMLObject.h"
+#include "XMLObject.h"
 
-class CStageXMLItem : public CStageXMLOBject
+class CStageXMLItem : public CXMLObject
 {
 public:
     CStageXMLItem(const std::string& strWay);
