@@ -22,5 +22,5 @@ private:
     int m_nSkinType; ///> 飞机类型
     int m_nBulletType; ///> 子弹类型
     float   m_fFireTime;
-    EnemyType   m_nEnemyType;
+    PlaneType   m_nEnemyType;
 };
