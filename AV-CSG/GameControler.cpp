@@ -176,7 +176,6 @@ void CGameControler::UpdateScence()
     CirculationMap();
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
-        ::MessageBox(0, _T("过关了！"), _T("过关了！"), MB_OK);
         CGameStagePlayer::GetInstance().NextStage();
     }
     if (!CGameStatus::GetGamePause())
