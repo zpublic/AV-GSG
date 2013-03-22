@@ -5,6 +5,8 @@
 #include "Parse_def.h"
 #include "StageXMLStageObject.h"
 
+typedef std::map<int, CStageXMLStage*> MapStageList;
+
 class CStageXMLParse
 {
 public:
@@ -12,10 +14,10 @@ public:
 
     static CStageXMLParse& GetInstance();
     bool LoadXML(const std::string& strPath);
-    CStageXMLStage* Get(const std::string strId) const;
+    CStageXMLStage* Get(int nId) const;
 
-    const std::map<std::string, CStageXMLStage*>::const_iterator Begin() const;
-    const std::map<std::string, CStageXMLStage*>::const_iterator End() const;
+    const MapStageList::const_iterator Begin() const;
+    const MapStageList::const_iterator End() const;
 
 private:
     void _Close();
@@ -29,7 +31,7 @@ private:
     static CStageXMLParse m_XMLParse;
 
 private:
-    std::map<std::string, CStageXMLStage*> m_mapStage;
+    MapStageList m_mapStage;
 };
 
 #endif

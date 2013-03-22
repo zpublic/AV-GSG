@@ -54,6 +54,9 @@
     <Filter Include="Source Files\control\XmlParser\planexml">
       <UniqueIdentifier>{101f565b-e841-45cb-bda7-92ddbd562419}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\StagePlayer">
+      <UniqueIdentifier>{25392ca6-6767-4b8f-a251-87a036c417c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -202,6 +205,9 @@
     <ClInclude Include="XMLObject.h">
       <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
+    <ClInclude Include="GameStagePlayer.h">
+      <Filter>Source Files\control\StagePlayer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -317,6 +323,9 @@
     </ClCompile>
     <ClCompile Include="PlaneXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStagePlayer.cpp">
+      <Filter>Source Files\control\StagePlayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

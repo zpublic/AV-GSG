@@ -130,6 +130,7 @@
     <ClInclude Include="TrackBullet.h" />
     <ClInclude Include="TrackEmitter.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="GameStagePlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxml.cpp">
@@ -150,6 +151,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="GameStagePlayer.cpp" />
     <ClCompile Include="PlaneXMLObject.cpp" />
     <ClCompile Include="PlaneXMLParse.cpp" />
     <ClCompile Include="StageXMLEnemyOBject.cpp" />
