@@ -22,10 +22,9 @@ void FrameUpdate()
         if (!pTemp->IsVisible())
         {
             //不可见则删除，并更新链表
-            ISprite *p = pTemp;
-            p = p->pNext;
+            ISprite *pNext = pTemp->pNext;
             delete pTemp;
-            pTemp = p;
+            pTemp = pNext;
         } 
         else
         {
