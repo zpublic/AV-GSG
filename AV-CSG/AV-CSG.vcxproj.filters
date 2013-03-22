@@ -214,6 +214,9 @@
     <ClInclude Include="Prop.h">
       <Filter>Source Files\gameobject\prop</Filter>
     </ClInclude>
+    <ClInclude Include="Generator.h">
+      <Filter>Source Files\control\generate</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -332,6 +335,9 @@
     </ClCompile>
     <ClCompile Include="PlaneXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClCompile>
+    <ClCompile Include="Generator.cpp">
+      <Filter>Source Files\control\generate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
