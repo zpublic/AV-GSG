@@ -45,6 +45,11 @@ void CGameControler::SetStageXML(const std::string& strPath)
     CStageXMLParse::GetInstance().LoadXML(strPath);
 }
 
+void CGameControler::SetPlaneXML(const std::string& strPath)
+{
+    CPlaneXMLParse::GetInstance().LoadXML(strPath);
+}
+
 void CGameControler::Exit()
 {
     CPicturePool::GetInstance()->FreeImage();
@@ -88,10 +93,10 @@ void CGameControler::CirculationMap()
     BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
     if (!CGameStatus::GetGamePause())
-    {
-        m_nY += 1;
-        if(m_nY == SCREEN_HEIGHT)
-            m_nY = 0;
+        {
+    m_nY += 1;
+    if(m_nY == SCREEN_HEIGHT)
+        m_nY = 0;
     }
 }
 

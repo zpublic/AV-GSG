@@ -1,50 +1,30 @@
 #include "StdAfx.h"
+#include "PlaneXMLParse.h"
 #include "EnemyPlane.h"
 #include "SelfPlane.h"
 #include "Explosion.h"
 #include "EnemyGenerate.h"
 #include "Score.h"
 
-CEnemyPlane::CEnemyPlane(EnemyType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
+CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
     : PlaneBase(0, 0, piEmitter)
     , m_nEnemyType(enemyType)
+    , m_nSkinType(0)
+    , m_nBulletType(0)
 {
     m_fFireTime = 0.0f;
 
-    switch (m_nEnemyType)
+    const CPlaneXMLObject* coPlane = CPlaneXMLParse::GetInstance().GetEnemyPlane(enemyType);
+    if (coPlane == NULL)
     {
-    case emEnemyTypeENEMY0:
-        m_nWidth = 32;
-        m_nHeight = 48;
-        m_nHP = 4;
-        m_nSpeed = 150;
-        break;
-    case emEnemyTypeENEMY1:
-        m_nWidth = 32;
-        m_nHeight = 48;
-        m_nHP = 10;
-        m_nSpeed = 100;
-        break;
-    case emEnemyTypeENEMY2:
-        m_nWidth = 32;
-        m_nHeight = 48;
-        m_nHP = 10;
-        m_nSpeed = 90;
-        break;
-    case emEnemyTypeENEMY3:
-        m_nWidth = 32;
-        m_nHeight = 48;
-        m_nHP = 6;
-        m_nSpeed = 80;
-        break;
-    case emEnemyTypeENEMY4:
-        m_nWidth = 32;
-        m_nHeight = 48;
-        m_nHP = 8;
-        m_nSpeed = 100;
-        break;
+        return;
     }
-
+    m_nHeight = 48;
+    m_nWidth = 32;
+    m_nSpeed = coPlane->GetSpeed();
+    m_nHP = coPlane->GetHP();
+    m_nSkinType = ::atoi(coPlane->GetSkinId().c_str());
+    m_nBulletType = coPlane->GetBulletType();
     if (nPosX == -1)
     {
         int nRandom = rand() % 100;
@@ -95,9 +75,9 @@ void CEnemyPlane::Update()
     if (m_fFireTime > m_piEmitter->GetFireTimeMax())
     {
         m_fFireTime = 0.0f;
-        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8,
+        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 6,
             m_nPosY + m_nHeight,
-            (BulletType)(m_nEnemyType % 4));
+            (BulletType)(m_nBulletType));
     }
 
     if (CSelfPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))
@@ -110,7 +90,7 @@ void CEnemyPlane::Update()
 
 void CEnemyPlane::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(emPicTypePlane)[m_nEnemyType]->DrawBitmap(
+    CPicturePool::GetInstance()->GetPicture(m_nSkinType)->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,

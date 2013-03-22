@@ -20,11 +20,11 @@ public:
     int PosY;
 }PosObject;
 
-class CStageXMLOBject
+class CXMLObject
 {
 public:
-    CStageXMLOBject();
-    virtual ~CStageXMLOBject();
+    CXMLObject();
+    virtual ~CXMLObject();
 
     virtual void SetName(const std::string& strName);
     virtual const std::string& GetName() const;

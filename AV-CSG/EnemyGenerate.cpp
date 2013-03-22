@@ -35,7 +35,7 @@ void CEnemyGenerate::CreateEnemy()
                 if (ItEnemy->second->GetAppear() == m_Schedule)
                 {
                     CEnemyPlane* pEnemy = new CEnemyPlane(
-                        (EnemyType)(1),
+                        ItEnemy->second->GetType(),
                         CEmitterGenerate::GenerateEnemyEmitter(),
                         ItEnemy->second->GetPoint().PosX);
                     pEnemy->m_pEmnemyNext = spEnemyHead;

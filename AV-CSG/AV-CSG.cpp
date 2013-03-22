@@ -182,7 +182,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ::PathRemoveFileSpecA(filePath);
     ::PathAppendA(filePath, "stage/stage.xml");
     g_pGameControl->SetStageXML(filePath);
-
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "plane/plane.xml");
+    g_pGameControl->SetPlaneXML(filePath);
     return TRUE;
 }
 

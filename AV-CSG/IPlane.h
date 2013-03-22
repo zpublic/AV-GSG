@@ -2,6 +2,8 @@
 #include "Sprite.h"
 #include "IEmitter.h"
 
+typedef std::string PlaneType;
+
 ///> 飞机类基类
 class PlaneBase : public CSprite
 {

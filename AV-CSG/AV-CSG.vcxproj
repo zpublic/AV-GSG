@@ -93,9 +93,11 @@
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Parse_def.h" />
     <ClInclude Include="Prop.h" />
+    <ClInclude Include="PlaneXMLObject.h" />
+    <ClInclude Include="PlaneXMLParse.h" />
     <ClInclude Include="StageXMLEnemyOBject.h" />
     <ClInclude Include="StageXMLItemOBject.h" />
-    <ClInclude Include="StageXMLObject.h" />
+    <ClInclude Include="XMLObject.h" />
     <ClInclude Include="StageXMLParser.h" />
     <ClInclude Include="CurveBullet.h" />
     <ClInclude Include="CurveEmitter.h" />
@@ -150,9 +152,11 @@
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
     <ClCompile Include="Prop.cpp" />
+    <ClCompile Include="PlaneXMLObject.cpp" />
+    <ClCompile Include="PlaneXMLParse.cpp" />
     <ClCompile Include="StageXMLEnemyOBject.cpp" />
     <ClCompile Include="StageXMLItemOBject.cpp" />
-    <ClCompile Include="StageXMLOBject.cpp" />
+    <ClCompile Include="XMLObject.cpp" />
     <ClCompile Include="StageXMLParser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
