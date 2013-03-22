@@ -4,6 +4,9 @@
 #define STAGE_ROOT_GAME "gamestage"
 #define PLANE_ROOT_GAME "gameplane"
 
+#define TRUE_GAME "true"
+#define FALSE_GAME "false"
+
 #define ID_OBJECT "id"
 #define TYPE_OBJECT "type"
 #define NAME_OBJECT "name"

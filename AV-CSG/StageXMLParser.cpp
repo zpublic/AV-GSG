@@ -84,7 +84,11 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pStage->SetDifficulty(::atol(tiElement->Attribute(STAGE_DIFFICULTY_OBJECT)));
         }
-        pStage->SetType("-");
+
+        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
+        {
+            pStage->SetType(tiElement->Attribute(TYPE_OBJECT));
+        }
 
         TiXmlNode* tiEnemyItem = tiRoot->FirstChild(ITEM_GAME);
         if (tiEnemyItem != NULL)
@@ -207,14 +211,14 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
             }
             pStage->PushEnemy(pEnemy);
         }
-        m_mapStage[pStage->GetId()] = pStage;
+        m_mapStage[::atol(pStage->GetId().c_str())] = pStage;
     }
     return true;
 }
 
-CStageXMLStage* CStageXMLParse::Get(const std::string strId) const
+CStageXMLStage* CStageXMLParse::Get(int nId) const
 {
-    auto it = m_mapStage.find(strId);
+    auto it = m_mapStage.find(nId);
     if (it == m_mapStage.end())
     {
         return NULL;
@@ -222,12 +226,12 @@ CStageXMLStage* CStageXMLParse::Get(const std::string strId) const
     return it->second;
 }
 
-const std::map<std::string, CStageXMLStage*>::const_iterator CStageXMLParse::Begin() const
+const MapStageList::const_iterator CStageXMLParse::Begin() const
 {
     return m_mapStage.begin();
 }
 
-const std::map<std::string, CStageXMLStage*>::const_iterator CStageXMLParse::End() const
+const MapStageList::const_iterator CStageXMLParse::End() const
 {
     return m_mapStage.end();
 }

@@ -17,10 +17,12 @@ public:
     bool PushEnemy(CStageXMLEnemy* sItemObject);
     const EnemyObejctMap::const_iterator EnemyBegin() const;
     const EnemyObejctMap::const_iterator EnemyEnd() const;
+    const long GetEnemyNumber() const;
 
     bool PushItem(CStageXMLItem* sItemObject);
     const ItemObejctMap::const_iterator ItemBegin() const;
     const ItemObejctMap::const_iterator ItemEnd() const;
+    const long GetItemNumber() const;
 
     void SetMap(const std::string& strMap);
     const std::string& GetMap() const;

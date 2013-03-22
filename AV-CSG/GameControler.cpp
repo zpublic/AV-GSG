@@ -8,6 +8,7 @@
 #include "GameFrame.h"
 #include "EnemyGenerate.h"
 #include "GameStatus.h"
+#include "GameStagePlayer.h"
 #include "Score.h"
 
 CGameControler * CGameControler::pGameControler = NULL;
@@ -27,7 +28,7 @@ CGameControler::CGameControler(void)
     , m_PresentStage(0)
 {
     m_nPreKey = m_nCurKey = 0;
-    m_pSelfPlane = CSelfPlane::GetInstance();	
+    m_pSelfPlane = CSelfPlane::GetInstance();
 
     m_hBitmapMap = NULL;
     m_hMemBitmap = NULL;
@@ -43,6 +44,7 @@ CGameControler::~CGameControler(void)
 void CGameControler::SetStageXML(const std::string& strPath)
 {
     CStageXMLParse::GetInstance().LoadXML(strPath);
+    CGameStagePlayer::GetInstance().Stage(&CStageXMLParse::GetInstance());
 }
 
 void CGameControler::SetPlaneXML(const std::string& strPath)
@@ -172,9 +174,16 @@ void CGameControler::UpdateScence()
     SelectObject(m_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(m_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     CirculationMap();
+    if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
+    {
+        ::MessageBox(0, _T("过关了！"), _T("过关了！"), MB_OK);
+        CGameStagePlayer::GetInstance().NextStage();
+    }
     if (!CGameStatus::GetGamePause())
     {
-        CEnemyGenerate::CreateEnemy();
+        CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
+        CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().PresentObject(),
+            CGameStagePlayer::GetInstance().Stopwatch());
         CGameFrame::FrameUpdate();
     }
     CGameFrame::FrameRender(m_hMemDC);

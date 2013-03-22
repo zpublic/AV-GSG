@@ -111,3 +111,14 @@ CStageXMLItem* CStageXMLStage::GetItem(const std::string& strId) const
     }
     return it->second;
 }
+
+const long CStageXMLStage::GetEnemyNumber() const
+{
+    return m_mapEnemy.size();
+}
+
+const long CStageXMLStage::GetItemNumber() const
+{
+    return m_mapItem.size();
+}
+

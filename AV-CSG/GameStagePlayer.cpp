@@ -22,6 +22,7 @@ bool CGameStagePlayer::Stage(const CStageXMLParse* pStage)
     {
         return false;
     }
+    m_lnEnemyNumber = m_StageBegin->second->GetEnemyNumber();
     m_emStatus = emGameStagePlayStatusRuning;
     return true;
 }
@@ -60,7 +61,7 @@ void CGameStagePlayer::Updata(int nEnemyNumber)
     case emGameStagePlayTime:
         break;
     case emGameStagePlayEnemy:
-        if ((m_lnEnemyNumber - nEnemyNumber) == 0)
+        if (m_lnEnemyNumber == nEnemyNumber)
         {
             m_emStatus = emGameStagePlayStatusNone;
         }

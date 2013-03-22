@@ -11,6 +11,7 @@ CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* 
     , m_nEnemyType(enemyType)
     , m_nSkinType(0)
     , m_nBulletType(0)
+    , m_pEmnemyNext(NULL)
 {
     m_fFireTime = 0.0f;
 

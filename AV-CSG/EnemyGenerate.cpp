@@ -4,8 +4,8 @@
 #include "EnemyPlane.h"
 #include "EmitterGenerate.h"
 
-long CEnemyGenerate::m_Schedule = 0;
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
+long CEnemyGenerate::m_lnDeadPlane = 0;
 
 #define MAX_SCHEDULE 1000000000
 
@@ -17,37 +17,35 @@ CEnemyGenerate::~CEnemyGenerate(void)
 {
 }
 
-void CEnemyGenerate::CreateEnemy()
+void CEnemyGenerate::CreateEnemy(const CStageXMLStage* pStage, long lnTime)
 {
-    if (m_Schedule > MAX_SCHEDULE)
+    if (lnTime > MAX_SCHEDULE || pStage == NULL)
     {
         return;
     }
-    m_Schedule++;
-    CStageXMLParse& XmlParse = CStageXMLParse::GetInstance();
-    for (auto it = XmlParse.Begin(); it != XmlParse.End(); it++)
+    for (auto ItEnemy = pStage->EnemyBegin();
+        ItEnemy != pStage->EnemyEnd(); ItEnemy++)
     {
-        if (XmlParse.Get("1") != NULL)
+        if (ItEnemy->second->GetAppear() == lnTime)
         {
-            for (auto ItEnemy = XmlParse.Get("1")->EnemyBegin();
-                ItEnemy != XmlParse.Get("1")->EnemyEnd(); ItEnemy++)
-            {
-                if (ItEnemy->second->GetAppear() == m_Schedule)
-                {
-                    CEnemyPlane* pEnemy = new CEnemyPlane(
-                        ItEnemy->second->GetType(),
-                        CEmitterGenerate::GenerateEnemyEmitter(),
-                        ItEnemy->second->GetPoint().PosX);
-                    pEnemy->m_pEmnemyNext = spEnemyHead;
-                    spEnemyHead = pEnemy;
-                }
-            }
+            CEnemyPlane* pEnemy = new CEnemyPlane(
+            ItEnemy->second->GetType(),
+            CEmitterGenerate::GenerateEnemyEmitter(),
+            ItEnemy->second->GetPoint().PosX);
+            pEnemy->m_pEmnemyNext = spEnemyHead;
+            spEnemyHead = pEnemy;
         }
     }
 }
 
+long CEnemyGenerate::EnemyNumber()
+{
+    return m_lnDeadPlane;
+}
+
 void CEnemyGenerate::ReleaseEnemy(CEnemyPlane* pEnemy)
 {
+    m_lnDeadPlane++;
     if (spEnemyHead == pEnemy)
     {
         spEnemyHead = pEnemy->m_pEmnemyNext;

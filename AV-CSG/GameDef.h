@@ -64,6 +64,21 @@ enum GameStatus
     emGameStatusPause,  ///> 暂停
 };
 
+//控制器类型
+enum GameStagePlayType
+{
+    emGameStagePlayTime,
+    emGameStagePlayEnemy,
+    emGameStagePlayEnemyBoss,
+};
+
+//控制器状态
+enum GameStagePlayStatus
+{
+    emGameStagePlayStatusNone,
+    emGameStagePlayStatusRuning
+};
+
 // 图片类型
 enum PictureType
 {
