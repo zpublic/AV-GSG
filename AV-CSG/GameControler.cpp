@@ -175,9 +175,9 @@ void CGameControler::UpdateScence()
     if (!CGameStatus::GetGamePause())
     {
         CEnemyGenerate::CreateEnemy();
-        CGameFrame::FrameUpdate();
+        FrameUpdate();
     }
-    CGameFrame::FrameRender(m_hMemDC);
+    FrameRender(m_hMemDC);
 
     BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
 }
