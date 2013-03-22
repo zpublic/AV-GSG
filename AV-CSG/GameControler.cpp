@@ -10,19 +10,7 @@
 #include "GameStatus.h"
 #include "Score.h"
 
-CGameControler * CGameControler::pGameControler = NULL;
-
-CGameControler* CGameControler::GetInstance()
-{
-    if (NULL == pGameControler)
-    {
-        pGameControler = new CGameControler;
-    }
-
-    return pGameControler;
-}
-
-CGameControler::CGameControler(void)
+CGameControler::CGameControler()
     : m_nY(0)
     , m_PresentStage(0)
 {
@@ -35,7 +23,7 @@ CGameControler::CGameControler(void)
     m_hMapDC = NULL;
 }
 
-CGameControler::~CGameControler(void)
+CGameControler::~CGameControler()
 {
 
 }

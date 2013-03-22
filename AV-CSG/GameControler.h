@@ -9,8 +9,8 @@ class CSelfPlane;
 class CGameControler
 {
 public:
-    static CGameControler* GetInstance();
-    ~CGameControler(void);
+    CGameControler();
+    ~CGameControler();
 
     //更新游戏场景
     void UpdateScence();
@@ -29,15 +29,12 @@ public:
 
     void Exit();
 private:
-    CGameControler(void);
-
     //地图循环贴图
     void CirculationMap();
 
     void GameOver();
     void GameReady();
 
-    static CGameControler* pGameControler;
     DWORD   m_dwLastTime;       //上次绘图时间
     HDC     m_hMemDC;
     HBITMAP m_hBitmapMap;

@@ -174,7 +174,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_hdc = GetDC(hWnd);
 
-    g_pGameControl = CGameControler::GetInstance();
+    g_pGameControl = new CGameControler;
     g_pGameControl->SetWndDC(g_hdc);
 
     char filePath[MAX_PATH] = {0};
