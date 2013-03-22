@@ -11,9 +11,19 @@
 	</enemy>
 	<enemy id = "3" type = "2" posx = "50" posy = "10" appear = "10" >
 		<item id = "1" type = "2" number = "2" pox = "10" posy = "10" way = "1"/>
-	</enemy>				
+	</enemy>
 	<enemy id = "4" type = "1" posx = "60" posy = "10" appear = "5" bind = "null">
 		<item id = "2" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
+	<enemy id = "11" type = "2" posx = "10" posy = "10" appear = "2000" />
+	<enemy id = "12" type = "2" posx = "20" posy = "10" appear = "2000" />
+	<enemy id = "13" type = "2" posx = "40" posy = "10" appear = "2000" />
+	<enemy id = "14" type = "2" posx = "50" posy = "10" appear = "2000" />
+	<enemy id = "15" type = "2" posx = "20" posy = "10" appear = "2100" />
+	<enemy id = "16" type = "2" posx = "40" posy = "10" appear = "2100" />
+	<enemy id = "17" type = "2" posx = "10" posy = "10" appear = "2200" />
+	<enemy id = "18" type = "2" posx = "20" posy = "10" appear = "2200" />
+	<enemy id = "19" type = "2" posx = "40" posy = "10" appear = "2200" />
+	<enemy id = "10" type = "2" posx = "50" posy = "10" appear = "2200" />
 </stage>
 </gamestage>

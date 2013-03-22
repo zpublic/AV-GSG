@@ -1,18 +1,10 @@
 #include "stdafx.h"
 #include "GameFrame.h"
+#include "ISprite.h"
 
 ISprite * g_pHead = NULL;
 
-CGameFrame::CGameFrame(void)
-{
-}
-
-
-CGameFrame::~CGameFrame(void)
-{
-}
-
-void CGameFrame::FrameRender(HDC hDC)
+void FrameRender(HDC hDC)
 {
     ISprite* pTemp = g_pHead;
     for( ; pTemp!=NULL; pTemp=pTemp->pNext )
@@ -21,7 +13,7 @@ void CGameFrame::FrameRender(HDC hDC)
     }
 }
 
-void CGameFrame::FrameUpdate()
+void FrameUpdate()
 {
     //循环更新链上每一个图形
     ISprite *pTemp = g_pHead;
@@ -30,10 +22,9 @@ void CGameFrame::FrameUpdate()
         if (!pTemp->IsVisible())
         {
             //不可见则删除，并更新链表
-            ISprite *p = pTemp;
-            p = p->pNext;
+            ISprite *pNext = pTemp->pNext;
             delete pTemp;
-            pTemp = p;
+            pTemp = pNext;
         } 
         else
         {

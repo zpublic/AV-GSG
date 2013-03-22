@@ -11,19 +11,7 @@
 #include "GameStagePlayer.h"
 #include "Score.h"
 
-CGameControler * CGameControler::pGameControler = NULL;
-
-CGameControler* CGameControler::GetInstance()
-{
-    if (NULL == pGameControler)
-    {
-        pGameControler = new CGameControler;
-    }
-
-    return pGameControler;
-}
-
-CGameControler::CGameControler(void)
+CGameControler::CGameControler()
     : m_nY(0)
     , m_PresentStage(0)
 {
@@ -36,7 +24,7 @@ CGameControler::CGameControler(void)
     m_hMapDC = NULL;
 }
 
-CGameControler::~CGameControler(void)
+CGameControler::~CGameControler()
 {
 
 }
@@ -183,9 +171,9 @@ void CGameControler::UpdateScence()
         CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
         CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().PresentObject(),
             CGameStagePlayer::GetInstance().Stopwatch());
-        CGameFrame::FrameUpdate();
+        FrameUpdate();
     }
-    CGameFrame::FrameRender(m_hMemDC);
+    FrameRender(m_hMemDC);
 
     BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
 }

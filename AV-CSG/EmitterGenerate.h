@@ -2,7 +2,7 @@
 
 #include "IEmitter.h"
 
-///> 发射器生成器
+///> 发射器生成
 class CEmitterGenerate
 {
 public:

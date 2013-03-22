@@ -49,7 +49,7 @@ void CSelfPlane::InitPlane()
     m_fInvincibletime = 1.0;
     m_bUnDead = true;
     m_bFire = false;
-    m_nWholeFired = 2;
+    m_nWholeFired = 3;
 }
 
 void CSelfPlane::Update()

@@ -89,9 +89,11 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Parse_def.h" />
+    <ClInclude Include="Prop.h" />
     <ClInclude Include="PlaneXMLObject.h" />
     <ClInclude Include="PlaneXMLParse.h" />
     <ClInclude Include="StageXMLEnemyOBject.h" />
@@ -151,6 +153,8 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="Generator.cpp" />
+    <ClCompile Include="Prop.cpp" />
     <ClCompile Include="GameStagePlayer.cpp" />
     <ClCompile Include="PlaneXMLObject.cpp" />
     <ClCompile Include="PlaneXMLParse.cpp" />
