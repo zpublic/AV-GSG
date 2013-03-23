@@ -32,7 +32,7 @@ CGameControler::~CGameControler()
 void CGameControler::SetStageXML(const std::string& strPath)
 {
     CStageXMLParse::GetInstance().LoadXML(strPath);
-    CGameStagePlayer::GetInstance().Stage(&CStageXMLParse::GetInstance());
+    m_StagePlayer.Stage(&CStageXMLParse::GetInstance());
 }
 
 void CGameControler::SetPlaneXML(const std::string& strPath)
@@ -111,7 +111,7 @@ void CGameControler::StartGame()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
 
-    m_pSelfPlane->InitGame();
+    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("1"));
     CScore::Reset();
     CGameStatus::StartGame();
 }
@@ -162,15 +162,15 @@ void CGameControler::UpdateScence()
     SelectObject(m_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(m_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     CirculationMap();
-    if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
+    if (m_StagePlayer.PresentStatus() == emGameStagePlayStatusNone)
     {
-        CGameStagePlayer::GetInstance().NextStage();
+        m_StagePlayer.NextStage();
     }
     if (!CGameStatus::GetGamePause())
     {
-        CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
-        CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().PresentObject(),
-            CGameStagePlayer::GetInstance().Stopwatch());
+        m_StagePlayer.Updata(CEnemyGenerate::EnemyNumber());
+        CEnemyGenerate::CreateEnemy(m_StagePlayer.PresentObject(),
+            m_StagePlayer.Stopwatch());
         FrameUpdate();
     }
     FrameRender(m_hMemDC);

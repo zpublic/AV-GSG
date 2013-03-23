@@ -30,7 +30,7 @@ const CPlaneXMLObject* CPlaneXMLParse::GetEnemyPlane(const std::string& strId) c
 const CPlaneXMLObject* CPlaneXMLParse::GetSelfPlane(const std::string& strId) const
 {
     auto it = m_mapSelf.find(strId);
-    if (it != m_mapSelf.end())
+    if (it == m_mapSelf.end())
     {
         return NULL;
     }

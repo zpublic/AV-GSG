@@ -1,13 +1,6 @@
 #include "stdafx.h"
 #include "GameStagePlayer.h"
 
-CGameStagePlayer CGameStagePlayer::m_StagePlayer;
-
-CGameStagePlayer& CGameStagePlayer::GetInstance()
-{
-    return m_StagePlayer;
-}
-
 bool CGameStagePlayer::Stage(const CStageXMLParse* pStage)
 {
     if (pStage->Begin() == pStage->End())

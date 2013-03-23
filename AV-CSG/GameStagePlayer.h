@@ -10,9 +10,8 @@
 class CGameStagePlayer
 {
 public:
+    CGameStagePlayer();
     virtual ~CGameStagePlayer();
-
-    static CGameStagePlayer& GetInstance();
 
     bool Stage(const CStageXMLParse* pStage);
     GameStagePlayStatus PresentStatus() const;
@@ -25,13 +24,11 @@ public:
     long Stopwatch() const;
 
 private:
-    CGameStagePlayer();
     CGameStagePlayer(CGameStagePlayer&);
     CGameStagePlayer& operator = (CGameStagePlayer&);
 
     GameStagePlayType m_emType;
     GameStagePlayStatus m_emStatus;
-    static CGameStagePlayer m_StagePlayer;
     long m_lnFrame;
     long m_lnStopwatch;
     long m_lnEnemyNumber;

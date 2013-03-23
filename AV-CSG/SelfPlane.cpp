@@ -19,29 +19,34 @@ CSelfPlane * CSelfPlane::GetInstance()
 
 CSelfPlane::CSelfPlane(int x, int y)
     : PlaneBase(x, y)
+    , m_FirstHP(0)
 {
-    InitGame();
 }
 
 CSelfPlane::~CSelfPlane()
 {
 }
 
-void CSelfPlane::InitGame()
+void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
 {
+    if (!pPlane)
+    {
+        return;
+    }
     m_nLifes = 2;
-    SetBulletType(emBulletTypeAMMO1);
+    SetBulletType((BulletType)pPlane->GetBulletType());
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
     m_nHeight = 26;
-    m_nSpeed = 350;
-    InitPlane();
+    m_nSpeed = pPlane->GetSpeed();
+    m_FirstHP = pPlane->GetHP();
+    InitPlane(m_FirstHP);
 }
 
-void CSelfPlane::InitPlane()
+void CSelfPlane::InitPlane(int nHP)
 {
     m_bIsStopMove = true;
-    m_nHP = 100;
+    m_nHP = nHP;
     m_nPosX = SCREEN_WIDTH/2 - 24;
     m_nPosY = 480;
     m_fBulletFrequency = 0.2f;//每秒发射5次子弹
@@ -220,7 +225,7 @@ bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
             if (m_nLifes > 0)
             {
                 //new blast
-                InitPlane();
+                InitPlane(m_FirstHP);
             }
             else
             {

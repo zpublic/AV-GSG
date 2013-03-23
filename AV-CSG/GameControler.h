@@ -2,6 +2,7 @@
 
 #include "StageXMLParser.h"
 #include "PlaneXMLParse.h"
+#include "GameStagePlayer.h"
 
 class CSelfPlane;
 
@@ -49,5 +50,6 @@ private:
     int     m_PresentStage;
 
     CSelfPlane *m_pSelfPlane;
+    CGameStagePlayer m_StagePlayer;
 };
 
