@@ -10,7 +10,7 @@ class SceneEngine : public Singleton<SceneEngine>
 public:
     virtual ~SceneEngine();
 
-    virtual bool SingletonInitialize();
+    virtual bool Initialize();
 
     void Push(GameScene* pScene);
     void Pop();

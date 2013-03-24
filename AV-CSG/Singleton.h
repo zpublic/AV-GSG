@@ -10,7 +10,7 @@ protected:
     virtual ~Singleton() {}
 
 public:
-    static T* SingletonCreate()
+    static T* Instance()
     {
         if (m_pInst == NULL)
         {
@@ -19,7 +19,7 @@ public:
         return m_pInst;
     }
 
-	static void SingletonDestroy()
+	static void Destroy()
     {
         if (m_pInst != NULL)
         {
@@ -28,7 +28,7 @@ public:
         m_pInst = NULL;
     }
 
-    virtual bool SingletonInitialize() = 0;
+    virtual bool Initialize() = 0;
 
 private:
     Singleton(const Singleton &s);

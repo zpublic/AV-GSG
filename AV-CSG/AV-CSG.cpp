@@ -22,6 +22,18 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
 
+void InitEngine()
+{
+    InputEngine::Instance()->Initialize();
+    SceneEngine::Instance()->Initialize();
+}
+
+void UninitEngine()
+{
+    InputEngine::Destroy();
+    SceneEngine::Destroy();
+}
+
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                        HINSTANCE hPrevInstance,
                        LPTSTR    lpCmdLine,
@@ -40,6 +52,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     LoadString(hInstance, IDC_AIRCRAFTGAME, g_szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
+    InitEngine();
     // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow))
     {
@@ -62,6 +75,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
 
     g_pGameControl->Exit();
+    UninitEngine();
 
     return (int) msg.wParam;
 }

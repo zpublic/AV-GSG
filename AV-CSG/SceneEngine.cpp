@@ -24,7 +24,7 @@ SceneEngine::SceneEngine()
     m_nPopCount     = 0;
 }
 
-bool SceneEngine::SingletonInitialize()
+bool SceneEngine::Initialize()
 {
     return true;
 }

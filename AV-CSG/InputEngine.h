@@ -7,7 +7,7 @@ class InputEngine : public Singleton<InputEngine>
 
 public:
     virtual ~InputEngine();
-    virtual bool SingletonInitialize();
+    virtual bool Initialize();
 
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);

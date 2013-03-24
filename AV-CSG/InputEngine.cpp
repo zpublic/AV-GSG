@@ -8,7 +8,7 @@ InputEngine::~InputEngine()
 
 }
 
-bool InputEngine::SingletonInitialize()
+bool InputEngine::Initialize()
 {
     return true;
 }
