@@ -241,6 +241,9 @@
     <ClInclude Include="InputEngine.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
+    <ClInclude Include="GameScene_Pause.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -371,6 +374,9 @@
     </ClCompile>
     <ClCompile Include="InputEngine.cpp">
       <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene_Pause.cpp">
+      <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

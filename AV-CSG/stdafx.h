@@ -34,3 +34,7 @@
 ///> 引擎部分，全局访问
 #include "InputEngine.h"
 #include "SceneEngine.h"
+
+
+extern HDC  g_hMemDC;
+extern HDC  g_hWndDC;

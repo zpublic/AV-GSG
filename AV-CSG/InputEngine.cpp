@@ -15,18 +15,38 @@ bool InputEngine::Initialize()
 
 InputEngine::InputEngine()
 {
-    m_nPreKey = 0;
-    m_nCurKey = 0;
+    m_nPreKey       = 0;
+    m_nCurKey       = 0;
+    m_bPressPause   = false;
+    m_bPressFireAll = false;
 }
 
 void InputEngine::KeyDown( WPARAM nKeyCode )
 {
+    if (nKeyCode == 'P')
+    {
+        m_bPressPause = true;
+    }
+    if (nKeyCode == 'X' || nKeyCode == 'K')
+    {
+        m_bPressFireAll = true;
+    }
+
     m_nPreKey = m_nCurKey;
     m_nCurKey = nKeyCode;
 }
 
 void InputEngine::KeyUp( WPARAM nKeyCode )
 {
+    if (nKeyCode == 'P')
+    {
+        m_bPressPause = false;
+    }
+    if (nKeyCode == 'X' || nKeyCode == 'K')
+    {
+        m_bPressFireAll = false;
+    }
+
     if (nKeyCode == m_nCurKey)
     {
         if (m_nPreKey && (m_nPreKey != m_nCurKey))
@@ -52,11 +72,26 @@ int InputEngine::GetPreKey()
 
 int InputEngine::GetCurKey()
 {
-    int nCurKey = m_nCurKey;
-    if (nCurKey == 'P' || nCurKey == 'X' || nCurKey == 'K')
+    return m_nCurKey;
+}
+
+bool InputEngine::PressPause()
+{
+    if (m_bPressPause)
     {
-        m_nCurKey = m_nPreKey;
+        m_bPressPause = false;
+        return true;
     }
-    return nCurKey;
+    return false;
+}
+
+bool InputEngine::PressFireAll()
+{
+    if (m_bPressFireAll)
+    {
+        m_bPressFireAll = false;
+        return true;
+    }
+    return false;
 }
 

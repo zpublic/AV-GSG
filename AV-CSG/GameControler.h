@@ -35,10 +35,8 @@ private:
     void ProcessInput();
 
     DWORD   m_dwLastTime;       //上次绘图时间
-    HDC     m_hMemDC;
     HBITMAP m_hBitmapMap;
     HBITMAP m_hMemBitmap;
-    HDC     m_hWndDC;
     HDC     m_hMapDC; 
     int     m_nY;               //记录地图被截取的宽度
 

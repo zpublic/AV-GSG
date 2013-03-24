@@ -15,9 +15,15 @@ public:
     int GetPreKey();
     int GetCurKey();
 
+    bool PressPause();
+    bool PressFireAll();
+
 private:
     InputEngine();
 
     int     m_nPreKey;
     int     m_nCurKey;
+
+    bool    m_bPressPause;
+    bool    m_bPressFireAll;
 };

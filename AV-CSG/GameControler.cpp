@@ -11,6 +11,10 @@
 #include "GameStagePlayer.h"
 #include "Score.h"
 
+
+HDC         g_hMemDC = NULL;
+HDC         g_hWndDC = NULL;
+
 CGameControler::CGameControler()
     : m_nY(0)
     , m_PresentStage(0)
@@ -20,7 +24,6 @@ CGameControler::CGameControler()
 
     m_hBitmapMap = NULL;
     m_hMemBitmap = NULL;
-    m_hMemDC = NULL;
     m_hMapDC = NULL;
 }
 
@@ -43,9 +46,9 @@ void CGameControler::SetPlaneXML(const std::string& strPath)
 void CGameControler::Exit()
 {
     CPicturePool::GetInstance()->FreeImage();
-    if (m_hMemDC)
+    if (g_hMemDC)
     {
-        DeleteDC(m_hMemDC);
+        DeleteDC(g_hMemDC);
     }
     if (m_hMapDC)
     {
@@ -61,7 +64,7 @@ void CGameControler::GameOver()
     m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameover.bmp"), IMAGE_BITMAP,
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
-    BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
+    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
 
     TCHAR szOut[100] = {0};
     wsprintf(szOut, L"×îÖÕµÃ·Ö£º%d", CScore::GetScore());
@@ -74,13 +77,13 @@ void CGameControler::GameReady()
     m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameready.bmp"), IMAGE_BITMAP,
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
-    BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
+    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
 }
 
 void CGameControler::CirculationMap()
 {
-    BitBlt(m_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-    BitBlt(m_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
+    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
+    BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
     if (!CGameStatus::GetGamePause())
         {
@@ -92,13 +95,13 @@ void CGameControler::CirculationMap()
 
 void CGameControler::SetWndDC(HDC hDC)
 {
-    m_hWndDC = hDC;
-    m_hMemDC = CreateCompatibleDC(hDC);
+    g_hWndDC = hDC;
+    g_hMemDC = CreateCompatibleDC(hDC);
     m_hMapDC = CreateCompatibleDC(hDC);
 
     if (m_hMemBitmap) DeleteObject(m_hBitmapMap);
     m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
-    SelectObject(m_hMemDC, m_hMemBitmap);
+    SelectObject(g_hMemDC, m_hMemBitmap);
 }
 
 void CGameControler::StartGame()
@@ -145,8 +148,8 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    SelectObject(m_hMemDC, GetStockObject(BLACK_BRUSH));
-    Rectangle(m_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     CirculationMap();
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
@@ -160,16 +163,14 @@ void CGameControler::UpdateScence()
             CGameStagePlayer::GetInstance().Stopwatch());
         FrameUpdate();
     }
-    FrameRender(m_hMemDC);
+    FrameRender(g_hMemDC);
 
-    BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
+    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
 void CGameControler::ProcessInput()
 {
-    int nCur = InputEngine::Instance()->GetCurKey();
-
-    if (nCur == 'P')
+    if (InputEngine::Instance()->PressPause())
     {
         if (CGameStatus::GetGamePause())
         {
@@ -185,7 +186,7 @@ void CGameControler::ProcessInput()
             m_pSelfPlane->Control(STOP_MOVE);
         }
     }
-    else if (nCur == 'K' || nCur == 'X')
+    else if (InputEngine::Instance()->PressFireAll())
     {
         m_pSelfPlane->Control(FIREALL);
     }
