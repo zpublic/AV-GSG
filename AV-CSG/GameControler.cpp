@@ -86,10 +86,10 @@ void CGameControler::CirculationMap()
     BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
 
     if (!CGameStatus::GetGamePause())
-        {
-    m_nY += 1;
-    if(m_nY == SCREEN_HEIGHT)
-        m_nY = 0;
+    {
+        m_nY += 1;
+        if(m_nY == SCREEN_HEIGHT)
+            m_nY = 0;
     }
 }
 
@@ -155,39 +155,6 @@ void CGameControler::UpdateScence()
     {
         CGameStagePlayer::GetInstance().NextStage();
     }
-    ProcessInput();
-    if (!CGameStatus::GetGamePause())
-    {
-        CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
-        CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().PresentObject(),
-            CGameStagePlayer::GetInstance().Stopwatch());
-        FrameUpdate();
-    }
-    FrameRender(g_hMemDC);
-
-    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
-}
-
-void CGameControler::ProcessInput()
-{
-    if (InputEngine::Instance()->PressPause())
-    {
-        if (CGameStatus::GetGamePause())
-        {
-            CGameStatus::StartGame();
-        }
-        else
-        {
-            if (!CGameStatus::GetGameRuning())
-            {
-                return;
-            }
-            CGameStatus::PauseGame();
-            m_pSelfPlane->Control(STOP_MOVE);
-        }
-    }
-    else if (InputEngine::Instance()->PressFireAll())
-    {
-        m_pSelfPlane->Control(FIREALL);
-    }
+    SceneEngine::Instance()->Update();
+    SceneEngine::Instance()->Output();
 }

@@ -19,6 +19,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "GameControler.h"
+#include "GameScene_Play.h"
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
 
@@ -26,6 +27,8 @@ void InitEngine()
 {
     InputEngine::Instance()->Initialize();
     SceneEngine::Instance()->Initialize();
+
+    SceneEngine::Instance()->Push(new GameScene_Play);
 }
 
 void UninitEngine()

@@ -32,7 +32,6 @@ private:
 
     void GameOver();
     void GameReady();
-    void ProcessInput();
 
     DWORD   m_dwLastTime;       //上次绘图时间
     HBITMAP m_hBitmapMap;
