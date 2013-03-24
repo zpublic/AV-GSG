@@ -66,6 +66,12 @@
     <Filter Include="Source Files\control\StagePlayer">
       <UniqueIdentifier>{25392ca6-6767-4b8f-a251-87a036c417c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{9809ab10-adcd-4795-a271-4a6e75e00bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scene">
+      <UniqueIdentifier>{c2e8c3ed-0c2f-4d18-961a-f7f73cf3e43b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -223,6 +229,15 @@
     <ClInclude Include="GameStagePlayer.h">
       <Filter>Source Files\control\StagePlayer</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Source Files\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -347,6 +362,9 @@
     </ClCompile>
     <ClCompile Include="GameStagePlayer.cpp">
       <Filter>Source Files\control\StagePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
