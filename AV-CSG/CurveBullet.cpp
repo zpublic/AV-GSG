@@ -12,7 +12,7 @@ CCurveBullet::CCurveBullet(
     int nSpeed,
     BulletType bulletType,
     float fAngle)
-    : CBullet(x, y, bFriend, nPower, nSpeed, bulletType, fAngle)
+    : CBullet(x, y, bFriend, bulletType, fAngle)
 {
     m_nStatus = 7;
 }
@@ -49,7 +49,7 @@ void CCurveBullet::Update()
             if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))
             {
                 m_bIsVisible = false;
-                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
+                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypeBullet");
                 break;
             }
         }
@@ -62,7 +62,7 @@ void CCurveBullet::Update()
             m_nPower))
         {
             m_bIsVisible = false;
-            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
+            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypeBullet");
         }
     }
 }

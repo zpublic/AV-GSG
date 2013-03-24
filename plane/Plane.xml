@@ -1,12 +1,12 @@
 <gameplane>
 	<enemyplane>
-		<plane hp = "100" skin = "10" bullettype = "2" type = "" id = "1" speed = "100" name = "">
+		<plane hp = "100" skin = "10" bullettype = "emBulletTypeAMMO2" type = "" id = "1" speed = "100" name = "">
 		</plane>
-		<plane hp = "10" skin = "13" bullettype = "3" type = "" speed = "200" name = "" id = "2">
+		<plane hp = "10" skin = "13" bullettype = "emBulletTypeAMMO6" type = "" speed = "200" name = "" id = "2">
 		</plane>		
 	</enemyplane>
 	<selfplane>
-		<plane hp = "10" skin = "13" bullettype = "6" type = "" speed = "200" name = "200" id = "1">
+		<plane hp = "10" skin = "13" bullettype = "emBulletTypeAMMO0" type = "" speed = "200" name = "200" id = "1">
 		</plane>
 	</selfplane>	
 </gameplane>

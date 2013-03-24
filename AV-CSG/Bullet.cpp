@@ -5,19 +5,29 @@
 #include "Explosion.h"
 #include "EnemyGenerate.h"
 
+#include <string>
+
 CBullet::CBullet(int x, int y,
                  bool bFriend,
-                 int nPower,
-                 int nSpeed,
                  BulletType bulletType,
                  float fAngle)
     : CSprite(x, y)
+    , m_BulletType(bulletType)
 {
     m_bFriend = bFriend;
-    m_nPower = nPower;
-    m_nSpeed = nSpeed;
     m_fAngle = fAngle;
-    m_nBulletType = bulletType;
+    m_Bullet = CExplosinXMLParse::GetInstance().Get(bulletType);
+    if (m_Bullet == NULL)
+    {
+        return;
+    }
+    m_nSpeed = m_Bullet->GetSpeed();
+    m_nPower = m_Bullet->GetPower();
+    m_nWidth = m_Bullet->GetWidth();
+    m_nHeight = m_Bullet->GetHeight();
+    m_nFrameCount = m_Bullet->GetFrameCount();
+
+    /*
     switch(bulletType)
     {
     case emBulletTypeAMMO0:
@@ -71,6 +81,7 @@ CBullet::CBullet(int x, int y,
         m_nFrameCount = 1;
         break;
     }
+    */
 }
 
 CBullet::~CBullet(void)
@@ -96,7 +107,11 @@ bool CBullet::IsVisible()
 
 void CBullet::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(m_nBulletType)->DrawBitmap(
+    if (!CPicturePool::GetInstance()->GetPicture(m_Bullet->GetSkinId()))
+    {
+        return;
+    }
+    CPicturePool::GetInstance()->GetPicture(m_Bullet->GetSkinId())->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
@@ -121,7 +136,7 @@ void CBullet::Update()
             if(temp->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, m_nPower))
             {
                 m_bIsVisible = false;
-                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
+                new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypeBullet");
                 break;
             }
         }
@@ -134,7 +149,7 @@ void CBullet::Update()
             m_nPower))
         {
             m_bIsVisible = false;
-            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
+            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypeBullet");
         }
     }
 }

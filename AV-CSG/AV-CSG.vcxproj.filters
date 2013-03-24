@@ -241,6 +241,15 @@
     <ClInclude Include="GameScene.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="InputEngine.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene_Pause.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene_Play.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
     <ClInclude Include="ExplosinXMLParser.h">
       <Filter>Source Files\control\XmlParser\explosionxml</Filter>
     </ClInclude>
@@ -374,6 +383,15 @@
     </ClCompile>
     <ClCompile Include="SceneEngine.cpp">
       <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEngine.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene_Pause.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene_Play.cpp">
+      <Filter>Source Files\scene</Filter>
     </ClCompile>
     <ClCompile Include="ExplosinXMLParser.cpp">
       <Filter>Source Files\control\XmlParser\explosionxml</Filter>

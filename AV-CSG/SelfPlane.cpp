@@ -34,7 +34,7 @@ void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
         return;
     }
     m_nLifes = 2;
-    SetBulletType((BulletType)pPlane->GetBulletType());
+    SetBulletType(pPlane->GetBulletType());
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
     m_nHeight = 26;
@@ -59,6 +59,8 @@ void CSelfPlane::InitPlane(int nHP)
 
 void CSelfPlane::Update()
 {
+    GetInput();
+
     float fDis = ElapsedTime * m_nSpeed;
 
     if (m_bUnDead)
@@ -99,6 +101,96 @@ void CSelfPlane::Update()
         {
             m_fFrequencyTime -= m_fBulletFrequency;
         }
+    }
+}
+
+void CSelfPlane::GetInput()
+{
+    int nPre = InputEngine::Instance()->GetPreKey();
+    int nCur = InputEngine::Instance()->GetCurKey();
+
+    if (nPre == VK_LEFT)
+        nPre = 'A';
+    if (nPre == VK_DOWN)
+        nPre = 'S';
+    if (nPre == VK_RIGHT)
+        nPre = 'D';
+    if (nPre == VK_UP)
+        nPre = 'W';
+    if (nCur == VK_LEFT)
+        nCur = 'A';
+    if (nCur == VK_DOWN)
+        nCur = 'S';
+    if (nCur == VK_RIGHT)
+        nCur = 'D';
+    if (nCur == VK_UP)
+        nCur = 'W';
+
+    switch (nCur)
+    {
+    case 'A':
+    case 'S':
+    case 'D':
+    case 'W':
+        if ( (nPre + nCur)%'A' == 0)
+        {
+            Control(LEFT);
+        }
+        else if ((nPre + nCur)%'D'==0)
+        {
+            Control(RIGHT);
+        }
+        else if ((nPre + nCur)%'W' == 0)
+        {
+            Control(UP);
+        }
+        else if ((nPre + nCur)%'S' == 0)
+        {
+            Control(DOWN);
+        }
+        else if ((nPre + nCur) == ('A' + 'W'))
+        {
+            Control(LEFT_UP);
+
+        }
+        else if ((nPre + nCur) == ('A' + 'S'))
+        {
+            Control(LEFT_DOWN);
+
+        }
+        else if ((nPre + nCur) == ('D' + 'W'))
+        {
+            Control(RIGHT_UP);
+
+        }
+        else if ((nPre + nCur) == ('D' + 'S'))
+        {
+            Control(RIGHT_DOWN);
+
+        }
+        break;
+    case 'J':
+    case 'Z':
+        Control(FIRE);
+        break;
+    case '1':
+        SetBulletType("emBulletTypeAMMO0");
+        break;
+    case '2':
+        SetBulletType("emBulletTypeAMMO1");
+        break;
+    case '3':
+        SetBulletType("emBulletTypeAMMO2");
+        break;
+    case '4':
+        SetBulletType("emBulletTypeAMMO3");
+        break;
+    default:
+        if (nPre != 'J' && nPre != 'Z')
+        {
+            Control(STOP_FIRE);
+        }
+        Control(STOP_MOVE);
     }
 }
 
@@ -152,7 +244,7 @@ void CSelfPlane::Control(ActionType actionType)
         if (m_nWholeFired && CGameStatus::GetGameRuning())
         {
             IEmitter* iEmitter = CEmitterGenerate::Generate(5, true, 0, 0, 0);
-            iEmitter->Emit(0, 0, emBulletTypeAmmoAll1);
+            iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
             CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {
@@ -241,15 +333,15 @@ void CSelfPlane::SetBulletType( BulletType bulletType )
 {
     delete m_piEmitter;
     m_nBulletType = bulletType;
-    if (m_nBulletType == emBulletTypeAMMO4)
+    if (m_nBulletType == "emBulletTypeAMMO4")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(4);
     }
-    else if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
+    else if (m_nBulletType == "emBulletTypeAMMO5" || m_nBulletType == "emBulletTypeAMMO6")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(2);
     }
-    else if (m_nBulletType == emBulletTypeAmmoSB)
+    else if (m_nBulletType == "emBulletTypeAmmoSB")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(3);
     }

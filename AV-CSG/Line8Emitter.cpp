@@ -14,35 +14,35 @@ void CLine8Emitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 {
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(0*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(1*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(2*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(3*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(4*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(5*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(6*PI/4.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(7*PI/4.0));
 }
 

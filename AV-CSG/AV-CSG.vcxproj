@@ -90,9 +90,12 @@
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="GameScene_Pause.h" />
+    <ClInclude Include="GameScene_Play.h" />
     <ClInclude Include="ExplosinXMLObject.h" />
     <ClInclude Include="ExplosinXMLParser.h" />
     <ClInclude Include="Generator.h" />
+    <ClInclude Include="InputEngine.h" />
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Parse_def.h" />
@@ -158,9 +161,12 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CurveBullet.cpp" />
     <ClCompile Include="CurveEmitter.cpp" />
+    <ClCompile Include="GameScene_Pause.cpp" />
+    <ClCompile Include="GameScene_Play.cpp" />
     <ClCompile Include="ExplosinXMLObject.cpp" />
     <ClCompile Include="ExplosinXMLParser.cpp" />
     <ClCompile Include="Generator.cpp" />
+    <ClCompile Include="InputEngine.cpp" />
     <ClCompile Include="Prop.cpp" />
     <ClCompile Include="GameStagePlayer.cpp" />
     <ClCompile Include="PlaneXMLObject.cpp" />

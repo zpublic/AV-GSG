@@ -123,7 +123,7 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         }
         if (tiElement->Attribute(PLANE_BULLETTYPE_OBJECT) != NULL)
         {
-            pEnemy->SetBulletType(::atoi(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT)));
+            pEnemy->SetBulletType(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT));
         }
         if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
         {
@@ -169,7 +169,7 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         }
         if (tiElement->Attribute(PLANE_BULLETTYPE_OBJECT) != NULL)
         {
-            pSelf->SetBulletType(::atoi(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT)));
+            pSelf->SetBulletType(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT));
         }
         if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
         {

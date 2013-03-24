@@ -19,8 +19,23 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "GameControler.h"
+#include "GameScene_Play.h"
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
+
+void InitEngine()
+{
+    InputEngine::Instance()->Initialize();
+    SceneEngine::Instance()->Initialize();
+
+    SceneEngine::Instance()->Push(new GameScene_Play);
+}
+
+void UninitEngine()
+{
+    InputEngine::Destroy();
+    SceneEngine::Destroy();
+}
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                        HINSTANCE hPrevInstance,
@@ -40,6 +55,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     LoadString(hInstance, IDC_AIRCRAFTGAME, g_szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
+    InitEngine();
     // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow))
     {
@@ -62,6 +78,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
 
     g_pGameControl->Exit();
+    UninitEngine();
 
     return (int) msg.wParam;
 }
@@ -186,6 +203,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ::PathRemoveFileSpecA(filePath);
     ::PathAppendA(filePath, "plane/plane.xml");
     g_pGameControl->SetPlaneXML(filePath);
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "explosion/explosion.xml");
+    g_pGameControl->SetExplosionXML(filePath);
     return TRUE;
 }
 
@@ -205,10 +226,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_KEYDOWN:
-        g_pGameControl->KeyDown(wParam);
+        InputEngine::Instance()->KeyDown(wParam);
         break;
     case WM_KEYUP:
-        g_pGameControl->KeyUp(wParam);
+        InputEngine::Instance()->KeyUp(wParam);
         break;
     case WM_COMMAND:
         wmId    = LOWORD(wParam);

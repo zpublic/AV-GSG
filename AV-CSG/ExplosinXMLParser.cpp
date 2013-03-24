@@ -108,6 +108,18 @@ bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pExplosion->SetType(tiElement->Attribute(TYPE_OBJECT));
         }
+        if (tiElement->Attribute(FRAMECOUNT_OBJECT) != NULL)
+        {
+            pExplosion->SetFrameCount(::atol(tiElement->Attribute(FRAMECOUNT_OBJECT)));
+        }
+        if (tiElement->Attribute(WIDTH_OBJCET) != NULL)
+        {
+            pExplosion->SetWidth(::atol(tiElement->Attribute(WIDTH_OBJCET)));
+        }
+        if (tiElement->Attribute(HEIGHT_OBJECT) != NULL)
+        {
+            pExplosion->SetHeight(::atol(tiElement->Attribute(HEIGHT_OBJECT)));
+        }
         m_mapExplosin[pExplosion->GetId()] = pExplosion;
     }
     return true;

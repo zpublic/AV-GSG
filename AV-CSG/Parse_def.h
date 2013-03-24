@@ -13,6 +13,9 @@
 #define NAME_OBJECT "name"
 #define POSX_OBJECT "posx"
 #define POSY_OBJECT "posy"
+#define WIDTH_OBJCET "width"
+#define HEIGHT_OBJECT "height"
+#define FRAMECOUNT_OBJECT "framecount"
 
 ///> stage
 #define ITEM_GAME "item"

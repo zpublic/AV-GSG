@@ -3,7 +3,6 @@
 
 CPlaneXMLObject::CPlaneXMLObject()
     : m_HP(0)
-    , m_BulletType(0)
     , m_Speed(0)
 {
 }
@@ -31,11 +30,11 @@ const long CPlaneXMLObject::GetHP() const
     return m_HP;
 }
 
-void CPlaneXMLObject::SetBulletType(int nBulletType)
+void CPlaneXMLObject::SetBulletType(const std::string& strBulletType)
 {
-    m_BulletType = nBulletType;
+    m_BulletType = strBulletType;
 }
-const int CPlaneXMLObject::GetBulletType() const
+ const std::string& CPlaneXMLObject::GetBulletType() const
 {
     return m_BulletType;
 }

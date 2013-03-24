@@ -23,10 +23,9 @@ public:
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
     void SetPlaneXML(const std::string& strPath);
+    void SetExplosionXML(const std::string& strPath);
 
     void StartGame();
-    void PauseGame();
-    void RecoveGame();
 
     void Exit();
 private:
@@ -37,10 +36,8 @@ private:
     void GameReady();
 
     DWORD   m_dwLastTime;       //上次绘图时间
-    HDC     m_hMemDC;
     HBITMAP m_hBitmapMap;
     HBITMAP m_hMemBitmap;
-    HDC     m_hWndDC;
     HDC     m_hMapDC; 
     int     m_nY;               //记录地图被截取的宽度
 
@@ -50,6 +47,5 @@ private:
     int     m_PresentStage;
 
     CSelfPlane *m_pSelfPlane;
-    CGameStagePlayer m_StagePlayer;
 };
 

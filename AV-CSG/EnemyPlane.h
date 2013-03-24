@@ -20,8 +20,8 @@ public:
 
 private:
     CEnemyPlane();
-    int m_nSkinType; ///> 飞机类型
-    int m_nBulletType; ///> 子弹类型
+    std::string m_SkinType; ///> 飞机类型
+    BulletType m_BulletType; ///> 子弹类型
     float   m_fFireTime;
     PlaneType   m_nEnemyType;
 };
