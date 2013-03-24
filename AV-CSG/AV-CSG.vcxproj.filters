@@ -66,6 +66,9 @@
     <Filter Include="Source Files\control\StagePlayer">
       <UniqueIdentifier>{25392ca6-6767-4b8f-a251-87a036c417c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\explosionxml">
+      <UniqueIdentifier>{8dae147c-7143-4681-ab81-f61e22de10c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -223,6 +226,12 @@
     <ClInclude Include="GameStagePlayer.h">
       <Filter>Source Files\control\StagePlayer</Filter>
     </ClInclude>
+    <ClInclude Include="ExplosinXMLParser.h">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosinXMLObject.h">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -347,6 +356,12 @@
     </ClCompile>
     <ClCompile Include="GameStagePlayer.cpp">
       <Filter>Source Files\control\StagePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosinXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosinXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

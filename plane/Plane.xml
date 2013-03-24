@@ -6,7 +6,7 @@
 		</plane>		
 	</enemyplane>
 	<selfplane>
-		<plane hp = "10" skin = "13" bullettype = "4" type = "" speed = "200" name = "200" id = "1">
+		<plane hp = "10" skin = "13" bullettype = "6" type = "" speed = "200" name = "200" id = "1">
 		</plane>
 	</selfplane>	
 </gameplane>
