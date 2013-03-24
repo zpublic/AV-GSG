@@ -1,5 +1,16 @@
 #pragma once
 #include "Singleton.h"
+#include "AudioSource.h"
+#include <vector>
+
+#ifdef __BIG_ENDIAN__
+#define SWAP_U32_FROM_LITTLE(x) { x = SDL_Swap32(x); }
+#define SWAP_U16_FROM_LITTLE(x) { x = SDL_Swap16(x); }
+#else
+// not a big-endian system - no byte swapping needed
+#define SWAP_U32_FROM_LITTLE(x) { }
+#define SWAP_U16_FROM_LITTLE(x) { }
+#endif
 
 class AudioEngine : public Singleton<AudioEngine>
 {
@@ -31,7 +42,10 @@ public:
     void ResumeAllSounds();
     void StopAllSounds();
 
+    AudioSource* _AcquireAudioSource();
+
 private:
     AudioEngine();
 
+    std::vector<AudioSource*> _audio_sources;
 };

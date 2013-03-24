@@ -26,6 +26,7 @@ HDC g_hdc;
 InputEngine* InputEngine_ = NULL;
 SceneEngine* SceneEngine_ = NULL;
 AudioEngine* AudioEngine_ = NULL;
+bool AUDIO_ENABLE = true;
 
 void InitEngine()
 {

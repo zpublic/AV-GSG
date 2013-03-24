@@ -72,6 +72,15 @@
     <Filter Include="Source Files\scene">
       <UniqueIdentifier>{c2e8c3ed-0c2f-4d18-961a-f7f73cf3e43b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine\audio">
+      <UniqueIdentifier>{a5269a7c-82ae-422a-a8cd-9246fb4452a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\input">
+      <UniqueIdentifier>{5bcfd1ef-b7c4-4e5d-8149-75aa9a1ca629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\scene">
+      <UniqueIdentifier>{877708e4-7a2e-4773-9255-c8b4e93b6674}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -232,14 +241,8 @@
     <ClInclude Include="Singleton.h">
       <Filter>Source Files\unit</Filter>
     </ClInclude>
-    <ClInclude Include="SceneEngine.h">
-      <Filter>Source Files\engine</Filter>
-    </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>Source Files\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="InputEngine.h">
-      <Filter>Source Files\engine</Filter>
     </ClInclude>
     <ClInclude Include="GameScene_Pause.h">
       <Filter>Source Files\scene</Filter>
@@ -248,7 +251,37 @@
       <Filter>Source Files\scene</Filter>
     </ClInclude>
     <ClInclude Include="AudioEngine.h">
-      <Filter>Source Files\engine</Filter>
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEngine.h">
+      <Filter>Source Files\engine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSource.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioDescriptor.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioBuffer.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioInput.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="WavFile.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="OggFile.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioMemory.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioStream.h">
+      <Filter>Source Files\engine\audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -375,12 +408,6 @@
     <ClCompile Include="GameStagePlayer.cpp">
       <Filter>Source Files\control\StagePlayer</Filter>
     </ClCompile>
-    <ClCompile Include="SceneEngine.cpp">
-      <Filter>Source Files\engine</Filter>
-    </ClCompile>
-    <ClCompile Include="InputEngine.cpp">
-      <Filter>Source Files\engine</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene_Pause.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
@@ -388,7 +415,37 @@
       <Filter>Source Files\scene</Filter>
     </ClCompile>
     <ClCompile Include="AudioEngine.cpp">
-      <Filter>Source Files\engine</Filter>
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEngine.cpp">
+      <Filter>Source Files\engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine.cpp">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSource.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioDescriptor.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioBuffer.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioInput.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="WavFile.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="OggFile.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioMemory.cpp">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioStream.cpp">
+      <Filter>Source Files\engine\audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
