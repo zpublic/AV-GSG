@@ -247,6 +247,9 @@
     <ClInclude Include="GameScene_Play.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="AudioEngine.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -383,6 +386,9 @@
     </ClCompile>
     <ClCompile Include="GameScene_Play.cpp">
       <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -155,6 +155,6 @@ void CGameControler::UpdateScence()
     {
         CGameStagePlayer::GetInstance().NextStage();
     }
-    SceneEngine::Instance()->Update();
-    SceneEngine::Instance()->Output();
+    SceneEngine_->Update();
+    SceneEngine_->Output();
 }

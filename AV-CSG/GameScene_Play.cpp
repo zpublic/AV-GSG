@@ -19,13 +19,13 @@ GameScene_Play::~GameScene_Play()
 
 void GameScene_Play::Update()
 {
-    if (InputEngine::Instance()->PressPause())
+    if (InputEngine_->PressPause())
     {
         SceneEngine::Instance()->Push(new GameScene_Parse());
         CGameStatus::PauseGame();
         CSelfPlane::GetInstance()->Control(STOP_MOVE);
     }
-    else if (InputEngine::Instance()->PressFireAll())
+    else if (InputEngine_->PressFireAll())
     {
         CSelfPlane::GetInstance()->Control(FIREALL);
     }

@@ -34,7 +34,11 @@
 ///> 引擎部分，全局访问
 #include "InputEngine.h"
 #include "SceneEngine.h"
+#include "AudioEngine.h"
 
+extern InputEngine* InputEngine_;
+extern SceneEngine* SceneEngine_;
+extern AudioEngine* AudioEngine_;
 
 extern HDC  g_hMemDC;
 extern HDC  g_hWndDC;
