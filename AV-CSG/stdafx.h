@@ -16,6 +16,7 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <stdint.h>
 
 #include <atlbase.h>
 #include <atlconv.h>
@@ -34,7 +35,17 @@
 ///> 引擎部分，全局访问
 #include "InputEngine.h"
 #include "SceneEngine.h"
+#include "AudioEngine.h"
 
+extern InputEngine* InputEngine_;
+extern SceneEngine* SceneEngine_;
+extern AudioEngine* AudioEngine_;
+extern bool AUDIO_ENABLE;
 
 extern HDC  g_hMemDC;
 extern HDC  g_hWndDC;
+
+///> 音频相关的第三方库
+#include "al.h"
+#include "alc.h"
+#include "vorbis/vorbisfile.h"

@@ -23,18 +23,28 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
 
+InputEngine* InputEngine_ = NULL;
+SceneEngine* SceneEngine_ = NULL;
+AudioEngine* AudioEngine_ = NULL;
+bool AUDIO_ENABLE = true;
+
 void InitEngine()
 {
-    InputEngine::Instance()->Initialize();
-    SceneEngine::Instance()->Initialize();
+    InputEngine_ = InputEngine::Instance();
+    InputEngine_->Initialize();
+    SceneEngine_ = SceneEngine::Instance();
+    SceneEngine_->Initialize();
+    AudioEngine_ = AudioEngine::Instance();
+    AudioEngine_->Initialize();
 
-    SceneEngine::Instance()->Push(new GameScene_Play);
+    SceneEngine_->Push(new GameScene_Play);
 }
 
 void UninitEngine()
 {
     InputEngine::Destroy();
     SceneEngine::Destroy();
+    AudioEngine::Destroy();
 }
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -226,10 +236,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_KEYDOWN:
-        InputEngine::Instance()->KeyDown(wParam);
+        InputEngine_->KeyDown(wParam);
         break;
     case WM_KEYUP:
-        InputEngine::Instance()->KeyUp(wParam);
+        InputEngine_->KeyUp(wParam);
         break;
     case WM_COMMAND:
         wmId    = LOWORD(wParam);

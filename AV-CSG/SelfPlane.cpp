@@ -106,8 +106,8 @@ void CSelfPlane::Update()
 
 void CSelfPlane::GetInput()
 {
-    int nPre = InputEngine::Instance()->GetPreKey();
-    int nCur = InputEngine::Instance()->GetCurKey();
+    int nPre = InputEngine_->GetPreKey();
+    int nCur = InputEngine_->GetCurKey();
 
     if (nPre == VK_LEFT)
         nPre = 'A';
