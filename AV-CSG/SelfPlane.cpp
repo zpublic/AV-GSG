@@ -54,6 +54,8 @@ void CSelfPlane::InitPlane()
 
 void CSelfPlane::Update()
 {
+    GetInput();
+
     float fDis = ElapsedTime * m_nSpeed;
 
     if (m_bUnDead)
@@ -94,6 +96,96 @@ void CSelfPlane::Update()
         {
             m_fFrequencyTime -= m_fBulletFrequency;
         }
+    }
+}
+
+void CSelfPlane::GetInput()
+{
+    int nPre = InputEngine::Instance()->GetPreKey();
+    int nCur = InputEngine::Instance()->GetCurKey();
+
+    if (nPre == VK_LEFT)
+        nPre = 'A';
+    if (nPre == VK_DOWN)
+        nPre = 'S';
+    if (nPre == VK_RIGHT)
+        nPre = 'D';
+    if (nPre == VK_UP)
+        nPre = 'W';
+    if (nCur == VK_LEFT)
+        nCur = 'A';
+    if (nCur == VK_DOWN)
+        nCur = 'S';
+    if (nCur == VK_RIGHT)
+        nCur = 'D';
+    if (nCur == VK_UP)
+        nCur = 'W';
+
+    switch (nCur)
+    {
+    case 'A':
+    case 'S':
+    case 'D':
+    case 'W':
+        if ( (nPre + nCur)%'A' == 0)
+        {
+            Control(LEFT);
+        }
+        else if ((nPre + nCur)%'D'==0)
+        {
+            Control(RIGHT);
+        }
+        else if ((nPre + nCur)%'W' == 0)
+        {
+            Control(UP);
+        }
+        else if ((nPre + nCur)%'S' == 0)
+        {
+            Control(DOWN);
+        }
+        else if ((nPre + nCur) == ('A' + 'W'))
+        {
+            Control(LEFT_UP);
+
+        }
+        else if ((nPre + nCur) == ('A' + 'S'))
+        {
+            Control(LEFT_DOWN);
+
+        }
+        else if ((nPre + nCur) == ('D' + 'W'))
+        {
+            Control(RIGHT_UP);
+
+        }
+        else if ((nPre + nCur) == ('D' + 'S'))
+        {
+            Control(RIGHT_DOWN);
+
+        }
+        break;
+    case 'J':
+    case 'Z':
+        Control(FIRE);
+        break;
+    case '1':
+        SetBulletType(emBulletTypeAMMO0);
+        break;
+    case '2':
+        SetBulletType(emBulletTypeAMMO1);
+        break;
+    case '3':
+        SetBulletType(emBulletTypeAMMO2);
+        break;
+    case '4':
+        SetBulletType(emBulletTypeAMMO3);
+        break;
+    default:
+        if (nPre != 'J' && nPre != 'Z')
+        {
+            Control(STOP_FIRE);
+        }
+        Control(STOP_MOVE);
     }
 }
 

@@ -219,10 +219,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_KEYDOWN:
-        g_pGameControl->KeyDown(wParam);
+        InputEngine::Instance()->KeyDown(wParam);
         break;
     case WM_KEYUP:
-        g_pGameControl->KeyUp(wParam);
+        InputEngine::Instance()->KeyUp(wParam);
         break;
     case WM_COMMAND:
         wmId    = LOWORD(wParam);

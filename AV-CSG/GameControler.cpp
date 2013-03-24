@@ -116,20 +116,6 @@ void CGameControler::StartGame()
     CGameStatus::StartGame();
 }
 
-void CGameControler::PauseGame()
-{
-    if (!CGameStatus::GetGameRuning())
-    {
-        return;
-    }
-    CGameStatus::PauseGame();
-}
-
-void CGameControler::RecoveGame()
-{
-    CGameStatus::StartGame();
-}
-
 void CGameControler::UpdateScence()
 {
     if (!CGameStatus::IsNeedUpdate())
@@ -166,6 +152,7 @@ void CGameControler::UpdateScence()
     {
         CGameStagePlayer::GetInstance().NextStage();
     }
+    ProcessInput();
     if (!CGameStatus::GetGamePause())
     {
         CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
@@ -178,175 +165,28 @@ void CGameControler::UpdateScence()
     BitBlt(m_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);
 }
 
-void CGameControler::KeyDown(WPARAM nKeyCode)
+void CGameControler::ProcessInput()
 {
-    if (nKeyCode == 'P')
+    int nCur = InputEngine::Instance()->GetCurKey();
+
+    if (nCur == 'P')
     {
         if (CGameStatus::GetGamePause())
         {
-            RecoveGame();
+            CGameStatus::StartGame();
         }
         else
         {
-            PauseGame();
+            if (!CGameStatus::GetGameRuning())
+            {
+                return;
+            }
+            CGameStatus::PauseGame();
             m_pSelfPlane->Control(STOP_MOVE);
         }
     }
-    if (CGameStatus::GetGamePause())
+    else if (nCur == 'K' || nCur == 'X')
     {
-        return;
-    }
-    if (nKeyCode == VK_LEFT)
-        nKeyCode = 'A';
-    if (nKeyCode == VK_DOWN)
-        nKeyCode = 'S';
-    if (nKeyCode == VK_RIGHT)
-        nKeyCode = 'D';
-    if (nKeyCode == VK_UP)
-        nKeyCode = 'W';
-    switch (nKeyCode)
-    {
-    case 'A':
-    case 'S':
-    case 'D':
-    case 'W':
-        m_nPreKey = m_nCurKey;
-        m_nCurKey = nKeyCode;
-
-        if ( (m_nPreKey + m_nCurKey)%'A' == 0)
-        {
-            m_pSelfPlane->Control(LEFT);
-        }
-        else if ((m_nPreKey + m_nCurKey)%'D'==0)
-        {
-            m_pSelfPlane->Control(RIGHT);
-        }
-        else if ((m_nPreKey + m_nCurKey)%'W' == 0)
-        {
-            m_pSelfPlane->Control(UP);
-        }
-        else if ((m_nPreKey + m_nCurKey)%'S' == 0)
-        {
-            m_pSelfPlane->Control(DOWN);
-        }
-        else if ((m_nPreKey + m_nCurKey) == ('A' + 'W'))
-        {
-            m_pSelfPlane->Control(LEFT_UP);
-
-        }
-        else if ((m_nPreKey + m_nCurKey) == ('A' + 'S'))
-        {
-            m_pSelfPlane->Control(LEFT_DOWN);
-
-        }
-        else if ((m_nPreKey + m_nCurKey) == ('D' + 'W'))
-        {
-            m_pSelfPlane->Control(RIGHT_UP);
-
-        }
-        else if ((m_nPreKey + m_nCurKey) == ('D' + 'S'))
-        {
-            m_pSelfPlane->Control(RIGHT_DOWN);
-
-        }
-        break;
-    case 'J':
-    case 'Z':
-        m_pSelfPlane->Control(FIRE);
-        break;
-    case '1':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO0);
-        break;
-    case '2':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO1);
-        break;
-    case '3':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO2);
-        break;
-    case '4':
-        m_pSelfPlane->SetBulletType(emBulletTypeAMMO3);
-        break;
-    case VK_SPACE:
-    case 'K':
-    case 'X':
         m_pSelfPlane->Control(FIREALL);
-        break;
-    }
-}
-
-void CGameControler::KeyUp(WPARAM nKeyCode)
-{
-    if (nKeyCode == VK_LEFT)
-        nKeyCode = 'A';
-    if (nKeyCode == VK_DOWN)
-        nKeyCode = 'S';
-    if (nKeyCode == VK_RIGHT)
-        nKeyCode = 'D';
-    if (nKeyCode == VK_UP)
-        nKeyCode = 'W';
-    if (nKeyCode == m_nCurKey)
-    {
-        if (m_nPreKey && (m_nPreKey != m_nCurKey))
-        {
-            m_nCurKey = m_nPreKey;
-            m_nPreKey = 0;
-            if ((m_nPreKey + m_nCurKey) % 'A' ==0)
-            {
-                m_pSelfPlane->Control(LEFT);
-            }
-            else if ((m_nPreKey + m_nCurKey) % 'D' == 0)
-            {
-                m_pSelfPlane->Control(RIGHT);
-            }
-            else if ((m_nPreKey + m_nCurKey) % 'W' == 0)
-            {
-                m_pSelfPlane->Control(UP);
-            }
-            else if ( (m_nPreKey + m_nCurKey) % 'S' == 0)
-            {
-                m_pSelfPlane->Control(DOWN);
-            }
-        }
-        else
-        {
-            m_nCurKey = 0;
-            m_pSelfPlane->Control(STOP_MOVE);
-        }
-    }
-    else if (nKeyCode == m_nPreKey)
-    {
-        if (m_nCurKey)
-        {
-            m_nPreKey = 0;
-            if ((m_nPreKey + m_nCurKey) % 'A' ==0)
-            {
-                m_pSelfPlane->Control(LEFT);
-            }
-            else if ((m_nPreKey + m_nCurKey) % 'D' == 0)
-            {
-                m_pSelfPlane->Control(RIGHT);
-            }
-            else if ((m_nPreKey + m_nCurKey) % 'W' == 0)
-            {
-                m_pSelfPlane->Control(UP);
-            }
-            else if ( (m_nPreKey + m_nCurKey) % 'S' == 0)
-            {
-                m_pSelfPlane->Control(DOWN);
-            }
-        }
-        else
-        {
-            m_nPreKey = 0;
-            m_pSelfPlane->Control(STOP_MOVE);
-        }
-    }
-    else if ( nKeyCode == 'J' || nKeyCode == 'Z')
-    {
-        m_pSelfPlane->Control(STOP_FIRE);
-    }
-    else if ( nKeyCode == 'P')
-    {
-        m_pSelfPlane->Control(STOP_FIRE);
     }
 }

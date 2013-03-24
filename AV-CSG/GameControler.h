@@ -24,8 +24,6 @@ public:
     void SetPlaneXML(const std::string& strPath);
 
     void StartGame();
-    void PauseGame();
-    void RecoveGame();
 
     void Exit();
 private:
@@ -34,6 +32,7 @@ private:
 
     void GameOver();
     void GameReady();
+    void ProcessInput();
 
     DWORD   m_dwLastTime;       //上次绘图时间
     HDC     m_hMemDC;

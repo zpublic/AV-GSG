@@ -21,6 +21,7 @@ public:
 private:
     CSelfPlane(int x, int y);
     void InitPlane();
+    void GetInput();
 
 private:
     static CSelfPlane*          pCSelfPlane;

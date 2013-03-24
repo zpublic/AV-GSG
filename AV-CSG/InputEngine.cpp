@@ -21,29 +21,12 @@ InputEngine::InputEngine()
 
 void InputEngine::KeyDown( WPARAM nKeyCode )
 {
-    if (nKeyCode == VK_LEFT)
-        nKeyCode = 'A';
-    if (nKeyCode == VK_DOWN)
-        nKeyCode = 'S';
-    if (nKeyCode == VK_RIGHT)
-        nKeyCode = 'D';
-    if (nKeyCode == VK_UP)
-        nKeyCode = 'W';
-
     m_nPreKey = m_nCurKey;
     m_nCurKey = nKeyCode;
 }
 
 void InputEngine::KeyUp( WPARAM nKeyCode )
 {
-    if (nKeyCode == VK_LEFT)
-        nKeyCode = 'A';
-    if (nKeyCode == VK_DOWN)
-        nKeyCode = 'S';
-    if (nKeyCode == VK_RIGHT)
-        nKeyCode = 'D';
-    if (nKeyCode == VK_UP)
-        nKeyCode = 'W';
     if (nKeyCode == m_nCurKey)
     {
         if (m_nPreKey && (m_nPreKey != m_nCurKey))
@@ -69,6 +52,11 @@ int InputEngine::GetPreKey()
 
 int InputEngine::GetCurKey()
 {
-    return m_nCurKey;
+    int nCurKey = m_nCurKey;
+    if (nCurKey == 'P' || nCurKey == 'X' || nCurKey == 'K')
+    {
+        m_nCurKey = m_nPreKey;
+    }
+    return nCurKey;
 }
 
