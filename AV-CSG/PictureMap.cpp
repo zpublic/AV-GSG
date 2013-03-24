@@ -11,7 +11,7 @@ CPictureMap::~CPictureMap(void)
 
 bool CPictureMap::LoadXml(
     LPCWSTR lpFilePath,
-    std::map<int, PictureNode>& mapPicture )
+    std::map<std::string, PictureNode>& mapPicture )
 {
     mapPicture.clear();
     TiXmlDocument doc;
@@ -38,16 +38,16 @@ bool CPictureMap::LoadXml(
 
 void CPictureMap::GetPictureNode(
     TiXmlElement* pElement,
-    std::map<int, PictureNode>& mapPicture )
+    std::map<std::string, PictureNode>& mapPicture )
 {
-    int nId = 0;
+    std::string strId;
     PictureNode picNode;
-    if (Unit::GetXmlStrAttribute(pElement, XML_PIC_ELEMENT_PATH, picNode.strPath)
+    if (Unit::GetXmlStrAttributeW(pElement, XML_PIC_ELEMENT_PATH, picNode.strPath)
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_R, picNode.r)
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_G, picNode.g)
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_B, picNode.b)
-        && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_ID, nId))
+        && Unit::GetXmlStrAttributeA(pElement, XML_PIC_ELEMENT_ID, strId))
     {
-        mapPicture[nId] = picNode;
+        mapPicture[strId] = picNode;
     }
 }

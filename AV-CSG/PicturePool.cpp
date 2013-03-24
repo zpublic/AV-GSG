@@ -39,7 +39,7 @@ void CPicturePool::FreeImage()
 void CPicturePool::LoadImage()
 {
     CPictureMap picMap;
-    std::map<int, PictureNode> mapPicture;
+    std::map<std::string, PictureNode> mapPicture;
     TCHAR filePath[MAX_PATH] = {0};
     ::GetModuleFileName(0, filePath, MAX_PATH);
     ::PathRemoveFileSpec(filePath);
@@ -66,7 +66,7 @@ void CPicturePool::LoadImage()
     pPictureNum->LoadBitmap(_T("Resource\\Num.bmp"), RGB(0, 0, 0));
 }
 
-CPicture* CPicturePool::GetPicture(int picID) const
+CPicture* CPicturePool::GetPicture(const std::string& picID) const
 {
     auto It = m_mapPic.find(picID);
     if (It == m_mapPic.end())

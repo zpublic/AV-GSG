@@ -20,9 +20,9 @@ public:
     CPictureMap(void);
     ~CPictureMap(void);
 
-    bool LoadXml(LPCWSTR lpFilePath, std::map<int, PictureNode>& mapPicture);
+    bool LoadXml(LPCWSTR lpFilePath, std::map<std::string, PictureNode>& mapPicture);
 
 private:
-    void GetPictureNode( TiXmlElement* pElement, std::map<int, PictureNode>& mapPicture );
+    void GetPictureNode( TiXmlElement* pElement, std::map<std::string, PictureNode>& mapPicture );
 };
 
