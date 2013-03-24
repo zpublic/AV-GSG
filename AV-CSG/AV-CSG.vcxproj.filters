@@ -238,6 +238,9 @@
     <ClInclude Include="GameScene.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="InputEngine.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -364,6 +367,9 @@
       <Filter>Source Files\control\StagePlayer</Filter>
     </ClCompile>
     <ClCompile Include="SceneEngine.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEngine.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>

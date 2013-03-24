@@ -3,7 +3,6 @@
 #include "GameScene.h"
 #include <vector>
 
-
 class SceneEngine : public Singleton<SceneEngine>
 {
     friend class Singleton<SceneEngine>;
