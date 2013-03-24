@@ -89,6 +89,7 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="BigBulletEmitter.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="ExplosinXMLObject.h" />
     <ClInclude Include="ExplosinXMLParser.h" />
     <ClInclude Include="Generator.h" />
@@ -98,6 +99,8 @@
     <ClInclude Include="Prop.h" />
     <ClInclude Include="PlaneXMLObject.h" />
     <ClInclude Include="PlaneXMLParse.h" />
+    <ClInclude Include="SceneEngine.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="StageXMLEnemyOBject.h" />
     <ClInclude Include="StageXMLItemOBject.h" />
     <ClInclude Include="XMLObject.h" />
@@ -162,6 +165,7 @@
     <ClCompile Include="GameStagePlayer.cpp" />
     <ClCompile Include="PlaneXMLObject.cpp" />
     <ClCompile Include="PlaneXMLParse.cpp" />
+    <ClCompile Include="SceneEngine.cpp" />
     <ClCompile Include="StageXMLEnemyOBject.cpp" />
     <ClCompile Include="StageXMLItemOBject.cpp" />
     <ClCompile Include="XMLObject.cpp" />
