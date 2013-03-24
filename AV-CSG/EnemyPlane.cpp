@@ -9,8 +9,6 @@
 CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
     : PlaneBase(0, 0, piEmitter)
     , m_nEnemyType(enemyType)
-    , m_nSkinType(0)
-    , m_nBulletType(0)
     , m_pEmnemyNext(NULL)
 {
     m_fFireTime = 0.0f;
@@ -24,8 +22,8 @@ CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* 
     m_nWidth = 32;
     m_nSpeed = coPlane->GetSpeed();
     m_nHP = coPlane->GetHP();
-    m_nSkinType = ::atoi(coPlane->GetSkinId().c_str());
-    m_nBulletType = coPlane->GetBulletType();
+    m_SkinType = coPlane->GetSkinId();
+    m_BulletType = coPlane->GetBulletType();
     if (nPosX == -1)
     {
         int nRandom = rand() % 100;
@@ -78,20 +76,20 @@ void CEnemyPlane::Update()
         m_fFireTime = 0.0f;
         m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 6,
             m_nPosY + m_nHeight,
-            (BulletType)(m_nBulletType));
+            (m_BulletType));
     }
 
     if (CSelfPlane::GetInstance()->CheckCollision(m_nPosX, m_nPosY, m_nWidth, m_nHeight, 20))
     {
         m_bIsVisible = false;
-        new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypeBullet);
+        new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypeBullet");
         return;
     }
 }
 
 void CEnemyPlane::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(m_nSkinType)->DrawBitmap(
+    CPicturePool::GetInstance()->GetPicture(m_SkinType)->DrawBitmap(
         hDC,
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
@@ -114,7 +112,7 @@ bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)
         {
             CScore::AddScore(m_nSpeed);
             m_bIsVisible = false;
-            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, emBlastTypePlane);
+            new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypePlane");
         }
         return true;
     }

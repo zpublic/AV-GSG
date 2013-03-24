@@ -76,7 +76,7 @@ float Unit::CalcAngle(int nPosX, int nPosY, int x, int y)
     return fAngle;
 }
 
-BOOL Unit::GetXmlStrAttribute( TiXmlElement *pElement, char *pName, std::wstring &strData )
+BOOL Unit::GetXmlStrAttributeW( TiXmlElement *pElement, char *pName, std::wstring &strData )
 {
     if (pElement)
     {
@@ -84,6 +84,20 @@ BOOL Unit::GetXmlStrAttribute( TiXmlElement *pElement, char *pName, std::wstring
         if (pStr)
         {
             strData = std::wstring(CA2W(pStr));
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+BOOL Unit::GetXmlStrAttributeA( TiXmlElement *pElement, char *pName, std::string &strData )
+{
+    if (pElement)
+    {
+        const char *pStr = pElement->Attribute(pName);
+        if (pStr)
+        {
+            strData = std::string(pStr);
             return TRUE;
         }
     }

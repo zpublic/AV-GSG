@@ -4,7 +4,6 @@
 #include "GameFrame.h"
 #include "SelfPlane.h"
 #include "EnemyGenerate.h"
-#include "GameStagePlayer.h"
 #include "GameStatus.h"
 
 GameScene_Play::GameScene_Play()

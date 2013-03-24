@@ -20,7 +20,7 @@ void CAimEmitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, fAngle);
 }
  

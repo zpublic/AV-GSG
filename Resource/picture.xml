@@ -1,14 +1,14 @@
 <root>
-    <item id="0" path="Resource\Ammo0.bmp" r="255" g="0" b="255" />
-    <item id="1" path="Resource\Ammo1.bmp" r="255" g="0" b="255" />
-    <item id="2" path="Resource\Ammo2.bmp" r="255" g="0" b="255" />
-    <item id="3" path="Resource\Ammo3.bmp" r="255" g="0" b="255" />
-    <item id="4" path="Resource\Ammo4.bmp" r="255" g="0" b="255" />
-    <item id="5" path="Resource\Ammo5.bmp" r="0" g="0" b="0" />
-    <item id="6" path="Resource\Ammo6.bmp" r="0" g="0" b="0" />
-    <item id="7" path="Resource\WholeFried.bmp" r="0" g="248" b="0"/>	
-    <item id="8" path="Resource\AmmoSb.bmp" r="255" g="255" b="255"/>
-    <item id="9" path="Resource\AmmoSb2.bmp" r="255" g="255" b="255"/>
+    <item id="emBulletTypeAMMO0_skin" path="Resource\Ammo0.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO1_skin" path="Resource\Ammo1.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO2_skin" path="Resource\Ammo2.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO3_skin" path="Resource\Ammo3.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO4_skin" path="Resource\Ammo4.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO5_skin" path="Resource\Ammo5.bmp" r="0" g="0" b="0" />
+    <item id="emBulletTypeAMMO6_skin" path="Resource\Ammo6.bmp" r="0" g="0" b="0" />
+    <item id="emBulletTypeAmmoAll1_skin" path="Resource\WholeFried.bmp" r="0" g="248" b="0"/>	
+    <item id="emBulletTypeAmmoSB_skin" path="Resource\AmmoSb.bmp" r="255" g="255" b="255"/>
+    <item id="emBulletTypeAmmoSB2_skin" path="Resource\AmmoSb2.bmp" r="255" g="255" b="255"/>
 
     <item id="10" path="Resource\Enemy0.bmp" r="255" g="255" b="255" />
     <item id="11" path="Resource\Enemy1.bmp" r="255" g="255" b="255" />
@@ -17,6 +17,6 @@
     <item id="14" path="Resource\Enemy4.bmp" r="255" g="255" b="255" />
     <item id="15" path="Resource\Enemy5.bmp" r="255" g="255" b="255" />
 
-    <item id="16" path="Resource\BulletBlast.bmp" r="255" g="0" b="255" />
-    <item id="17" path="Resource\PlaneBlast.bmp" r="0" g="0" b="0" />
+    <item id="emBlastTypeBullet_skin" path="Resource\BulletBlast.bmp" r="255" g="0" b="255" />
+    <item id="emBlastTypePlane_skin" path="Resource\PlaneBlast.bmp" r="0" g="0" b="0" />
 </root>

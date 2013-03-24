@@ -19,29 +19,34 @@ CSelfPlane * CSelfPlane::GetInstance()
 
 CSelfPlane::CSelfPlane(int x, int y)
     : PlaneBase(x, y)
+    , m_FirstHP(0)
 {
-    InitGame();
 }
 
 CSelfPlane::~CSelfPlane()
 {
 }
 
-void CSelfPlane::InitGame()
+void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
 {
+    if (!pPlane)
+    {
+        return;
+    }
     m_nLifes = 2;
-    SetBulletType(emBulletTypeAMMO1);
+    SetBulletType(pPlane->GetBulletType());
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
     m_nHeight = 26;
-    m_nSpeed = 350;
-    InitPlane();
+    m_nSpeed = pPlane->GetSpeed();
+    m_FirstHP = pPlane->GetHP();
+    InitPlane(m_FirstHP);
 }
 
-void CSelfPlane::InitPlane()
+void CSelfPlane::InitPlane(int nHP)
 {
     m_bIsStopMove = true;
-    m_nHP = 100;
+    m_nHP = nHP;
     m_nPosX = SCREEN_WIDTH/2 - 24;
     m_nPosY = 480;
     m_fBulletFrequency = 0.2f;//每秒发射5次子弹
@@ -169,16 +174,16 @@ void CSelfPlane::GetInput()
         Control(FIRE);
         break;
     case '1':
-        SetBulletType(emBulletTypeAMMO0);
+        SetBulletType("emBulletTypeAMMO0");
         break;
     case '2':
-        SetBulletType(emBulletTypeAMMO1);
+        SetBulletType("emBulletTypeAMMO1");
         break;
     case '3':
-        SetBulletType(emBulletTypeAMMO2);
+        SetBulletType("emBulletTypeAMMO2");
         break;
     case '4':
-        SetBulletType(emBulletTypeAMMO3);
+        SetBulletType("emBulletTypeAMMO3");
         break;
     default:
         if (nPre != 'J' && nPre != 'Z')
@@ -239,7 +244,7 @@ void CSelfPlane::Control(ActionType actionType)
         if (m_nWholeFired && CGameStatus::GetGameRuning())
         {
             IEmitter* iEmitter = CEmitterGenerate::Generate(5, true, 0, 0, 0);
-            iEmitter->Emit(0, 0, emBulletTypeAmmoAll1);
+            iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
             CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
             {
@@ -312,7 +317,7 @@ bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
             if (m_nLifes > 0)
             {
                 //new blast
-                InitPlane();
+                InitPlane(m_FirstHP);
             }
             else
             {
@@ -328,15 +333,15 @@ void CSelfPlane::SetBulletType( BulletType bulletType )
 {
     delete m_piEmitter;
     m_nBulletType = bulletType;
-    if (m_nBulletType == emBulletTypeAMMO4)
+    if (m_nBulletType == "emBulletTypeAMMO4")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(4);
     }
-    else if (m_nBulletType == emBulletTypeAMMO5 || m_nBulletType == emBulletTypeAMMO6)
+    else if (m_nBulletType == "emBulletTypeAMMO5" || m_nBulletType == "emBulletTypeAMMO6")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(2);
     }
-    else if (m_nBulletType == emBulletTypeAmmoSB)
+    else if (m_nBulletType == "emBulletTypeAmmoSB")
     {
         m_piEmitter = CEmitterGenerate::SelectSelfEmitter(3);
     }

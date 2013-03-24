@@ -5,19 +5,14 @@ CExplosion::CExplosion(int x, int y, BlastType blastType)
     : CSprite(x, y)
     , m_emBlastType(blastType)
 {
-    switch(blastType)
+    m_Blast = CExplosinXMLParse::GetInstance().Get(blastType);
+    if (m_Blast == NULL)
     {
-    case emBlastTypeBullet:
-        m_nWidth = 32;
-        m_nHeight = 32;
-        m_nFrameCount = 5;
-        break;
-    case emBlastTypePlane:
-        m_nWidth = 65;
-        m_nHeight = 75;
-        m_nFrameCount = 12;
-        break;
+        return;
     }
+    m_nWidth = m_Blast->GetWidth();
+    m_nHeight = m_Blast->GetHeight();
+    m_nFrameCount = m_Blast->GetFrameCount();
 }
 
 CExplosion::~CExplosion(void)
@@ -37,7 +32,7 @@ void CExplosion::Update()
 
 void CExplosion::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(m_emBlastType)->DrawBitmap(
+    CPicturePool::GetInstance()->GetPicture(m_Blast->GetSkinId())->DrawBitmap(
         hDC,
         m_nPosX - m_nWidth / 2,
         m_nPosY - m_nHeight / 2,

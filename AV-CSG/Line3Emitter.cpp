@@ -14,15 +14,15 @@ void CLine3Emitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 {
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(17 * PI / 10.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(3 * PI / 2.0));
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(13 * PI / 10.0));
 }
 

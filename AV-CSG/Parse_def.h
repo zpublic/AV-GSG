@@ -3,6 +3,7 @@
 
 #define STAGE_ROOT_GAME "gamestage"
 #define PLANE_ROOT_GAME "gameplane"
+#define EXPLOSIN_ROOT_GAME "gameexplosin"
 
 #define TRUE_GAME "true"
 #define FALSE_GAME "false"
@@ -12,6 +13,9 @@
 #define NAME_OBJECT "name"
 #define POSX_OBJECT "posx"
 #define POSY_OBJECT "posy"
+#define WIDTH_OBJCET "width"
+#define HEIGHT_OBJECT "height"
+#define FRAMECOUNT_OBJECT "framecount"
 
 ///> stage
 #define ITEM_GAME "item"
@@ -38,5 +42,10 @@
 #define PLANE_SKIN_OBJECT "skin"
 #define PLANE_BULLETTYPE_OBJECT "bullettype"
 #define PLANE_SPEED_OBJECT "speed"
+
+///> explosin
+#define EXPLOSIN_GAME "explosin"
+#define EXPLOSIN_SPEED_GAME "speed"
+#define EXPLOSIN_POWER_GAME "power"
 
 #endif

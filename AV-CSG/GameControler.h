@@ -2,6 +2,7 @@
 
 #include "StageXMLParser.h"
 #include "PlaneXMLParse.h"
+#include "GameStagePlayer.h"
 
 class CSelfPlane;
 
@@ -22,6 +23,7 @@ public:
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
     void SetPlaneXML(const std::string& strPath);
+    void SetExplosionXML(const std::string& strPath);
 
     void StartGame();
 

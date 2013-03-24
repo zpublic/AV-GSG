@@ -43,6 +43,11 @@ void CGameControler::SetPlaneXML(const std::string& strPath)
     CPlaneXMLParse::GetInstance().LoadXML(strPath);
 }
 
+void CGameControler::SetExplosionXML(const std::string& strPath)
+{
+    CExplosinXMLParse::GetInstance().LoadXML(strPath);
+}
+
 void CGameControler::Exit()
 {
     CPicturePool::GetInstance()->FreeImage();
@@ -114,7 +119,7 @@ void CGameControler::StartGame()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
 
-    m_pSelfPlane->InitGame();
+    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("1"));
     CScore::Reset();
     CGameStatus::StartGame();
 }
