@@ -27,6 +27,6 @@ void CTrackEmitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 
     new CTrackBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, fAngle);
 }

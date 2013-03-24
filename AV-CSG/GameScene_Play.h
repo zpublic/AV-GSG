@@ -1,5 +1,6 @@
 #pragma once
 #include "GameScene.h"
+#include "GameStagePlayer.h"
 
 class GameScene_Play : public GameScene
 {
@@ -9,5 +10,4 @@ public:
 
     virtual void Update();
     virtual void Output();
-
 };

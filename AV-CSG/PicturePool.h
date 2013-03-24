@@ -7,13 +7,13 @@
 class CPicturePool
 {
 public:
-    CPicture* GetPicture(int picID) const;
+    CPicture* GetPicture(const std::string& picID) const;
     void FreeImage();
 
     static CPicturePool * GetInstance();
 
 private:
-    std::map<int, CPicture*> m_mapPic;
+    std::map<std::string, CPicture*> m_mapPic;
 
     static CPicturePool* m_pPicturePool;
 

@@ -81,6 +81,9 @@
     <Filter Include="Source Files\engine\scene">
       <UniqueIdentifier>{877708e4-7a2e-4773-9255-c8b4e93b6674}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\explosionxml">
+      <UniqueIdentifier>{8dae147c-7143-4681-ab81-f61e22de10c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -283,6 +286,12 @@
     <ClInclude Include="AudioStream.h">
       <Filter>Source Files\engine\audio</Filter>
     </ClInclude>
+    <ClInclude Include="ExplosinXMLParser.h">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosinXMLObject.h">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -446,6 +455,12 @@
     </ClCompile>
     <ClCompile Include="AudioStream.cpp">
       <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosinXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosinXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\explosionxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

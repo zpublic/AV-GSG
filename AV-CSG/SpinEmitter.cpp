@@ -15,7 +15,7 @@ void CSpinEmitter::Emit( int nPosX, int nPosY, BulletType bulletType )
 {
     new CBullet(
         nPosX, nPosY,
-        m_bFriend, m_nPower, m_nSpeed,
+        m_bFriend,
         bulletType, float(m_nAngle * PI / 16.0));
     m_nAngle++;
     m_nAngle %= 32;

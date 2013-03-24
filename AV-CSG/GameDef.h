@@ -10,22 +10,8 @@
 
 #define PI                  3.141592f
 
-//定义子弹类型
-enum BulletType
-{
-    emBulletTypeAMMO0 = 0,
-    emBulletTypeAMMO1,
-    emBulletTypeAMMO2,
-    emBulletTypeAMMO3,
-    emBulletTypeAMMO4,
-    emBulletTypeAMMO5,
-    emBulletTypeAMMO6,
-    emBulletTypeAmmoAll1,
-    emBulletTypeAmmoSB,
-    emBulletTypeAmmoSB2,
-
-    emBulletTypeMax
-};
+typedef std::string BulletType;
+typedef std::string BlastType;
 
 //定义动作类型
 enum ActionType
@@ -42,16 +28,6 @@ enum ActionType
     FIRE,
     STOP_FIRE,
     FIREALL,
-    WILL,
-};
-
-//爆炸效果类型
-enum BlastType
-{
-    emBlastTypeBullet = 16,
-    emBlastTypePlane,
-
-    emBlastTypeMax
 };
 
 //游戏状态
