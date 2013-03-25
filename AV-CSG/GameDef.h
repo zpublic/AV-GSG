@@ -82,3 +82,15 @@ typedef int16_t   int16;
 typedef uint16_t  uint16;
 typedef int8_t    int8;
 typedef uint8_t   uint8;
+
+typedef struct _Pos
+{
+    int x;
+    int y;
+
+    _Pos()
+    {
+        x = 0;
+        y = 0;
+    }
+}Pos;

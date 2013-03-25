@@ -116,6 +116,8 @@
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="OggFile.h" />
     <ClInclude Include="Parse_def.h" />
+    <ClInclude Include="PathBase.h" />
+    <ClInclude Include="PathLine.h" />
     <ClInclude Include="Prop.h" />
     <ClInclude Include="PlaneXMLObject.h" />
     <ClInclude Include="PlaneXMLParse.h" />
@@ -193,6 +195,8 @@
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="InputEngine.cpp" />
     <ClCompile Include="OggFile.cpp" />
+    <ClCompile Include="PathBase.cpp" />
+    <ClCompile Include="PathLine.cpp" />
     <ClCompile Include="Prop.cpp" />
     <ClCompile Include="GameStagePlayer.cpp" />
     <ClCompile Include="PlaneXMLObject.cpp" />

@@ -84,6 +84,9 @@
     <Filter Include="Source Files\control\XmlParser\explosionxml">
       <UniqueIdentifier>{8dae147c-7143-4681-ab81-f61e22de10c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gameobject\path">
+      <UniqueIdentifier>{b784a653-d430-4236-badc-9bb4c60d5d7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -295,6 +298,12 @@
     <ClInclude Include="MoveDirection.h">
       <Filter>Source Files\engine\input</Filter>
     </ClInclude>
+    <ClInclude Include="PathBase.h">
+      <Filter>Source Files\gameobject\path</Filter>
+    </ClInclude>
+    <ClInclude Include="PathLine.h">
+      <Filter>Source Files\gameobject\path</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -464,6 +473,12 @@
     </ClCompile>
     <ClCompile Include="ExplosinXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\explosionxml</Filter>
+    </ClCompile>
+    <ClCompile Include="PathBase.cpp">
+      <Filter>Source Files\gameobject\path</Filter>
+    </ClCompile>
+    <ClCompile Include="PathLine.cpp">
+      <Filter>Source Files\gameobject\path</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
