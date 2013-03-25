@@ -18,7 +18,6 @@ public:
     void SetBulletType(BulletType bulletType);
 
     void Control(ActionType actionType);
-    void GetInput();
 
 private:
     CSelfPlane(int x, int y);

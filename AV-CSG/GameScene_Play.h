@@ -10,4 +10,7 @@ public:
 
     virtual void Update();
     virtual void Output();
+
+private:
+    void ControlSelfPlane();
 };

@@ -60,8 +60,6 @@ void CSelfPlane::InitPlane(int nHP)
 
 void CSelfPlane::Update()
 {
-    GetInput();
-
     float fDis = ElapsedTime * m_nSpeed;
 
     if (m_bUnDead)
@@ -102,50 +100,6 @@ void CSelfPlane::Update()
         {
             m_fFrequencyTime -= m_fBulletFrequency;
         }
-    }
-}
-
-void CSelfPlane::GetInput()
-{
-    switch (InputEngine_->GetMoveDirection())
-    {
-    case MoveDirection::MoveDirection_DOWN:
-        Control(DOWN);
-        break;
-    case MoveDirection::MoveDirection_UP:
-        Control(UP);
-        break;
-    case MoveDirection::MoveDirection_LEFT:
-        Control(LEFT);
-        break;
-    case MoveDirection::MoveDirection_RIGHT:
-        Control(RIGHT);
-        break;
-    case MoveDirection::MoveDirection_LEFT_DOWN:
-        Control(LEFT_DOWN);
-        break;
-    case MoveDirection::MoveDirection_LEFT_UP:
-        Control(LEFT_UP);
-        break;
-    case MoveDirection::MoveDirection_RIGHT_DOWN:
-        Control(RIGHT_DOWN);
-        break;
-    case MoveDirection::MoveDirection_RIGHT_UP:
-        Control(RIGHT_UP);
-        break;
-    case MoveDirection::MoveDirection_NONE:
-        Control(STOP_MOVE);
-        break;
-    default:
-        Control(STOP_MOVE);
-    }
-    if (InputEngine_->PressFire())
-    {
-        Control(FIRE);
-    }
-    else
-    {
-        Control(STOP_FIRE);
     }
 }
 
