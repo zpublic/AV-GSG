@@ -37,4 +37,5 @@ private:
     bool                        m_bFire;
     int                         m_nWholeFired;      //È«Õ¨ÊýÁ¿
     ActionType                  m_nAction;
+    float                       m_fHpDot;
 };

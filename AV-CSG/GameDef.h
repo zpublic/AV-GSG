@@ -30,6 +30,19 @@ enum ActionType
     FIREALL,
 };
 
+enum MoveDirection
+{
+    MoveDirection_NONE,
+    MoveDirection_LEFT,
+    MoveDirection_DOWN,
+    MoveDirection_RIGHT,
+    MoveDirection_UP,
+    MoveDirection_LEFT_UP,
+    MoveDirection_LEFT_DOWN,
+    MoveDirection_RIGHT_UP,
+    MoveDirection_RIGHT_DOWN,
+};
+
 //ÓÎÏ·×´Ì¬
 enum GameStatus
 {
@@ -69,3 +82,15 @@ typedef int16_t   int16;
 typedef uint16_t  uint16;
 typedef int8_t    int8;
 typedef uint8_t   uint8;
+
+typedef struct _Pos
+{
+    int x;
+    int y;
+
+    _Pos()
+    {
+        x = 0;
+        y = 0;
+    }
+}Pos;

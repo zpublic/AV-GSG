@@ -46,6 +46,7 @@ void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
 void CSelfPlane::InitPlane(int nHP)
 {
     m_bIsStopMove = true;
+    m_fHpDot = (float)(105 / nHP);
     m_nHP = nHP;
     m_nPosX = SCREEN_WIDTH/2 - 24;
     m_nPosY = 480;
@@ -106,91 +107,45 @@ void CSelfPlane::Update()
 
 void CSelfPlane::GetInput()
 {
-    int nPre = InputEngine_->GetPreKey();
-    int nCur = InputEngine_->GetCurKey();
-
-    if (nPre == VK_LEFT)
-        nPre = 'A';
-    if (nPre == VK_DOWN)
-        nPre = 'S';
-    if (nPre == VK_RIGHT)
-        nPre = 'D';
-    if (nPre == VK_UP)
-        nPre = 'W';
-    if (nCur == VK_LEFT)
-        nCur = 'A';
-    if (nCur == VK_DOWN)
-        nCur = 'S';
-    if (nCur == VK_RIGHT)
-        nCur = 'D';
-    if (nCur == VK_UP)
-        nCur = 'W';
-
-    switch (nCur)
+    switch (InputEngine_->GetMoveDirection())
     {
-    case 'A':
-    case 'S':
-    case 'D':
-    case 'W':
-        if ( (nPre + nCur)%'A' == 0)
-        {
-            Control(LEFT);
-        }
-        else if ((nPre + nCur)%'D'==0)
-        {
-            Control(RIGHT);
-        }
-        else if ((nPre + nCur)%'W' == 0)
-        {
-            Control(UP);
-        }
-        else if ((nPre + nCur)%'S' == 0)
-        {
-            Control(DOWN);
-        }
-        else if ((nPre + nCur) == ('A' + 'W'))
-        {
-            Control(LEFT_UP);
-
-        }
-        else if ((nPre + nCur) == ('A' + 'S'))
-        {
-            Control(LEFT_DOWN);
-
-        }
-        else if ((nPre + nCur) == ('D' + 'W'))
-        {
-            Control(RIGHT_UP);
-
-        }
-        else if ((nPre + nCur) == ('D' + 'S'))
-        {
-            Control(RIGHT_DOWN);
-
-        }
+    case MoveDirection::MoveDirection_DOWN:
+        Control(DOWN);
         break;
-    case 'J':
-    case 'Z':
-        Control(FIRE);
+    case MoveDirection::MoveDirection_UP:
+        Control(UP);
         break;
-    case '1':
-        SetBulletType("emBulletTypeAMMO0");
+    case MoveDirection::MoveDirection_LEFT:
+        Control(LEFT);
         break;
-    case '2':
-        SetBulletType("emBulletTypeAMMO1");
+    case MoveDirection::MoveDirection_RIGHT:
+        Control(RIGHT);
         break;
-    case '3':
-        SetBulletType("emBulletTypeAMMO2");
+    case MoveDirection::MoveDirection_LEFT_DOWN:
+        Control(LEFT_DOWN);
         break;
-    case '4':
-        SetBulletType("emBulletTypeAMMO3");
+    case MoveDirection::MoveDirection_LEFT_UP:
+        Control(LEFT_UP);
+        break;
+    case MoveDirection::MoveDirection_RIGHT_DOWN:
+        Control(RIGHT_DOWN);
+        break;
+    case MoveDirection::MoveDirection_RIGHT_UP:
+        Control(RIGHT_UP);
+        break;
+    case MoveDirection::MoveDirection_NONE:
+        Control(STOP_MOVE);
         break;
     default:
-        if (nPre != 'J' && nPre != 'Z')
-        {
-            Control(STOP_FIRE);
-        }
         Control(STOP_MOVE);
+    }
+    if (InputEngine_->PressFire())
+    {
+        Control(FIRE);
+    }
+    else
+    {
+        Control(STOP_FIRE);
     }
 }
 
@@ -268,7 +223,7 @@ void CSelfPlane::Render(HDC hDC)
         CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
     int nScore = CScore::GetScore();
-    ///> 显示八位生命
+    ///> 显示八位得分
     for (int i = 0; i < 8; ++i)
     {
         CPicturePool::GetInstance()->pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
@@ -276,7 +231,7 @@ void CSelfPlane::Render(HDC hDC)
 
     CPicturePool::GetInstance()->pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
 
-    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
+    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, (int)(m_nHP * m_fHpDot), 9, 0, 0);
 }
 
 bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)

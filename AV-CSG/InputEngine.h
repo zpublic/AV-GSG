@@ -1,5 +1,6 @@
 #pragma once
 #include "Singleton.h"
+#include "MoveDirection.h"
 
 class InputEngine : public Singleton<InputEngine>
 {
@@ -12,18 +13,19 @@ public:
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);
 
-    int GetPreKey();
-    int GetCurKey();
-
     bool PressPause();
     bool PressFireAll();
+
+    bool PressFire();
+
+    MoveDirection GetMoveDirection();
 
 private:
     InputEngine();
 
-    int     m_nPreKey;
-    int     m_nCurKey;
+    CMoveDirection m_MoveDirection;
 
     bool    m_bPressPause;
     bool    m_bPressFireAll;
+    bool    m_bPressFire;
 };
