@@ -46,6 +46,7 @@ void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
 void CSelfPlane::InitPlane(int nHP)
 {
     m_bIsStopMove = true;
+    m_fHpDot = (float)(105 / nHP);
     m_nHP = nHP;
     m_nPosX = SCREEN_WIDTH/2 - 24;
     m_nPosY = 480;
@@ -222,7 +223,7 @@ void CSelfPlane::Render(HDC hDC)
         CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
     int nScore = CScore::GetScore();
-    ///> 显示八位生命
+    ///> 显示八位得分
     for (int i = 0; i < 8; ++i)
     {
         CPicturePool::GetInstance()->pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
@@ -230,7 +231,7 @@ void CSelfPlane::Render(HDC hDC)
 
     CPicturePool::GetInstance()->pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
 
-    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, m_nHP, 9, 0, 0);
+    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, (int)(m_nHP * m_fHpDot), 9, 0, 0);
 }
 
 bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
