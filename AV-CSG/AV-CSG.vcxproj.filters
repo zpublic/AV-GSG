@@ -292,6 +292,9 @@
     <ClInclude Include="ExplosinXMLObject.h">
       <Filter>Source Files\control\XmlParser\explosionxml</Filter>
     </ClInclude>
+    <ClInclude Include="MoveDirection.h">
+      <Filter>Source Files\engine\input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">

@@ -30,6 +30,19 @@ enum ActionType
     FIREALL,
 };
 
+enum MoveDirection
+{
+    MoveDirection_NONE,
+    MoveDirection_LEFT,
+    MoveDirection_DOWN,
+    MoveDirection_RIGHT,
+    MoveDirection_UP,
+    MoveDirection_LEFT_UP,
+    MoveDirection_LEFT_DOWN,
+    MoveDirection_RIGHT_UP,
+    MoveDirection_RIGHT_DOWN,
+};
+
 //ÓÎÏ·×´Ì¬
 enum GameStatus
 {

@@ -58,7 +58,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -76,7 +76,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -113,6 +113,7 @@
     <ClInclude Include="InputEngine.h" />
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="OggFile.h" />
     <ClInclude Include="Parse_def.h" />
     <ClInclude Include="Prop.h" />
