@@ -1,6 +1,7 @@
 #pragma once
 
 #include "StageXMLStageObject.h"
+#include "EnemyCreateQueue.h"
 
 class CEnemyPlane;
 
@@ -10,7 +11,7 @@ public:
     CEnemyGenerate(void);
     ~CEnemyGenerate(void);
 
-    static void CreateEnemy(const CStageXMLStage* pStage, long lnTime);
+    static void CreateEnemy(long lnTime);
     static void ReleaseEnemy(CEnemyPlane* pEnemy);
 
     static long EnemyNumber();
@@ -18,5 +19,6 @@ public:
 public:
     static CEnemyPlane *spEnemyHead;
     static long m_lnDeadPlane;
+    static CEnemyCraeteQueue m_CreateQueue;
 };
 

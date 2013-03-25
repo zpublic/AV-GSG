@@ -142,6 +142,7 @@ void CGameControler::UpdateScence()
     {
         GameReady();
         CGameStatus::ClearGameStatus();
+        CEnemyGenerate::m_CreateQueue.PushStage(CGameStagePlayer::GetInstance().PresentObject());
         Sleep(100);
         return;
     }

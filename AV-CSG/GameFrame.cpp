@@ -25,7 +25,7 @@ void FrameUpdate()
             ISprite *pNext = pTemp->pNext;
             delete pTemp;
             pTemp = pNext;
-        } 
+        }
         else
         {
             pTemp->Update();

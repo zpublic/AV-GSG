@@ -6,6 +6,7 @@
 
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
 long CEnemyGenerate::m_lnDeadPlane = 0;
+CEnemyCraeteQueue CEnemyGenerate::m_CreateQueue;
 
 #define MAX_SCHEDULE 1000000000
 
@@ -17,25 +18,19 @@ CEnemyGenerate::~CEnemyGenerate(void)
 {
 }
 
-void CEnemyGenerate::CreateEnemy(const CStageXMLStage* pStage, long lnTime)
+void CEnemyGenerate::CreateEnemy(long lnTime)
 {
-    if (lnTime > MAX_SCHEDULE || pStage == NULL)
+    if (lnTime > MAX_SCHEDULE)
     {
         return;
     }
-    for (auto ItEnemy = pStage->EnemyBegin();
-        ItEnemy != pStage->EnemyEnd(); ItEnemy++)
+    CEnemyPlane* pEnemy = m_CreateQueue.Pop(lnTime);
+    if (!pEnemy)
     {
-        if (ItEnemy->second->GetAppear() == lnTime)
-        {
-            CEnemyPlane* pEnemy = new CEnemyPlane(
-            ItEnemy->second->GetType(),
-            CEmitterGenerate::GenerateEnemyEmitter(),
-            ItEnemy->second->GetPoint().PosX);
-            pEnemy->m_pEmnemyNext = spEnemyHead;
-            spEnemyHead = pEnemy;
-        }
+        return;
     }
+    pEnemy->m_pEmnemyNext = spEnemyHead;
+    spEnemyHead = pEnemy;
 }
 
 long CEnemyGenerate::EnemyNumber()

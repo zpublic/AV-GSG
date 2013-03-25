@@ -26,62 +26,6 @@ CBullet::CBullet(int x, int y,
     m_nWidth = m_Bullet->GetWidth();
     m_nHeight = m_Bullet->GetHeight();
     m_nFrameCount = m_Bullet->GetFrameCount();
-
-    /*
-    switch(bulletType)
-    {
-    case emBulletTypeAMMO0:
-        m_nWidth = 16;
-        m_nHeight = 16;
-        m_nFrameCount = 8;
-        break;
-    case emBulletTypeAMMO1:
-        m_nWidth = 16;
-        m_nHeight = 16;
-        m_nFrameCount = 6;
-        break;
-    case emBulletTypeAMMO2:
-        m_nWidth = 11;
-        m_nHeight = 11;
-        m_nFrameCount = 1;
-        break;
-    case emBulletTypeAMMO3:
-        m_nWidth = 16;
-        m_nHeight = 16;
-        m_nFrameCount = 6;
-        break;
-    case emBulletTypeAMMO4:
-        m_nWidth = 12;
-        m_nHeight = 60;
-        m_nFrameCount = 5;
-        break;
-    case emBulletTypeAMMO5:
-        m_nWidth = 23;
-        m_nHeight = 49;
-        m_nFrameCount = 1;
-        break;
-    case emBulletTypeAMMO6:
-        m_nWidth = 26;
-        m_nHeight = 31;
-        m_nFrameCount = 3;
-        break;
-    case emBulletTypeAmmoAll1:
-        m_nWidth = 224;
-        m_nHeight = 320;
-        m_nFrameCount = 12;
-        break;
-    case emBulletTypeAmmoSB:
-        m_nWidth = 24;
-        m_nHeight = 24;
-        m_nFrameCount = 1;
-        break;
-    case emBulletTypeAmmoSB2:
-        m_nWidth = 24;
-        m_nHeight = 24;
-        m_nFrameCount = 1;
-        break;
-    }
-    */
 }
 
 CBullet::~CBullet(void)
