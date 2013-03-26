@@ -1,7 +1,11 @@
 #pragma once
 
 #include "StageXMLStageObject.h"
-#include "EnemyCreateQueue.h"
+#include <vector>
+#include <list>
+#include <algorithm>
+
+typedef std::vector<CStageXMLEnemy*> EnemyList;
 
 class CEnemyPlane;
 
@@ -11,14 +15,19 @@ public:
     CEnemyGenerate(void);
     ~CEnemyGenerate(void);
 
+    static bool IniEnemy(const CStageXMLStage* pStage);
     static void CreateEnemy(long lnTime);
     static void ReleaseEnemy(CEnemyPlane* pEnemy);
 
     static long EnemyNumber();
 
+private:
+    static EnemyList m_EnemyList;
+    static void _Sort(EnemyList& sEnemyList);
 public:
     static CEnemyPlane *spEnemyHead;
     static long m_lnDeadPlane;
-    static CEnemyCraeteQueue m_CreateQueue;
+    static long m_ExclusionTime;
+    static int m_IsVaild;
 };
 

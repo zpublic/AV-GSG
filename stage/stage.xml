@@ -1,12 +1,12 @@
 <gamestage>
 <stage name = "这是一个C++群" id = "1" map = "Resur/map.bmp" difficulty = "100" type = "1">
-	<enemy id = "5" type = "1" posx = "10" posy = "20" appear = "60" >
+	<enemy id = "5" type = "1" posx = "10" posy = "20" appear = "6" >
 		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
-	<enemy id = "1" type = "2" posx = "10" posy = "30" appear = "3" >
+	<enemy id = "1" type = "2" posx = "10" posy = "30" appear = "7" >
 		<item id = "1" type = "2" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
-	<enemy id = "2" type = "2" posx = "70" posy = "10" appear = "1" >
+	<enemy id = "2" type = "2" posx = "70" posy = "10" appear = "3" >
 		<item id = "1" type = "1" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 	<enemy id = "3" type = "2" posx = "50" posy = "10" appear = "10" >

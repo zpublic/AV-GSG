@@ -304,9 +304,6 @@
     <ClInclude Include="PathLine.h">
       <Filter>Source Files\gameobject\path</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyCreateQueue.h">
-      <Filter>Source Files\control\generate</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -482,9 +479,6 @@
     </ClCompile>
     <ClCompile Include="PathLine.cpp">
       <Filter>Source Files\gameobject\path</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyCreateQueue.cpp">
-      <Filter>Source Files\control\generate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
