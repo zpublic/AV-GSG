@@ -1,14 +1,14 @@
 <gameexplosin>
-	<explosin id = "emBulletTypeAMMO0" name = "" skin = "emBulletTypeAMMO0_skin" speed = "1000" type = "" power = "10" width = "16" height = "16" framecount = "8"/>
-	<explosin id = "emBulletTypeAMMO1" name = "" skin = "emBulletTypeAMMO1_skin" speed = "1000" type = "" power = "1" width = "16" height = "16" framecount = "6"/>
-	<explosin id = "emBulletTypeAMMO2" name = "" skin = "emBulletTypeAMMO2_skin" speed = "1000" type = "" power = "1" width = "11" height = "11" framecount = "1"/>
-	<explosin id = "emBulletTypeAMMO3" name = "" skin = "emBulletTypeAMMO3_skin" speed = "1000" type = "" power = "1" width = "16" height = "16" framecount = "6"/>
-	<explosin id = "emBulletTypeAMMO4" name = "" skin = "emBulletTypeAMMO4_skin" speed = "1000" type = "" power = "1" width = "12" height = "60" framecount = "5"/>
-	<explosin id = "emBulletTypeAMMO5" name = "" skin = "emBulletTypeAMMO5_skin" speed = "1000" type = "" power = "1" width = "23" height = "49" framecount = "1"/>
-	<explosin id = "emBulletTypeAMMO6" name = "" skin = "emBulletTypeAMMO6_skin" speed = "1000" type = "" power = "1" width = "26" height = "31" framecount = "3"/>
-	<explosin id = "emBulletTypeAmmoAll1" name = "" skin = "emBulletTypeAmmoAll1_skin" speed = "100" type = "" power = "1" width = "224" height = "320" framecount = "12"/>
-	<explosin id = "emBulletTypeAmmoSB" name = "" skin = "emBulletTypeAmmoSB_skin" speed = "100" type = "" power = "2" width = "24" height = "24" framecount = "1"/>
-	<explosin id = "emBulletTypeAmmoSB2" name = "" skin = "emBulletTypeAmmoSB2_skin" speed = "100" type = "" power = "2" width = "24" height = "24" framecount = "1"/>	
-	<explosin id = "emBlastTypeBullet" name = "" skin = "emBlastTypeBullet_skin" speed = "100" type = "" power = "2" width = "32" height = "32" framecount = "5"/>
-	<explosin id = "emBlastTypePlane" name = "" skin = "emBlastTypePlane_skin" speed = "100" type = "" power = "2" width = "65" height = "75" framecount = "12"/>			
+	<explosin id = "emBulletTypeAMMO0" name = "" skin = "emBulletTypeAMMO0_skin" speed = "200" type = "" power = "10" width = "16" height = "16" framecount = "8"/>
+	<explosin id = "emBulletTypeAMMO1" name = "" skin = "emBulletTypeAMMO1_skin" speed = "200" type = "" power = "1" width = "16" height = "16" framecount = "6"/>
+	<explosin id = "emBulletTypeAMMO2" name = "" skin = "emBulletTypeAMMO2_skin" speed = "200" type = "" power = "1" width = "11" height = "11" framecount = "1"/>
+	<explosin id = "emBulletTypeAMMO3" name = "" skin = "emBulletTypeAMMO3_skin" speed = "200" type = "" power = "1" width = "16" height = "16" framecount = "6"/>
+	<explosin id = "emBulletTypeAMMO4" name = "" skin = "emBulletTypeAMMO4_skin" speed = "200" type = "" power = "1" width = "12" height = "60" framecount = "5"/>
+	<explosin id = "emBulletTypeAMMO5" name = "" skin = "emBulletTypeAMMO5_skin" speed = "200" type = "" power = "1" width = "23" height = "49" framecount = "1"/>
+	<explosin id = "emBulletTypeAMMO6" name = "" skin = "emBulletTypeAMMO6_skin" speed = "200" type = "" power = "1" width = "26" height = "31" framecount = "3"/>
+	<explosin id = "emBulletTypeAmmoAll1" name = "" skin = "emBulletTypeAmmoAll1_skin" speed = "200" type = "" power = "1" width = "224" height = "320" framecount = "12"/>
+	<explosin id = "emBulletTypeAmmoSB" name = "" skin = "emBulletTypeAmmoSB_skin" speed = "200" type = "" power = "2" width = "24" height = "24" framecount = "1"/>
+	<explosin id = "emBulletTypeAmmoSB2" name = "" skin = "emBulletTypeAmmoSB2_skin" speed = "200" type = "" power = "2" width = "24" height = "24" framecount = "1"/>	
+	<explosin id = "emBlastTypeBullet" name = "" skin = "emBlastTypeBullet_skin" speed = "200" type = "" power = "2" width = "32" height = "32" framecount = "5"/>
+	<explosin id = "emBlastTypePlane" name = "" skin = "emBlastTypePlane_skin" speed = "200" type = "" power = "2" width = "65" height = "75" framecount = "12"/>			
 </gameexplosin>
