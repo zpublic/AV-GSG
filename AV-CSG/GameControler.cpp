@@ -141,6 +141,7 @@ void CGameControler::UpdateScence()
     if (CGameStatus::GetGameReady())
     {
         GameReady();
+        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
         CGameStatus::ClearGameStatus();
         Sleep(100);
         return;

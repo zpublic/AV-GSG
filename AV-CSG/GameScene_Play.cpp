@@ -27,7 +27,6 @@ void GameScene_Play::Update()
     ControlSelfPlane();
     CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
     CEnemyGenerate::CreateEnemy(
-        CGameStagePlayer::GetInstance().PresentObject(),
         CGameStagePlayer::GetInstance().Stopwatch());
     FrameUpdate();
 }
