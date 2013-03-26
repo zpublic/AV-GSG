@@ -9,6 +9,7 @@ long CEnemyGenerate::m_lnDeadPlane = 0;
 long CEnemyGenerate::m_ExclusionTime = 0;
 int CEnemyGenerate::m_IsVaild = 0;
 EnemyList CEnemyGenerate::m_EnemyList;
+EnemyList::const_iterator CEnemyGenerate::m_spPosEnemyList;
 
 #define MAX_SCHEDULE 1000000000
 
@@ -47,7 +48,13 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
     {
         m_IsVaild = 0;
     }
-    for (auto It = m_EnemyList.begin(); It != m_EnemyList.end(); It++)
+    if (m_spPosEnemyList == m_EnemyList.end())
+    {
+        return;
+    }
+    for (auto It = m_spPosEnemyList;
+        It != m_EnemyList.end();
+        It++)
     {
         if (((*It) != NULL) && ((*It)->GetAppear() == lnTime))
         {
@@ -62,11 +69,12 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
             pEnemy->m_pEmnemyNext = spEnemyHead;
             spEnemyHead = pEnemy;
             m_IsVaild = 1;
+            It++;
             if (It != m_EnemyList.end())
             {
-                EnemyList::iterator DeleteObject = It;
-                m_EnemyList.begin() = DeleteObject++;
+                m_spPosEnemyList = It;
             }
+            It--;
         }
     }
     if (m_IsVaild == 0)
@@ -87,6 +95,7 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
         m_EnemyList.push_back(ItEnemy->second);
     }
     std::sort(m_EnemyList.begin(), m_EnemyList.end(), EnemySort());
+    m_spPosEnemyList = m_EnemyList.begin();
     return true;
 }
 

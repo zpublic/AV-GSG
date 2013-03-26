@@ -24,6 +24,7 @@ public:
 private:
     static EnemyList m_EnemyList;
 public:
+    static EnemyList::const_iterator m_spPosEnemyList;
     static CEnemyPlane *spEnemyHead;
     static long m_lnDeadPlane;
     static long m_ExclusionTime;
