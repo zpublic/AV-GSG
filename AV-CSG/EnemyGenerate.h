@@ -23,7 +23,6 @@ public:
 
 private:
     static EnemyList m_EnemyList;
-    static void _Sort(EnemyList& sEnemyList);
 public:
     static CEnemyPlane *spEnemyHead;
     static long m_lnDeadPlane;

@@ -90,15 +90,6 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
     return true;
 }
 
-void CEnemyGenerate::_Sort(EnemyList& sEnemyList)
-{
-    CStageXMLEnemy* pEnemy = NULL;
-    for (int index = 0; index < (int)m_EnemyList.size(); index++)
-    {
-        pEnemy = m_EnemyList[index];
-    }
-}
-
 long CEnemyGenerate::EnemyNumber()
 {
     return m_lnDeadPlane;
