@@ -1,15 +1,15 @@
 #include "StdAfx.h"
 #include "control/game/GameControler.h"
-#include "Sprite.h"
-#include "SelfPlane.h"
-#include "Bullet.h"
-#include "EnemyPlane.h"
-#include "Explosion.h"
+#include "gameobject\sprite\Sprite.h"
+#include "gameobject\plane\SelfPlane.h"
+#include "gameobject\bullet\Bullet.h"
+#include "gameobject\plane\EnemyPlane.h"
+#include "gameobject\explosion\Explosion.h"
 #include "GameFrame.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameStatus.h"
 #include "control\stage_player\GameStagePlayer.h"
-#include "Score.h"
+#include "data\gamedata\Score.h"
 
 
 HDC         g_hMemDC = NULL;

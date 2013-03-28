@@ -19,7 +19,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "control/game/GameControler.h"
-#include "GameScene_Play.h"
+#include "scene/GameScene_Play.h"
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
 
