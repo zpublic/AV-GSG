@@ -1,13 +1,13 @@
 #include "stdafx.h"
 #include "EmitterGenerate.h"
-#include "LineEmitter.h"
-#include "Line3Emitter.h"
-#include "Line8Emitter.h"
-#include "CurveEmitter.h"
-#include "BigBulletEmitter.h"
-#include "SpinEmitter.h"
-#include "AimEmitter.h"
-#include "TrackEmitter.h"
+#include "gameobject\emitter\LineEmitter.h"
+#include "gameobject\emitter\Line3Emitter.h"
+#include "gameobject\emitter\Line8Emitter.h"
+#include "gameobject\emitter\CurveEmitter.h"
+#include "gameobject\emitter\BigBulletEmitter.h"
+#include "gameobject\emitter\SpinEmitter.h"
+#include "gameobject\emitter\AimEmitter.h"
+#include "gameobject\emitter\TrackEmitter.h"
 
 CEmitterGenerate::CEmitterGenerate(void)
 {
