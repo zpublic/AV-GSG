@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IEmitter.h"
+#include "gameobject\emitter\IEmitter.h"
 
 ///> ·¢ÉäÆ÷Éú³É
 class CEmitterGenerate

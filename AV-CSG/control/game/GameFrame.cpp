@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "GameFrame.h"
-#include "ISprite.h"
+#include "gameobject\sprite\ISprite.h"
 
 ISprite * g_pHead = NULL;
 

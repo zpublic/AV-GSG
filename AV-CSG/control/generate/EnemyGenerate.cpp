@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "EnemyGenerate.h"
 #include "control/game/GameControler.h"
-#include "EnemyPlane.h"
+#include "gameobject\plane\EnemyPlane.h"
 #include "EmitterGenerate.h"
 
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;

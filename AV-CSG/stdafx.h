@@ -28,14 +28,14 @@
 
 #include "tinyxml.h"
 
-#include "PictureDef.h"
-#include "GameDef.h"
-#include "Unit.h"
+#include "unit\PictureDef.h"
+#include "unit\GameDef.h"
+#include "unit\Unit.h"
 
 ///> 引擎部分，全局访问
-#include "InputEngine.h"
-#include "SceneEngine.h"
-#include "AudioEngine.h"
+#include "engine\input\InputEngine.h"
+#include "engine\scene\SceneEngine.h"
+#include "engine\audio\AudioEngine.h"
 
 extern InputEngine* InputEngine_;
 extern SceneEngine* SceneEngine_;

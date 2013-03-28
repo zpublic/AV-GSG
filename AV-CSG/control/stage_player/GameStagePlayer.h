@@ -1,7 +1,7 @@
 #ifndef GAME_STAGE_PLAGER
 #define GAME_STAGE_PLAGER
 
-#include "GameDef.h"
+#include "unit\GameDef.h"
 #include "control\xml_parser\StageXMLParser.h"
 #include <string>
 
