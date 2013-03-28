@@ -2,7 +2,7 @@
 #define PLANE_XML_PARSE_
 
 #include "Parse_def.h"
-#include "../Import/tinyxml-2.6.2/tinyxml.h"
+#include "tinyxml.h"
 #include "PlaneXMLObject.h"
 #include <map>
 #include <string>

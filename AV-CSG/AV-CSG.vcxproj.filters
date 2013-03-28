@@ -87,6 +87,9 @@
     <Filter Include="Source Files\control\XmlParser\bulletxml">
       <UniqueIdentifier>{8dae147c-7143-4681-ab81-f61e22de10c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\game">
+      <UniqueIdentifier>{06075621-45e2-41c5-9fa5-dc9a32be8871}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -103,17 +106,11 @@
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameControler.h">
-      <Filter>Source Files\control</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameFrame.h">
-      <Filter>Source Files\control</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Source Files\gameobject\bullet</Filter>
@@ -135,9 +132,6 @@
     </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>Source Files\data\gamedata</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStatus.h">
-      <Filter>Source Files\control</Filter>
     </ClInclude>
     <ClInclude Include="IEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
@@ -172,12 +166,6 @@
     <ClInclude Include="TrackEmitter.h">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClInclude>
-    <ClInclude Include="EmitterGenerate.h">
-      <Filter>Source Files\control\generate</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyGenerate.h">
-      <Filter>Source Files\control\generate</Filter>
-    </ClInclude>
     <ClInclude Include="SelfPlane.h">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClInclude>
@@ -193,38 +181,8 @@
     <ClInclude Include="PictureDef.h">
       <Filter>Source Files\unit</Filter>
     </ClInclude>
-    <ClInclude Include="Parse_def.h">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClInclude>
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h">
       <Filter>Source Files\data\tinyxml</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuBase.h">
-      <Filter>Source Files\control\memu</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuItem.h">
-      <Filter>Source Files\control\memu</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLEnemyOBject.h">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLItemOBject.h">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLParser.h">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClInclude>
-    <ClInclude Include="StageXMLStageObject.h">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClInclude>
-    <ClInclude Include="PlaneXMLParse.h">
-      <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClInclude>
-    <ClInclude Include="PlaneXMLObject.h">
-      <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClInclude>
-    <ClInclude Include="XMLObject.h">
-      <Filter>Source Files\control\XmlParser</Filter>
     </ClInclude>
     <ClInclude Include="Explosion.h">
       <Filter>Source Files\gameobject\explosion</Filter>
@@ -237,12 +195,6 @@
     </ClInclude>
     <ClInclude Include="Prop.h">
       <Filter>Source Files\gameobject\prop</Filter>
-    </ClInclude>
-    <ClInclude Include="Generator.h">
-      <Filter>Source Files\control\generate</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStagePlayer.h">
-      <Filter>Source Files\control\StagePlayer</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Source Files\unit</Filter>
@@ -298,25 +250,70 @@
     <ClInclude Include="PathLine.h">
       <Filter>Source Files\gameobject\path</Filter>
     </ClInclude>
-    <ClInclude Include="BulletXMLObject.h">
+    <ClInclude Include="control\generate\EmitterGenerate.h">
+      <Filter>Source Files\control\generate</Filter>
+    </ClInclude>
+    <ClInclude Include="control\generate\EnemyGenerate.h">
+      <Filter>Source Files\control\generate</Filter>
+    </ClInclude>
+    <ClInclude Include="control\generate\Generator.h">
+      <Filter>Source Files\control\generate</Filter>
+    </ClInclude>
+    <ClInclude Include="control\menu\MenuBase.h">
+      <Filter>Source Files\control\memu</Filter>
+    </ClInclude>
+    <ClInclude Include="control\menu\MenuItem.h">
+      <Filter>Source Files\control\memu</Filter>
+    </ClInclude>
+    <ClInclude Include="control\stage_player\GameStagePlayer.h">
+      <Filter>Source Files\control\StagePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\Parse_def.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\XMLObject.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\BulletXMLObject.h">
       <Filter>Source Files\control\XmlParser\bulletxml</Filter>
     </ClInclude>
-    <ClInclude Include="BulletXMLParser.h">
+    <ClInclude Include="control\xml_parser\BulletXMLParser.h">
       <Filter>Source Files\control\XmlParser\bulletxml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\PlaneXMLObject.h">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\StageXMLEnemyOBject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\StageXMLItemOBject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\StageXMLParser.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\StageXMLStageObject.h">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\game\GameControler.h">
+      <Filter>Source Files\control\game</Filter>
+    </ClInclude>
+    <ClInclude Include="control\game\GameFrame.h">
+      <Filter>Source Files\control\game</Filter>
+    </ClInclude>
+    <ClInclude Include="control\game\GameStatus.h">
+      <Filter>Source Files\control\game</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\PlaneXMLParser.h">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameControler.cpp">
-      <Filter>Source Files\control</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameFrame.cpp">
-      <Filter>Source Files\control</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\gameobject\bullet</Filter>
@@ -335,9 +332,6 @@
     </ClCompile>
     <ClCompile Include="Score.cpp">
       <Filter>Source Files\data\gamedata</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStatus.cpp">
-      <Filter>Source Files\control</Filter>
     </ClCompile>
     <ClCompile Include="LineEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
@@ -369,12 +363,6 @@
     <ClCompile Include="TrackEmitter.cpp">
       <Filter>Source Files\gameobject\emitter</Filter>
     </ClCompile>
-    <ClCompile Include="EmitterGenerate.cpp">
-      <Filter>Source Files\control\generate</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyGenerate.cpp">
-      <Filter>Source Files\control\generate</Filter>
-    </ClCompile>
     <ClCompile Include="SelfPlane.cpp">
       <Filter>Source Files\gameobject\plane</Filter>
     </ClCompile>
@@ -401,33 +389,6 @@
     </ClCompile>
     <ClCompile Include="Prop.cpp">
       <Filter>Source Files\gameobject\prop</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLEnemyOBject.cpp">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLItemOBject.cpp">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLParser.cpp">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClCompile>
-    <ClCompile Include="StageXMLStageObject.cpp">
-      <Filter>Source Files\control\XmlParser\stagexml</Filter>
-    </ClCompile>
-    <ClCompile Include="PlaneXMLParse.cpp">
-      <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClCompile>
-    <ClCompile Include="XMLObject.cpp">
-      <Filter>Source Files\control\XmlParser</Filter>
-    </ClCompile>
-    <ClCompile Include="PlaneXMLObject.cpp">
-      <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClCompile>
-    <ClCompile Include="Generator.cpp">
-      <Filter>Source Files\control\generate</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStagePlayer.cpp">
-      <Filter>Source Files\control\StagePlayer</Filter>
     </ClCompile>
     <ClCompile Include="GameScene_Pause.cpp">
       <Filter>Source Files\scene</Filter>
@@ -474,11 +435,53 @@
     <ClCompile Include="PathLine.cpp">
       <Filter>Source Files\gameobject\path</Filter>
     </ClCompile>
-    <ClCompile Include="BulletXMLObject.cpp">
+    <ClCompile Include="control\generate\EmitterGenerate.cpp">
+      <Filter>Source Files\control\generate</Filter>
+    </ClCompile>
+    <ClCompile Include="control\generate\EnemyGenerate.cpp">
+      <Filter>Source Files\control\generate</Filter>
+    </ClCompile>
+    <ClCompile Include="control\generate\Generator.cpp">
+      <Filter>Source Files\control\generate</Filter>
+    </ClCompile>
+    <ClCompile Include="control\stage_player\GameStagePlayer.cpp">
+      <Filter>Source Files\control\StagePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\XMLObject.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\BulletXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\bulletxml</Filter>
     </ClCompile>
-    <ClCompile Include="BulletXMLParser.cpp">
+    <ClCompile Include="control\xml_parser\BulletXMLParser.cpp">
       <Filter>Source Files\control\XmlParser\bulletxml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\PlaneXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\StageXMLEnemyOBject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\StageXMLItemOBject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\StageXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\StageXMLStageObject.cpp">
+      <Filter>Source Files\control\XmlParser\stagexml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\game\GameControler.cpp">
+      <Filter>Source Files\control\game</Filter>
+    </ClCompile>
+    <ClCompile Include="control\game\GameFrame.cpp">
+      <Filter>Source Files\control\game</Filter>
+    </ClCompile>
+    <ClCompile Include="control\game\GameStatus.cpp">
+      <Filter>Source Files\control\game</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\PlaneXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\planexml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "StageXMLStageObject.h"
+#include "control\xml_parser\StageXMLStageObject.h"
 #include <vector>
 #include <list>
 #include <algorithm>

@@ -1,10 +1,10 @@
 #include "StdAfx.h"
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
-#include "GameStatus.h"
-#include "EmitterGenerate.h"
+#include "control\game\GameStatus.h"
+#include "control\generate\EmitterGenerate.h"
 #include "Score.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 
 CSelfPlane * CSelfPlane::pCSelfPlane = NULL;
 

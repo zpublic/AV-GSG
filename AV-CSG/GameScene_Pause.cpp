@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GameScene_Pause.h"
-#include "GameFrame.h"
-#include "GameStatus.h"
+#include "control\game\GameFrame.h"
+#include "control\game\GameStatus.h"
 
 GameScene_Parse::GameScene_Parse()
 {

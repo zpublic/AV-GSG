@@ -2,7 +2,7 @@
 #define GAME_STAGE_PLAGER
 
 #include "GameDef.h"
-#include "StageXMLParser.h"
+#include "control\xml_parser\StageXMLParser.h"
 #include <string>
 
 #define FastenFrameNum_Play 60

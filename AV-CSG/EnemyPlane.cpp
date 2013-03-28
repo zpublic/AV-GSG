@@ -1,9 +1,9 @@
 #include "StdAfx.h"
-#include "PlaneXMLParse.h"
+#include "control/xml_parser/PlaneXMLParser.h"
 #include "EnemyPlane.h"
 #include "SelfPlane.h"
 #include "Explosion.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 #include "Score.h"
 
 CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )

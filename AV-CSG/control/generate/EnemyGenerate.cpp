@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "EnemyGenerate.h"
-#include "GameControler.h"
+#include "control/game/GameControler.h"
 #include "EnemyPlane.h"
 #include "EmitterGenerate.h"
 

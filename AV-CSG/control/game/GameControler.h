@@ -1,8 +1,8 @@
 #pragma once
 
-#include "StageXMLParser.h"
-#include "PlaneXMLParse.h"
-#include "GameStagePlayer.h"
+#include "control/xml_parser/StageXMLParser.h"
+#include "control/xml_parser/PlaneXMLParser.h"
+#include "control/stage_player/GameStagePlayer.h"
 
 class CSelfPlane;
 

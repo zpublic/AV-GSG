@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "PlaneXMLParse.h"
+#include "PlaneXMLParser.h"
 
 CPlaneXMLParse CPlaneXMLParse::m_Plane;
 

@@ -18,7 +18,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
-#include "GameControler.h"
+#include "control/game/GameControler.h"
 #include "GameScene_Play.h"
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;

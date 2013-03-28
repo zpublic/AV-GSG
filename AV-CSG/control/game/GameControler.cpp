@@ -1,14 +1,14 @@
 #include "StdAfx.h"
-#include "GameControler.h"
+#include "control/game/GameControler.h"
 #include "Sprite.h"
 #include "SelfPlane.h"
 #include "Bullet.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
 #include "GameFrame.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 #include "GameStatus.h"
-#include "GameStagePlayer.h"
+#include "control\stage_player\GameStagePlayer.h"
 #include "Score.h"
 
 

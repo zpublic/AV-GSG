@@ -3,7 +3,7 @@
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
 #include "Explosion.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 
 #include <string>
 

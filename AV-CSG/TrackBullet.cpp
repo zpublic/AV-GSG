@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TrackBullet.h"
 #include "SelfPlane.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 #include "Explosion.h"
 #include "EnemyPlane.h"
 

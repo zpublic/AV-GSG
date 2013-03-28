@@ -3,7 +3,7 @@
 #include "Explosion.h"
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
-#include "EnemyGenerate.h"
+#include "control\generate\EnemyGenerate.h"
 
 CCurveBullet::CCurveBullet(
     int x, int y,

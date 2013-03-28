@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "GameScene_Play.h"
 #include "GameScene_Pause.h"
-#include "GameFrame.h"
+#include "control\game\GameFrame.h"
 #include "SelfPlane.h"
-#include "EnemyGenerate.h"
-#include "GameStatus.h"
+#include "control\generate\EnemyGenerate.h"
+#include "control\game\GameStatus.h"
 
 GameScene_Play::GameScene_Play()
 {

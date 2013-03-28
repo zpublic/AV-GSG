@@ -1,6 +1,6 @@
 #pragma once
 #include "GameScene.h"
-#include "GameStagePlayer.h"
+#include "control\stage_player\GameStagePlayer.h"
 
 class GameScene_Play : public GameScene
 {

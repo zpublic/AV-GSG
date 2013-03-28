@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Picture.h"
-#include "PlaneXMLParse.h"
 #include <map>
 
 class CPicturePool
