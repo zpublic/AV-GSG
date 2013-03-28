@@ -5,7 +5,7 @@ CExplosion::CExplosion(int x, int y, BlastType blastType)
     : CSprite(x, y)
     , m_emBlastType(blastType)
 {
-    m_Blast = CExplosinXMLParse::GetInstance().Get(blastType);
+    m_Blast = CBulletXMLParse::GetInstance().Get(blastType);
     if (m_Blast == NULL)
     {
         return;

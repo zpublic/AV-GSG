@@ -1,14 +1,14 @@
-#ifndef EXPLOSIN_XML_OBJECT_
-#define EXPLOSIN_XML_OBJECT_
+#ifndef BULLET_XML_OBJECT_
+#define BULLET_XML_OBJECT_
 
 #include "XMLObject.h"
 #include <string>
 
-class CExplosinXMLObject : public CXMLObject
+class CBulletXMLObject : public CXMLObject
 {
 public:
-    CExplosinXMLObject();
-    virtual ~CExplosinXMLObject();
+    CBulletXMLObject();
+    virtual ~CBulletXMLObject();
 
     void SetPower(int nPower);
     const int GetPower() const;

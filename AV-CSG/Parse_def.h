@@ -3,7 +3,7 @@
 
 #define STAGE_ROOT_GAME "gamestage"
 #define PLANE_ROOT_GAME "gameplane"
-#define EXPLOSIN_ROOT_GAME "gameexplosin"
+#define BULLET_ROOT_GAME "gamebullet"
 
 #define TRUE_GAME "true"
 #define FALSE_GAME "false"
@@ -43,9 +43,9 @@
 #define PLANE_BULLETTYPE_OBJECT "bullettype"
 #define PLANE_SPEED_OBJECT "speed"
 
-///> explosin
-#define EXPLOSIN_GAME "explosin"
-#define EXPLOSIN_SPEED_GAME "speed"
-#define EXPLOSIN_POWER_GAME "power"
+///> bullet
+#define BULLET_GAME "bullet"
+#define BULLET_SPEED_GAME "speed"
+#define BULLET_POWER_GAME "power"
 
 #endif

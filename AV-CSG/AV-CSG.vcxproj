@@ -107,8 +107,8 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GameScene_Pause.h" />
     <ClInclude Include="GameScene_Play.h" />
-    <ClInclude Include="ExplosinXMLObject.h" />
-    <ClInclude Include="ExplosinXMLParser.h" />
+    <ClInclude Include="BulletXMLObject.h" />
+    <ClInclude Include="BulletXMLParser.h" />
     <ClInclude Include="Generator.h" />
     <ClInclude Include="InputEngine.h" />
     <ClInclude Include="MenuBase.h" />
@@ -190,8 +190,8 @@
     <ClCompile Include="CurveEmitter.cpp" />
     <ClCompile Include="GameScene_Pause.cpp" />
     <ClCompile Include="GameScene_Play.cpp" />
-    <ClCompile Include="ExplosinXMLObject.cpp" />
-    <ClCompile Include="ExplosinXMLParser.cpp" />
+    <ClCompile Include="BulletXMLObject.cpp" />
+    <ClCompile Include="BulletXMLParser.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="InputEngine.cpp" />
     <ClCompile Include="OggFile.cpp" />

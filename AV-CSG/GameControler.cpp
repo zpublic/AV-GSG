@@ -43,9 +43,9 @@ void CGameControler::SetPlaneXML(const std::string& strPath)
     CPlaneXMLParse::GetInstance().LoadXML(strPath);
 }
 
-void CGameControler::SetExplosionXML(const std::string& strPath)
+void CGameControler::SetBulletXML(const std::string& strPath)
 {
-    CExplosinXMLParse::GetInstance().LoadXML(strPath);
+    CBulletXMLParse::GetInstance().LoadXML(strPath);
 }
 
 void CGameControler::Exit()

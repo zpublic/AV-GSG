@@ -1,6 +1,6 @@
 #pragma once
 #include "Sprite.h"
-#include "ExplosinXMLParser.h"
+#include "BulletXMLParser.h"
 
 ///> 子弹基类，划分为我方子弹和敌方子弹
 class CBullet : public CSprite
@@ -18,7 +18,7 @@ public:
     virtual void Update();
 protected:
     int                       m_nPower;           //威力
-    const CExplosinXMLObject* m_Bullet;
+    const CBulletXMLObject* m_Bullet;
     BulletType                m_BulletType;      //子弹类型
     bool                      m_bFriend;          //敌友
     int                       m_nSpeed;           //子弹速度

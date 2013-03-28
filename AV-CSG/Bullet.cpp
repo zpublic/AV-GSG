@@ -16,7 +16,7 @@ CBullet::CBullet(int x, int y,
 {
     m_bFriend = bFriend;
     m_fAngle = fAngle;
-    m_Bullet = CExplosinXMLParse::GetInstance().Get(bulletType);
+    m_Bullet = CBulletXMLParse::GetInstance().Get(bulletType);
     if (m_Bullet == NULL)
     {
         return;

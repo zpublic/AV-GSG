@@ -1,26 +1,26 @@
 #include "stdafx.h"
-#include "ExplosinXMLParser.h"
+#include "BulletXMLParser.h"
 
-CExplosinXMLParse CExplosinXMLParse::m_Explosin;
+CBulletXMLParse CBulletXMLParse::m_Explosin;
 
-CExplosinXMLParse& CExplosinXMLParse::GetInstance()
+CBulletXMLParse& CBulletXMLParse::GetInstance()
 {
     return m_Explosin;
 }
 
-CExplosinXMLParse::CExplosinXMLParse()
+CBulletXMLParse::CBulletXMLParse()
 {
 }
 
-CExplosinXMLParse::~CExplosinXMLParse()
+CBulletXMLParse::~CBulletXMLParse()
 {
     _Close();
 }
 
-const CExplosinXMLObject* CExplosinXMLParse::Get(const std::string& strId) const
+const CBulletXMLObject* CBulletXMLParse::Get(const std::string& strId) const
 {
-    auto it = m_mapExplosin.find(strId);
-    if (it == m_mapExplosin.end())
+    auto it = m_mapBullet.find(strId);
+    if (it == m_mapBullet.end())
     {
         return NULL;
     }
@@ -28,24 +28,24 @@ const CExplosinXMLObject* CExplosinXMLParse::Get(const std::string& strId) const
 }
 
 
-void CExplosinXMLParse::_Close()
+void CBulletXMLParse::_Close()
 {
-    if (!m_mapExplosin.empty())
+    if (!m_mapBullet.empty())
     {
-        for (auto it = m_mapExplosin.begin(); it != m_mapExplosin.end(); it++)
+        for (auto it = m_mapBullet.begin(); it != m_mapBullet.end(); it++)
         {
             delete it->second;
         }
     }
 }
 
-const int CExplosinXMLParse::Size() const
+const int CBulletXMLParse::Size() const
 {
-    return m_mapExplosin.size();
+    return m_mapBullet.size();
 }
 
 
-bool CExplosinXMLParse::LoadXML(const std::string& strPath)
+bool CBulletXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;
 
@@ -61,7 +61,7 @@ bool CExplosinXMLParse::LoadXML(const std::string& strPath)
     return true;
 }
 
-bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
+bool CBulletXMLParse::_Parse(TiXmlDocument& TinyXML)
 {
     TiXmlElement* tiRoot = TinyXML.RootElement();
     if (!tiRoot)
@@ -69,12 +69,12 @@ bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
         return false;
     }
     std::string sRootName = tiRoot->Value();
-    if (sRootName != EXPLOSIN_ROOT_GAME)
+    if (sRootName != BULLET_ROOT_GAME)
     {
         return false;
     }
 
-    TiXmlNode* tiFirst = tiRoot->FirstChild(EXPLOSIN_GAME);
+    TiXmlNode* tiFirst = tiRoot->FirstChild(BULLET_GAME);
     if (tiFirst == NULL)
     {
         return false;
@@ -83,7 +83,7 @@ bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement != NULL;
         tiElement = tiElement->NextSiblingElement())
     {
-        CExplosinXMLObject* pExplosion = new CExplosinXMLObject;
+        CBulletXMLObject* pExplosion = new CBulletXMLObject;
         if (tiElement->Attribute(ID_OBJECT) != NULL)
         {
             pExplosion->SetId(tiElement->Attribute(ID_OBJECT));
@@ -96,13 +96,13 @@ bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pExplosion->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
         }
-        if (tiElement->Attribute(EXPLOSIN_POWER_GAME) != NULL)
+        if (tiElement->Attribute(BULLET_POWER_GAME) != NULL)
         {
-            pExplosion->SetPower(::atol(tiElement->Attribute(EXPLOSIN_POWER_GAME)));
+            pExplosion->SetPower(::atol(tiElement->Attribute(BULLET_POWER_GAME)));
         }
-        if (tiElement->Attribute(EXPLOSIN_SPEED_GAME) != NULL)
+        if (tiElement->Attribute(BULLET_SPEED_GAME) != NULL)
         {
-            pExplosion->SetSpeed(::atoi(tiElement->Attribute(EXPLOSIN_SPEED_GAME)));
+            pExplosion->SetSpeed(::atoi(tiElement->Attribute(BULLET_SPEED_GAME)));
         }
         if (tiElement->Attribute(TYPE_OBJECT) != NULL)
         {
@@ -120,7 +120,7 @@ bool CExplosinXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pExplosion->SetHeight(::atol(tiElement->Attribute(HEIGHT_OBJECT)));
         }
-        m_mapExplosin[pExplosion->GetId()] = pExplosion;
+        m_mapBullet[pExplosion->GetId()] = pExplosion;
     }
     return true;
 }

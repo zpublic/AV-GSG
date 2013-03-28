@@ -207,16 +207,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     char filePath[MAX_PATH] = {0};
     ::GetModuleFileNameA(0, filePath, MAX_PATH);
     ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "stage/stage.xml");
+    ::PathAppendA(filePath, "Resource/stage/stage.xml");
     g_pGameControl->SetStageXML(filePath);
     ::GetModuleFileNameA(0, filePath, MAX_PATH);
     ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "plane/plane.xml");
+    ::PathAppendA(filePath, "Resource/plane/plane.xml");
     g_pGameControl->SetPlaneXML(filePath);
     ::GetModuleFileNameA(0, filePath, MAX_PATH);
     ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "explosion/explosion.xml");
-    g_pGameControl->SetExplosionXML(filePath);
+    ::PathAppendA(filePath, "Resource/bullet/bullet.xml");
+    g_pGameControl->SetBulletXML(filePath);
     return TRUE;
 }
 
