@@ -90,6 +90,9 @@
     <Filter Include="Source Files\control\game">
       <UniqueIdentifier>{06075621-45e2-41c5-9fa5-dc9a32be8871}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\blastxml">
+      <UniqueIdentifier>{ab810189-0b8b-43e0-928c-377e8fc79030}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -307,6 +310,12 @@
     <ClInclude Include="unit\Unit.h">
       <Filter>Source Files\unit</Filter>
     </ClInclude>
+    <ClInclude Include="control\xml_parser\BlastXMLObject.h">
+      <Filter>Source Files\control\XmlParser\blastxml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\BlastXMLParser.h">
+      <Filter>Source Files\control\XmlParser\blastxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -482,6 +491,12 @@
     </ClCompile>
     <ClCompile Include="unit\Unit.cpp">
       <Filter>Source Files\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\BlastXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\blastxml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\BlastXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\blastxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
