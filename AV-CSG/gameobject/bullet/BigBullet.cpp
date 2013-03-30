@@ -37,9 +37,13 @@ bool CBigBullet::IsVisible()
 
 void CBigBullet::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture("emBulletTypeAmmoAll1_skin")->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        m_nFrameStartX, m_nFrameStartY);
+    CPicture* pDraw = CPicturePool::GetInstance()->GetPicture("emBulletTypeAmmoAll1_skin");
+    if (pDraw != NULL)
+    {
+        pDraw->DrawBitmap(
+            hDC,
+            m_nPosX, m_nPosY,
+            m_nWidth, m_nHeight,
+            m_nFrameStartX, m_nFrameStartY);
+    }
 }

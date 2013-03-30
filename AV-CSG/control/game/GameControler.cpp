@@ -119,7 +119,7 @@ void CGameControler::StartGame()
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
 
-    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("1"));
+    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
     CScore::Reset();
     CGameStatus::StartGame();
 }

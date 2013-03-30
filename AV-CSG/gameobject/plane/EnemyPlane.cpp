@@ -89,11 +89,15 @@ void CEnemyPlane::Update()
 
 void CEnemyPlane::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(m_SkinType)->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        m_nFrameStartX, 0);
+    CPicture* pDraw = CPicturePool::GetInstance()->GetPicture(m_SkinType);
+    if (pDraw != NULL)
+    {
+        pDraw->DrawBitmap(
+            hDC,
+            m_nPosX, m_nPosY,
+            m_nWidth, m_nHeight,
+            m_nFrameStartX, 0);
+    }
 }
 
 bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)

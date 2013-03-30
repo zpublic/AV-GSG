@@ -103,6 +103,8 @@
     <ClInclude Include="control\menu\MenuBase.h" />
     <ClInclude Include="control\menu\MenuItem.h" />
     <ClInclude Include="control\stage_player\GameStagePlayer.h" />
+    <ClInclude Include="control\xml_parser\BlastXMLObject.h" />
+    <ClInclude Include="control\xml_parser\BlastXMLParser.h" />
     <ClInclude Include="control\xml_parser\BulletXMLObject.h" />
     <ClInclude Include="control\xml_parser\BulletXMLParser.h" />
     <ClInclude Include="control\xml_parser\Parse_def.h" />
@@ -183,6 +185,8 @@
     <ClCompile Include="control\generate\EnemyGenerate.cpp" />
     <ClCompile Include="control\generate\Generator.cpp" />
     <ClCompile Include="control\stage_player\GameStagePlayer.cpp" />
+    <ClCompile Include="control\xml_parser\BlastXMLObject.cpp" />
+    <ClCompile Include="control\xml_parser\BlastXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\BulletXMLObject.cpp" />
     <ClCompile Include="control\xml_parser\BulletXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\PlaneXMLObject.cpp" />

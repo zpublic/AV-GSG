@@ -32,12 +32,16 @@ void CExplosion::Update()
 
 void CExplosion::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->GetPicture(m_Blast->GetSkinId())->DrawBitmap(
-        hDC,
-        m_nPosX - m_nWidth / 2,
-        m_nPosY - m_nHeight / 2,
-        m_nWidth,
-        m_nHeight,
-        m_nFrameStartX,
-        0);
+    CPicture* pDraw = CPicturePool::GetInstance()->GetPicture(m_Blast->GetSkinId());
+    if (pDraw != NULL)
+    {
+        pDraw->DrawBitmap(
+            hDC,
+            m_nPosX - m_nWidth / 2,
+            m_nPosY - m_nHeight / 2,
+            m_nWidth,
+            m_nHeight,
+            m_nFrameStartX,
+            0);
+    }
 }

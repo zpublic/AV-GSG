@@ -51,15 +51,15 @@ bool CBullet::IsVisible()
 
 void CBullet::Render(HDC hDC)
 {
-    if (!CPicturePool::GetInstance()->GetPicture(m_Bullet->GetSkinId()))
+    CPicture* pDraw = CPicturePool::GetInstance()->GetPicture(m_Bullet->GetSkinId());
+    if (pDraw != NULL)
     {
-        return;
+        pDraw->DrawBitmap(
+            hDC,
+            m_nPosX, m_nPosY,
+            m_nWidth, m_nHeight,
+            m_nFrameStartX, 0);
     }
-    CPicturePool::GetInstance()->GetPicture(m_Bullet->GetSkinId())->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        m_nFrameStartX, 0);
 }
 
 void CBullet::Update()
