@@ -4,6 +4,7 @@
 #define STAGE_ROOT_GAME "gamestage"
 #define PLANE_ROOT_GAME "gameplane"
 #define BULLET_ROOT_GAME "gamebullet"
+#define BLAST_ROOT_GAME "gameblast"
 
 #define TRUE_GAME "true"
 #define FALSE_GAME "false"
@@ -47,5 +48,9 @@
 #define BULLET_GAME "bullet"
 #define BULLET_SPEED_GAME "speed"
 #define BULLET_POWER_GAME "power"
+
+///> blast
+#define BLAST_GAME "blast"
+#define BLAST_SKIN_OBJECT "skin"
 
 #endif

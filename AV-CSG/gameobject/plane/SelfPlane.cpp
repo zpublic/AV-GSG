@@ -94,6 +94,10 @@ void CSelfPlane::Update()
 
     if (m_bFire && m_fFrequencyTime >= m_fBulletFrequency)
     {
+        if (m_piEmitter == NULL)
+        {
+            return;
+        }
         m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, m_nBulletType);
 
         while(m_fFrequencyTime > m_fBulletFrequency)

@@ -19,7 +19,7 @@ public:
         return m_pInst;
     }
 
-	static void Destroy()
+    static void Destroy()
     {
         if (m_pInst != NULL)
         {

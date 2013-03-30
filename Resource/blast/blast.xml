@@ -1,0 +1,4 @@
+<gameblast>
+	<blast id = "emBlastTypeBullet" name = "" skin = "emBlastTypeBullet_skin" speed = "200" type = "" power = "2" width = "32" height = "32" framecount = "5"/>
+	<blast id = "emBlastTypePlane" name = "" skin = "emBlastTypePlane_skin" speed = "200" type = "" power = "2" width = "65" height = "75" framecount = "12"/>
+</gameblast>
