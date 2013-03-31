@@ -29,8 +29,6 @@ public:
 
     void Exit();
 private:
-    //µØÍ¼Ñ­»·ÌùÍ¼
-    void CirculationMap();
 
     void GameOver();
     void GameReady();

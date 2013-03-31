@@ -1499,7 +1499,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "2" map = "Resur/map.bmp" difficulty = "300">
+<stage name = "这是一个C++群" id = "2" map = "Resource/map.bmp" difficulty = "300">
     <enemy id = "500" type = "Assassin" posx = "31" posy = "31" appear = "5530" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -3002,7 +3002,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "3" map = "Resur/map.bmp" difficulty = "400">
+<stage name = "这是一个C++群" id = "3" map = "Resource/map.bmp" difficulty = "400">
     <enemy id = "1000" type = "Sword" posx = "76" posy = "76" appear = "11029" >
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -4504,7 +4504,7 @@
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "4" map = "Resur/map.bmp" difficulty = "500">
+<stage name = "这是一个C++群" id = "4" map = "Resource/map.bmp" difficulty = "500">
     <enemy id = "1500" type = "BloodCattle" posx = "29" posy = "29" appear = "16029" >
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -6007,7 +6007,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "5" map = "Resur/map.bmp" difficulty = "600">
+<stage name = "这是一个C++群" id = "5" map = "Resource/map.bmp" difficulty = "600">
     <enemy id = "2000" type = "GrandCannon" posx = "85" posy = "85" appear = "21028" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -7510,7 +7510,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "6" map = "Resur/map.bmp" difficulty = "700">
+<stage name = "这是一个C++群" id = "6" map = "Resource/map.bmp" difficulty = "700">
     <enemy id = "2500" type = "Sword" posx = "27" posy = "27" appear = "25528" >
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -9012,7 +9012,7 @@
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "7" map = "Resur/map.bmp" difficulty = "800">
+<stage name = "这是一个C++群" id = "7" map = "Resource/map.bmp" difficulty = "800">
     <enemy id = "3000" type = "GrandCannon" posx = "79" posy = "79" appear = "30027" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -10514,7 +10514,7 @@
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "8" map = "Resur/map.bmp" difficulty = "900">
+<stage name = "这是一个C++群" id = "8" map = "Resource/map.bmp" difficulty = "900">
     <enemy id = "3500" type = "Assassin" posx = "97" posy = "97" appear = "34027" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -12016,7 +12016,7 @@
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "9" map = "Resur/map.bmp" difficulty = "1000"> 
+<stage name = "这是一个C++群" id = "9" map = "Resource/map.bmp" difficulty = "1000"> 
     <enemy id = "4000" type = "GrandCannon" posx = "49" posy = "49" appear = "38026" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -13518,7 +13518,7 @@
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "10" map = "Resur/map.bmp" difficulty = "1100">
+<stage name = "这是一个C++群" id = "10" map = "Resource/map.bmp" difficulty = "1100">
     <enemy id = "4500" type = "Sword" posx = "45" posy = "45" appear = "41526" >
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -15020,7 +15020,7 @@
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "11" map = "Resur/map.bmp" difficulty = "1200">
+<stage name = "这是一个C++群" id = "11" map = "Resource/map.bmp" difficulty = "1200">
     <enemy id = "5000" type = "Assassin" posx = "45" posy = "45" appear = "45025" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -16522,7 +16522,7 @@
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "12" map = "Resur/map.bmp" difficulty = "1300">
+<stage name = "这是一个C++群" id = "12" map = "Resource/map.bmp" difficulty = "1300">
     <enemy id = "5500" type = "GrandCannon" posx = "45" posy = "45" appear = "48025" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -18024,7 +18024,7 @@
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "13" map = "Resur/map.bmp" difficulty = "1400">
+<stage name = "这是一个C++群" id = "13" map = "Resource/map.bmp" difficulty = "1400">
     <enemy id = "6000" type = "Assassin" posx = "41" posy = "41" appear = "51024" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -19526,7 +19526,7 @@
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "14" map = "Resur/map.bmp" difficulty = "1500"> 
+<stage name = "这是一个C++群" id = "14" map = "Resource/map.bmp" difficulty = "1500"> 
     <enemy id = "6500" type = "Assassin" posx = "41" posy = "41" appear = "53524" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -21028,7 +21028,7 @@
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "15" map = "Resur/map.bmp" difficulty = "1600">
+<stage name = "这是一个C++群" id = "15" map = "Resource/map.bmp" difficulty = "1600">
     <enemy id = "7000" type = "GrandCannon" posx = "82" posy = "82" appear = "56023" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -22530,7 +22530,7 @@
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "16" map = "Resur/map.bmp" difficulty = "1700">
+<stage name = "这是一个C++群" id = "16" map = "Resource/map.bmp" difficulty = "1700">
     <enemy id = "7500" type = "GrandCannon" posx = "46" posy = "46" appear = "58023" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -24032,7 +24032,7 @@
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "17" map = "Resur/map.bmp" difficulty = "1800">
+<stage name = "这是一个C++群" id = "17" map = "Resource/map.bmp" difficulty = "1800">
     <enemy id = "8000" type = "BloodCattle" posx = "73" posy = "73" appear = "60022" >
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -25535,7 +25535,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "18" map = "Resur/map.bmp" difficulty = "1900">
+<stage name = "这是一个C++群" id = "18" map = "Resource/map.bmp" difficulty = "1900">
     <enemy id = "8500" type = "GrandCannon" posx = "17" posy = "17" appear = "61522" >
 			<item id = "1" type = "13" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -27037,7 +27037,7 @@
 			<item id = "1" type = "10" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
 </stage>
-<stage name = "这是一个C++群" id = "19" map = "Resur/map.bmp" difficulty = "2000">
+<stage name = "这是一个C++群" id = "19" map = "Resource/map.bmp" difficulty = "2000">
     <enemy id = "9000" type = "Sword" posx = "50" posy = "50" appear = "63021" >
 			<item id = "1" type = "11" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>

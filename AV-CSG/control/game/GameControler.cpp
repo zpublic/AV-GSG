@@ -86,19 +86,6 @@ void CGameControler::GameReady()
     BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
 }
 
-void CGameControler::CirculationMap()
-{
-    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-    BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
-
-    if (!CGameStatus::GetGamePause())
-    {
-        m_nY += 1;
-        if(m_nY == SCREEN_HEIGHT)
-            m_nY = 0;
-    }
-}
-
 void CGameControler::SetWndDC(HDC hDC)
 {
     g_hWndDC = hDC;
@@ -114,14 +101,6 @@ void CGameControler::StartGame()
 {
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
-
-    /*
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-    SelectObject(m_hMapDC, m_hBitmapMap);
-    */
-
     if (CGameStagePlayer::GetInstance().PresentObject())
     {
         SceneEngine_->Push(new GameScene_Map(
@@ -164,8 +143,6 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    //SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
-    //Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
