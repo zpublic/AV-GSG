@@ -319,7 +319,7 @@
     <ClInclude Include="scene\GameScene_Map.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
-    <ClInclude Include="scene\GameScene_Background.h">
+    <ClInclude Include="scene\GameScene_FixedScene.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -507,7 +507,7 @@
     <ClCompile Include="scene\GameScene_Map.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
-    <ClCompile Include="scene\GameScene_Background.cpp">
+    <ClCompile Include="scene\GameScene_FixedScene.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>

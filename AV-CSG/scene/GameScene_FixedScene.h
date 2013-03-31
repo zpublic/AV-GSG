@@ -5,17 +5,17 @@
 
 #define MAX_PATH 260
 
-class GameScene_Background : public GameScene
+class GameScene_FixedScene : public GameScene
 {
 public:
-    GameScene_Background(const TCHAR* lpszPath, HDC BkDc);
-    virtual ~GameScene_Background();
+    GameScene_FixedScene(const TCHAR* lpszPath, HDC BkDc);
+    virtual ~GameScene_FixedScene();
 
     virtual void Update();
     virtual void Output();
 
 private:
-    GameScene_Background();
+    GameScene_FixedScene();
     HDC m_BackgourdDC;
     bool _LoadImage(const TCHAR* lpszPath, HDC BkDc);
 };

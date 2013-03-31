@@ -10,7 +10,7 @@
 #include "GameStatus.h"
 #include "scene\GameScene_Map.h"
 #include "scene\GameScene_Play.h"
-#include "scene\GameScene_Background.h"
+#include "scene\GameScene_FixedScene.h"
 #include "control\stage_player\GameStagePlayer.h"
 #include "data\gamedata\Score.h"
 
@@ -69,7 +69,7 @@ void CGameControler::Exit()
 void CGameControler::GameOver()
 {
     SceneEngine_->PopAll();
-    SceneEngine_->Push(new GameScene_Background(
+    SceneEngine_->Push(new GameScene_FixedScene(
         _T("Resource\\gameover.bmp"),
         m_hMapDC));
     TCHAR szOut[100] = {0};
@@ -79,7 +79,7 @@ void CGameControler::GameOver()
 
 void CGameControler::GameReady()
 {
-    SceneEngine_->Push(new GameScene_Background(
+    SceneEngine_->Push(new GameScene_FixedScene(
          _T("Resource\\gameready.bmp"),
          m_hMapDC));
 }

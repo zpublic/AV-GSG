@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "GameScene_Background.h"
+#include "GameScene_FixedScene.h"
 #include "control\game\GameStatus.h"
 
-GameScene_Background::GameScene_Background(const TCHAR* lpszPath, HDC BkDc)
+GameScene_FixedScene::GameScene_FixedScene(const TCHAR* lpszPath, HDC BkDc)
     : m_BackgourdDC(0)
 {
     m_BackgourdDC = BkDc;
@@ -10,16 +10,16 @@ GameScene_Background::GameScene_Background(const TCHAR* lpszPath, HDC BkDc)
     BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_BackgourdDC, 0, 0, SRCCOPY);
 }
 
-GameScene_Background::~GameScene_Background()
+GameScene_FixedScene::~GameScene_FixedScene()
 {
 }
 
-GameScene_Background::GameScene_Background()
+GameScene_FixedScene::GameScene_FixedScene()
 {
 }
 
 
-bool GameScene_Background::_LoadImage(const TCHAR* lpszPath, HDC BkDc)
+bool GameScene_FixedScene::_LoadImage(const TCHAR* lpszPath, HDC BkDc)
 {
     if (!lpszPath)
     {
@@ -36,11 +36,11 @@ bool GameScene_Background::_LoadImage(const TCHAR* lpszPath, HDC BkDc)
     return true;
 }
 
-void GameScene_Background::Update()
+void GameScene_FixedScene::Update()
 {
 }
 
-void GameScene_Background::Output()
+void GameScene_FixedScene::Output()
 {
     BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_BackgourdDC, 0, 0, SRCCOPY);
 }
