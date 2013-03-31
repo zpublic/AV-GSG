@@ -22,6 +22,7 @@
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v110</PlatformToolset>
     <UseOfAtl>Static</UseOfAtl>
+    <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -154,6 +155,7 @@
     <ClInclude Include="gameobject\sprite\ISprite.h" />
     <ClInclude Include="gameobject\sprite\Sprite.h" />
     <ClInclude Include="scene\GameScene.h" />
+    <ClInclude Include="scene\GameScene_Map.h" />
     <ClInclude Include="scene\GameScene_Pause.h" />
     <ClInclude Include="scene\GameScene_Play.h" />
     <ClInclude Include="Resource.h" />
@@ -230,6 +232,7 @@
     <ClCompile Include="gameobject\plane\SelfPlane.cpp" />
     <ClCompile Include="gameobject\prop\Prop.cpp" />
     <ClCompile Include="gameobject\sprite\Sprite.cpp" />
+    <ClCompile Include="scene\GameScene_Map.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
     <ClCompile Include="scene\GameScene_Play.cpp" />
     <ClCompile Include="stdafx.cpp">

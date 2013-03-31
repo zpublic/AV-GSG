@@ -8,6 +8,7 @@
 #include "GameFrame.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameStatus.h"
+#include "scene\GameScene_Map.h"
 #include "control\stage_player\GameStagePlayer.h"
 #include "data\gamedata\Score.h"
 
@@ -114,10 +115,19 @@ void CGameControler::StartGame()
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
 
+    /*
     if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
     m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
         SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
     SelectObject(m_hMapDC, m_hBitmapMap);
+    */
+
+    if (CGameStagePlayer::GetInstance().PresentObject())
+    {
+        SceneEngine_->Push(new GameScene_Map(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
+            m_hMapDC, g_hMemDC));
+    }
 
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
     CScore::Reset();
@@ -154,12 +164,15 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
-    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    CirculationMap();
+    //SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    //Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
+        SceneEngine_->Pop();
+        SceneEngine_->Push(new GameScene_Map(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
+            m_hMapDC, g_hMemDC));
     }
     SceneEngine_->Update();
     SceneEngine_->Output();

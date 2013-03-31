@@ -10,10 +10,13 @@
 
 typedef std::map<std::string, CBlastXMLObject*> BlastList;
 
-class CBlasXMLParse : public Singleton<CBlasXMLParse>
+class CBlastXMLParse : public Singleton<CBlastXMLParse>
 {
+    friend Singleton<CBlastXMLParse>;
 public:
-    ~CBlasXMLParse();
+    ~CBlastXMLParse();
+
+    virtual bool Initialize();
 
     bool LoadXML(const std::string& strPath);
 
@@ -21,7 +24,7 @@ public:
     const int Size() const;
 
 private:
-    CBlasXMLParse();
+    CBlastXMLParse();
     bool _Parse(TiXmlDocument& TinyXML);
     void _Close();
 private:

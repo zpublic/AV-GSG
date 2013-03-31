@@ -73,13 +73,21 @@ void SceneEngine::Update()
 
         m_bStatusChange = false;
     }
-    m_GameStack.back()->Update();
+    for (auto it = m_GameStack.rbegin(); it != m_GameStack.rend(); it++)
+    {
+        (*it)->Update();
+    }
+    //m_GameStack.back()->Update();
 }
 
 void SceneEngine::Output()
 {
     if (!m_GameStack.empty())
     {
-        m_GameStack.back()->Output();
+        for (auto it = m_GameStack.rbegin(); it != m_GameStack.rend(); it++)
+        {
+            (*it)->Output();
+        }
+        //m_GameStack.back()->Output();
     }
 }

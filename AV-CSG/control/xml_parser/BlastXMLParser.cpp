@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "BlastXMLParser.h"
 
-bool CBlasXMLParse::LoadXML(const std::string& strPath)
+CBlastXMLParse* Singleton<CBlastXMLParse>::m_pInst = NULL;
+
+bool CBlastXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;
 
@@ -17,7 +19,7 @@ bool CBlasXMLParse::LoadXML(const std::string& strPath)
     return true;
 }
 
-const CBlastXMLObject* CBlasXMLParse::Get(const std::string& strId) const
+const CBlastXMLObject* CBlastXMLParse::Get(const std::string& strId) const
 {
     auto it = m_mapBlast.find(strId);
     if (it == m_mapBlast.end())
@@ -27,7 +29,7 @@ const CBlastXMLObject* CBlasXMLParse::Get(const std::string& strId) const
     return it->second;
 }
 
-bool CBlasXMLParse::_Parse(TiXmlDocument& TinyXML)
+bool CBlastXMLParse::_Parse(TiXmlDocument& TinyXML)
 {
     TiXmlElement* tiRoot = TinyXML.RootElement();
     if (!tiRoot)

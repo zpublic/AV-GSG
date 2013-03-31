@@ -316,6 +316,9 @@
     <ClInclude Include="control\xml_parser\BlastXMLParser.h">
       <Filter>Source Files\control\XmlParser\blastxml</Filter>
     </ClInclude>
+    <ClInclude Include="scene\GameScene_Map.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -497,6 +500,9 @@
     </ClCompile>
     <ClCompile Include="control\xml_parser\BlastXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\blastxml</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GameScene_Map.cpp">
+      <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
