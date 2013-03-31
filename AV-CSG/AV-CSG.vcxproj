@@ -155,6 +155,7 @@
     <ClInclude Include="gameobject\sprite\ISprite.h" />
     <ClInclude Include="gameobject\sprite\Sprite.h" />
     <ClInclude Include="scene\GameScene.h" />
+    <ClInclude Include="scene\GameScene_Background.h" />
     <ClInclude Include="scene\GameScene_Map.h" />
     <ClInclude Include="scene\GameScene_Pause.h" />
     <ClInclude Include="scene\GameScene_Play.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="gameobject\plane\SelfPlane.cpp" />
     <ClCompile Include="gameobject\prop\Prop.cpp" />
     <ClCompile Include="gameobject\sprite\Sprite.cpp" />
+    <ClCompile Include="scene\GameScene_Background.cpp" />
     <ClCompile Include="scene\GameScene_Map.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
     <ClCompile Include="scene\GameScene_Play.cpp" />

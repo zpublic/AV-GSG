@@ -19,7 +19,6 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "control/game/GameControler.h"
-#include "scene/GameScene_Play.h"
 CGameControler *g_pGameControl = NULL;
 HDC g_hdc;
 
@@ -36,8 +35,6 @@ void InitEngine()
     SceneEngine_->Initialize();
     AudioEngine_ = AudioEngine::Instance();
     AudioEngine_->Initialize();
-
-    SceneEngine_->Push(new GameScene_Play);
 }
 
 void UninitEngine()

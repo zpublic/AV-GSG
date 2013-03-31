@@ -8,7 +8,7 @@
 class GameScene_Map : public GameScene
 {
 public:
-    GameScene_Map(const TCHAR* lpszPath, HDC BkDc, HDC MemDc);
+    GameScene_Map(const TCHAR* lpszPath, HDC BkDc);
     virtual ~GameScene_Map();
 
     virtual void Update();
@@ -18,7 +18,6 @@ private:
     GameScene_Map();
     void _CirculationMap();
     bool _LoadImage(const TCHAR* lpszPath, HDC hDC);
-    HDC m_MemDC;
     HDC m_BackgourdDC;
     int m_nY;
 };

@@ -2,15 +2,13 @@
 #include "GameScene_Map.h"
 #include "control\game\GameStatus.h"
 
-GameScene_Map::GameScene_Map(const TCHAR* lpszPath, HDC BkDc, HDC MemDC)
-    : m_MemDC(0)
-    , m_BackgourdDC(0)
+GameScene_Map::GameScene_Map(const TCHAR* lpszPath, HDC BkDc)
+    : m_BackgourdDC(0)
     , m_nY(0)
 {
-    m_MemDC = MemDC;
     m_BackgourdDC = BkDc;
     _LoadImage(lpszPath, m_BackgourdDC);
-    BitBlt(m_MemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_BackgourdDC, 0, 0, SRCCOPY);
+    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_BackgourdDC, 0, 0, SRCCOPY);
 }
 
 GameScene_Map::~GameScene_Map()
@@ -55,8 +53,8 @@ void GameScene_Map::Update()
 
 void GameScene_Map::Output()
 {
-    SelectObject(m_MemDC, GetStockObject(BLACK_BRUSH));
-    Rectangle(m_MemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    BitBlt(m_MemDC, 0, 0, SCREEN_WIDTH, m_nY, m_BackgourdDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-    BitBlt(m_MemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_BackgourdDC, 0, 0, SRCCOPY);
+    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_BackgourdDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
+    BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_BackgourdDC, 0, 0, SRCCOPY);
 }
