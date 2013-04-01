@@ -15,6 +15,9 @@ public:
 private:
 
 public:
-
+    Player_GameStatus   gamestatus_;
+    Player_Property     property_;
+    Player_SaveData     savedata_;
+    Player_Skill        skill_;
 };
 
