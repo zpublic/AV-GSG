@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 
-typedef std::map<std::string, CEmitterXMLObject*> BlastList;
+typedef std::map<std::string, CEmitterXMLObject*> EmitterList;
 
 class CEmitterXMLParse : public Singleton<CEmitterXMLParse>
 {
@@ -28,7 +28,7 @@ private:
     bool _Parse(TiXmlDocument& TinyXML);
     void _Close();
 private:
-    BlastList m_mapEmitter;
+    EmitterList m_mapEmitter;
 };
 
 #endif
