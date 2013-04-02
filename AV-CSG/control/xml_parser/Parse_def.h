@@ -5,6 +5,8 @@
 #define PLANE_ROOT_GAME "gameplane"
 #define BULLET_ROOT_GAME "gamebullet"
 #define BLAST_ROOT_GAME "gameblast"
+#define WEAPON_ROOT_GAME "gameweapon"
+#define EMITTER_ROOT_GAME "gameemitter"
 
 #define TRUE_GAME "true"
 #define FALSE_GAME "false"
@@ -52,5 +54,13 @@
 ///> blast
 #define BLAST_GAME "blast"
 #define BLAST_SKIN_OBJECT "skin"
+
+///> emitter
+#define EMITTER_GAME "emitter"
+
+///> weapon
+#define WEAPON_GAME "weapon"
+#define WEAPON_BULLETTYPE_OBJECT "bullettype"
+#define WEAPON_EMITTER_OBJCET "emitter"
 
 #endif

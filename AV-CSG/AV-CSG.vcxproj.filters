@@ -93,6 +93,9 @@
     <Filter Include="Source Files\control\XmlParser\blastxml">
       <UniqueIdentifier>{ab810189-0b8b-43e0-928c-377e8fc79030}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\emitterxml">
+      <UniqueIdentifier>{ce28d6f8-bc74-4cdf-9002-108748907763}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
