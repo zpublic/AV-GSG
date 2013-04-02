@@ -8,6 +8,9 @@
 #include "GameFrame.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameStatus.h"
+#include "scene\GameScene_Map.h"
+#include "scene\GameScene_Play.h"
+#include "scene\GameScene_FixedScene.h"
 #include "control\stage_player\GameStagePlayer.h"
 #include "data\gamedata\Score.h"
 
@@ -43,6 +46,21 @@ void CGameControler::SetPlaneXML(const std::string& strPath)
     CPlaneXMLParse::GetInstance().LoadXML(strPath);
 }
 
+void CGameControler::SetBlastXML(const std::string& strPath)
+{
+    CBlastXMLParse::Instance()->LoadXML(strPath);
+}
+
+void CGameControler::SetEmitterXML(const std::string& strPath)
+{
+    CEmitterXMLParse::Instance()->LoadXML(strPath);
+}
+
+void CGameControler::SetWeaponXML(const std::string& strPath)
+{
+    CWeaponXMLParse::Instance()->LoadXML(strPath);
+}
+
 void CGameControler::SetBulletXML(const std::string& strPath)
 {
     CBulletXMLParse::GetInstance().LoadXML(strPath);
@@ -65,12 +83,10 @@ void CGameControler::Exit()
 
 void CGameControler::GameOver()
 {
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameover.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-    SelectObject(m_hMapDC, m_hBitmapMap);
-    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
-
+    SceneEngine_->PopAll();
+    SceneEngine_->Push(new GameScene_FixedScene(
+        _T("Resource\\gameover.bmp"),
+        m_hMapDC));
     TCHAR szOut[100] = {0};
     wsprintf(szOut, L"×îÖÕµÃ·Ö£º%d", CScore::GetScore());
     ::MessageBox(0, szOut, L"", 0);
@@ -78,24 +94,9 @@ void CGameControler::GameOver()
 
 void CGameControler::GameReady()
 {
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\gameready.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-    SelectObject(m_hMapDC, m_hBitmapMap);
-    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_hMapDC, 0, 0, SRCCOPY);
-}
-
-void CGameControler::CirculationMap()
-{
-    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_hMapDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-    BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_hMapDC, 0, 0, SRCCOPY);
-
-    if (!CGameStatus::GetGamePause())
-    {
-        m_nY += 1;
-        if(m_nY == SCREEN_HEIGHT)
-            m_nY = 0;
-    }
+    SceneEngine_->Push(new GameScene_FixedScene(
+         _T("Resource\\gameready.bmp"),
+         m_hMapDC));
 }
 
 void CGameControler::SetWndDC(HDC hDC)
@@ -111,13 +112,19 @@ void CGameControler::SetWndDC(HDC hDC)
 
 void CGameControler::StartGame()
 {
+    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
+    {
+        SceneEngine_->PopAll();
+    }
+    SceneEngine_->Push(new GameScene_Play);
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
-
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    m_hBitmapMap = (HBITMAP)LoadImage(NULL, _T("Resource\\Map.bmp"), IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-    SelectObject(m_hMapDC, m_hBitmapMap);
+    if (CGameStagePlayer::GetInstance().PresentObject())
+    {
+        SceneEngine_->Push(new GameScene_Map(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
+            m_hMapDC));
+    }
 
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
     CScore::Reset();
@@ -134,7 +141,7 @@ void CGameControler::UpdateScence()
     if (CGameStatus::GetGameOver())
     {
         GameOver();
-        CGameStatus::ClearGameStatus();
+        CGameStatus::SetGameOvered();
         Sleep(100);
         return;
     }
@@ -142,8 +149,14 @@ void CGameControler::UpdateScence()
     {
         GameReady();
         CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        CGameStatus::ClearGameStatus();
+        CGameStatus::ReadyingGame();
         Sleep(100);
+        return;
+    }
+    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameOvered())
+    {
+        SceneEngine_->Update();
+        SceneEngine_->Output();
         return;
     }
 
@@ -154,12 +167,14 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
-    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    CirculationMap();
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
+        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+        SceneEngine_->Pop();
+        SceneEngine_->Push(new GameScene_Map(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
+            m_hMapDC));
     }
     SceneEngine_->Update();
     SceneEngine_->Output();

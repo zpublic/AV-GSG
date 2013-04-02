@@ -2,6 +2,9 @@
 #include "EnemyGenerate.h"
 #include "control/game/GameControler.h"
 #include "gameobject\plane\EnemyPlane.h"
+#include "control\xml_parser\BulletXMLParser.h"
+#include "control\xml_parser\WeaponXMLParser.h"
+#include "control\xml_parser\EmitterXMLParser.h"
 #include "EmitterGenerate.h"
 
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
@@ -62,9 +65,31 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
             {
                 break;
             }
+            CPlaneXMLParse& pPlaneXML = CPlaneXMLParse::GetInstance();
+            const CWeaponXMLObject* pWeaponXML = CWeaponXMLParse::Instance()->Get(pPlaneXML.GetEnemyPlane((*It)->GetType())->GetWeapon());
+            if (!pWeaponXML)
+            {
+                return;
+            }
+            const CBulletXMLObject* pBullet = CBulletXMLParse::GetInstance().Get(pWeaponXML->GetBulletType());
+            if (!pBullet)
+            {
+                return;
+            }
+            const CEmitterXMLObject* pEmitterXML = CEmitterXMLParse::Instance()->Get(pWeaponXML->GetEmitter());
+            if (!pEmitterXML)
+            {
+                return;
+            }
+            IEmitter* pEmitter = CEmitterGenerate::GenerateEnemyEmitter(
+                pEmitterXML->GetType(), 0,pBullet->GetSpeed(), pBullet->GetPower(), 0);
+            if (!pEmitter)
+            {
+                return;
+            }
             CEnemyPlane* pEnemy = new CEnemyPlane(
                 (*It)->GetType(),
-                CEmitterGenerate::GenerateEnemyEmitter(),
+                pEmitter,
                 (*It)->GetPoint().PosX);
             pEnemy->m_pEmnemyNext = spEnemyHead;
             spEnemyHead = pEnemy;

@@ -1,23 +1,23 @@
 <gameplane>
 	<enemyplane>
-		<plane hp = "150" skin = "Enemy1" bullettype = "emBulletTypeAMMO0" type = "" id = "BloodCattle" speed = "300" name = "血牛战斗机">
+		<plane hp = "150" skin = "Enemy1" weapon = "goodweapon" type = "" id = "BloodCattle" speed = "300" name = "血牛战斗机">
 		</plane>
-		<plane hp = "20" skin = "Enemy0" bullettype = "emBulletTypeAMMO1" type = "" id = "Sword" speed = "200" name = "唆影剑机">
+		<plane hp = "20" skin = "Enemy0" weapon = "goodweapon" type = "" id = "Sword" speed = "200" name = "唆影剑机">
 		</plane>
-		<plane hp = "5" skin = "Enemy2" bullettype = "emBulletTypeAMMO2" type = "" id = "Assassin" speed = "300" name = "魅影刺客">
+		<plane hp = "5" skin = "Enemy2" weapon = "goodweapon" type = "" id = "Assassin" speed = "300" name = "魅影刺客">
 		</plane>
-		<plane hp = "1" skin = "Enemy3" bullettype = "emBulletTypeAMMO3" type = "" id = "GrandCannon" speed = "100" name = "黑龙巨炮">
+		<plane hp = "1" skin = "Enemy3" weapon = "yesweapon" type = "" id = "GrandCannon" speed = "100" name = "黑龙巨炮">
 		</plane>
-		<plane hp = "580" skin = "Enemy4" bullettype = "emBulletTypeAMMO5" type = "" id = "Shadow" speed = "400" name = "影流霸王机">
+		<plane hp = "580" skin = "Enemy4" weapon = "yesweapon" type = "" id = "Shadow" speed = "400" name = "影流霸王机">
 		</plane>
-		<plane hp = "3000" skin = "Enemy5" bullettype = "emBulletTypeAMMO4" type = "" id = "NULLSB" speed = "500" name = "空萌萌">
+		<plane hp = "3000" skin = "Enemy5" weapon = "yesweapon" type = "" id = "NULLSB" speed = "500" name = "空萌萌">
 		</plane>
 	</enemyplane>
 	
 	<selfplane>
-		<plane hp = "100" skin = "100" bullettype = "emBulletTypeAMMO6" type = "" id = "SuperSpeedTransportation" speed = "200" name = "极速运输机">
+		<plane hp = "100" skin = "100" weapon = "yesweapon" type = "" id = "SuperSpeedTransportation" speed = "500" name = "极速运输机">
 		</plane>
-		<plane hp = "55" skin = "101" bullettype = "emBulletTypeAmmoSB2" type = "" id = "Dork" speed = "30" name = "肉机">
+		<plane hp = "55" skin = "101" weapon = "yesweapon" type = "" id = "Dork" speed = "30" name = "肉机">
 		</plane>
 	</selfplane>	
 </gameplane>

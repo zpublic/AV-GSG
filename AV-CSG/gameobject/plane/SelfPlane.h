@@ -1,6 +1,9 @@
 #pragma once
 #include "control/xml_parser/PlaneXMLObject.h"
+#include "control/xml_parser/WeaponXMLParser.h"
 #include "IPlane.h"
+
+typedef std::string WeaponType;
 
 ///> Ö÷¿Ø·É»úÀà
 class CSelfPlane : public PlaneBase
@@ -15,7 +18,7 @@ public:
     virtual void Render(HDC hDC);
     virtual void Update();
 
-    void SetBulletType(BulletType bulletType);
+    void SetWeapon(WeaponType strWeaponType);
 
     void Control(ActionType actionType);
 
@@ -25,7 +28,7 @@ private:
 
 private:
     static CSelfPlane*          pCSelfPlane;
-    BulletType                  m_nBulletType;
+    WeaponType                  m_WeaponType;
     int                         m_nLifes;
     int                         m_FirstHP;
     float                       m_fBulletFrequency;

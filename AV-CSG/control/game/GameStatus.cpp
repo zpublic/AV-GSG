@@ -12,9 +12,19 @@ CGameStatus::~CGameStatus(void)
 {
 }
 
+bool CGameStatus::GetGameReadying()
+{
+    return m_emGameStatus == emGameStatusReadying;
+}
+
 bool CGameStatus::GetGameOver()
 {
     return m_emGameStatus == emGameStatusOver;
+}
+
+bool CGameStatus::GetGameOvered()
+{
+    return m_emGameStatus == emGameStatusOvered;
 }
 
 bool CGameStatus::GetGameReady()
@@ -55,4 +65,14 @@ void CGameStatus::PauseGame()
 void CGameStatus::SetGameOver()
 {
     m_emGameStatus = emGameStatusOver;
+}
+
+void CGameStatus::SetGameOvered()
+{
+    m_emGameStatus = emGameStatusOvered;
+}
+
+void CGameStatus::ReadyingGame()
+{
+    m_emGameStatus = emGameStatusReadying;
 }

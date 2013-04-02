@@ -96,6 +96,12 @@
     <Filter Include="Source Files\player">
       <UniqueIdentifier>{3e9e8b43-e18f-490e-9358-351a12915bc6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\emitterxml">
+      <UniqueIdentifier>{ce28d6f8-bc74-4cdf-9002-108748907763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\control\XmlParser\weaponxml">
+      <UniqueIdentifier>{20ea0855-51d0-42ea-acf8-68e4979615e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -334,6 +340,24 @@
     <ClInclude Include="player\player_skill.h">
       <Filter>Source Files\player</Filter>
     </ClInclude>
+    <ClInclude Include="scene\GameScene_Map.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameScene_FixedScene.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\EmitterXMLObject.h">
+      <Filter>Source Files\control\XmlParser\emitterxml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\EmitterXMLParser.h">
+      <Filter>Source Files\control\XmlParser\emitterxml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\WeaponXMLObject.h">
+      <Filter>Source Files\control\XmlParser\weaponxml</Filter>
+    </ClInclude>
+    <ClInclude Include="control\xml_parser\WeaponXMLParser.h">
+      <Filter>Source Files\control\XmlParser\weaponxml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -530,6 +554,24 @@
     </ClCompile>
     <ClCompile Include="player\player_skill.cpp">
       <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GameScene_Map.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GameScene_FixedScene.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\EmitterXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\emitterxml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\EmitteXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\emitterxml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\WeaponXMLObject.cpp">
+      <Filter>Source Files\control\XmlParser\weaponxml</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\WeaponXMLParser.cpp">
+      <Filter>Source Files\control\XmlParser\weaponxml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
