@@ -3,6 +3,19 @@
 
 CWeaponXMLParse* Singleton<CWeaponXMLParse>::m_pInst = NULL;
 
+CWeaponXMLParse::CWeaponXMLParse()
+{
+}
+
+CWeaponXMLParse::~CWeaponXMLParse()
+{
+}
+
+bool CWeaponXMLParse::Initialize()
+{
+    return true;
+}
+
 bool CWeaponXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;
@@ -37,12 +50,12 @@ bool CWeaponXMLParse::_Parse(TiXmlDocument& TinyXML)
         return false;
     }
     std::string sRootName = tiRoot->Value();
-    if (sRootName != EMITTER_ROOT_GAME)
+    if (sRootName != WEAPON_ROOT_GAME)
     {
         return false;
     }
 
-    TiXmlNode* tiFirst = tiRoot->FirstChild(EMITTER_GAME);
+    TiXmlNode* tiFirst = tiRoot->FirstChild(WEAPON_GAME);
     if (tiFirst == NULL)
     {
         return false;

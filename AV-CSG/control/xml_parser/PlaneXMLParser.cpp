@@ -121,9 +121,9 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pEnemy->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
         }
-        if (tiElement->Attribute(PLANE_BULLETTYPE_OBJECT) != NULL)
+        if (tiElement->Attribute(PLANE_WEAPON_OBJECT) != NULL)
         {
-            pEnemy->SetBulletType(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT));
+            pEnemy->SetWeapon(tiElement->Attribute(PLANE_WEAPON_OBJECT));
         }
         if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
         {
@@ -167,9 +167,9 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pSelf->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
         }
-        if (tiElement->Attribute(PLANE_BULLETTYPE_OBJECT) != NULL)
+        if (tiElement->Attribute(PLANE_WEAPON_OBJECT) != NULL)
         {
-            pSelf->SetBulletType(tiElement->Attribute(PLANE_BULLETTYPE_OBJECT));
+            pSelf->SetWeapon(tiElement->Attribute(PLANE_WEAPON_OBJECT));
         }
         if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
         {

@@ -2,6 +2,9 @@
 
 #include "control/xml_parser/StageXMLParser.h"
 #include "control/xml_parser/PlaneXMLParser.h"
+#include "control/xml_parser/BlastXMLParser.h"
+#include "control/xml_parser/EmitterXMLParser.h"
+#include "control/xml_parser/WeaponXMLParser.h"
 #include "control/stage_player/GameStagePlayer.h"
 
 class CSelfPlane;
@@ -24,6 +27,9 @@ public:
     void SetStageXML(const std::string& strPath);
     void SetPlaneXML(const std::string& strPath);
     void SetBulletXML(const std::string& strPath);
+    void SetBlastXML(const std::string& strPath);
+    void SetEmitterXML(const std::string& strPath);
+    void SetWeaponXML(const std::string& strPath);
 
     void StartGame();
 

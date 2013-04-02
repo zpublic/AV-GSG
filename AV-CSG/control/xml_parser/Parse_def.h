@@ -43,7 +43,7 @@
 #define PLANE_SELF_GAME "selfplane"
 #define PLANE_HP_OBJECT "hp"
 #define PLANE_SKIN_OBJECT "skin"
-#define PLANE_BULLETTYPE_OBJECT "bullettype"
+#define PLANE_WEAPON_OBJECT "weapon"
 #define PLANE_SPEED_OBJECT "speed"
 
 ///> bullet

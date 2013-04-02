@@ -13,8 +13,8 @@ public:
     void SetHP(long lnHP);
     const long GetHP() const;
 
-    void SetBulletType(const std::string& strBulletType);
-    const std::string& GetBulletType() const;
+    void SetWeapon(const std::string& strBulletType);
+    const std::string& GetWeapon() const;
 
     void SetSpeed(int nSpeed);
     const int GetSpeed() const;
@@ -25,7 +25,7 @@ public:
 private:
     long m_HP;
     std::string m_SkinId;
-    std::string m_BulletType;
+    std::string m_Weapon;
     int m_Speed;
 };
 

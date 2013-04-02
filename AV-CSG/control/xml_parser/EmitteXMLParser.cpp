@@ -3,6 +3,19 @@
 
 CEmitterXMLParse* Singleton<CEmitterXMLParse>::m_pInst = NULL;
 
+CEmitterXMLParse::CEmitterXMLParse()
+{
+}
+
+CEmitterXMLParse::~CEmitterXMLParse()
+{
+}
+
+bool CEmitterXMLParse::Initialize()
+{
+    return true;
+}
+
 bool CEmitterXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;

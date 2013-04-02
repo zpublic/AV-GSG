@@ -1,3 +1,10 @@
 <gameemitter>
-	<emitter id = "Aim" type = "AimEmitter" name = "" />
+	<emitter id = "aim" type = "aimemitter" name = "" />
+    <emitter id = "line8" type = "line8emitter" name = "" />
+    <emitter id = "line3" type = "line3emitter" name = "" /> 
+    <emitter id = "line" type = "lineemitter" name = "" />       
+    <emitter id = "spin" type = "spinemitter" name = "" />
+    <emitter id = "track" type = "trackemitter" name = "" />
+    <emitter id = "curve" type = "curveemitter" name = "" />
+    <emitter id = "bigBullet" type = "bigbulletemitter" name = "" /> 
 </gameemitter>

@@ -1,5 +1,7 @@
 #include "StdAfx.h"
 #include "control/xml_parser/PlaneXMLParser.h"
+#include "control/xml_parser/WeaponXMLParser.h"
+#include "control/xml_parser/BulletXMLParser.h"
 #include "EnemyPlane.h"
 #include "SelfPlane.h"
 #include "gameobject\explosion\Explosion.h"
@@ -23,7 +25,7 @@ CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* 
     m_nSpeed = coPlane->GetSpeed();
     m_nHP = coPlane->GetHP();
     m_SkinType = coPlane->GetSkinId();
-    m_BulletType = coPlane->GetBulletType();
+    m_BulletType = CWeaponXMLParse::Instance()->Get(coPlane->GetWeapon())->GetBulletType();
     if (nPosX == -1)
     {
         int nRandom = rand() % 100;

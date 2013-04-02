@@ -3,6 +3,19 @@
 
 CBlastXMLParse* Singleton<CBlastXMLParse>::m_pInst = NULL;
 
+CBlastXMLParse::CBlastXMLParse()
+{
+}
+
+CBlastXMLParse::~CBlastXMLParse()
+{
+}
+
+bool CBlastXMLParse::Initialize()
+{
+    return true;
+}
+
 bool CBlastXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;

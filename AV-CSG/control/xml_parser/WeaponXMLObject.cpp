@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "WeaponXMLObject.h"
-
 
 CWeaponXMLObject::CWeaponXMLObject()
 {

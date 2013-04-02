@@ -108,6 +108,8 @@
     <ClInclude Include="control\xml_parser\BlastXMLParser.h" />
     <ClInclude Include="control\xml_parser\BulletXMLObject.h" />
     <ClInclude Include="control\xml_parser\BulletXMLParser.h" />
+    <ClInclude Include="control\xml_parser\EmitterXMLObject.h" />
+    <ClInclude Include="control\xml_parser\EmitterXMLParser.h" />
     <ClInclude Include="control\xml_parser\Parse_def.h" />
     <ClInclude Include="control\xml_parser\PlaneXMLObject.h" />
     <ClInclude Include="control\xml_parser\PlaneXMLParser.h" />
@@ -115,6 +117,8 @@
     <ClInclude Include="control\xml_parser\StageXMLItemOBject.h" />
     <ClInclude Include="control\xml_parser\StageXMLParser.h" />
     <ClInclude Include="control\xml_parser\StageXMLStageObject.h" />
+    <ClInclude Include="control\xml_parser\WeaponXMLObject.h" />
+    <ClInclude Include="control\xml_parser\WeaponXMLParser.h" />
     <ClInclude Include="control\xml_parser\XMLObject.h" />
     <ClInclude Include="data\gamedata\Score.h" />
     <ClInclude Include="data\resourcedata\Picture.h" />
@@ -192,12 +196,16 @@
     <ClCompile Include="control\xml_parser\BlastXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\BulletXMLObject.cpp" />
     <ClCompile Include="control\xml_parser\BulletXMLParser.cpp" />
+    <ClCompile Include="control\xml_parser\EmitterXMLObject.cpp" />
+    <ClCompile Include="control\xml_parser\EmitteXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\PlaneXMLObject.cpp" />
     <ClCompile Include="control\xml_parser\PlaneXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\StageXMLEnemyOBject.cpp" />
     <ClCompile Include="control\xml_parser\StageXMLItemOBject.cpp" />
     <ClCompile Include="control\xml_parser\StageXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\StageXMLStageObject.cpp" />
+    <ClCompile Include="control\xml_parser\WeaponXMLObject.cpp" />
+    <ClCompile Include="control\xml_parser\WeaponXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\XMLObject.cpp" />
     <ClCompile Include="data\gamedata\Score.cpp" />
     <ClCompile Include="data\resourcedata\Picture.cpp" />
