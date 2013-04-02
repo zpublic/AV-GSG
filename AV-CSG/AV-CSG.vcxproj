@@ -158,6 +158,11 @@
     <ClInclude Include="gameobject\prop\Prop.h" />
     <ClInclude Include="gameobject\sprite\ISprite.h" />
     <ClInclude Include="gameobject\sprite\Sprite.h" />
+    <ClInclude Include="player\player.h" />
+    <ClInclude Include="player\player_gamestatus.h" />
+    <ClInclude Include="player\player_property.h" />
+    <ClInclude Include="player\player_savedata.h" />
+    <ClInclude Include="player\player_skill.h" />
     <ClInclude Include="scene\GameScene.h" />
     <ClInclude Include="scene\GameScene_FixedScene.h" />
     <ClInclude Include="scene\GameScene_Map.h" />
@@ -241,6 +246,11 @@
     <ClCompile Include="gameobject\plane\SelfPlane.cpp" />
     <ClCompile Include="gameobject\prop\Prop.cpp" />
     <ClCompile Include="gameobject\sprite\Sprite.cpp" />
+    <ClCompile Include="player\player.cpp" />
+    <ClCompile Include="player\player_gamestatus.cpp" />
+    <ClCompile Include="player\player_property.cpp" />
+    <ClCompile Include="player\player_savedata.cpp" />
+    <ClCompile Include="player\player_skill.cpp" />
     <ClCompile Include="scene\GameScene_FixedScene.cpp" />
     <ClCompile Include="scene\GameScene_Map.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />

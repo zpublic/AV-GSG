@@ -93,6 +93,9 @@
     <Filter Include="Source Files\control\XmlParser\blastxml">
       <UniqueIdentifier>{ab810189-0b8b-43e0-928c-377e8fc79030}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\player">
+      <UniqueIdentifier>{3e9e8b43-e18f-490e-9358-351a12915bc6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\control\XmlParser\emitterxml">
       <UniqueIdentifier>{ce28d6f8-bc74-4cdf-9002-108748907763}</UniqueIdentifier>
     </Filter>
@@ -322,6 +325,21 @@
     <ClInclude Include="control\xml_parser\BlastXMLParser.h">
       <Filter>Source Files\control\XmlParser\blastxml</Filter>
     </ClInclude>
+    <ClInclude Include="player\player.h">
+      <Filter>Source Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\player_savedata.h">
+      <Filter>Source Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\player_gamestatus.h">
+      <Filter>Source Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\player_property.h">
+      <Filter>Source Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="player\player_skill.h">
+      <Filter>Source Files\player</Filter>
+    </ClInclude>
     <ClInclude Include="scene\GameScene_Map.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
@@ -521,6 +539,21 @@
     </ClCompile>
     <ClCompile Include="control\xml_parser\BlastXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\blastxml</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player.cpp">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player_savedata.cpp">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player_gamestatus.cpp">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player_property.cpp">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="player\player_skill.cpp">
+      <Filter>Source Files\player</Filter>
     </ClCompile>
     <ClCompile Include="scene\GameScene_Map.cpp">
       <Filter>Source Files\scene</Filter>

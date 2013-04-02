@@ -19,10 +19,6 @@ public:
     //更新游戏场景
     void UpdateScence();
 
-    //键盘按键处理
-    void KeyDown(WPARAM nKeyCode);
-    void KeyUp(WPARAM nKeyCode);
-
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
     void SetPlaneXML(const std::string& strPath);
