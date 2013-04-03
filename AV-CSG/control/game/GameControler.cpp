@@ -84,8 +84,7 @@ void CGameControler::GameOver()
 {
     SceneEngine_->PopAll();
     SceneEngine_->Push(new GameScene_FixedScene(
-        _T("Resource\\gameover.bmp"),
-        m_hMapDC));
+        _T("Resource\\gameover.bmp")));
     TCHAR szOut[100] = {0};
     wsprintf(szOut, L"×îÖÕµÃ·Ö£º%d", CScore::GetScore());
     ::MessageBox(0, szOut, L"", 0);
@@ -94,8 +93,7 @@ void CGameControler::GameOver()
 void CGameControler::GameReady()
 {
     SceneEngine_->Push(new GameScene_FixedScene(
-         _T("Resource\\gameready.bmp"),
-         m_hMapDC));
+         _T("Resource\\gameready.bmp")));
 }
 
 void CGameControler::SetWndDC(HDC hDC)
@@ -116,8 +114,7 @@ void CGameControler::StartGame()
         SceneEngine_->Pop();
     }
     SceneEngine_->Push(new GameScene_Play(
-        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
-        m_hMapDC));
+        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
     CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
@@ -167,8 +164,7 @@ void CGameControler::UpdateScence()
         CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
         SceneEngine_->Pop();
         SceneEngine_->Push(new GameScene_Play(
-            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str()),
-            m_hMapDC));
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     }
     SceneEngine_->Update();
     SceneEngine_->Output();

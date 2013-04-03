@@ -6,13 +6,12 @@
 #include "control\generate\EnemyGenerate.h"
 #include "control\game\GameStatus.h"
 
-GameScene_Play::GameScene_Play(const TCHAR* lpszPath, HDC BkDc)
+GameScene_Play::GameScene_Play(const TCHAR* lpszPath)
     : m_BackgourdDC(0)
     , m_nY(0)
 {
-    m_BackgourdDC = BkDc;
-    _LoadImage(lpszPath, m_BackgourdDC);
-    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, m_BackgourdDC, 0, 0, SRCCOPY);
+    m_Picture.LoadBitmap(lpszPath, SCREEN_WIDTH, SCREEN_HEIGHT);
+    m_Picture.DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 }
 
 GameScene_Play::GameScene_Play()
@@ -29,23 +28,6 @@ void GameScene_Play::_CirculationMap()
     m_nY += 1;
     if(m_nY == SCREEN_HEIGHT)
     m_nY = 0;
-}
-
-bool GameScene_Play::_LoadImage(const TCHAR* lpszPath, HDC hDC)
-{
-    if (!lpszPath)
-    {
-        return false;
-    }
-    HBITMAP hBitMap = (HBITMAP)LoadImage(NULL, lpszPath,
-        IMAGE_BITMAP,
-        SCREEN_WIDTH, SCREEN_HEIGHT, LR_LOADFROMFILE);
-    SelectObject(hDC, hBitMap);
-    if (hBitMap)
-    {
-        DeleteObject(hBitMap);
-    }
-    return true;
 }
 
 void GameScene_Play::Update()
@@ -71,8 +53,9 @@ void GameScene_Play::Output()
     //ªÊ÷∆µÿÕº
     SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    BitBlt(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, m_BackgourdDC, 0, SCREEN_HEIGHT - m_nY, SRCCOPY);
-    BitBlt(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, m_BackgourdDC, 0, 0, SRCCOPY);
+
+    m_Picture.DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, 0, SCREEN_HEIGHT - m_nY);
+    m_Picture.DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
 }
 
 void GameScene_Play::ControlSelfPlane()
