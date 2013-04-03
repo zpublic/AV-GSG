@@ -16,7 +16,7 @@ GameScene_Parse::~GameScene_Parse()
 void GameScene_Parse::Update()
 {
     ///> 暂停场景只接受取消暂停的消息
-    if (InputEngine_->PressPause())
+    if (InputEngine_->ClickPause())
     {
         CGameStatus::StartGame();
         SceneEngine_->Pop();

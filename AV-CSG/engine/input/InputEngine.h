@@ -13,8 +13,15 @@ public:
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);
 
-    bool PressPause();
-    bool PressFireAll();
+    bool ClickPause();
+    bool ClickFireAll();
+
+    bool ClickFire();
+    bool ClickOk();
+    bool ClickUp();
+    bool ClickDown();
+    bool ClickLeft();
+    bool ClickRigth();
 
     bool PressFire();
 
@@ -25,7 +32,13 @@ private:
 
     CMoveDirection m_MoveDirection;
 
-    bool    m_bPressPause;
-    bool    m_bPressFireAll;
+    bool    m_bClickPause;
+    bool    m_bClickFireAll;
+    bool    m_bClickFire;
+    bool    m_bClickUp;
+    bool    m_bClickDown;
+    bool    m_bClickLeft;
+    bool    m_bClickRigth;
+
     bool    m_bPressFire;
 };

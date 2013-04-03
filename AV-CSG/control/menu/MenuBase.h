@@ -1,4 +1,5 @@
 #pragma once
+#include "MenuItem.h"
 #include <vector>
 
 class CMenuBase
@@ -28,7 +29,7 @@ public:
         m_vecMenuItem.erase(m_vecMenuItem.begin() + iPos);
     }
 
-    CMenuItem* GetMenuItme(int iPos)
+    CMenuItem* GetMenuItem(int iPos)
     {
         return m_vecMenuItem[iPos];
     }

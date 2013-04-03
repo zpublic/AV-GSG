@@ -50,7 +50,7 @@ bool GameScene_Play::_LoadImage(const TCHAR* lpszPath, HDC hDC)
 
 void GameScene_Play::Update()
 {
-    if (InputEngine_->PressPause())
+    if (InputEngine_->ClickPause())
     {
         SceneEngine::Instance()->Push(new GameScene_Parse());
         CGameStatus::PauseGame();
@@ -77,7 +77,7 @@ void GameScene_Play::Output()
 
 void GameScene_Play::ControlSelfPlane()
 {
-    if (InputEngine_->PressFireAll())
+    if (InputEngine_->ClickFireAll())
     {
         CSelfPlane::GetInstance()->Control(FIREALL);
     }

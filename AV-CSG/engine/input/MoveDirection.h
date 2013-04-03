@@ -14,14 +14,6 @@ public:
 
     void Down(WPARAM nKeyCode)
     {
-        if (nKeyCode == VK_LEFT)
-            nKeyCode = 'A';
-        if (nKeyCode == VK_DOWN)
-            nKeyCode = 'S';
-        if (nKeyCode == VK_RIGHT)
-            nKeyCode = 'D';
-        if (nKeyCode == VK_UP)
-            nKeyCode = 'W';
         switch (nKeyCode)
         {
         case 'A':
@@ -167,14 +159,6 @@ public:
 
     void Up(WPARAM nKeyCode)
     {
-        if (nKeyCode == VK_LEFT)
-            nKeyCode = 'A';
-        if (nKeyCode == VK_DOWN)
-            nKeyCode = 'S';
-        if (nKeyCode == VK_RIGHT)
-            nKeyCode = 'D';
-        if (nKeyCode == VK_UP)
-            nKeyCode = 'W';
         switch (nKeyCode)
         {
         case 'A':
