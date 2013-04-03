@@ -145,6 +145,11 @@ bool InputEngine::ClickFire()
     return false;
 }
 
+bool InputEngine::ClickOk()
+{
+    return ClickFire();
+}
+
 bool InputEngine::ClickUp()
 {
     if (m_bClickUp)

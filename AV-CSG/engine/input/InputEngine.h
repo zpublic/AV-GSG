@@ -17,6 +17,7 @@ public:
     bool ClickFireAll();
 
     bool ClickFire();
+    bool ClickOk();
     bool ClickUp();
     bool ClickDown();
     bool ClickLeft();

@@ -169,6 +169,7 @@
     <ClInclude Include="scene\GameScene.h" />
     <ClInclude Include="scene\GameScene_FixedScene.h" />
     <ClInclude Include="scene\GameScene_Map.h" />
+    <ClInclude Include="scene\GameScene_Menu.h" />
     <ClInclude Include="scene\GameScene_Pause.h" />
     <ClInclude Include="scene\GameScene_Play.h" />
     <ClInclude Include="Resource.h" />
@@ -256,6 +257,7 @@
     <ClCompile Include="player\player_skill.cpp" />
     <ClCompile Include="scene\GameScene_FixedScene.cpp" />
     <ClCompile Include="scene\GameScene_Map.cpp" />
+    <ClCompile Include="scene\GameScene_Menu.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
     <ClCompile Include="scene\GameScene_Play.cpp" />
     <ClCompile Include="stdafx.cpp">
