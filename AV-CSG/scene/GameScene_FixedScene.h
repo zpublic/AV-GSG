@@ -1,5 +1,6 @@
 #pragma once
 #include "GameScene.h"
+#include "data\resourcedata\Picture.h"
 #include <tchar.h>
 #include <cstring>
 
@@ -8,7 +9,7 @@
 class GameScene_FixedScene : public GameScene
 {
 public:
-    GameScene_FixedScene(const TCHAR* lpszPath, HDC BkDc);
+    GameScene_FixedScene(const TCHAR* lpszPath);
     virtual ~GameScene_FixedScene();
 
     virtual void Update();
@@ -17,5 +18,5 @@ public:
 private:
     GameScene_FixedScene();
     HDC m_BackgourdDC;
-    bool _LoadImage(const TCHAR* lpszPath, HDC BkDc);
+    CPicture m_Picture;
 };

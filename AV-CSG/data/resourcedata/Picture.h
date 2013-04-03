@@ -19,8 +19,17 @@ public:
         int nXOriginSrc,            //位图起始X坐标
         int nYOriginSrc);           //位图起始Y坐标
 
+    void ImmediateDrawBitmap(HDC hdcDest,    //目的DC
+        int nXOriginDest,           //起始X坐标
+        int nYOriginDest,           //起始Y坐标
+        int nWidthDest,             //目标DC宽度	
+        int nHeightDest,            //目标DC高度
+        int nXOriginSrc,            //位图起始X坐标
+        int nYOriginSrc);           //位图起始Y坐标
+
     //需要提供文件名和用于设置透明的掩码色，因为找到的图片背景有白有红有绿，因此设置了此参数
     void LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent);
+    void LoadBitmap(const TCHAR *szFileName, int nWidth, int nHeight);
 
     //获取位图资源句柄
     HBITMAP GetBitmap(){ return m_hBitmap; }

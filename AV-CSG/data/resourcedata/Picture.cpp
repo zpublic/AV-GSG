@@ -34,7 +34,23 @@ void CPicture::LoadBitmap(const TCHAR *szFileName)
         NULL, szFileName, IMAGE_BITMAP,
         0, 0, LR_LOADFROMFILE);
     //获取位图宽高
-    BITMAP	bmpTemp;
+    BITMAP bmpTemp;
+    GetObject(m_hBitmap, sizeof(BITMAP), &bmpTemp);
+    m_nWidth = bmpTemp.bmWidth;
+    m_nHeight = bmpTemp.bmHeight;
+}
+
+void CPicture::LoadBitmap(const TCHAR *szFileName, int nWidth, int nHeight)
+{
+    if (m_hBitmap)
+    {
+        DeleteObject(m_hBitmap);
+    }
+    m_hBitmap = (HBITMAP)LoadImage(
+        NULL, szFileName, IMAGE_BITMAP,
+        nWidth, nHeight, LR_LOADFROMFILE);
+    //获取位图宽高
+    BITMAP bmpTemp;
     GetObject(m_hBitmap, sizeof(BITMAP), &bmpTemp);
     m_nWidth = bmpTemp.bmWidth;
     m_nHeight = bmpTemp.bmHeight;
@@ -53,7 +69,7 @@ void CPicture::DrawBitmap(HDC hdcDest,
                           int nXOriginSrc, int nYOriginSrc)
 {
     //透明贴图
-    HDC	hBitmapDC = CreateCompatibleDC(hdcDest);
+    HDC hBitmapDC = CreateCompatibleDC(hdcDest);
     SelectObject(hBitmapDC, m_hBitmap);
     HDC hMaskDC=CreateCompatibleDC(hdcDest);
     SelectObject(hMaskDC, m_hMaskBitmap);
@@ -77,6 +93,23 @@ void CPicture::DrawBitmap(HDC hdcDest,
 
     DeleteObject(hBitmapDC);
     DeleteObject(hMaskDC);
+}
+
+void CPicture::ImmediateDrawBitmap(HDC hdcDest,
+                          int nXOriginDest, int nYOriginDest,
+                          int nWidthDest, int nHeightDest,
+                          int nXOriginSrc, int nYOriginSrc)
+{
+    HDC hBitmapDC = CreateCompatibleDC(hdcDest);
+    SelectObject(hBitmapDC, m_hBitmap);
+    BitBlt(
+        hdcDest,
+        nXOriginDest, nYOriginDest,
+        nWidthDest, nHeightDest,
+        hBitmapDC,
+        nXOriginSrc, nYOriginSrc,
+        SRCCOPY);
+    DeleteObject(hBitmapDC);
 }
 
 void CPicture::TransparentBitmap()
