@@ -30,13 +30,13 @@ const long CPlaneXMLObject::GetHP() const
     return m_HP;
 }
 
-void CPlaneXMLObject::SetBulletType(const std::string& strBulletType)
+void CPlaneXMLObject::SetWeapon(const std::string& strBulletType)
 {
-    m_BulletType = strBulletType;
+    m_Weapon = strBulletType;
 }
- const std::string& CPlaneXMLObject::GetBulletType() const
+ const std::string& CPlaneXMLObject::GetWeapon() const
 {
-    return m_BulletType;
+    return m_Weapon;
 }
 
 void CPlaneXMLObject::SetSpeed(int nSpeed)

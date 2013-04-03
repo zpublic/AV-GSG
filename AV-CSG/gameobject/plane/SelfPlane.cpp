@@ -34,7 +34,7 @@ void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
         return;
     }
     m_nLifes = 2;
-    SetBulletType(pPlane->GetBulletType());
+    SetWeapon(pPlane->GetWeapon());
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
     m_nHeight = 26;
@@ -98,7 +98,12 @@ void CSelfPlane::Update()
         {
             return;
         }
-        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, m_nBulletType);
+        const CWeaponXMLObject* pWeapon = CWeaponXMLParse::Instance()->Get(m_WeaponType);
+        if (!pWeapon)
+        {
+            return;
+        }
+        m_piEmitter->Emit(m_nPosX + m_nWidth / 2 - 8, m_nPosY - 16, pWeapon->GetBulletType());
 
         while(m_fFrequencyTime > m_fBulletFrequency)
         {
@@ -156,7 +161,7 @@ void CSelfPlane::Control(ActionType actionType)
     case FIREALL:
         if (m_nWholeFired && CGameStatus::GetGameRuning())
         {
-            IEmitter* iEmitter = CEmitterGenerate::Generate(5, true, 0, 0, 0);
+            IEmitter* iEmitter = CEmitterGenerate::Generate(BIGBULLET_EMITTER, true, 0, 0, 0);
             iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
             CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
             for(;temp!=NULL;temp=temp->m_pEmnemyNext)
@@ -242,24 +247,9 @@ bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
     return false;
 }
 
-void CSelfPlane::SetBulletType( BulletType bulletType )
+void CSelfPlane::SetWeapon( WeaponType strWeaponType )
 {
     delete m_piEmitter;
-    m_nBulletType = bulletType;
-    if (m_nBulletType == "emBulletTypeAMMO4")
-    {
-        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(4);
-    }
-    else if (m_nBulletType == "emBulletTypeAMMO5" || m_nBulletType == "emBulletTypeAMMO6")
-    {
-        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(2);
-    }
-    else if (m_nBulletType == "emBulletTypeAmmoSB")
-    {
-        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(3);
-    }
-    else
-    {
-        m_piEmitter = CEmitterGenerate::SelectSelfEmitter(1);
-    }
+    m_WeaponType = strWeaponType;
+    m_piEmitter = CEmitterGenerate::SelectSelfEmitter(1);
 }

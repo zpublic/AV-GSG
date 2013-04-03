@@ -48,7 +48,9 @@ enum GameStatus
 {
     emGameStatusNone,       ///> 什么都不干
     emGameStatusReady,
+    emGameStatusReadying,
     emGameStatusOver,
+    emGameStatusOvered,
     emGameStatusRuning,
     emGameStatusPause,  ///> 暂停
 };
