@@ -8,7 +8,6 @@
 #include "GameFrame.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameStatus.h"
-#include "scene\GameScene_Map.h"
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_FixedScene.h"
 #include "control\stage_player\GameStagePlayer.h"
