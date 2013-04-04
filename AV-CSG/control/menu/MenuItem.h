@@ -13,7 +13,7 @@ public:
 class CMenuItem
 {
 public:
-    CMenuItem() : m_pCallback(NULL) {};
+    CMenuItem() : m_pCallback(NULL) {}
     CMenuItem(IMenuItemCallback* pCallback) : m_pCallback(pCallback) {}
     virtual ~CMenuItem() {};
 

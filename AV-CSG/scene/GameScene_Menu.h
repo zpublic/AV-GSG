@@ -1,6 +1,7 @@
 #pragma once
 #include "GameScene.h"
 #include "control\menu\MenuBase.h"
+#include "data\resourcedata\Picture.h"
 
 class GameScene_Menu : public GameScene
 {
@@ -20,4 +21,5 @@ private:
     ///> 当前光标位置
     int             m_nCurPos;
     CMenuBase*      m_pMenu;
+    CPicture m_Picture;
 };

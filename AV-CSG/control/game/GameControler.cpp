@@ -98,10 +98,7 @@ void CGameControler::_InitalizeMenu()
 
 void CGameControler::GameReady()
 {
-    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
-    {
-        SceneEngine_->Pop();
-    }
+    SceneEngine_->Pop();
     SceneEngine_->Push(new GameScene_Play(
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();

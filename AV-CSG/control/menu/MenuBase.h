@@ -5,7 +5,7 @@
 class CMenuBase
 {
 public:
-    CMenuBase()
+    CMenuBase() : m_vecMenuItem()
     {
     }
 
