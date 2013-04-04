@@ -3,7 +3,7 @@
 class Player_GameStatus
 {
 public:
-	Player_GameStatus(int nMaxScore = 0);
+	Player_GameStatus();
 	~Player_GameStatus();
 
 public:
@@ -11,5 +11,6 @@ public:
 	bool SetMaxScore(int nMaxScore);
 
 private:
-	int m_nMaxScore;  // 玩家打飞机的单局最高得分
+	///> 玩家打飞机的单局最高得分
+	int m_nMaxScore;  
 };
