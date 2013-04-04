@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameScene_Menu.h"
+#include "control\game\GameStatus.h"
 
 GameScene_Menu::GameScene_Menu(CMenuBase* pMenu)
     : m_pMenu(pMenu)
@@ -62,5 +63,6 @@ void GameScene_Menu::Click()
     {
         m_pMenu->GetMenuItem(m_nCurPos)->OnClick();
     }
+    CGameStatus::SetGameReady();
 }
 

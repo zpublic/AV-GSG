@@ -91,6 +91,11 @@ void CGameControler::GameOver()
     ::MessageBox(0, szOut, L"", 0);
 }
 
+void CGameControler::_InitalizeMenu()
+{
+
+}
+
 void CGameControler::GameReady()
 {
     if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
@@ -101,6 +106,7 @@ void CGameControler::GameReady()
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
+    CScore::Reset();
     CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
 }
@@ -119,8 +125,7 @@ void CGameControler::SetWndDC(HDC hDC)
 void CGameControler::StartGame()
 {
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
-    CScore::Reset();
-    CGameStatus::SetGameReady();
+    CGameStatus::ReadyingGame();
 }
 
 void CGameControler::UpdateScence()
@@ -140,7 +145,7 @@ void CGameControler::UpdateScence()
     if (CGameStatus::GetGameReady())
     {
         GameReady();
-        CGameStatus::ReadyingGame();
+        CGameStatus::StartGame();
         Sleep(100);
         return;
     }

@@ -33,6 +33,7 @@ public:
     void Exit();
 private:
 
+    void _InitalizeMenu();
     void GameOver();
     void GameReady();
 
