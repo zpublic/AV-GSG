@@ -15,7 +15,6 @@ TCHAR g_szWindowClass[MAX_LOADSTRING];    // the main window class name
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "control/game/GameControler.h"
@@ -184,7 +183,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_AIRCRAFTGAME));
     wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName	= MAKEINTRESOURCE(IDC_AIRCRAFTGAME);
+    wcex.lpszMenuName	= 0;
     wcex.lpszClassName	= g_szWindowClass;
     wcex.hIconSm		= LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -246,7 +245,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    int wmId, wmEvent;
     switch (message)
     {
     case WM_CREATE:
@@ -258,24 +256,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_KEYUP:
         InputEngine_->KeyUp(wParam);
         break;
-    case WM_COMMAND:
-        wmId    = LOWORD(wParam);
-        wmEvent = HIWORD(wParam);
-        // Parse the menu selections:
-        switch (wmId)
-        {
-        case IDM_ABOUT:
-            DialogBox(g_hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        case IDM_BEGIN:
-            break;
-        default:
-            return DefWindowProc(hWnd, message, wParam, lParam);
-        }
-        break;
     case WM_DESTROY:
         ReleaseDC(hWnd, g_hdc);
         PostQuitMessage(0);
@@ -284,24 +264,4 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
-}
-
-// Message handler for about box.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
 }
