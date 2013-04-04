@@ -93,7 +93,7 @@ void CGameControler::GameOver()
 
 void CGameControler::_InitalizeMenu()
 {
-
+    m_Menu.SetBackgroudImage(L"Resource\\MenuBackgroud.bmp");
 }
 
 void CGameControler::GameReady()
@@ -121,6 +121,7 @@ void CGameControler::SetWndDC(HDC hDC)
 
 void CGameControler::StartGame()
 {
+    _InitalizeMenu();
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
     CGameStatus::ReadyingGame();
 }

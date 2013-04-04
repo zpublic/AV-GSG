@@ -21,5 +21,5 @@ private:
     ///> 当前光标位置
     int             m_nCurPos;
     CMenuBase*      m_pMenu;
-    CPicture m_Picture;
+    CPicture m_PictureBackgroud;
 };
