@@ -10,6 +10,7 @@
 #include "GameStatus.h"
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_FixedScene.h"
+#include "scene\GameScene_Menu.h"
 #include "control\stage_player\GameStagePlayer.h"
 #include "data\gamedata\Score.h"
 
@@ -92,8 +93,16 @@ void CGameControler::GameOver()
 
 void CGameControler::GameReady()
 {
-    SceneEngine_->Push(new GameScene_FixedScene(
-         _T("Resource\\gameready.bmp")));
+    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
+    {
+        SceneEngine_->Pop();
+    }
+    SceneEngine_->Push(new GameScene_Play(
+        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+    m_dwLastTime = GetTickCount();
+    srand((unsigned)time(0));
+    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
 }
 
 void CGameControler::SetWndDC(HDC hDC)
@@ -109,18 +118,9 @@ void CGameControler::SetWndDC(HDC hDC)
 
 void CGameControler::StartGame()
 {
-    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
-    {
-        SceneEngine_->Pop();
-    }
-    SceneEngine_->Push(new GameScene_Play(
-        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-    m_dwLastTime = GetTickCount();
-    srand((unsigned)time(0));
-    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+    SceneEngine_->Push(new GameScene_Menu(&m_Menu));
     CScore::Reset();
-    CGameStatus::StartGame();
+    CGameStatus::SetGameReady();
 }
 
 void CGameControler::UpdateScence()
