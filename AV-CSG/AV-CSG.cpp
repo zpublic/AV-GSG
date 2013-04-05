@@ -253,7 +253,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        g_pGameControl->StartGame();
+        g_pGameControl->CreateGame();
         break;
     case WM_KEYDOWN:
         InputEngine_->KeyDown(wParam);

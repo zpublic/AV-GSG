@@ -26,20 +26,17 @@ public:
     void SetEmitterXML(const std::string& strPath);
     void SetWeaponXML(const std::string& strPath);
 
-    void StartGame();
+    void CreateGame();
 
     void Exit();
 private:
 
     void _InitalizeMenu();
-    void GameOver();
-    void GameReady();
 
     DWORD   m_dwLastTime;       //上次绘图时间
     HBITMAP m_hBitmapMap;
     HBITMAP m_hMemBitmap;
     HDC     m_hMapDC; 
-    int     m_nY;               //记录地图被截取的宽度
 
     CMenuBase m_Menu;           //菜单
 };

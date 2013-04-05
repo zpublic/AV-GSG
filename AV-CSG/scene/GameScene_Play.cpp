@@ -4,7 +4,6 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
-#include "control\game\GameStatus.h"
 #include "GameScene_FixedScene.h"
 
 GameScene_Play::GameScene_Play(const TCHAR* lpszPath)
@@ -36,11 +35,11 @@ void GameScene_Play::Update()
     if (InputEngine_->ClickPause())
     {
         SceneEngine::Instance()->Push(new GameScene_Parse());
-        CGameStatus::PauseGame();
         CSelfPlane::GetInstance()->Control(STOP_MOVE);
     }
 
     ControlGameTiming();
+    TestGameOver();
 
     CirculationMap();
     ControlSelfPlane();
@@ -135,5 +134,20 @@ void GameScene_Play::ControlGameTiming()
                     CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
             }
         }
+    }
+}
+
+void GameScene_Play::TestGameOver()
+{
+    if (Player_->gamestatus_.GetLife() == 0)
+    {
+        //弹出游戏流程场景
+        SceneEngine_->Pop();
+        //载入游戏结束画面
+        SceneEngine_->Push(new GameScene_FixedScene(
+            _T("Resource\\gameover.bmp")));
+        TCHAR szOut[100] = {0};
+        wsprintf(szOut, L"最终得分：%d", Player_->gamestatus_.GetScore());
+        ::MessageBox(0, szOut, L"", 0);
     }
 }

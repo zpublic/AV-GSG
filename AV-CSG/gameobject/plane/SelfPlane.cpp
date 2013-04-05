@@ -1,7 +1,6 @@
 #include "StdAfx.h"
 #include "SelfPlane.h"
 #include "EnemyPlane.h"
-#include "control\game\GameStatus.h"
 #include "control\generate\EmitterGenerate.h"
 #include "control\generate\EnemyGenerate.h"
 
@@ -158,17 +157,14 @@ void CSelfPlane::Control(ActionType actionType)
         m_bFire = false;
         break;
     case FIREALL:
-        if (m_nWholeFired && CGameStatus::GetGameRuning())
+        IEmitter* iEmitter = CEmitterGenerate::Generate(BIGBULLET_EMITTER, true, 0, 0, 0);
+        iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
+        CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
+        for(;temp!=NULL;temp=temp->m_pEmnemyNext)
         {
-            IEmitter* iEmitter = CEmitterGenerate::Generate(BIGBULLET_EMITTER, true, 0, 0, 0);
-            iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
-            CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
-            for(;temp!=NULL;temp=temp->m_pEmnemyNext)
-            {
-                temp->CheckCollision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 100);
-            }
-            m_nWholeFired--;
+            temp->CheckCollision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 100);
         }
+        m_nWholeFired--;
         break;
     }
 }
@@ -234,10 +230,6 @@ bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
             {
                 //new blast
                 InitPlane(m_FirstHP);
-            }
-            else
-            {
-                CGameStatus::SetGameOver();
             }
         }
         return true;

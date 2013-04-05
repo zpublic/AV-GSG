@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "GameScene_FixedScene.h"
-#include "control\game\GameStatus.h"
 #include "GameScene_Menu.h"
 
 GameScene_FixedScene::GameScene_FixedScene(const TCHAR* lpszPath)

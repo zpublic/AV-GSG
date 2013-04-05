@@ -17,6 +17,8 @@ private:
     void ControlSelfPlane();
     void CirculationMap();
     void ControlGameTiming();
+    void TestGameOver();
+
     CPicture m_Picture;
     HDC m_BackgourdDC;
     int m_nY;

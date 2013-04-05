@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "GameScene_Menu.h"
-#include "control\game\GameStatus.h"
 #include "control\stage_player\GameStagePlayer.h"
 #include "GameScene_Play.h"
 #include "control\generate\EnemyGenerate.h"
