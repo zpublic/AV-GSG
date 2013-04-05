@@ -82,7 +82,9 @@ void CGameControler::Exit()
 
 void CGameControler::GameOver()
 {
-    SceneEngine_->PopAll();
+    //弹出游戏流程场景
+    SceneEngine_->Pop();
+    //载入游戏结束画面
     SceneEngine_->Push(new GameScene_FixedScene(
         _T("Resource\\gameover.bmp")));
     TCHAR szOut[100] = {0};
@@ -97,12 +99,13 @@ void CGameControler::_InitalizeMenu()
 
 void CGameControler::GameReady()
 {
-    SceneEngine_->Pop();
+    //载入游戏流程场景
     SceneEngine_->Push(new GameScene_Play(
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
     Player_->gamestatus_.ResetGameStatus();
+    CEnemyGenerate::ClearEnemy();
     CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
 }
@@ -121,6 +124,7 @@ void CGameControler::SetWndDC(HDC hDC)
 void CGameControler::StartGame()
 {
     _InitalizeMenu();
+    //载入游戏菜单
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
     CGameStatus::ReadyingGame();
 }
@@ -163,10 +167,26 @@ void CGameControler::UpdateScence()
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
-        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        SceneEngine_->Pop();
-        SceneEngine_->Push(new GameScene_Play(
-            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusWin)
+        {
+            //完成所有关卡 胜利
+            //弹出游戏控制器
+            SceneEngine_->Pop();
+            //载入胜利场景
+            SceneEngine_->Push(new GameScene_FixedScene(
+                _T("Resource\\AmmoSb.bmp")));
+        }
+        else
+        {
+            if (CGameStagePlayer::GetInstance().PresentObject())
+            {
+                CEnemyGenerate::ClearEnemy();
+                CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+                SceneEngine_->Pop();
+                SceneEngine_->Push(new GameScene_Play(
+                    CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+            }
+        }
     }
     SceneEngine_->Update();
     SceneEngine_->Output();

@@ -124,6 +124,13 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
     return true;
 }
 
+void CEnemyGenerate::ClearEnemy()
+{
+    m_EnemyList.clear();
+    m_lnDeadPlane = 0;
+    m_spPosEnemyList = m_EnemyList.end();
+}
+
 long CEnemyGenerate::EnemyNumber()
 {
     return m_lnDeadPlane;

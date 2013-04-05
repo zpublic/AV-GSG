@@ -16,6 +16,7 @@ public:
     ~CEnemyGenerate(void);
 
     static bool IniEnemy(const CStageXMLStage* pStage);
+    static void ClearEnemy();
     static void CreateEnemy(long lnTime);
     static void ReleaseEnemy(CEnemyPlane* pEnemy);
 

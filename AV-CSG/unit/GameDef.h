@@ -67,7 +67,8 @@ enum GameStagePlayType
 enum GameStagePlayStatus
 {
     emGameStagePlayStatusNone,
-    emGameStagePlayStatusRuning
+    emGameStagePlayStatusRuning,
+    emGameStagePlayStatusWin,
 };
 
 // Õº∆¨¿‡–Õ
