@@ -6,7 +6,6 @@
 #include "SelfPlane.h"
 #include "gameobject\explosion\Explosion.h"
 #include "control\generate\EnemyGenerate.h"
-#include "data\gamedata\Score.h"
 
 CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
     : PlaneBase(0, 0, piEmitter)
@@ -116,7 +115,7 @@ bool CEnemyPlane::CheckCollision(int x, int y, int width, int height, int power)
         m_nHP -= power;
         if (m_nHP <= 0)
         {
-            CScore::AddScore(m_nSpeed);
+            Player_->gamestatus_.AddScore(m_nSpeed);
             m_bIsVisible = false;
             new CExplosion(m_nPosX + m_nWidth / 2, m_nPosY + m_nHeight / 2, "emBlastTypePlane");
         }

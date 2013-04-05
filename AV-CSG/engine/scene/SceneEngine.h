@@ -23,7 +23,7 @@ private:
     SceneEngine();
 
     std::vector<GameScene*>     m_GameStack;
-    std::vector<GameScene*>     m_PushStack;
+    std::vector<GameScene*>       m_PushStack;
     bool                        m_bStatusChange;
     int                         m_nPopCount;
 };

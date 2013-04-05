@@ -3,7 +3,6 @@
 #include "EnemyPlane.h"
 #include "control\game\GameStatus.h"
 #include "control\generate\EmitterGenerate.h"
-#include "data\gamedata\Score.h"
 #include "control\generate\EnemyGenerate.h"
 
 CSelfPlane * CSelfPlane::pCSelfPlane = NULL;
@@ -185,7 +184,7 @@ void CSelfPlane::Render(HDC hDC)
     {
         CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
-    int nScore = CScore::GetScore();
+    int nScore = Player_->gamestatus_.GetScore();
     ///> 显示八位得分
     for (int i = 0; i < 8; ++i)
     {

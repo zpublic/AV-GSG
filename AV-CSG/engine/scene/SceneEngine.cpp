@@ -38,6 +38,16 @@ void SceneEngine::Push( GameScene* pScene )
 void SceneEngine::Pop()
 {
     m_nPopCount++;
+    if (!m_PushStack.empty())
+    {
+        m_PushStack.pop_back();
+        m_nPopCount--;
+    }
+    if (m_nPopCount > m_GameStack.size())
+    {
+        ///> pop过多
+        assert(false);
+    }
     m_bStatusChange = true;
 }
 
@@ -53,8 +63,16 @@ void SceneEngine::Update()
     {
         while (m_nPopCount != 0)
         {
-            delete m_GameStack.back();
-            m_GameStack.pop_back();
+            if (m_GameStack.empty())
+            {
+                ///> 不科学！
+                assert(false);
+            }
+            else
+            {
+                delete m_GameStack.back();
+                m_GameStack.pop_back();
+            }
             m_nPopCount--;
         }
 
@@ -67,13 +85,21 @@ void SceneEngine::Update()
         if (m_GameStack.empty())
         {
             //ControlEngine->ExitGame();
+            ///> 没有场景了
+            assert(false);
         }
 
-        m_GameStack.back()->Reset();
+        if (!m_GameStack.empty())
+        {
+            m_GameStack.back()->Reset();
+        }
 
         m_bStatusChange = false;
     }
-    m_GameStack.back()->Update();
+    if (!m_GameStack.empty())
+    {
+        m_GameStack.back()->Update();
+    }
 }
 
 void SceneEngine::Output()

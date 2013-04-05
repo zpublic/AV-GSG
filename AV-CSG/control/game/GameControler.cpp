@@ -12,7 +12,6 @@
 #include "scene\GameScene_FixedScene.h"
 #include "scene\GameScene_Menu.h"
 #include "control\stage_player\GameStagePlayer.h"
-#include "data\gamedata\Score.h"
 
 
 HDC         g_hMemDC = NULL;
@@ -89,7 +88,7 @@ void CGameControler::GameOver()
     SceneEngine_->Push(new GameScene_FixedScene(
         _T("Resource\\gameover.bmp")));
     TCHAR szOut[100] = {0};
-    wsprintf(szOut, L"最终得分：%d", CScore::GetScore());
+    wsprintf(szOut, L"最终得分：%d", Player_->gamestatus_.GetScore());
     ::MessageBox(0, szOut, L"", 0);
 }
 
@@ -105,7 +104,7 @@ void CGameControler::GameReady()
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
-    CScore::Reset();
+    Player_->gamestatus_.ResetGameStatus();
     CEnemyGenerate::ClearEnemy();
     CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
