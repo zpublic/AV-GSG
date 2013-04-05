@@ -29,7 +29,6 @@ private:
 private:
     static CSelfPlane*          pCSelfPlane;
     WeaponType                  m_WeaponType;
-    int                         m_nLifes;
     int                         m_FirstHP;
     float                       m_fBulletFrequency;
     float                       m_fInvincibletime;  //无敌时间(单位秒)

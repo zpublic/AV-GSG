@@ -97,7 +97,6 @@
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="control\game\GameControler.h" />
     <ClInclude Include="control\game\GameFrame.h" />
-    <ClInclude Include="control\game\GameStatus.h" />
     <ClInclude Include="control\generate\EmitterGenerate.h" />
     <ClInclude Include="control\generate\EnemyGenerate.h" />
     <ClInclude Include="control\generate\Generator.h" />
@@ -192,7 +191,6 @@
     <ClCompile Include="AV-CSG.cpp" />
     <ClCompile Include="control\game\GameControler.cpp" />
     <ClCompile Include="control\game\GameFrame.cpp" />
-    <ClCompile Include="control\game\GameStatus.cpp" />
     <ClCompile Include="control\generate\EmitterGenerate.cpp" />
     <ClCompile Include="control\generate\EnemyGenerate.cpp" />
     <ClCompile Include="control\generate\Generator.cpp" />

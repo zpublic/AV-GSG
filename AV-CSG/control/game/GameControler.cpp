@@ -1,32 +1,20 @@
 #include "StdAfx.h"
-#include "control/game/GameControler.h"
-#include "gameobject\sprite\Sprite.h"
-#include "gameobject\plane\SelfPlane.h"
-#include "gameobject\bullet\Bullet.h"
-#include "gameobject\plane\EnemyPlane.h"
-#include "gameobject\explosion\Explosion.h"
-#include "GameFrame.h"
-#include "control\generate\EnemyGenerate.h"
-#include "GameStatus.h"
-#include "scene\GameScene_Play.h"
-#include "scene\GameScene_FixedScene.h"
-#include "scene\GameScene_Menu.h"
+#include "control\game\GameControler.h"
 #include "control\stage_player\GameStagePlayer.h"
-
+#include "control\xml_parser\PlaneXMLParser.h"
+#include "control\xml_parser\EmitterXMLParser.h"
+#include "control\xml_parser\BlastXMLParser.h"
+#include "control\xml_parser\WeaponXMLParser.h"
+#include "control\xml_parser\BulletXMLParser.h"
+#include "scene\GameScene_Menu.h"
+#include "data\resourcedata\PicturePool.h"
 
 HDC         g_hMemDC = NULL;
 HDC         g_hWndDC = NULL;
+HBITMAP     g_hMemBitmap = NULL;
 
 CGameControler::CGameControler()
-    : m_nY(0)
-    , m_PresentStage(0)
 {
-    m_nPreKey = m_nCurKey = 0;
-    m_pSelfPlane = CSelfPlane::GetInstance();
-
-    m_hBitmapMap = NULL;
-    m_hMemBitmap = NULL;
-    m_hMapDC = NULL;
 }
 
 CGameControler::~CGameControler()
@@ -72,10 +60,11 @@ void CGameControler::Exit()
     {
         DeleteDC(g_hMemDC);
     }
-    if (m_hMapDC)
+    if (g_hMemBitmap)
     {
-        DeleteDC(m_hMapDC);
+        DeleteObject(g_hMemBitmap);
     }
+<<<<<<< HEAD
     if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
     if (m_hMemBitmap) DeleteObject(m_hMemBitmap);
 }
@@ -95,6 +84,8 @@ void CGameControler::GameOver()
     TCHAR szOut[150] = {0};
     wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d,    再接再厉", nMaxScore, Player_->gamestatus_.GetMaxScore());
     ::MessageBox(0, szOut, L"", 0);
+=======
+>>>>>>> 3017b4f28ace9898212b0a3bdd12fcea4480d481
 }
 
 void CGameControler::_InitalizeMenu()
@@ -102,64 +93,15 @@ void CGameControler::_InitalizeMenu()
     m_Menu.SetBackgroudImage(L"Resource\\MenuBackgroud.bmp");
 }
 
-void CGameControler::GameReady()
-{
-    SceneEngine_->Pop();
-    SceneEngine_->Push(new GameScene_Play(
-        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-    m_dwLastTime = GetTickCount();
-    srand((unsigned)time(0));
-    Player_->gamestatus_.ResetGameStatus();
-    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
-}
-
-void CGameControler::SetWndDC(HDC hDC)
-{
-    g_hWndDC = hDC;
-    g_hMemDC = CreateCompatibleDC(hDC);
-    m_hMapDC = CreateCompatibleDC(hDC);
-
-    if (m_hMemBitmap) DeleteObject(m_hBitmapMap);
-    m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
-    SelectObject(g_hMemDC, m_hMemBitmap);
-}
-
-void CGameControler::StartGame()
+void CGameControler::CreateGame()
 {
     _InitalizeMenu();
+    //载入游戏菜单
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
-    CGameStatus::ReadyingGame();
 }
 
 void CGameControler::UpdateScence()
 {
-    if (!CGameStatus::IsNeedUpdate())
-    {
-        Sleep(100);
-        return;
-    }
-    if (CGameStatus::GetGameOver())
-    {
-        GameOver();
-        CGameStatus::SetGameOvered();
-        Sleep(100);
-        return;
-    }
-    if (CGameStatus::GetGameReady())
-    {
-        GameReady();
-        CGameStatus::StartGame();
-        Sleep(100);
-        return;
-    }
-    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameOvered())
-    {
-        SceneEngine_->Update();
-        SceneEngine_->Output();
-        return;
-    }
-
     DWORD dwElapsed = ::GetTickCount() - m_dwLastTime;
     if (dwElapsed < MSPERFRAME)
     {
@@ -167,14 +109,6 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
-    {
-        CGameStagePlayer::GetInstance().NextStage();
-        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        SceneEngine_->Pop();
-        SceneEngine_->Push(new GameScene_Play(
-            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-    }
     SceneEngine_->Update();
     SceneEngine_->Output();
 }

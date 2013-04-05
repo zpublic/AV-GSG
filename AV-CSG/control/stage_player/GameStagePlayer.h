@@ -22,6 +22,8 @@ public:
 
     void NextStage();
 
+    void FirstStage();
+
     long Stopwatch() const;
 
 private:
@@ -37,6 +39,7 @@ private:
     long m_lnDeadEnemy;
     CGameStagePlayer();
     const CStageXMLStage* m_pStage;
+    MapStageList::const_iterator m_FirstStage;
     MapStageList::const_iterator m_StageBegin;
     MapStageList::const_iterator m_StageEnd;
 };

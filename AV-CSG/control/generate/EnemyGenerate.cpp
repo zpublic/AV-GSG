@@ -5,6 +5,7 @@
 #include "control\xml_parser\BulletXMLParser.h"
 #include "control\xml_parser\WeaponXMLParser.h"
 #include "control\xml_parser\EmitterXMLParser.h"
+#include "control\xml_parser\PlaneXMLParser.h"
 #include "EmitterGenerate.h"
 
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
@@ -82,7 +83,11 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
                 return;
             }
             IEmitter* pEmitter = CEmitterGenerate::GenerateEnemyEmitter(
-                pEmitterXML->GetType(), 0,pBullet->GetSpeed(), pBullet->GetPower(), 0);
+                pEmitterXML->GetType(),
+                false,
+                pBullet->GetSpeed(),
+                pBullet->GetPower(),
+                0);
             if (!pEmitter)
             {
                 return;
@@ -122,6 +127,13 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
     std::sort(m_EnemyList.begin(), m_EnemyList.end(), EnemySort());
     m_spPosEnemyList = m_EnemyList.begin();
     return true;
+}
+
+void CEnemyGenerate::ClearEnemy()
+{
+    m_EnemyList.clear();
+    m_lnDeadPlane = 0;
+    m_spPosEnemyList = m_EnemyList.end();
 }
 
 long CEnemyGenerate::EnemyNumber()

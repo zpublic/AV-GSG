@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "GameScene_Menu.h"
-#include "control\game\GameStatus.h"
+#include "control\stage_player\GameStagePlayer.h"
+#include "GameScene_Play.h"
+#include "control\generate\EnemyGenerate.h"
+#include "gameobject\plane\SelfPlane.h"
+#include "control\xml_parser\PlaneXMLParser.h"
 
 GameScene_Menu::GameScene_Menu(CMenuBase* pMenu)
     : m_pMenu(pMenu)
@@ -65,6 +69,19 @@ void GameScene_Menu::Click()
     {
         m_pMenu->GetMenuItem(m_nCurPos)->OnClick();
     }
-    CGameStatus::SetGameReady();
+    
+    //初始化关卡
+    CGameStagePlayer::GetInstance().FirstStage();
+    //载入游戏流程场景
+    if (CGameStagePlayer::GetInstance().PresentObject())
+    {
+        SceneEngine_->Push(new GameScene_Play(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        
+        srand((unsigned)time(0));
+        Player_->gamestatus_.ResetGameStatus();
+        CEnemyGenerate::ClearEnemy();
+        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+        CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+    }
 }
-

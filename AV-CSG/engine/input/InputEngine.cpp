@@ -15,14 +15,7 @@ bool InputEngine::Initialize()
 
 InputEngine::InputEngine()
 {
-    m_bClickPause   = false;
-    m_bClickFireAll = false;
-    m_bPressFire    = false;
-    m_bClickFire    = false;
-    m_bClickUp      = false;
-    m_bClickDown    = false;
-    m_bClickLeft    = false;
-    m_bClickRigth   = false;
+    Reset();
 }
 
 inline void ConvertDirection(WPARAM& nKeyCode)
@@ -198,5 +191,18 @@ MoveDirection InputEngine::GetMoveDirection()
 bool InputEngine::PressFire()
 {
     return m_bPressFire;
+}
+
+void InputEngine::Reset()
+{
+    m_bClickPause   = false;
+    m_bClickFireAll = false;
+    m_bPressFire    = false;
+    m_bClickFire    = false;
+    m_bClickUp      = false;
+    m_bClickDown    = false;
+    m_bClickLeft    = false;
+    m_bClickRigth   = false;
+    m_MoveDirection.Reset();
 }
 

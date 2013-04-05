@@ -1,10 +1,6 @@
 #pragma once
 #include "GameScene.h"
 #include "data\resourcedata\Picture.h"
-#include <tchar.h>
-#include <cstring>
-
-#define MAX_PATH 260
 
 class GameScene_FixedScene : public GameScene
 {

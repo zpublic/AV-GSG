@@ -4,7 +4,7 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
-#include "control\game\GameStatus.h"
+#include "GameScene_FixedScene.h"
 
 GameScene_Play::GameScene_Play(const TCHAR* lpszPath)
     : m_BackgourdDC(0)
@@ -23,7 +23,7 @@ GameScene_Play::~GameScene_Play()
 
 }
 
-void GameScene_Play::_CirculationMap()
+void GameScene_Play::CirculationMap()
 {
     m_nY += 1;
     if(m_nY == SCREEN_HEIGHT)
@@ -35,14 +35,16 @@ void GameScene_Play::Update()
     if (InputEngine_->ClickPause())
     {
         SceneEngine::Instance()->Push(new GameScene_Parse());
-        CGameStatus::PauseGame();
         CSelfPlane::GetInstance()->Control(STOP_MOVE);
     }
-    _CirculationMap();
+
+    ControlGameTiming();
+    TestGameOver();
+
+    CirculationMap();
     ControlSelfPlane();
     CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
-    CEnemyGenerate::CreateEnemy(
-        CGameStagePlayer::GetInstance().Stopwatch());
+    CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().Stopwatch());
     FrameUpdate();
 }
 
@@ -103,5 +105,45 @@ void GameScene_Play::ControlSelfPlane()
     else
     {
         CSelfPlane::GetInstance()->Control(STOP_FIRE);
+    }
+}
+
+void GameScene_Play::ControlGameTiming()
+{
+    if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
+    {
+        CGameStagePlayer::GetInstance().NextStage();
+        if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusWin)
+        {
+            //完成所有关卡 胜利
+            //弹出游戏控制器
+            SceneEngine_->Pop();
+            //载入胜利场景
+            SceneEngine_->Push(new GameScene_FixedScene(
+                _T("Resource\\AmmoSb.bmp")));
+        }
+        else if (CGameStagePlayer::GetInstance().PresentObject())
+        {
+            CEnemyGenerate::ClearEnemy();
+            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+            SceneEngine_->Pop();
+            SceneEngine_->Push(new GameScene_Play(
+                CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        }
+    }
+}
+
+void GameScene_Play::TestGameOver()
+{
+    if (Player_->gamestatus_.GetLife() == 0)
+    {
+        //弹出游戏流程场景
+        SceneEngine_->Pop();
+        //载入游戏结束画面
+        SceneEngine_->Push(new GameScene_FixedScene(
+            _T("Resource\\gameover.bmp")));
+        TCHAR szOut[100] = {0};
+        wsprintf(szOut, L"最终得分：%d", Player_->gamestatus_.GetScore());
+        ::MessageBox(0, szOut, L"", 0);
     }
 }
