@@ -24,6 +24,7 @@ HDC g_hdc;
 InputEngine* InputEngine_ = NULL;
 SceneEngine* SceneEngine_ = NULL;
 AudioEngine* AudioEngine_ = NULL;
+Player*      Player_      = NULL;
 bool AUDIO_ENABLE = true;
 
 void InitEngine()
@@ -34,6 +35,9 @@ void InitEngine()
     SceneEngine_->Initialize();
     AudioEngine_ = AudioEngine::Instance();
     AudioEngine_->Initialize();
+    Player_ = Player::Instance();
+
+    Player_->savedata_.Load();
 
     g_pGameControl = new CGameControler;
 
@@ -74,6 +78,7 @@ void UninitEngine()
     InputEngine::Destroy();
     SceneEngine::Destroy();
     AudioEngine::Destroy();
+    Player::Destroy();
 }
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,

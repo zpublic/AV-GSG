@@ -2,14 +2,6 @@
 #include "Unit.h"
 #include <shlwapi.h>
 
-Unit::Unit(void)
-{
-}
-
-Unit::~Unit(void)
-{
-}
-
 int Unit::GetNumX(int nScore, int i)
 {
     switch (i)
@@ -116,4 +108,13 @@ BOOL Unit::GetXmlIntAttribute( TiXmlElement *pElement, char *pName, int &nData )
         }
     }
     return FALSE;
+}
+
+void Unit::GetPath( std::string& strPath )
+{
+    char filePath[MAX_PATH] = {0};
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    strPath = filePath;
+    strPath += '\\';
 }

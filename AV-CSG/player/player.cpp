@@ -12,3 +12,8 @@ Player::~Player()
 {
 
 }
+
+bool Player::Initialize()
+{
+    return true;
+}
