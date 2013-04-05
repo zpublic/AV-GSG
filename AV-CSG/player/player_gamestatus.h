@@ -1,6 +1,6 @@
 #pragma once
 
-#define Default_Life    1
+#define Default_Life    2
 
 class Player_GameStatus
 {
@@ -15,19 +15,19 @@ public:
 
     ///> 剩余生命
     int GetLife();
-    int AddLife(int nAdd = 0);
-    int SubLife(int nSub = 0);
+    int AddLife(int nAdd = 1);
+    int SubLife(int nSub = 1);
 
     ///> 血量
     int GetHp();
     void SetHp(int nHp);
-    int AddHp(int nAdd = 1);
-    int SubHp(int nSub = 1);
+    int AddHp(int nAdd);
+    int SubHp(int nSub);
 
     ///> 当前得分
     int GetScore();
-    int AddScore(int nAdd = 0);
-    int SubScore(int nSub = 0);
+    int AddScore(int nAdd);
+    int SubScore(int nSub);
 
     ///> 重置游戏状态
     void ResetGameStatus();

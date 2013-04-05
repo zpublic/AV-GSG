@@ -33,13 +33,13 @@ int Player_GameStatus::GetLife()
     return m_nLife;
 }
 
-int Player_GameStatus::AddLife( int nAdd /*= 0*/ )
+int Player_GameStatus::AddLife( int nAdd /*= 1*/ )
 {
     m_nLife += nAdd;
     return m_nLife;
 }
 
-int Player_GameStatus::SubLife( int nSub /*= 0*/ )
+int Player_GameStatus::SubLife( int nSub /*= 1*/ )
 {
     m_nLife -= nSub;
     if (m_nLife < 0)
@@ -60,13 +60,13 @@ void Player_GameStatus::SetHp( int nHp )
     m_nLife = nHp;
 }
 
-int Player_GameStatus::AddHp( int nAdd /*= 0*/ )
+int Player_GameStatus::AddHp( int nAdd )
 {
     m_HP += nAdd;
     return m_HP;
 }
 
-int Player_GameStatus::SubHp( int nSub /*= 0*/ )
+int Player_GameStatus::SubHp( int nSub )
 {
     m_HP -= nSub;
     if (m_HP < 0)
@@ -82,13 +82,13 @@ int Player_GameStatus::GetScore()
     return m_nScroe;
 }
 
-int Player_GameStatus::AddScore( int nAdd /*= 0*/ )
+int Player_GameStatus::AddScore( int nAdd )
 {
     m_nScroe += nAdd;
     return m_nScroe;
 }
 
-int Player_GameStatus::SubScore( int nSub /*= 0*/ )
+int Player_GameStatus::SubScore( int nSub )
 {
     m_nScroe -= nSub;
     if (m_nScroe < 0)

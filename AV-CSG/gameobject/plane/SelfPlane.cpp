@@ -32,7 +32,7 @@ void CSelfPlane::InitGame(const CPlaneXMLObject* pPlane)
     {
         return;
     }
-    m_nLifes = 2;
+    Player_->gamestatus_.ResetGameStatus();
     SetWeapon(pPlane->GetWeapon());
     m_nAction = STOP_MOVE;
     m_nWidth = 20;
@@ -180,7 +180,7 @@ void CSelfPlane::Render(HDC hDC)
         m_nPosX, m_nPosY,
         m_nWidth, m_nHeight,
         0, 0);
-    for (int i = 0; i < m_nLifes - 1; ++i)
+    for (int i = 0; i < Player_->gamestatus_.GetLife() - 1; ++i)
     {
         CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
     }
@@ -230,8 +230,7 @@ bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
         m_nHP -= power;
         if (m_nHP <= 0)
         {
-            m_nLifes--;
-            if (m_nLifes > 0)
+            if (Player_->gamestatus_.SubLife())
             {
                 //new blast
                 InitPlane(m_FirstHP);
