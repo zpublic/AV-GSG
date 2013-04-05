@@ -45,6 +45,7 @@ extern bool AUDIO_ENABLE;
 
 extern HDC  g_hMemDC;
 extern HDC  g_hWndDC;
+extern HBITMAP g_hMemBitmap;
 
 extern Player* Player_;
 

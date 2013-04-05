@@ -19,7 +19,6 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 
 #include "control/game/GameControler.h"
 CGameControler *g_pGameControl = NULL;
-HDC g_hdc;
 
 InputEngine* InputEngine_ = NULL;
 SceneEngine* SceneEngine_ = NULL;
@@ -231,9 +230,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
 
-    g_hdc = GetDC(hWnd);
-
-    g_pGameControl->SetWndDC(g_hdc);
+    g_hWndDC = GetDC(hWnd);
+    g_hMemDC = CreateCompatibleDC(g_hWndDC);
+    g_hMemBitmap = CreateCompatibleBitmap(g_hWndDC, SCREEN_WIDTH, SCREEN_HEIGHT);
+    SelectObject(g_hMemDC, g_hMemBitmap);
 
     return TRUE;
 }
@@ -262,7 +262,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         InputEngine_->KeyUp(wParam);
         break;
     case WM_DESTROY:
-        ReleaseDC(hWnd, g_hdc);
+        ReleaseDC(hWnd, g_hWndDC);
         PostQuitMessage(0);
         break;
     default:

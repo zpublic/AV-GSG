@@ -6,6 +6,7 @@
 #include "control\xml_parser\WeaponXMLParser.h"
 #include "control\xml_parser\EmitterXMLParser.h"
 #include "EmitterGenerate.h"
+#include "..\xml_parser\PlaneXMLParser.h"
 
 CEnemyPlane * CEnemyGenerate::spEnemyHead = NULL;
 long CEnemyGenerate::m_lnDeadPlane = 0;

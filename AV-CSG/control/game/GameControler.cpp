@@ -11,15 +11,16 @@
 #include "scene\GameScene_FixedScene.h"
 #include "scene\GameScene_Menu.h"
 #include "control\stage_player\GameStagePlayer.h"
+#include "..\xml_parser\PlaneXMLParser.h"
+#include "..\xml_parser\EmitterXMLParser.h"
 
 
 HDC         g_hMemDC = NULL;
 HDC         g_hWndDC = NULL;
+HBITMAP     g_hMemBitmap = NULL;
 
 CGameControler::CGameControler()
 {
-    m_hBitmapMap = NULL;
-    m_hMemBitmap = NULL;
 }
 
 CGameControler::~CGameControler()
@@ -65,23 +66,15 @@ void CGameControler::Exit()
     {
         DeleteDC(g_hMemDC);
     }
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    if (m_hMemBitmap) DeleteObject(m_hMemBitmap);
+    if (g_hMemBitmap)
+    {
+        DeleteObject(g_hMemBitmap);
+    }
 }
 
 void CGameControler::_InitalizeMenu()
 {
     m_Menu.SetBackgroudImage(L"Resource\\MenuBackgroud.bmp");
-}
-
-void CGameControler::SetWndDC(HDC hDC)
-{
-    g_hWndDC = hDC;
-    g_hMemDC = CreateCompatibleDC(hDC);
-
-    if (m_hMemBitmap) DeleteObject(m_hBitmapMap);
-    m_hMemBitmap = CreateCompatibleBitmap(hDC, SCREEN_WIDTH, SCREEN_HEIGHT);
-    SelectObject(g_hMemDC, m_hMemBitmap);
 }
 
 void CGameControler::CreateGame()
