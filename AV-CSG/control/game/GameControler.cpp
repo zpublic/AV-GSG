@@ -83,14 +83,12 @@ void CGameControler::Exit()
 
 void CGameControler::GameOver()
 {
-    //SceneEngine_->Pop();
-    //SceneEngine_->Push(new GameScene_FixedScene(
-    //    _T("Resource\\gameover.bmp")));
+    SceneEngine_->Pop();
+    SceneEngine_->Push(new GameScene_FixedScene(
+        _T("Resource\\gameover.bmp")));
     TCHAR szOut[100] = {0};
     wsprintf(szOut, L"×îÖÕµÃ·Ö£º%d", CScore::GetScore());
     ::MessageBox(0, szOut, L"", 0);
-    SceneEngine_->Pop();
-    SceneEngine_->Push(new GameScene_Menu(&m_Menu));
 }
 
 void CGameControler::_InitalizeMenu()
@@ -100,7 +98,6 @@ void CGameControler::_InitalizeMenu()
 
 void CGameControler::GameReady()
 {
-    SceneEngine_->Pop();
     SceneEngine_->Push(new GameScene_Play(
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
