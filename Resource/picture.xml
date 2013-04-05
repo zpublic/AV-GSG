@@ -32,5 +32,5 @@
     <item id="life" path="Resource\\Life.bmp" r="255" g="0" b="255" />
     <item id="hpbar" path="Resource\\HPBar.bmp" r="255" g="0" b="255" />
     <item id="hpbarside" path="Resource\\HPBarSide.bmp" r="255" g="0" b="255" />
-    <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" />                      
+    <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" />                  
 </root>
