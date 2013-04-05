@@ -66,7 +66,7 @@ void GameScene_Menu::Output()
         {
             ::SetTextColor(g_hMemDC, RGB(200,200,200));
         }
-        ::SetRect(&textRect, 130, 450 + i * 30, 200, 250 + i * 30);
+        ::SetRect(&textRect, 130, 450 + i * 30, 450, 450 + i * 30);
         ::DrawText(g_hMemDC, m_pMenu->GetMenuItem(i).c_str(), -1, &textRect, DT_NOCLIP);
     }
 
