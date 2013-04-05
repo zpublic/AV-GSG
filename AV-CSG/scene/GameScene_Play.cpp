@@ -5,6 +5,7 @@
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameScene_FixedScene.h"
+#include "GameScene_GameOver.h"
 
 GameScene_Play::GameScene_Play(const std::string& strPic)
     : m_Picture(NULL)
@@ -145,19 +146,13 @@ void GameScene_Play::TestGameOver()
     {
         //弹出游戏流程场景
         SceneEngine_->Pop();
-        //载入游戏结束画面
-        SceneEngine_->Push(new GameScene_FixedScene("gameover"));
         
         int nMaxScore = Player_->gamestatus_.GetScore();
         if(Player_->gamestatus_.SetMaxScore(nMaxScore))
         {
             Player_->savedata_.Save();
         }
-    
-        TCHAR szOut[150] = {0};
-        wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d", 
-            nMaxScore, Player_->gamestatus_.GetMaxScore());
-        ::MessageBox(0, szOut, L"", 0);
-
+        //载入游戏结束场景
+        SceneEngine_->Push(new GameScene_GameOver("gameover"));
     }
 }
