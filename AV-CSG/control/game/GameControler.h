@@ -6,6 +6,7 @@
 #include "control/xml_parser/EmitterXMLParser.h"
 #include "control/xml_parser/WeaponXMLParser.h"
 #include "control/stage_player/GameStagePlayer.h"
+#include "control\menu\MenuBase.h"
 
 class CSelfPlane;
 
@@ -32,6 +33,7 @@ public:
     void Exit();
 private:
 
+    void _InitalizeMenu();
     void GameOver();
     void GameReady();
 
@@ -46,6 +48,7 @@ private:
 
     int     m_PresentStage;
 
+    CMenuBase m_Menu;           //²Ëµ¥
     CSelfPlane *m_pSelfPlane;
 };
 
