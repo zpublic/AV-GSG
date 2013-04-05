@@ -14,6 +14,7 @@ bool CGameStagePlayer::Stage(const CStageXMLParse* pStage)
     {
         return false;
     }
+    m_FirstStage = pStage->Begin();
     m_StageBegin = pStage->Begin();
     m_StageEnd = pStage->End();
     m_pStage = m_StageBegin->second;
@@ -80,6 +81,19 @@ const CStageXMLStage* CGameStagePlayer::PresentObject() const
         return NULL;
     }
     return m_StageBegin->second;
+}
+
+void CGameStagePlayer::FirstStage()
+{
+    m_StageBegin = m_FirstStage;
+    m_lnFrame = 0;
+    m_lnDeadEnemy = 0;
+    m_lnStopwatch = 0;
+    if (m_StageBegin->second)
+    {
+        m_lnEnemyNumber = m_StageBegin->second->GetEnemyNumber();
+        m_emType = (GameStagePlayType)::atol(m_StageBegin->second->GetType().c_str());
+    }
 }
 
 void CGameStagePlayer::NextStage()

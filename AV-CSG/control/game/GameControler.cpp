@@ -99,15 +99,20 @@ void CGameControler::_InitalizeMenu()
 
 void CGameControler::GameReady()
 {
+    //初始化关卡
+    CGameStagePlayer::GetInstance().FirstStage();
     //载入游戏流程场景
-    SceneEngine_->Push(new GameScene_Play(
-        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-    m_dwLastTime = GetTickCount();
-    srand((unsigned)time(0));
-    Player_->gamestatus_.ResetGameStatus();
-    CEnemyGenerate::ClearEnemy();
-    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+    if (CGameStagePlayer::GetInstance().PresentObject())
+    {
+        SceneEngine_->Push(new GameScene_Play(
+            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        m_dwLastTime = GetTickCount();
+        srand((unsigned)time(0));
+        Player_->gamestatus_.ResetGameStatus();
+        CEnemyGenerate::ClearEnemy();
+        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+        m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+    }
 }
 
 void CGameControler::SetWndDC(HDC hDC)
