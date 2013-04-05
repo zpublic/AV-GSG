@@ -36,6 +36,7 @@
 #include "engine\input\InputEngine.h"
 #include "engine\scene\SceneEngine.h"
 #include "engine\audio\AudioEngine.h"
+#include "player\player.h"
 
 extern InputEngine* InputEngine_;
 extern SceneEngine* SceneEngine_;
@@ -44,6 +45,8 @@ extern bool AUDIO_ENABLE;
 
 extern HDC  g_hMemDC;
 extern HDC  g_hWndDC;
+
+extern Player* Player_;
 
 ///> 音频相关的第三方库
 #include "al.h"

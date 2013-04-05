@@ -5,7 +5,7 @@
 class CMenuBase
 {
 public:
-    CMenuBase()
+    CMenuBase() : m_vecMenuItem()
     {
     }
 
@@ -34,6 +34,17 @@ public:
         return m_vecMenuItem[iPos];
     }
 
+    void SetBackgroudImage(const std::wstring& strBackgroud)
+    {
+        m_strBackgroud = strBackgroud;
+    }
+
+    const std::wstring& GetBackgroudImage()
+    {
+        return m_strBackgroud;
+    }
+
 protected:
     std::vector<CMenuItem*> m_vecMenuItem;
+    std::wstring m_strBackgroud;
 };

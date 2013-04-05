@@ -11,6 +11,7 @@ class Player : public Singleton<Player>
 public:
     Player();
     ~Player();
+    virtual bool Initialize();
 
 private:
 

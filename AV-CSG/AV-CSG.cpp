@@ -15,7 +15,6 @@ TCHAR g_szWindowClass[MAX_LOADSTRING];    // the main window class name
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
 #include "control/game/GameControler.h"
@@ -25,6 +24,7 @@ HDC g_hdc;
 InputEngine* InputEngine_ = NULL;
 SceneEngine* SceneEngine_ = NULL;
 AudioEngine* AudioEngine_ = NULL;
+Player*      Player_      = NULL;
 bool AUDIO_ENABLE = true;
 
 void InitEngine()
@@ -35,6 +35,42 @@ void InitEngine()
     SceneEngine_->Initialize();
     AudioEngine_ = AudioEngine::Instance();
     AudioEngine_->Initialize();
+    Player_ = Player::Instance();
+
+    Player_->savedata_.Load();
+
+    g_pGameControl = new CGameControler;
+
+    char filePath[MAX_PATH] = {0};
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/stage/stage.xml");
+    g_pGameControl->SetStageXML(filePath);
+
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/plane/plane.xml");
+    g_pGameControl->SetPlaneXML(filePath);
+
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/bullet/bullet.xml");
+    g_pGameControl->SetBulletXML(filePath);
+
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/weapon/weapon.xml");
+    g_pGameControl->SetWeaponXML(filePath);
+
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/emitter/emitter.xml");
+    g_pGameControl->SetEmitterXML(filePath);
+
+    ::GetModuleFileNameA(0, filePath, MAX_PATH);
+    ::PathRemoveFileSpecA(filePath);
+    ::PathAppendA(filePath, "Resource/blast/blast.xml");
+    g_pGameControl->SetBlastXML(filePath);
 }
 
 void UninitEngine()
@@ -42,6 +78,7 @@ void UninitEngine()
     InputEngine::Destroy();
     SceneEngine::Destroy();
     AudioEngine::Destroy();
+    Player::Destroy();
 }
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -74,8 +111,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     //ÓÎÏ·Ñ­»·
     while (msg.message != WM_QUIT)
     {
-
-
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
@@ -153,7 +188,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_AIRCRAFTGAME));
     wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName	= MAKEINTRESOURCE(IDC_AIRCRAFTGAME);
+    wcex.lpszMenuName	= 0;
     wcex.lpszClassName	= g_szWindowClass;
     wcex.hIconSm		= LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -198,39 +233,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     g_hdc = GetDC(hWnd);
 
-    g_pGameControl = new CGameControler;
     g_pGameControl->SetWndDC(g_hdc);
 
-    char filePath[MAX_PATH] = {0};
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/stage/stage.xml");
-    g_pGameControl->SetStageXML(filePath);
-
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/plane/plane.xml");
-    g_pGameControl->SetPlaneXML(filePath);
-
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/bullet/bullet.xml");
-    g_pGameControl->SetBulletXML(filePath);
-
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/weapon/weapon.xml");
-    g_pGameControl->SetWeaponXML(filePath);
-
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/emitter/emitter.xml");
-    g_pGameControl->SetEmitterXML(filePath);
-
-    ::GetModuleFileNameA(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpecA(filePath);
-    ::PathAppendA(filePath, "Resource/blast/blast.xml");
-    g_pGameControl->SetBlastXML(filePath);
     return TRUE;
 }
 
@@ -246,33 +250,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    int wmId, wmEvent;
     switch (message)
     {
+    case WM_CREATE:
+        g_pGameControl->StartGame();
+        break;
     case WM_KEYDOWN:
         InputEngine_->KeyDown(wParam);
         break;
     case WM_KEYUP:
         InputEngine_->KeyUp(wParam);
-        break;
-    case WM_COMMAND:
-        wmId    = LOWORD(wParam);
-        wmEvent = HIWORD(wParam);
-        // Parse the menu selections:
-        switch (wmId)
-        {
-        case IDM_ABOUT:
-            DialogBox(g_hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        case IDM_BEGIN:
-            g_pGameControl->StartGame();
-            break;
-        default:
-            return DefWindowProc(hWnd, message, wParam, lParam);
-        }
         break;
     case WM_DESTROY:
         ReleaseDC(hWnd, g_hdc);
@@ -282,24 +269,4 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
-}
-
-// Message handler for about box.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
 }

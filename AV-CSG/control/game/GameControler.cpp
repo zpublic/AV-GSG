@@ -10,8 +10,8 @@
 #include "GameStatus.h"
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_FixedScene.h"
+#include "scene\GameScene_Menu.h"
 #include "control\stage_player\GameStagePlayer.h"
-#include "data\gamedata\Score.h"
 
 
 HDC         g_hMemDC = NULL;
@@ -85,15 +85,30 @@ void CGameControler::GameOver()
     SceneEngine_->PopAll();
     SceneEngine_->Push(new GameScene_FixedScene(
         _T("Resource\\gameover.bmp")));
-    TCHAR szOut[100] = {0};
-    wsprintf(szOut, L"最终得分：%d", CScore::GetScore());
+
+    int nMaxScore = Player_->gamestatus_.GetScore();
+    Player_->gamestatus_.SetMaxScore(nMaxScore);
+    Player_->savedata_.Save();
+    TCHAR szOut[150] = {0};
+    wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d,    再接再厉", nMaxScore, Player_->gamestatus_.GetMaxScore());
     ::MessageBox(0, szOut, L"", 0);
+}
+
+void CGameControler::_InitalizeMenu()
+{
+    m_Menu.SetBackgroudImage(L"Resource\\MenuBackgroud.bmp");
 }
 
 void CGameControler::GameReady()
 {
-    SceneEngine_->Push(new GameScene_FixedScene(
-         _T("Resource\\gameready.bmp")));
+    SceneEngine_->Pop();
+    SceneEngine_->Push(new GameScene_Play(
+        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+    m_dwLastTime = GetTickCount();
+    srand((unsigned)time(0));
+    Player_->gamestatus_.ResetGameStatus();
+    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
 }
 
 void CGameControler::SetWndDC(HDC hDC)
@@ -109,18 +124,9 @@ void CGameControler::SetWndDC(HDC hDC)
 
 void CGameControler::StartGame()
 {
-    if (CGameStatus::GetGameReadying() || CGameStatus::GetGameRuning() || CGameStatus::GetGameOvered())
-    {
-        SceneEngine_->Pop();
-    }
-    SceneEngine_->Push(new GameScene_Play(
-        CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-    m_dwLastTime = GetTickCount();
-    srand((unsigned)time(0));
-    CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-    m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
-    CScore::Reset();
-    CGameStatus::StartGame();
+    _InitalizeMenu();
+    SceneEngine_->Push(new GameScene_Menu(&m_Menu));
+    CGameStatus::ReadyingGame();
 }
 
 void CGameControler::UpdateScence()
@@ -140,7 +146,7 @@ void CGameControler::UpdateScence()
     if (CGameStatus::GetGameReady())
     {
         GameReady();
-        CGameStatus::ReadyingGame();
+        CGameStatus::StartGame();
         Sleep(100);
         return;
     }

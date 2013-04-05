@@ -2,10 +2,10 @@
 #include "player_gamestatus.h"
 
 Player_GameStatus::Player_GameStatus()
-	: m_nPlayerMaxScore(0)
-    , m_nPlayerHp(0)
-    , m_nPlayerLifeNum(0)
-    , m_nPlayerCurrentScore(0)
+    : m_nMaxScore(0)
+    , m_nLife(Default_Life)
+    , m_HP(0)
+    , m_nScroe(0)
 {
 }
 
@@ -13,65 +13,94 @@ Player_GameStatus::~Player_GameStatus()
 {
 }
 
-bool Player_GameStatus::SetPlayerMaxScore(int nPlayerMaxScore)
+int Player_GameStatus::GetMaxScore()
 {
-	if(nPlayerMaxScore <= 0 || nPlayerMaxScore < m_nPlayerMaxScore)
-	{
-		return false;
-	}
-	m_nPlayerMaxScore = nPlayerMaxScore;
-	return true;
+    return m_nMaxScore;
 }
 
-int Player_GameStatus::GetPlayerMaxScore()			
+bool Player_GameStatus::SetMaxScore(int nMaxScore)
 {
-	return m_nPlayerMaxScore;
-}
-
-
-bool Player_GameStatus::SetPlayerHp(int nPlayerHp)
-{
-    if(nPlayerHp < 0)
+    if(nMaxScore <= 0 || nMaxScore < m_nMaxScore)
     {
         return false;
     }
-
-    m_nPlayerHp = nPlayerHp;
-}
-    
-int Player_GameStatus::GetPlayerHp()
-{
-    return m_nPlayerHp;
+    m_nMaxScore = nMaxScore;
+    return true;
 }
 
-
-bool Player_GameStatus::SetPlayerLifeNum(int nPlayerLifeNum)
+int Player_GameStatus::GetLife()
 {
-    if(nPlayerLifeNum < 0)
+    return m_nLife;
+}
+
+int Player_GameStatus::AddLife( int nAdd /*= 0*/ )
+{
+    m_nLife += nAdd;
+    return m_nLife;
+}
+
+int Player_GameStatus::SubLife( int nSub /*= 0*/ )
+{
+    m_nLife -= nSub;
+    if (m_nLife < 0)
     {
-        return false;
+        m_nLife = 0;
+        assert(false);
     }
-
-    m_nPlayerLifeNum = nPlayerLifeNum;
+    return m_nLife;
 }
 
-int Player_GameStatus::GetPlayerLifeNum()
+int Player_GameStatus::GetHp()
 {
-    return m_nPlayerLifeNum;
+    return m_HP;
 }
 
-
-bool Player_GameStatus::SetPlayerCurrentScore(int nPlayerCurrentScore)
+void Player_GameStatus::SetHp( int nHp )
 {
-    if(nPlayerCurrentScore < 0 && nPlayerCurrentScore < m_nPlayerCurrentScore)
+    m_nLife = nHp;
+}
+
+int Player_GameStatus::AddHp( int nAdd /*= 0*/ )
+{
+    m_HP += nAdd;
+    return m_HP;
+}
+
+int Player_GameStatus::SubHp( int nSub /*= 0*/ )
+{
+    m_HP -= nSub;
+    if (m_HP < 0)
     {
-        return false;
+        m_HP = 0;
+        assert(false);
     }
-
-    m_nPlayerCurrentScore = nPlayerCurrentScore;
+    return m_HP;
 }
 
-int Player_GameStatus::GetPlayerCurrentScore()
+int Player_GameStatus::GetScore()
 {
-    return m_nPlayerCurrentScore;
+    return m_nScroe;
+}
+
+int Player_GameStatus::AddScore( int nAdd /*= 0*/ )
+{
+    m_nScroe += nAdd;
+    return m_nScroe;
+}
+
+int Player_GameStatus::SubScore( int nSub /*= 0*/ )
+{
+    m_nScroe -= nSub;
+    if (m_nScroe < 0)
+    {
+        m_nScroe = 0;
+        assert(false);
+    }
+    return m_nScroe;
+}
+
+void Player_GameStatus::ResetGameStatus()
+{
+    m_nLife = Default_Life;
+    m_nScroe = 0;
 }
