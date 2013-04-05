@@ -29,8 +29,7 @@ _UpgradeReport_Files
 *.ipch
 /*.suo
 /AV-CSG/*.APS
-/AV-GSG.zip
 /other
 /*.zip
-
 /avgsg.af
+/*.rar
