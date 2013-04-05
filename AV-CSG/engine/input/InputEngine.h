@@ -10,6 +10,8 @@ public:
     virtual ~InputEngine();
     virtual bool Initialize();
 
+    void Reset();
+
     void KeyDown(WPARAM nKeyCode);
     void KeyUp(WPARAM nKeyCode);
 

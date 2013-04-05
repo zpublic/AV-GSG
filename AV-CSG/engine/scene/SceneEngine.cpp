@@ -61,6 +61,7 @@ void SceneEngine::Update()
 {
     if (m_bStatusChange == true)
     {
+        InputEngine_->Reset();
         while (m_nPopCount != 0)
         {
             if (m_GameStack.empty())

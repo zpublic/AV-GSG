@@ -5,11 +5,16 @@ class CMoveDirection
 public:
     CMoveDirection()
     {
-        m_MoveDirection = MoveDirection::MoveDirection_NONE;
+        Reset();
     }
 
     ~CMoveDirection()
     {
+    }
+
+    void Reset()
+    {
+        m_MoveDirection = MoveDirection::MoveDirection_NONE;
     }
 
     void Down(WPARAM nKeyCode)
