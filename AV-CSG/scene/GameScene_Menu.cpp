@@ -43,12 +43,28 @@ void GameScene_Menu::Output()
     ///> 先画背景（如果需要的话）
     if (m_PictureBackgroud)
     {
-        m_PictureBackgroud->ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+        //m_PictureBackgroud->ImmediateDrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
     }
 
     ///> 再画所有菜单项（不超过屏幕（翻页/滚动处理？））
+    for (auto i = 0; i < m_pMenu->GetMenuSize(); ++i)
+    {
+        RECT textRect;
+        ::SetBkMode(g_hMemDC, TRANSPARENT);
+        if (i == m_nCurPos)
+        {
+            ::SetTextColor(g_hMemDC, RGB(255,255,255));
+        }
+        else
+        {
+            ::SetTextColor(g_hMemDC, RGB(100,100,100));
+        }
+        ::SetRect(&textRect, 50, 200 + i * 30, 200, 250 + i * 30);
+        ::DrawText(g_hMemDC, m_pMenu->GetMenuItem(i).c_str(), -1, &textRect, DT_NOCLIP);
+    }
 
-    ///> 最后加亮当前光标所在菜单项
+    ///> 最后将内存图像画到设备上
+    ::BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
 void GameScene_Menu::Up()
