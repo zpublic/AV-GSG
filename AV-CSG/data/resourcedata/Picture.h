@@ -30,6 +30,7 @@ public:
     //需要提供文件名和用于设置透明的掩码色，因为找到的图片背景有白有红有绿，因此设置了此参数
     void LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent);
     void LoadBitmap(const TCHAR *szFileName, int nWidth, int nHeight);
+    void LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent, int nWidth, int nHeight);
 
     //获取位图资源句柄
     HBITMAP GetBitmap(){ return m_hBitmap; }

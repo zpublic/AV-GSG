@@ -34,17 +34,17 @@ public:
         return m_vecMenuItem[iPos];
     }
 
-    void SetBackgroudImage(const std::wstring& strBackgroud)
+    void SetBackgroudImage(const std::string& strBackgroud)
     {
         m_strBackgroud = strBackgroud;
     }
 
-    const std::wstring& GetBackgroudImage()
+    const std::string& GetBackgroudImage()
     {
         return m_strBackgroud;
     }
 
 protected:
     std::vector<CMenuItem*> m_vecMenuItem;
-    std::wstring m_strBackgroud;
+    std::string m_strBackgroud;
 };
