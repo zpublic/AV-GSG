@@ -5,6 +5,7 @@
 #include "control\stage_player\GameStagePlayer.h"
 #include "control\generate\EnemyGenerate.h"
 #include "scene\GameScene_Play.h"
+#include "..\..\scene\GameScene_AuthorList.h"
 
 class CMenu_Main : public CMenuBase
 {
@@ -12,6 +13,7 @@ public:
     CMenu_Main()
     {
         AddMenuItem(L"Begin");
+        AddMenuItem(L"ÉñÃØ");
         AddMenuItem(L"Exit");
     }
 
@@ -27,6 +29,9 @@ public:
             ClickBegin();
             break;
         case 1:
+            SceneEngine_->Push(new GameScene_AuthorList);
+            break;
+        case 2:
             ClickExit();
             break;
         default:

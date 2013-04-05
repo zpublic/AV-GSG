@@ -20,7 +20,3 @@ void GameScene_Parse::Update()
         SceneEngine_->Pop();
     }
 }
-
-void GameScene_Parse::Output()
-{
-}

@@ -171,6 +171,7 @@
     <ClInclude Include="player\player_savedata.h" />
     <ClInclude Include="player\player_skill.h" />
     <ClInclude Include="scene\GameScene.h" />
+    <ClInclude Include="scene\GameScene_AuthorList.h" />
     <ClInclude Include="scene\GameScene_FixedScene.h" />
     <ClInclude Include="scene\GameScene_Menu.h" />
     <ClInclude Include="scene\GameScene_Pause.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="player\player_property.cpp" />
     <ClCompile Include="player\player_savedata.cpp" />
     <ClCompile Include="player\player_skill.cpp" />
+    <ClCompile Include="scene\GameScene_AuthorList.cpp" />
     <ClCompile Include="scene\GameScene_FixedScene.cpp" />
     <ClCompile Include="scene\GameScene_Menu.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
