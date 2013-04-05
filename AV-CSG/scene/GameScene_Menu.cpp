@@ -85,4 +85,3 @@ void GameScene_Menu::Click()
         CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
     }
 }
-
