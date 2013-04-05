@@ -142,8 +142,17 @@ void GameScene_Play::TestGameOver()
         //载入游戏结束画面
         SceneEngine_->Push(new GameScene_FixedScene(
             _T("Resource\\gameover.bmp")));
-        TCHAR szOut[100] = {0};
-        wsprintf(szOut, L"最终得分：%d", Player_->gamestatus_.GetScore());
+        
+        int nMaxScore = Player_->gamestatus_.GetScore();
+        if(Player_->gamestatus_.SetMaxScore(nMaxScore))
+        {
+            Player_->savedata_.Save();
+        }
+    
+        TCHAR szOut[150] = {0};
+        wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d", 
+            nMaxScore, Player_->gamestatus_.GetMaxScore());
         ::MessageBox(0, szOut, L"", 0);
+
     }
 }
