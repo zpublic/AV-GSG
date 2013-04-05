@@ -1,4 +1,4 @@
 <gameweapon>
-	<weapon id = "goodweapon" bullettype = "emBulletTypeAMMO0" emitter = "line"  name = "" type = ""/>
-	<weapon id = "yesweapon" bullettype = "emBulletTypeAMMO1" emitter = "line"  name = "" type = ""/>
+	<weapon id = "goodweapon" bullettype = "emBulletTypeAMMO0" emitter = "line3"  name = "" type = ""/>
+	<weapon id = "yesweapon" bullettype = "emBulletTypeAMMO1" emitter = "line3"  name = "" type = ""/>
 </gameweapon>
