@@ -68,7 +68,7 @@ void CGameControler::Exit()
 
 void CGameControler::_InitalizeMenu()
 {
-    m_Menu.SetBackgroudImage(L"Resource\\MenuBackgroud.bmp");
+    m_Menu.SetBackgroudImage("menubackgroud");
 }
 
 void CGameControler::CreateGame()

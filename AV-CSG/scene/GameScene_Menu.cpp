@@ -8,8 +8,9 @@
 
 GameScene_Menu::GameScene_Menu(CMenuBase* pMenu)
     : m_pMenu(pMenu)
+    , m_PictureBackgroud(NULL)
 {
-    m_PictureBackgroud.LoadBitmap(pMenu->GetBackgroudImage().c_str(), SCREEN_WIDTH, SCREEN_HEIGHT);
+    m_PictureBackgroud = CPicturePool::GetInstance()->GetPicture(pMenu->GetBackgroudImage());
     ///> 默认指向菜单第一项
     m_nCurPos   = 0;
 }
@@ -40,7 +41,10 @@ void GameScene_Menu::Update()
 void GameScene_Menu::Output()
 {
     ///> 先画背景（如果需要的话）
-    m_PictureBackgroud.ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    if (m_PictureBackgroud)
+    {
+        m_PictureBackgroud->ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    }
 
     ///> 再画所有菜单项（不超过屏幕（翻页/滚动处理？））
 
@@ -76,7 +80,7 @@ void GameScene_Menu::Click()
     if (CGameStagePlayer::GetInstance().PresentObject())
     {
         SceneEngine_->Push(new GameScene_Play(
-            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+            CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
         
         srand((unsigned)time(0));
         Player_->gamestatus_.ResetGameStatus();

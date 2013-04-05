@@ -6,7 +6,7 @@
 class GameScene_Play : public GameScene
 {
 public:
-    GameScene_Play(const TCHAR* lpszPath);
+    GameScene_Play(const std::string& strPic);
     virtual ~GameScene_Play();
 
     virtual void Update();
@@ -19,7 +19,6 @@ private:
     void ControlGameTiming();
     void TestGameOver();
 
-    CPicture m_Picture;
-    HDC m_BackgourdDC;
+    CPicture* m_Picture;
     int m_nY;
 };

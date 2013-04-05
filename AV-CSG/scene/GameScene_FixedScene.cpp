@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "GameScene_FixedScene.h"
+#include "data\resourcedata\PicturePool.h"
 #include "GameScene_Menu.h"
 
-GameScene_FixedScene::GameScene_FixedScene(const TCHAR* lpszPath)
+GameScene_FixedScene::GameScene_FixedScene(const std::string& strPic)
 {
-    m_Picture.LoadBitmap(lpszPath, SCREEN_WIDTH, SCREEN_HEIGHT);
+    m_Picture = CPicturePool::GetInstance()->GetPicture(strPic);
 }
 
 GameScene_FixedScene::~GameScene_FixedScene()
@@ -12,6 +13,7 @@ GameScene_FixedScene::~GameScene_FixedScene()
 }
 
 GameScene_FixedScene::GameScene_FixedScene()
+    : m_Picture(NULL)
 {
 }
 
@@ -25,5 +27,8 @@ void GameScene_FixedScene::Update()
 
 void GameScene_FixedScene::Output()
 {
-    m_Picture.ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    if (m_Picture)
+    {
+        m_Picture->ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    }
 }

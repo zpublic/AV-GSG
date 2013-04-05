@@ -21,4 +21,15 @@
 	
     <item id="emBlastTypeBullet_skin" path="Resource\BulletBlast.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
     <item id="emBlastTypePlane_skin" path="Resource\PlaneBlast.bmp" r="0" g="0" b="0" width = "0" height = "0"/>
+    <item id="map2" path="Resource\Map2.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+    <item id="map1" path="Resource\Map.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+    <item id="gameover" path="Resource\gameover.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+    <item id="gamewin" path="Resource\AmmoSb.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+    <item id="menubackgroud" path="Resource\MenuBackgroud.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+
+    <item id="ourfighter" path="Resource\\OurFighter.bmp" r="0" g="255" b="0" width = "0" height = "0"/>
+    <item id="life" path="Resource\\Life.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
+    <item id="hpbar" path="Resource\\HPBar.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
+    <item id="hpbarside" path="Resource\\HPBarSide.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
+    <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" width = "0" height = "0"/>                      
 </root>
