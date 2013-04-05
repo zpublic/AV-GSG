@@ -64,28 +64,6 @@ void CGameControler::Exit()
     {
         DeleteObject(g_hMemBitmap);
     }
-<<<<<<< HEAD
-    if (m_hBitmapMap) DeleteObject(m_hBitmapMap);
-    if (m_hMemBitmap) DeleteObject(m_hMemBitmap);
-}
-
-void CGameControler::GameOver()
-{
-    SceneEngine_->PopAll();
-    SceneEngine_->Push(new GameScene_FixedScene(
-        _T("Resource\\gameover.bmp")));
-
-    int nMaxScore = Player_->gamestatus_.GetScore();
-    if(Player_->gamestatus_.SetMaxScore(nMaxScore))
-    {
-        Player_->savedata_.Save();
-    }
-    
-    TCHAR szOut[150] = {0};
-    wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d,    再接再厉", nMaxScore, Player_->gamestatus_.GetMaxScore());
-    ::MessageBox(0, szOut, L"", 0);
-=======
->>>>>>> 3017b4f28ace9898212b0a3bdd12fcea4480d481
 }
 
 void CGameControler::_InitalizeMenu()
