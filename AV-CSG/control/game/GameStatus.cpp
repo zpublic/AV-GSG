@@ -2,7 +2,7 @@
 #include "GameStatus.h"
 
 
-GameStatus CGameStatus::m_emGameStatus = emGameStatusReady;
+GameStatus CGameStatus::m_emGameStatus = emGameStatusNone;
 
 CGameStatus::CGameStatus(void)
 {
@@ -30,6 +30,11 @@ bool CGameStatus::GetGameOvered()
 bool CGameStatus::GetGameReady()
 {
     return m_emGameStatus == emGameStatusReady;
+}
+
+void CGameStatus::SetGameReady()
+{
+    m_emGameStatus = emGameStatusReady;
 }
 
 bool CGameStatus::GetGameRuning()

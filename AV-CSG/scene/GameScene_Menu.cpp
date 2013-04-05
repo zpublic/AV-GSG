@@ -1,9 +1,11 @@
 #include "stdafx.h"
 #include "GameScene_Menu.h"
+#include "control\game\GameStatus.h"
 
 GameScene_Menu::GameScene_Menu(CMenuBase* pMenu)
     : m_pMenu(pMenu)
 {
+    m_PictureBackgroud.LoadBitmap(pMenu->GetBackgroudImage().c_str(), SCREEN_WIDTH, SCREEN_HEIGHT);
     ///> 默认指向菜单第一项
     m_nCurPos   = 0;
 }
@@ -34,6 +36,7 @@ void GameScene_Menu::Update()
 void GameScene_Menu::Output()
 {
     ///> 先画背景（如果需要的话）
+    m_PictureBackgroud.ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 
     ///> 再画所有菜单项（不超过屏幕（翻页/滚动处理？））
 
@@ -62,5 +65,6 @@ void GameScene_Menu::Click()
     {
         m_pMenu->GetMenuItem(m_nCurPos)->OnClick();
     }
+    CGameStatus::SetGameReady();
 }
 
