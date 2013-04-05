@@ -50,7 +50,7 @@ void GameScene_Menu::Output()
     ///> 先画背景（如果需要的话）
     if (m_PictureBackgroud)
     {
-        //m_PictureBackgroud->ImmediateDrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+        m_PictureBackgroud->ImmediateDrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
     }
 
     ///> 再画所有菜单项（不超过屏幕（翻页/滚动处理？））
@@ -66,7 +66,7 @@ void GameScene_Menu::Output()
         {
             ::SetTextColor(g_hMemDC, RGB(100,100,100));
         }
-        ::SetRect(&textRect, 50, 200 + i * 30, 200, 250 + i * 30);
+        ::SetRect(&textRect, 130, 450 + i * 30, 200, 250 + i * 30);
         ::DrawText(g_hMemDC, m_pMenu->GetMenuItem(i).c_str(), -1, &textRect, DT_NOCLIP);
     }
 

@@ -29,11 +29,6 @@ void CPicturePool::FreeImage()
         i->second->FreeBitmap();
     }
     m_mapPic.clear();
-    pPicturePlane->FreeBitmap();
-    pPictureLife->FreeBitmap();
-    pPictureHP->FreeBitmap();
-    pPictureHPSide->FreeBitmap();
-    pPictureNum->FreeBitmap();
 }
 
 void CPicturePool::LoadImage()
@@ -54,12 +49,6 @@ void CPicturePool::LoadImage()
             i->second.width, i->second.height);
         m_mapPic[i->first] = pPic;
     }
-
-    pPicturePlane = CPicturePool::GetInstance()->GetPicture("ourfighter");
-    pPictureLife = CPicturePool::GetInstance()->GetPicture("life");
-    pPictureHP = CPicturePool::GetInstance()->GetPicture("hpbar");
-    pPictureHPSide = CPicturePool::GetInstance()->GetPicture("hpbarside");
-    pPictureNum = CPicturePool::GetInstance()->GetPicture("num");
 }
 
 CPicture* CPicturePool::GetPicture(const std::string& picID) const

@@ -174,25 +174,48 @@ void CSelfPlane::Control(ActionType actionType)
 
 void CSelfPlane::Render(HDC hDC)
 {
-    CPicturePool::GetInstance()->pPicturePlane->DrawBitmap(
-        hDC,
-        m_nPosX, m_nPosY,
-        m_nWidth, m_nHeight,
-        0, 0);
-    for (int i = 0; i < Player_->gamestatus_.GetLife() - 1; ++i)
+    CPicture* pOurfighter =  CPicturePool::GetInstance()->GetPicture("ourfighter");
+    if (pOurfighter)
     {
-        CPicturePool::GetInstance()->pPictureLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
+        pOurfighter->DrawBitmap(
+            hDC,
+            m_nPosX, m_nPosY,
+            m_nWidth, m_nHeight,
+            0, 0);
     }
+
+    CPicture* pLife = CPicturePool::GetInstance()->GetPicture("life");
+    if (pLife)
+    {
+        for (int i = 0; i < Player_->gamestatus_.GetLife() - 1; ++i)
+        {
+            pLife->DrawBitmap(hDC, 25 + i * 18, 10, 18, 24, 0, 0);
+        }
+    }
+
     int nScore = Player_->gamestatus_.GetScore();
+
+    CPicture* pNum = CPicturePool::GetInstance()->GetPicture("num");
     ///> 显示八位得分
-    for (int i = 0; i < 8; ++i)
+    if (pNum)
     {
-        CPicturePool::GetInstance()->pPictureNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
+        for (int i = 0; i < 8; ++i)
+        {
+            pNum->DrawBitmap(hDC, SCREEN_WIDTH - 170 + i * 16, 25, 16, 18, Unit::GetNumX(nScore, i) * 16, 0);
+        }
     }
 
-    CPicturePool::GetInstance()->pPictureHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
+    CPicture* pHPSide = CPicturePool::GetInstance()->GetPicture("hpbarside");
+    if (pHPSide)
+    {
+        pHPSide->DrawBitmap(hDC, 20, 40, 105, 13, 0, 0);
+    }
 
-    CPicturePool::GetInstance()->pPictureHP->DrawBitmap(hDC, 22, 42, (int)(m_nHP * m_fHpDot), 9, 0, 0);
+    CPicture* pHP = CPicturePool::GetInstance()->GetPicture("hpbar");
+    if (pHP)
+    {
+        pHP->DrawBitmap(hDC, 22, 42, (int)(m_nHP * m_fHpDot), 9, 0, 0);
+    }
 }
 
 bool CSelfPlane::CheckCollision(int x, int y, int width, int height, int power)
