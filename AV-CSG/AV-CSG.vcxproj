@@ -58,7 +58,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Import\;..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -76,7 +76,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Import\;..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -93,6 +93,13 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Import\thread_sync\criticalsection.hpp" />
+    <ClInclude Include="..\Import\thread_sync\event.hpp" />
+    <ClInclude Include="..\Import\thread_sync\mutex.hpp" />
+    <ClInclude Include="..\Import\thread_sync\semaphore.hpp" />
+    <ClInclude Include="..\Import\thread_sync\syncobject.hpp" />
+    <ClInclude Include="..\Import\thread_sync\thread_sync.h" />
+    <ClInclude Include="..\Import\thread_sync\thread_sync_def.h" />
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="control\game\GameControler.h" />

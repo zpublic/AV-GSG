@@ -30,9 +30,6 @@
     <Filter Include="Source Files\gameobject\emitter">
       <UniqueIdentifier>{c8f03913-e7a7-4972-8392-978a0dd9241c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\data\tinyxml">
-      <UniqueIdentifier>{f23f0d2f-4807-4d10-a04f-1f56670b27b3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\control\XmlParser">
       <UniqueIdentifier>{4b02a30f-69a6-44d3-a891-884b627c01e8}</UniqueIdentifier>
     </Filter>
@@ -99,6 +96,15 @@
     <Filter Include="Source Files\control\XmlParser\weaponxml">
       <UniqueIdentifier>{20ea0855-51d0-42ea-acf8-68e4979615e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\import">
+      <UniqueIdentifier>{11356e4c-de63-4af2-9601-357000319c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\import\tinyxml">
+      <UniqueIdentifier>{f23f0d2f-4807-4d10-a04f-1f56670b27b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\import\thread_sync">
+      <UniqueIdentifier>{0e0bd0d9-6346-4c6d-b416-6d3358d93757}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -122,7 +128,7 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h">
-      <Filter>Source Files\data\tinyxml</Filter>
+      <Filter>Source Files\import\tinyxml</Filter>
     </ClInclude>
     <ClInclude Include="control\generate\EmitterGenerate.h">
       <Filter>Source Files\control\generate</Filter>
@@ -352,6 +358,27 @@
     <ClInclude Include="unit\crc.hpp">
       <Filter>Source Files\unit</Filter>
     </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\criticalsection.hpp">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\event.hpp">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\mutex.hpp">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\semaphore.hpp">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\syncobject.hpp">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\thread_sync.h">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Import\thread_sync\thread_sync_def.h">
+      <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -361,13 +388,13 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxml.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
+      <Filter>Source Files\import\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlerror.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
+      <Filter>Source Files\import\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="..\Import\tinyxml-2.6.2\tinyxmlparser.cpp">
-      <Filter>Source Files\data\tinyxml</Filter>
+      <Filter>Source Files\import\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="control\generate\EmitterGenerate.cpp">
       <Filter>Source Files\control\generate</Filter>
