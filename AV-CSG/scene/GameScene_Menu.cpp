@@ -60,11 +60,11 @@ void GameScene_Menu::Output()
         ::SetBkMode(g_hMemDC, TRANSPARENT);
         if (i == m_nCurPos)
         {
-            ::SetTextColor(g_hMemDC, RGB(255,255,255));
+            ::SetTextColor(g_hMemDC, RGB(200,200,100));
         }
         else
         {
-            ::SetTextColor(g_hMemDC, RGB(100,100,100));
+            ::SetTextColor(g_hMemDC, RGB(200,200,200));
         }
         ::SetRect(&textRect, 130, 450 + i * 30, 200, 250 + i * 30);
         ::DrawText(g_hMemDC, m_pMenu->GetMenuItem(i).c_str(), -1, &textRect, DT_NOCLIP);
