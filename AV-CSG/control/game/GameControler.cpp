@@ -167,10 +167,14 @@ void CGameControler::UpdateScence()
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
-        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        SceneEngine_->Pop();
-        SceneEngine_->Push(new GameScene_Play(
-            CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        if (CGameStagePlayer::GetInstance().PresentObject())
+        {
+            CEnemyGenerate::ClearEnemy();
+            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+            SceneEngine_->Pop();
+            SceneEngine_->Push(new GameScene_Play(
+                CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+        }
     }
     SceneEngine_->Update();
     SceneEngine_->Output();

@@ -75,7 +75,11 @@ void CGameStagePlayer::Updata(int nEnemyNumber)
 
 const CStageXMLStage* CGameStagePlayer::PresentObject() const
 {
-    return m_pStage;
+    if (m_StageBegin == m_StageEnd)
+    {
+        return NULL;
+    }
+    return m_StageBegin->second;
 }
 
 void CGameStagePlayer::NextStage()
@@ -83,6 +87,11 @@ void CGameStagePlayer::NextStage()
     if (m_StageBegin != m_StageEnd)
     {
         m_StageBegin++;
+        m_lnFrame = 0;
+        m_lnDeadEnemy = 0;
+        m_lnEnemyNumber = 0;
+        m_lnStopwatch = 0;
+        m_emStatus = emGameStagePlayStatusRuning;
     }
 }
 
