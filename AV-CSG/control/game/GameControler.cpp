@@ -1,19 +1,13 @@
 #include "StdAfx.h"
-#include "control/game/GameControler.h"
-#include "gameobject\sprite\Sprite.h"
-#include "gameobject\plane\SelfPlane.h"
-#include "gameobject\bullet\Bullet.h"
-#include "gameobject\plane\EnemyPlane.h"
-#include "gameobject\explosion\Explosion.h"
-#include "GameFrame.h"
-#include "control\generate\EnemyGenerate.h"
-#include "scene\GameScene_Play.h"
-#include "scene\GameScene_FixedScene.h"
-#include "scene\GameScene_Menu.h"
+#include "control\game\GameControler.h"
 #include "control\stage_player\GameStagePlayer.h"
-#include "..\xml_parser\PlaneXMLParser.h"
-#include "..\xml_parser\EmitterXMLParser.h"
-
+#include "control\xml_parser\PlaneXMLParser.h"
+#include "control\xml_parser\EmitterXMLParser.h"
+#include "control\xml_parser\BlastXMLParser.h"
+#include "control\xml_parser\WeaponXMLParser.h"
+#include "control\xml_parser\BulletXMLParser.h"
+#include "scene\GameScene_Menu.h"
+#include "data\resourcedata\PicturePool.h"
 
 HDC         g_hMemDC = NULL;
 HDC         g_hWndDC = NULL;
