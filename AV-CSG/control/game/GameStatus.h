@@ -15,7 +15,6 @@ public:
     static bool GetGameOvered();
 
     static void ClearGameStatus();
-    static bool IsNeedUpdate();
     static void StartGame();
     static void SetGameReady();
     static void SetGameOver();

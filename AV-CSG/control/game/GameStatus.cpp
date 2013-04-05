@@ -52,11 +52,6 @@ void CGameStatus::ClearGameStatus()
     m_emGameStatus = emGameStatusNone;
 }
 
-bool CGameStatus::IsNeedUpdate()
-{
-    return m_emGameStatus != emGameStatusNone;
-}
-
 void CGameStatus::StartGame()
 {
     m_emGameStatus = emGameStatusRuning;

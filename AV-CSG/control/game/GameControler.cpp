@@ -131,11 +131,6 @@ void CGameControler::StartGame()
 
 void CGameControler::UpdateScence()
 {
-    if (!CGameStatus::IsNeedUpdate())
-    {
-        Sleep(100);
-        return;
-    }
     if (CGameStatus::GetGameOver())
     {
         GameOver();
