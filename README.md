@@ -9,7 +9,6 @@ A Very Good Shooting Game
 ---------------
   
 图形可视菜单  
-对话场景  
 存档  
 最高得分  
 
@@ -50,3 +49,4 @@ A Very Good Shooting Game
 火力加强、武器道具  
 武器更换场景  
 boss敌机  
+对话场景  
