@@ -157,14 +157,17 @@ void CSelfPlane::Control(ActionType actionType)
         m_bFire = false;
         break;
     case FIREALL:
-        IEmitter* iEmitter = CEmitterGenerate::Generate(BIGBULLET_EMITTER, true, 0, 0, 0);
-        iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
-        CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
-        for(;temp!=NULL;temp=temp->m_pEmnemyNext)
+        if (m_nWholeFired > 0)
         {
-            temp->CheckCollision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 100);
+            IEmitter* iEmitter = CEmitterGenerate::Generate(BIGBULLET_EMITTER, true, 0, 0, 0);
+            iEmitter->Emit(0, 0, "emBulletTypeAmmoAll1");
+            CEnemyPlane* temp = CEnemyGenerate::spEnemyHead;
+            for(;temp!=NULL;temp=temp->m_pEmnemyNext)
+            {
+                temp->CheckCollision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 100);
+            }
+            m_nWholeFired--;
         }
-        m_nWholeFired--;
         break;
     }
 }
