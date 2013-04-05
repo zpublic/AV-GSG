@@ -44,8 +44,7 @@ void GameScene_Play::Update()
     CirculationMap();
     ControlSelfPlane();
     CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
-    CEnemyGenerate::CreateEnemy(
-        CGameStagePlayer::GetInstance().Stopwatch());
+    CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().Stopwatch());
     FrameUpdate();
 }
 

@@ -82,7 +82,11 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
                 return;
             }
             IEmitter* pEmitter = CEmitterGenerate::GenerateEnemyEmitter(
-                pEmitterXML->GetType(), 0,pBullet->GetSpeed(), pBullet->GetPower(), 0);
+                pEmitterXML->GetType(),
+                false,
+                pBullet->GetSpeed(),
+                pBullet->GetPower(),
+                0);
             if (!pEmitter)
             {
                 return;
