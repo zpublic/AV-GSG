@@ -87,8 +87,11 @@ void CGameControler::GameOver()
         _T("Resource\\gameover.bmp")));
 
     int nMaxScore = Player_->gamestatus_.GetScore();
-    Player_->gamestatus_.SetMaxScore(nMaxScore);
-    Player_->savedata_.Save();
+    if(Player_->gamestatus_.SetMaxScore(nMaxScore))
+    {
+        Player_->savedata_.Save();
+    }
+    
     TCHAR szOut[150] = {0};
     wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d,    再接再厉", nMaxScore, Player_->gamestatus_.GetMaxScore());
     ::MessageBox(0, szOut, L"", 0);
