@@ -15,9 +15,9 @@
 	</enemyplane>
 	
 	<selfplane>
-		<plane hp = "10000" skin = "100" weapon = "yesweapon" type = "" id = "SuperSpeedTransportation" speed = "500" name = "极速运输机">
+		<plane hp = "100" skin = "100" weapon = "yesweapon" type = "" id = "SuperSpeedTransportation" speed = "500" name = "极速运输机">
 		</plane>
-		<plane hp = "10000" skin = "101" weapon = "yesweapon" type = "" id = "Dork" speed = "30" name = "肉机">
+		<plane hp = "100" skin = "101" weapon = "yesweapon" type = "" id = "Dork" speed = "30" name = "肉机">
 		</plane>
 	</selfplane>	
 </gameplane>
