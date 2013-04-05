@@ -46,7 +46,9 @@ void CPictureMap::GetPictureNode(
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_R, picNode.r)
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_G, picNode.g)
         && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_B, picNode.b)
-        && Unit::GetXmlStrAttributeA(pElement, XML_PIC_ELEMENT_ID, strId))
+        && Unit::GetXmlStrAttributeA(pElement, XML_PIC_ELEMENT_ID, strId)
+        && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_HEIGHT, picNode.height)
+        && Unit::GetXmlIntAttribute(pElement, XML_PIC_ELEMENT_WIDTH, picNode.width))
     {
         mapPicture[strId] = picNode;
     }
