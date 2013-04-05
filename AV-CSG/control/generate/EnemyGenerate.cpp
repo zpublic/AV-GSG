@@ -127,6 +127,7 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
 void CEnemyGenerate::ClearEnemy()
 {
     m_EnemyList.clear();
+    m_lnDeadPlane = 0;
     m_spPosEnemyList = m_EnemyList.end();
 }
 

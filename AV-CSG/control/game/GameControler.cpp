@@ -106,6 +106,7 @@ void CGameControler::GameReady()
     m_dwLastTime = GetTickCount();
     srand((unsigned)time(0));
     CScore::Reset();
+    CEnemyGenerate::ClearEnemy();
     CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
     m_pSelfPlane->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
 }
@@ -167,13 +168,25 @@ void CGameControler::UpdateScence()
     if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
     {
         CGameStagePlayer::GetInstance().NextStage();
-        if (CGameStagePlayer::GetInstance().PresentObject())
+        if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusWin)
         {
-            CEnemyGenerate::ClearEnemy();
-            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+            //完成所有关卡 胜利
+            //弹出游戏控制器
             SceneEngine_->Pop();
-            SceneEngine_->Push(new GameScene_Play(
-                CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+            //载入胜利场景
+            SceneEngine_->Push(new GameScene_FixedScene(
+                _T("Resource\\AmmoSb.bmp")));
+        }
+        else
+        {
+            if (CGameStagePlayer::GetInstance().PresentObject())
+            {
+                CEnemyGenerate::ClearEnemy();
+                CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+                SceneEngine_->Pop();
+                SceneEngine_->Push(new GameScene_Play(
+                    CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+            }
         }
     }
     SceneEngine_->Update();
