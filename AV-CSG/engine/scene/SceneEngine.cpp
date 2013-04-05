@@ -57,7 +57,7 @@ void SceneEngine::PopAll()
     m_bStatusChange = true;
 }
 
-void SceneEngine::Update()
+bool SceneEngine::Update()
 {
     if (m_bStatusChange == true)
     {
@@ -85,9 +85,8 @@ void SceneEngine::Update()
 
         if (m_GameStack.empty())
         {
-            //ControlEngine->ExitGame();
             ///> 没有场景了
-            assert(false);
+            return false;
         }
 
         if (!m_GameStack.empty())
@@ -101,6 +100,7 @@ void SceneEngine::Update()
     {
         m_GameStack.back()->Update();
     }
+    return true;
 }
 
 void SceneEngine::Output()

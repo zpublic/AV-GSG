@@ -25,6 +25,7 @@
 #include <math.h>
 #include <map>
 #include <string>
+#include <vector>
 
 #include "tinyxml.h"
 

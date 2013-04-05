@@ -142,9 +142,6 @@
     <ClInclude Include="control\menu\MenuBase.h">
       <Filter>Source Files\control\memu</Filter>
     </ClInclude>
-    <ClInclude Include="control\menu\MenuItem.h">
-      <Filter>Source Files\control\memu</Filter>
-    </ClInclude>
     <ClInclude Include="control\stage_player\GameStagePlayer.h">
       <Filter>Source Files\control\StagePlayer</Filter>
     </ClInclude>
@@ -378,6 +375,9 @@
     </ClInclude>
     <ClInclude Include="..\Import\thread_sync\thread_sync_def.h">
       <Filter>Source Files\import\thread_sync</Filter>
+    </ClInclude>
+    <ClInclude Include="control\menu\Menu_Main.h">
+      <Filter>Source Files\control\memu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

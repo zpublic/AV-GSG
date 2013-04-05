@@ -108,7 +108,7 @@
     <ClInclude Include="control\generate\EnemyGenerate.h" />
     <ClInclude Include="control\generate\Generator.h" />
     <ClInclude Include="control\menu\MenuBase.h" />
-    <ClInclude Include="control\menu\MenuItem.h" />
+    <ClInclude Include="control\menu\Menu_Main.h" />
     <ClInclude Include="control\stage_player\GameStagePlayer.h" />
     <ClInclude Include="control\xml_parser\BlastXMLObject.h" />
     <ClInclude Include="control\xml_parser\BlastXMLParser.h" />

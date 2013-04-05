@@ -78,7 +78,7 @@ void CGameControler::CreateGame()
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
 }
 
-void CGameControler::UpdateScence()
+bool CGameControler::UpdateScence()
 {
     DWORD dwElapsed = ::GetTickCount() - m_dwLastTime;
     if (dwElapsed < MSPERFRAME)
@@ -87,6 +87,8 @@ void CGameControler::UpdateScence()
     }
     m_dwLastTime = ::GetTickCount();
 
-    SceneEngine_->Update();
+    if (!SceneEngine_->Update())
+        return false;
     SceneEngine_->Output();
+    return true;
 }

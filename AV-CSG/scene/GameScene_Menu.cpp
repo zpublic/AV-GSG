@@ -53,39 +53,24 @@ void GameScene_Menu::Output()
 
 void GameScene_Menu::Up()
 {
-    if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize() - 1)
-    {
-        m_nCurPos++;
-    }
-}
-
-void GameScene_Menu::Down()
-{
     if (m_nCurPos > 0)
     {
         m_nCurPos--;
     }
 }
 
-void GameScene_Menu::Click()
+void GameScene_Menu::Down()
 {
     if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize() - 1)
     {
-        m_pMenu->GetMenuItem(m_nCurPos)->OnClick();
+        m_nCurPos++;
     }
-    
-    //初始化关卡
-    CGameStagePlayer::GetInstance().FirstStage();
-    //载入游戏流程场景
-    if (CGameStagePlayer::GetInstance().PresentObject())
+}
+
+void GameScene_Menu::Click()
+{
+    if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize())
     {
-        SceneEngine_->Push(new GameScene_Play(
-            CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
-        
-        srand((unsigned)time(0));
-        Player_->gamestatus_.ResetGameStatus();
-        CEnemyGenerate::ClearEnemy();
-        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+        m_pMenu->OnClick(m_nCurPos);
     }
 }
