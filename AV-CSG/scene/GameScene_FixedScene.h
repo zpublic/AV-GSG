@@ -5,7 +5,7 @@
 class GameScene_FixedScene : public GameScene
 {
 public:
-    GameScene_FixedScene(const TCHAR* lpszPath);
+    GameScene_FixedScene(const std::string& strPic);
     virtual ~GameScene_FixedScene();
 
     virtual void Update();
@@ -13,6 +13,5 @@ public:
 
 private:
     GameScene_FixedScene();
-    HDC m_BackgourdDC;
-    CPicture m_Picture;
+    CPicture* m_Picture;
 };

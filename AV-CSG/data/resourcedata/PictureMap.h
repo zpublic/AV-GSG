@@ -7,10 +7,14 @@ typedef struct _PictureNode
         r = 0;
         g = 0;
         b = 0;
+        width = 0;
+        height = 0;
     }
 
     std::wstring strPath;
     int r,g,b;
+    int width;
+    int height;
 }PictureNode;
 
 ///> м╪ф╛вйт╢xml╪сть

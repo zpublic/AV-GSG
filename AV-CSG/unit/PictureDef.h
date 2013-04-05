@@ -6,6 +6,8 @@
 #define XML_PIC_ELEMENT_G       "g"
 #define XML_PIC_ELEMENT_B       "b"
 #define XML_PIC_ELEMENT_PATH    "path"
+#define XML_PIC_ELEMENT_WIDTH "width"
+#define XML_PIC_ELEMENT_HEIGHT "height"
 
 enum PicID
 {

@@ -63,6 +63,13 @@ void CPicture::LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent)
     TransparentBitmap();
 }
 
+void CPicture::LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent, int nWidth, int nHeight)
+{
+    LoadBitmap(szFileName, nWidth, nHeight);
+    m_TransColor = clTransparent;
+    TransparentBitmap();
+}
+
 void CPicture::DrawBitmap(HDC hdcDest,
                           int nXOriginDest, int nYOriginDest,
                           int nWidthDest, int nHeightDest,
