@@ -11,6 +11,7 @@ public:
 
     virtual void Update();
     virtual void Output();
+    virtual void Reset();
 
 private:
     void Up();

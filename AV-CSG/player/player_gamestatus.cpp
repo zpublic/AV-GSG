@@ -45,7 +45,6 @@ int Player_GameStatus::SubLife( int nSub /*= 1*/ )
     if (m_nLife < 0)
     {
         m_nLife = 0;
-        assert(false);
     }
     return m_nLife;
 }

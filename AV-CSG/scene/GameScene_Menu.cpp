@@ -20,6 +20,13 @@ GameScene_Menu::~GameScene_Menu()
 
 }
 
+void GameScene_Menu::Reset()
+{
+    ///> 清空图像
+    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
 void GameScene_Menu::Update()
 {
     ///> 暂定为从上到下一列菜单

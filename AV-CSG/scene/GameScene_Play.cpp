@@ -53,9 +53,7 @@ void GameScene_Play::Update()
 
 void GameScene_Play::Output()
 {
-    FrameRender(g_hMemDC);
-    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
-    //»æÖÆµØÍ¼
+    ///> Çå¿ÕÍ¼Ïñ
     SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -64,6 +62,9 @@ void GameScene_Play::Output()
         m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, 0, SCREEN_HEIGHT - m_nY);
         m_Picture->DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
     }
+    FrameRender(g_hMemDC);
+
+    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
 void GameScene_Play::ControlSelfPlane()
