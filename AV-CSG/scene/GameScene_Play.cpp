@@ -123,16 +123,13 @@ void GameScene_Play::ControlGameTiming()
             SceneEngine_->Push(new GameScene_FixedScene(
                 _T("Resource\\AmmoSb.bmp")));
         }
-        else
+        else if (CGameStagePlayer::GetInstance().PresentObject())
         {
-            if (CGameStagePlayer::GetInstance().PresentObject())
-            {
-                CEnemyGenerate::ClearEnemy();
-                CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-                SceneEngine_->Pop();
-                SceneEngine_->Push(new GameScene_Play(
-                    CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
-            }
+            CEnemyGenerate::ClearEnemy();
+            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
+            SceneEngine_->Pop();
+            SceneEngine_->Push(new GameScene_Play(
+                CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
         }
     }
 }
