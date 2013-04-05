@@ -56,13 +56,6 @@ void CPicture::LoadBitmap(const TCHAR *szFileName, int nWidth, int nHeight)
     m_nHeight = bmpTemp.bmHeight;
 }
 
-void CPicture::LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent)
-{
-    LoadBitmap(szFileName);
-    m_TransColor = clTransparent;
-    TransparentBitmap();
-}
-
 void CPicture::LoadBitmap(const TCHAR *szFileName, COLORREF clTransparent, int nWidth, int nHeight)
 {
     LoadBitmap(szFileName, nWidth, nHeight);

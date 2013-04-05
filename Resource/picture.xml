@@ -1,35 +1,35 @@
 <root>
-    <item id="emBulletTypeAMMO0_skin" path="Resource\Ammo0.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO1_skin" path="Resource\Ammo1.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO2_skin" path="Resource\Ammo2.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO3_skin" path="Resource\Ammo3.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO4_skin" path="Resource\Ammo4.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO5_skin" path="Resource\Ammo5.bmp" r="0" g="0" b="0" width = "0" height = "0"/>
-    <item id="emBulletTypeAMMO6_skin" path="Resource\Ammo6.bmp" r="0" g="0" b="0" width = "0" height = "0"/>
-    <item id="emBulletTypeAmmoAll1_skin" path="Resource\WholeFried.bmp" r="0" g="248" b="0" width = "0" height = "0"/>	
-    <item id="emBulletTypeAmmoSB_skin" path="Resource\AmmoSb.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="emBulletTypeAmmoSB2_skin" path="Resource\AmmoSb2.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
+    <item id="emBulletTypeAMMO0_skin" path="Resource\Ammo0.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO1_skin" path="Resource\Ammo1.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO2_skin" path="Resource\Ammo2.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO3_skin" path="Resource\Ammo3.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO4_skin" path="Resource\Ammo4.bmp" r="255" g="0" b="255" />
+    <item id="emBulletTypeAMMO5_skin" path="Resource\Ammo5.bmp" r="0" g="0" b="0" />
+    <item id="emBulletTypeAMMO6_skin" path="Resource\Ammo6.bmp" r="0" g="0" b="0" />
+    <item id="emBulletTypeAmmoAll1_skin" path="Resource\WholeFried.bmp" r="0" g="248" b="0" />	
+    <item id="emBulletTypeAmmoSB_skin" path="Resource\AmmoSb.bmp" r="255" g="255" b="255" />
+    <item id="emBulletTypeAmmoSB2_skin" path="Resource\AmmoSb2.bmp" r="255" g="255" b="255" />
 
-    <item id="Enemy0" path="Resource\Enemy0.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="Enemy1" path="Resource\Enemy1.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="Enemy2" path="Resource\Enemy2.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="Enemy3" path="Resource\Enemy3.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="Enemy4" path="Resource\Enemy4.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-    <item id="Enemy5" path="Resource\Enemy5.bmp" r="255" g="255" b="255" width = "0" height = "0"/>
-	<item id="SelfPlane0" path="Resource\OurFighter.bmp" r="0" g="248" b="0" width = "0" height = "0"/>
-	<item id="SelfPlane1" path="Resource\Life.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
+    <item id="Enemy0" path="Resource\Enemy0.bmp" r="255" g="255" b="255" />
+    <item id="Enemy1" path="Resource\Enemy1.bmp" r="255" g="255" b="255" />
+    <item id="Enemy2" path="Resource\Enemy2.bmp" r="255" g="255" b="255" />
+    <item id="Enemy3" path="Resource\Enemy3.bmp" r="255" g="255" b="255" />
+    <item id="Enemy4" path="Resource\Enemy4.bmp" r="255" g="255" b="255" />
+    <item id="Enemy5" path="Resource\Enemy5.bmp" r="255" g="255" b="255" />
+	<item id="SelfPlane0" path="Resource\OurFighter.bmp" r="0" g="248" b="0" />
+	<item id="SelfPlane1" path="Resource\Life.bmp" r="255" g="0" b="255" />
 	
-    <item id="emBlastTypeBullet_skin" path="Resource\BulletBlast.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="emBlastTypePlane_skin" path="Resource\PlaneBlast.bmp" r="0" g="0" b="0" width = "0" height = "0"/>
-    <item id="map2" path="Resource\Map2.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
-    <item id="map1" path="Resource\Map.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
-    <item id="gameover" path="Resource\gameover.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
-    <item id="gamewin" path="Resource\AmmoSb.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
-    <item id="menubackgroud" path="Resource\MenuBackgroud.bmp" r="0" g="0" b="0" width = "500" height = "650"/>
+    <item id="emBlastTypeBullet_skin" path="Resource\BulletBlast.bmp" r="255" g="0" b="255" />
+    <item id="emBlastTypePlane_skin" path="Resource\PlaneBlast.bmp" r="0" g="0" b="0" />
+    <item id="map2" path="Resource\Map2.bmp" r="0" g="0" b="0" width="500" height="650"/>
+    <item id="map1" path="Resource\Map.bmp" r="0" g="0" b="0" width="500" height="650"/>
+    <item id="gameover" path="Resource\gameover.bmp" r="0" g="0" b="0" width="500" height="650"/>
+    <item id="gamewin" path="Resource\AmmoSb.bmp" r="0" g="0" b="0" width="500" height="650"/>
+    <item id="menubackgroud" path="Resource\MenuBackgroud.bmp" r="0" g="0" b="0" width="500" height="650"/>
 
-    <item id="ourfighter" path="Resource\\OurFighter.bmp" r="0" g="255" b="0" width = "0" height = "0"/>
-    <item id="life" path="Resource\\Life.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="hpbar" path="Resource\\HPBar.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="hpbarside" path="Resource\\HPBarSide.bmp" r="255" g="0" b="255" width = "0" height = "0"/>
-    <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" width = "0" height = "0"/>                      
+    <item id="ourfighter" path="Resource\\OurFighter.bmp" r="0" g="255" b="0" />
+    <item id="life" path="Resource\\Life.bmp" r="255" g="0" b="255" />
+    <item id="hpbar" path="Resource\\HPBar.bmp" r="255" g="0" b="255" />
+    <item id="hpbarside" path="Resource\\HPBarSide.bmp" r="255" g="0" b="255" />
+    <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" />                      
 </root>
