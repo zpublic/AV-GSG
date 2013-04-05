@@ -16,7 +16,7 @@ public:
     void Pop();
     void PopAll();
 
-    void Update();
+    bool Update();
     void Output();
 
 private:

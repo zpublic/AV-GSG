@@ -1,6 +1,6 @@
 #pragma once
 
-#include "control\menu\MenuBase.h"
+#include "control\menu\Menu_Main.h"
 
 ///> 游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵
 class CGameControler
@@ -10,7 +10,7 @@ public:
     ~CGameControler();
 
     //更新游戏场景
-    void UpdateScence();
+    bool UpdateScence();
 
     void SetWndDC(HDC hDC);
     void SetStageXML(const std::string& strPath);
@@ -28,6 +28,6 @@ private:
     void _InitalizeMenu();
 
     DWORD       m_dwLastTime;     //上次绘图时间
-    CMenuBase   m_Menu;           //菜单
+    CMenu_Main  m_Menu;           //菜单
 };
 

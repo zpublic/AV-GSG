@@ -20,6 +20,13 @@ GameScene_Menu::~GameScene_Menu()
 
 }
 
+void GameScene_Menu::Reset()
+{
+    ///> 清空图像
+    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
 void GameScene_Menu::Update()
 {
     ///> 暂定为从上到下一列菜单
@@ -43,23 +50,31 @@ void GameScene_Menu::Output()
     ///> 先画背景（如果需要的话）
     if (m_PictureBackgroud)
     {
-        m_PictureBackgroud->ImmediateDrawBitmap(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+        //m_PictureBackgroud->ImmediateDrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
     }
 
     ///> 再画所有菜单项（不超过屏幕（翻页/滚动处理？））
+    for (auto i = 0; i < m_pMenu->GetMenuSize(); ++i)
+    {
+        RECT textRect;
+        ::SetBkMode(g_hMemDC, TRANSPARENT);
+        if (i == m_nCurPos)
+        {
+            ::SetTextColor(g_hMemDC, RGB(255,255,255));
+        }
+        else
+        {
+            ::SetTextColor(g_hMemDC, RGB(100,100,100));
+        }
+        ::SetRect(&textRect, 50, 200 + i * 30, 200, 250 + i * 30);
+        ::DrawText(g_hMemDC, m_pMenu->GetMenuItem(i).c_str(), -1, &textRect, DT_NOCLIP);
+    }
 
-    ///> 最后加亮当前光标所在菜单项
+    ///> 最后将内存图像画到设备上
+    ::BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
 void GameScene_Menu::Up()
-{
-    if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize() - 1)
-    {
-        m_nCurPos++;
-    }
-}
-
-void GameScene_Menu::Down()
 {
     if (m_nCurPos > 0)
     {
@@ -67,25 +82,18 @@ void GameScene_Menu::Down()
     }
 }
 
-void GameScene_Menu::Click()
+void GameScene_Menu::Down()
 {
     if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize() - 1)
     {
-        m_pMenu->GetMenuItem(m_nCurPos)->OnClick();
+        m_nCurPos++;
     }
-    
-    //初始化关卡
-    CGameStagePlayer::GetInstance().FirstStage();
-    //载入游戏流程场景
-    if (CGameStagePlayer::GetInstance().PresentObject())
+}
+
+void GameScene_Menu::Click()
+{
+    if (m_pMenu && m_nCurPos < m_pMenu->GetMenuSize())
     {
-        SceneEngine_->Push(new GameScene_Play(
-            CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
-        
-        srand((unsigned)time(0));
-        Player_->gamestatus_.ResetGameStatus();
-        CEnemyGenerate::ClearEnemy();
-        CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-        CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
+        m_pMenu->OnClick(m_nCurPos);
     }
 }
