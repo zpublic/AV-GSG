@@ -83,7 +83,9 @@ void CGameControler::Exit()
 
 void CGameControler::GameOver()
 {
+    //弹出游戏流程场景
     SceneEngine_->Pop();
+    //载入游戏结束画面
     SceneEngine_->Push(new GameScene_FixedScene(
         _T("Resource\\gameover.bmp")));
     TCHAR szOut[100] = {0};
@@ -98,6 +100,7 @@ void CGameControler::_InitalizeMenu()
 
 void CGameControler::GameReady()
 {
+    //载入游戏流程场景
     SceneEngine_->Push(new GameScene_Play(
         CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
     m_dwLastTime = GetTickCount();
@@ -121,6 +124,7 @@ void CGameControler::SetWndDC(HDC hDC)
 void CGameControler::StartGame()
 {
     _InitalizeMenu();
+    //载入游戏菜单
     SceneEngine_->Push(new GameScene_Menu(&m_Menu));
     CGameStatus::ReadyingGame();
 }
