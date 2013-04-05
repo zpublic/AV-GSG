@@ -24,9 +24,6 @@
     <Filter Include="Source Files\gameobject\plane">
       <UniqueIdentifier>{90df73ab-0952-47ab-a46c-80cd785e42ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\data\gamedata">
-      <UniqueIdentifier>{0e69066d-42cf-4bc4-bcea-f0fc366f3376}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\data\resourcedata">
       <UniqueIdentifier>{87ff5c45-98a9-4ae8-ac48-84722d5827b0}</UniqueIdentifier>
     </Filter>
@@ -183,9 +180,6 @@
     </ClInclude>
     <ClInclude Include="control\xml_parser\PlaneXMLParser.h">
       <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClInclude>
-    <ClInclude Include="data\gamedata\Score.h">
-      <Filter>Source Files\data\gamedata</Filter>
     </ClInclude>
     <ClInclude Include="data\resourcedata\Picture.h">
       <Filter>Source Files\data\resourcedata</Filter>
@@ -425,9 +419,6 @@
     </ClCompile>
     <ClCompile Include="control\xml_parser\PlaneXMLParser.cpp">
       <Filter>Source Files\control\XmlParser\planexml</Filter>
-    </ClCompile>
-    <ClCompile Include="data\gamedata\Score.cpp">
-      <Filter>Source Files\data\gamedata</Filter>
     </ClCompile>
     <ClCompile Include="data\resourcedata\Picture.cpp">
       <Filter>Source Files\data\resourcedata</Filter>

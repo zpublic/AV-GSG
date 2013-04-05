@@ -13,7 +13,7 @@ Player_GameStatus::~Player_GameStatus()
 {
 }
 
-int Player_GameStatus::GetMaxScore()			
+int Player_GameStatus::GetMaxScore()
 {
     return m_nMaxScore;
 }
