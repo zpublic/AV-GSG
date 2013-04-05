@@ -15,7 +15,8 @@ public:
 private:
     GameScene_Play();
     void ControlSelfPlane();
-    void _CirculationMap();
+    void CirculationMap();
+    void ControlGameTiming();
     CPicture m_Picture;
     HDC m_BackgourdDC;
     int m_nY;

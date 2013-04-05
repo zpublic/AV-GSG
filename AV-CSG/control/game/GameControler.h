@@ -8,8 +8,6 @@
 #include "control/stage_player/GameStagePlayer.h"
 #include "control\menu\MenuBase.h"
 
-class CSelfPlane;
-
 ///> 游戏控制器类，主导整个游戏的运行过程，提供信息以便更新各精灵
 class CGameControler
 {
@@ -43,12 +41,6 @@ private:
     HDC     m_hMapDC; 
     int     m_nY;               //记录地图被截取的宽度
 
-    int     m_nPreKey;
-    int     m_nCurKey;
-
-    int     m_PresentStage;
-
     CMenuBase m_Menu;           //菜单
-    CSelfPlane *m_pSelfPlane;
 };
 
