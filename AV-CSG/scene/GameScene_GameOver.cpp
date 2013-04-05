@@ -2,17 +2,13 @@
 #include "GameScene_GameOver.h"
 #include "data\resourcedata\PicturePool.h"
 
-GameScene_GameOver::GameScene_GameOver(const std::string& strPic)
+GameScene_GameOver::GameScene_GameOver()
+    : m_Picture(NULL)
 {
-    m_Picture = CPicturePool::GetInstance()->GetPicture(strPic);
+    m_Picture = CPicturePool::GetInstance()->GetPicture("gameover");
 }
 
 GameScene_GameOver::~GameScene_GameOver()
-{
-}
-
-GameScene_GameOver::GameScene_GameOver()
-    : m_Picture(NULL)
 {
 }
 
@@ -42,7 +38,7 @@ void GameScene_GameOver::Output()
     //绘制排名
     TCHAR szOut[150] = {0};
     RECT textRect;
-    wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d",
+    wsprintf(szOut, L"本场最终得分: %d\n玩家最高得分: %d",
     Player_->gamestatus_.GetScore(), Player_->gamestatus_.GetMaxScore());
 
     ::SetBkMode(g_hMemDC, TRANSPARENT);

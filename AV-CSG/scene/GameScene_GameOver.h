@@ -6,7 +6,7 @@
 class GameScene_GameOver : public GameScene
 {
 public:
-    GameScene_GameOver(const std::string& strPic);
+    GameScene_GameOver();
     virtual ~GameScene_GameOver();
 
     virtual void Update();
@@ -14,6 +14,5 @@ public:
     virtual void Reset();
 
 private:
-    GameScene_GameOver();
     CPicture* m_Picture;
 };

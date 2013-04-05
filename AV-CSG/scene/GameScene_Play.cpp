@@ -153,6 +153,6 @@ void GameScene_Play::TestGameOver()
             Player_->savedata_.Save();
         }
         //载入游戏结束场景
-        SceneEngine_->Push(new GameScene_GameOver("gameover"));
+        SceneEngine_->Push(new GameScene_GameOver);
     }
 }
