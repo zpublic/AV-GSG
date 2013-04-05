@@ -29,6 +29,7 @@ void GameScene_AuthorList::Output()
 {
     wchar_t* pAuthorList[] =
     {
+        L"开发者：",
         L"zapline",
         L"Sum",
         L"叶子",
