@@ -17,15 +17,21 @@ public:
         bool bFriend,
         int nPower,
         int nSpeed,
-        float fAngle);
+        PlaneIEmitterType type);
 
     static IEmitter* GenerateEnemyEmitter(
         EmitterType strType,
         bool bFriend,
         int nPower,
-        int nSpeed,
-        float fAngle);
+        int nSpeed);
 
-    static IEmitter* SelectSelfEmitter( int nLevel);
+    static IEmitter* SelectSelfEmitter(
+        EmitterType strType,
+        bool bFriend,
+        int nPower,
+        int nSpeed);
+
+private:
+    static bool _IsEnemy(PlaneIEmitterType type);
 };
 

@@ -1,18 +1,13 @@
 #include "stdafx.h"
 #include "player_gamestatus.h"
 
-
-
 Player_GameStatus::Player_GameStatus()
     : m_nMaxScore(0)
     , m_nLife(Default_Life)
     , m_HP(0)
     , m_nScroe(0)
 {
-    for(int i = 0; i < 10; ++i)
-    {
-        m_nScoreList.push_front(0);
-    }
+    memset(&m_ScoreList, 0, sizeof(m_ScoreList));
 }
 
 Player_GameStatus::~Player_GameStatus()
@@ -31,90 +26,6 @@ bool Player_GameStatus::SetMaxScore(int nMaxScore)
         return false;
     }
     m_nMaxScore = nMaxScore;
-    return true;
-}
-
-
-bool Player_GameStatus::PopScore(int& nScore)
-{
-    if(m_nScoreList.empty())
-    {
-        return false;
-    }
-
-    nScore = m_nScoreList.front();
-    m_nScoreList.pop_front();
-    return true;
-}
-
-bool Player_GameStatus::PushScore(int nScore)
-{
-    if(nScore < 0)
-    {
-        return false;
-    }
-
-    int nBackVal = m_nScoreList.back();
-    if(nScore <= nBackVal && m_nScoreList.size() == 10)
-    {
-        return false;
-    }
-
-
-    auto it = m_nScoreList.begin();
-    while(it != m_nScoreList.end())
-    {
-        if(nScore > *it)
-        {
-            m_nScoreList.insert(it, nScore);
-            break;
-        }
-        ++it;
-        continue;
-    }
-
-    int nListSize = m_nScoreList.size();
-    while(--nListSize >= 10)
-    {
-        m_nScoreList.pop_back();
-    }
-}
-
-void Player_GameStatus::SetScoreStack(int nScoreStack[])
-{
-    auto it = m_nScoreList.begin();
-    while(it != m_nScoreList.end())
-    {
-        if(*nScoreStack <= 0)
-        {
-            break;
-        }
-        m_nScoreList.insert(it, *nScoreStack++);
-    }
-
-    int nListSize = m_nScoreList.size();
-    while(--nListSize >= 10)
-    {
-        m_nScoreList.pop_back();
-    }
-
-}
-
-bool Player_GameStatus::GetScoreStack(int nScoreStack[])
-{
-    if(m_nScoreList.empty())
-    {
-        return false;
-    }
-
-    ///> 从最高的分数依次传递给nScoreStack数组
-    for(auto it = m_nScoreList.begin();
-        it != m_nScoreList.end();
-        ++it)
-    {
-        *nScoreStack++ = *it;
-    }
-
     return true;
 }
 
@@ -192,4 +103,40 @@ void Player_GameStatus::ResetGameStatus()
 {
     m_nLife = Default_Life;
     m_nScroe = 0;
+}
+
+void Player_GameStatus::GetScoreList( ScoreList& list )
+{
+    memcpy(&list, &m_ScoreList, sizeof(m_ScoreList));
+}
+
+void Player_GameStatus::SetScoreList( const ScoreList& list )
+{
+    memcpy(&m_ScoreList, &list, sizeof(m_ScoreList));
+}
+
+bool Player_GameStatus::SetScore2List( int nScore )
+{
+    ///> 规定得分榜数字为增序
+    ///> 从前往后找，得到比输入得分小的数字的个数
+    int i = 0;
+    for (; i < 10; ++i)
+    {
+        if (m_ScoreList.nScore[i] > nScore)
+        {
+            break;
+        }
+    }
+    if (i > 0)
+    {
+        ///> 将比输入得分小的数字往左移，最左的丢弃
+        for (int j = 1; j < i; ++j)
+        {
+            m_ScoreList.nScore[j - 1] = m_ScoreList.nScore[j];
+        }
+        ///> 最后插入输入分数
+        m_ScoreList.nScore[i - 1] = nScore;
+        return true;
+    }
+    return false;
 }

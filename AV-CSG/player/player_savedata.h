@@ -2,17 +2,19 @@
 #include "unit\crc.hpp"
 
 ///> 当前游戏存档版本
-const DWORD CurSaveDataVer = 1;
+const DWORD CurSaveDataVer = 2;
 
 typedef struct _SAVE_DATA_CONTENT
 {
     ///> 单局最高得分
     int nMaxScore;
-    ///> 存储前10最高得分
-    int nScoreStack[10];
+    ///> 前十排行榜
+    ScoreList scroeList;
+
     _SAVE_DATA_CONTENT()
     {
         nMaxScore = 0;
+        memset(&scroeList, 0, sizeof(scroeList));
     }
 }SAVE_DATA_CONTENT;
 

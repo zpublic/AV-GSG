@@ -4,8 +4,8 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
-#include "GameScene_FixedScene.h"
 #include "GameScene_GameOver.h"
+#include "GameScene_GameWin.h"
 
 GameScene_Play::GameScene_Play(const std::string& strPic)
     : m_Picture(NULL)
@@ -124,10 +124,13 @@ void GameScene_Play::ControlGameTiming()
         if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusWin)
         {
             //完成所有关卡 胜利
+
+            UpdateScore();
+
             //弹出游戏控制器
             SceneEngine_->Pop();
             //载入胜利场景
-            SceneEngine_->Push(new GameScene_FixedScene("gamewin"));
+            SceneEngine_->Push(new GameScene_GameWin);
         }
         else if (CGameStagePlayer::GetInstance().PresentObject())
         {
@@ -144,20 +147,21 @@ void GameScene_Play::TestGameOver()
 {
     if (Player_->gamestatus_.GetLife() == 0)
     {
+        UpdateScore();
+
         //弹出游戏流程场景
         SceneEngine_->Pop();
-        
-        int nFinalScore = Player_->gamestatus_.GetScore();
-
-        if(Player_->gamestatus_.SetMaxScore(nFinalScore) |
-            Player_->gamestatus_.PushScore(nFinalScore))
-        {
-            Player_->savedata_.Save();
-        }
-
-
         //载入游戏结束场景
         SceneEngine_->Push(new GameScene_GameOver);
+    }
+}
 
+void GameScene_Play::UpdateScore()
+{
+    int nMaxScore = Player_->gamestatus_.GetScore();
+    Player_->gamestatus_.SetMaxScore(nMaxScore);
+    if(Player_->gamestatus_.SetScore2List(nMaxScore))
+    {
+        Player_->savedata_.Save();
     }
 }

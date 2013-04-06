@@ -334,9 +334,6 @@
     <ClInclude Include="player\player_skill.h">
       <Filter>Source Files\player</Filter>
     </ClInclude>
-    <ClInclude Include="scene\GameScene_FixedScene.h">
-      <Filter>Source Files\scene</Filter>
-    </ClInclude>
     <ClInclude Include="control\xml_parser\EmitterXMLObject.h">
       <Filter>Source Files\control\XmlParser\emitterxml</Filter>
     </ClInclude>
@@ -383,6 +380,9 @@
       <Filter>Source Files\scene</Filter>
     </ClInclude>
     <ClInclude Include="scene\GameScene_GameOver.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameScene_GameWin.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
     <ClInclude Include="scene\GameScene_ScoreList.h">
@@ -579,9 +579,6 @@
     <ClCompile Include="player\player_skill.cpp">
       <Filter>Source Files\player</Filter>
     </ClCompile>
-    <ClCompile Include="scene\GameScene_FixedScene.cpp">
-      <Filter>Source Files\scene</Filter>
-    </ClCompile>
     <ClCompile Include="control\xml_parser\EmitterXMLObject.cpp">
       <Filter>Source Files\control\XmlParser\emitterxml</Filter>
     </ClCompile>
@@ -601,6 +598,9 @@
       <Filter>Source Files\scene</Filter>
     </ClCompile>
     <ClCompile Include="scene\GameScene_GameOver.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GameScene_GameWin.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
     <ClCompile Include="scene\GameScene_ScoreList.cpp">
