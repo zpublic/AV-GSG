@@ -4,7 +4,6 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
-#include "GameScene_FixedScene.h"
 #include "GameScene_GameOver.h"
 #include "GameScene_GameWin.h"
 
