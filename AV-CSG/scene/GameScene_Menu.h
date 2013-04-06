@@ -11,6 +11,7 @@ public:
 
     virtual void Update();
     virtual void Output();
+    virtual void Reset();
 
 private:
     void Up();
@@ -21,5 +22,5 @@ private:
     ///> 当前光标位置
     int             m_nCurPos;
     CMenuBase*      m_pMenu;
-    CPicture m_PictureBackgroud;
+    CPicture* m_PictureBackgroud;
 };

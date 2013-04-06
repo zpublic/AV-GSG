@@ -87,7 +87,7 @@ void CEnemyGenerate::CreateEnemy(long lnTime)
                 false,
                 pBullet->GetSpeed(),
                 pBullet->GetPower(),
-                0);
+                1.50);
             if (!pEmitter)
             {
                 return;

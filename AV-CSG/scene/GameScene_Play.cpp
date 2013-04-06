@@ -5,13 +5,17 @@
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
 #include "GameScene_FixedScene.h"
+#include "GameScene_GameOver.h"
 
-GameScene_Play::GameScene_Play(const TCHAR* lpszPath)
-    : m_BackgourdDC(0)
+GameScene_Play::GameScene_Play(const std::string& strPic)
+    : m_Picture(NULL)
     , m_nY(0)
 {
-    m_Picture.LoadBitmap(lpszPath, SCREEN_WIDTH, SCREEN_HEIGHT);
-    m_Picture.DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    m_Picture = CPicturePool::GetInstance()->GetPicture(strPic);
+    if (m_Picture)
+    {
+        m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+    }
 }
 
 GameScene_Play::GameScene_Play()
@@ -50,14 +54,18 @@ void GameScene_Play::Update()
 
 void GameScene_Play::Output()
 {
-    FrameRender(g_hMemDC);
-    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
-    //绘制地图
+    ///> 清空图像
     SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    m_Picture.DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, 0, SCREEN_HEIGHT - m_nY);
-    m_Picture.DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
+    if (m_Picture)
+    {
+        m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, m_nY, 0, SCREEN_HEIGHT - m_nY);
+        m_Picture->DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
+    }
+    FrameRender(g_hMemDC);
+
+    BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
 void GameScene_Play::ControlSelfPlane()
@@ -119,8 +127,7 @@ void GameScene_Play::ControlGameTiming()
             //弹出游戏控制器
             SceneEngine_->Pop();
             //载入胜利场景
-            SceneEngine_->Push(new GameScene_FixedScene(
-                _T("Resource\\AmmoSb.bmp")));
+            SceneEngine_->Push(new GameScene_FixedScene("gamewin"));
         }
         else if (CGameStagePlayer::GetInstance().PresentObject())
         {
@@ -128,7 +135,7 @@ void GameScene_Play::ControlGameTiming()
             CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
             SceneEngine_->Pop();
             SceneEngine_->Push(new GameScene_Play(
-                CA2W(CGameStagePlayer::GetInstance().PresentObject()->GetMap().c_str())));
+                CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
         }
     }
 }
@@ -139,9 +146,6 @@ void GameScene_Play::TestGameOver()
     {
         //弹出游戏流程场景
         SceneEngine_->Pop();
-        //载入游戏结束画面
-        SceneEngine_->Push(new GameScene_FixedScene(
-            _T("Resource\\gameover.bmp")));
         
         int nFinalScore = Player_->gamestatus_.GetScore();
 
@@ -150,25 +154,10 @@ void GameScene_Play::TestGameOver()
         {
             Player_->savedata_.Save();
         }
-    
-        int nScore[10] = {0};
-        if(!Player_->gamestatus_.GetScoreStack(nScore))
-        {
-            return;
-        }
 
-        TCHAR szOut[300] = {0};
-        TCHAR szCat[30] = {0};
-        wsprintf(
-            szOut, L"本场最终得分：%d\n玩家最高得分: %d\n\n", 
-            nFinalScore, Player_->gamestatus_.GetMaxScore());
 
-        for(int i = 0; i < 10; ++i)
-        {
-            wsprintf(szCat, L"第%d名\t分数: %d\n", i + 1, nScore[i]);
-            wcscat(szOut, szCat);
-        }
-        ::MessageBox(0, szOut, L"", 0);
+        //载入游戏结束场景
+        SceneEngine_->Push(new GameScene_GameOver);
 
     }
 }

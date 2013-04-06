@@ -8,6 +8,5 @@ public:
     virtual ~GameScene_Parse();
 
     virtual void Update();
-    virtual void Output();
 
 };

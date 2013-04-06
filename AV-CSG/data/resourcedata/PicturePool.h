@@ -20,12 +20,5 @@ private:
     ~CPicturePool(void);
 
     void LoadImage();
-
-public:
-    CPicture*            pPicturePlane;      //·É»úÍ¼Æ¬
-    CPicture*            pPictureLife;       //ÉúÃüÍ¼Æ¬
-    CPicture*            pPictureHP;
-    CPicture*            pPictureHPSide;
-    CPicture*            pPictureNum;
 };
 

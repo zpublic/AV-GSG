@@ -25,6 +25,7 @@
 #include <math.h>
 #include <map>
 #include <string>
+#include <vector>
 
 #include "tinyxml.h"
 
@@ -53,3 +54,6 @@ extern Player* Player_;
 #include "al.h"
 #include "alc.h"
 #include "vorbis/vorbisfile.h"
+
+///> 线程同步模块
+#include "thread_sync/thread_sync.h"

@@ -1,17 +1,18 @@
 #pragma once
 #include "GameScene.h"
 #include "data\resourcedata\Picture.h"
+#include <string>
 
-class GameScene_FixedScene : public GameScene
+class GameScene_GameOver : public GameScene
 {
 public:
-    GameScene_FixedScene(const std::string& strPic);
-    virtual ~GameScene_FixedScene();
+    GameScene_GameOver();
+    virtual ~GameScene_GameOver();
 
     virtual void Update();
     virtual void Output();
+    virtual void Reset();
 
 private:
-    GameScene_FixedScene();
     CPicture* m_Picture;
 };

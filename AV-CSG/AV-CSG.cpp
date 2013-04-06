@@ -115,7 +115,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        g_pGameControl->UpdateScence();
+        if (!g_pGameControl->UpdateScence())
+            break;
     }
 
     g_pGameControl->Exit();

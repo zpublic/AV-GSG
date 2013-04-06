@@ -29,11 +29,6 @@ void CPicturePool::FreeImage()
         i->second->FreeBitmap();
     }
     m_mapPic.clear();
-    pPicturePlane->FreeBitmap();
-    pPictureLife->FreeBitmap();
-    pPictureHP->FreeBitmap();
-    pPictureHPSide->FreeBitmap();
-    pPictureNum->FreeBitmap();
 }
 
 void CPicturePool::LoadImage()
@@ -50,20 +45,10 @@ void CPicturePool::LoadImage()
         CPicture* pPic = new CPicture();
         pPic->LoadBitmap(
             i->second.strPath.c_str(),
-            RGB(i->second.r, i->second.g, i->second.b));
+            RGB(i->second.r, i->second.g, i->second.b),
+            i->second.width, i->second.height);
         m_mapPic[i->first] = pPic;
     }
-
-    pPicturePlane = new CPicture();
-    pPictureLife = new CPicture();
-    pPictureHP = new CPicture();
-    pPictureHPSide = new CPicture();
-    pPictureNum = new CPicture();
-    pPicturePlane->LoadBitmap(_T("Resource\\OurFighter.bmp"), RGB(0, 255, 0));
-    pPictureLife->LoadBitmap(_T("Resource\\Life.bmp"), RGB(255, 0, 255));
-    pPictureHP->LoadBitmap(_T("Resource\\HPBar.bmp"), RGB(255, 0, 255));
-    pPictureHPSide->LoadBitmap(_T("Resource\\HPBarSide.bmp"), RGB(255, 0, 255));
-    pPictureNum->LoadBitmap(_T("Resource\\Num.bmp"), RGB(0, 0, 0));
 }
 
 CPicture* CPicturePool::GetPicture(const std::string& picID) const

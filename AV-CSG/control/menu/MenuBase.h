@@ -1,50 +1,53 @@
 #pragma once
-#include "MenuItem.h"
-#include <vector>
 
 class CMenuBase
 {
 public:
-    CMenuBase() : m_vecMenuItem()
+    CMenuBase()
     {
     }
 
-    ~CMenuBase()
+    virtual ~CMenuBase()
     {
+    }
+
+    virtual void OnClick(int iPos)
+    {
+        ;
     }
 
     int GetMenuSize()
     {
-        return m_vecMenuItem.size();
+        return m_vecMenuText.size();
     }
 
-    int AddMenuItem(CMenuItem* pMenuItem)
+    int AddMenuItem(const std::wstring& MenuItem)
     {
-        m_vecMenuItem.push_back(pMenuItem);
-        return m_vecMenuItem.size();
+        m_vecMenuText.push_back(MenuItem);
+        return m_vecMenuText.size();
     }
 
     int DelMenuItem(int iPos)
     {
-        m_vecMenuItem.erase(m_vecMenuItem.begin() + iPos);
+        m_vecMenuText.erase(m_vecMenuText.begin() + iPos);
     }
 
-    CMenuItem* GetMenuItem(int iPos)
+    std::wstring& GetMenuItem(int iPos)
     {
-        return m_vecMenuItem[iPos];
+        return m_vecMenuText[iPos];
     }
 
-    void SetBackgroudImage(const std::wstring& strBackgroud)
+    void SetBackgroudImage(const std::string& strBackgroud)
     {
         m_strBackgroud = strBackgroud;
     }
 
-    const std::wstring& GetBackgroudImage()
+    const std::string& GetBackgroudImage()
     {
         return m_strBackgroud;
     }
 
 protected:
-    std::vector<CMenuItem*> m_vecMenuItem;
-    std::wstring m_strBackgroud;
+    std::vector<std::wstring> m_vecMenuText;
+    std::string m_strBackgroud;
 };

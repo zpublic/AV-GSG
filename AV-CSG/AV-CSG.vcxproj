@@ -29,7 +29,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v110_xp</PlatformToolset>
     <UseOfAtl>Static</UseOfAtl>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -58,7 +58,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Import\;..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -76,8 +76,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Import\;..\Import\tinyxml-2.6.2;..\Import\openal-soft-1.13\include;..\Import\libvorbis-1.3.3\include;..\Import\libogg-1.3.0\include\;$(ProjectDir)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4099</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -86,6 +87,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>..\Import\libogg-1.3.0\lib\;..\Import\libvorbis-1.3.3\lib\;..\Import\openal-soft-1.13\libs\Win32\</AdditionalLibraryDirectories>
       <AdditionalDependencies>libogg_static.lib;OpenAL32.lib;libvorbis_static.lib;libvorbisfile_static.lib;gdi32.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -93,6 +95,13 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Import\thread_sync\criticalsection.hpp" />
+    <ClInclude Include="..\Import\thread_sync\event.hpp" />
+    <ClInclude Include="..\Import\thread_sync\mutex.hpp" />
+    <ClInclude Include="..\Import\thread_sync\semaphore.hpp" />
+    <ClInclude Include="..\Import\thread_sync\syncobject.hpp" />
+    <ClInclude Include="..\Import\thread_sync\thread_sync.h" />
+    <ClInclude Include="..\Import\thread_sync\thread_sync_def.h" />
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="control\game\GameControler.h" />
@@ -101,7 +110,7 @@
     <ClInclude Include="control\generate\EnemyGenerate.h" />
     <ClInclude Include="control\generate\Generator.h" />
     <ClInclude Include="control\menu\MenuBase.h" />
-    <ClInclude Include="control\menu\MenuItem.h" />
+    <ClInclude Include="control\menu\Menu_Main.h" />
     <ClInclude Include="control\stage_player\GameStagePlayer.h" />
     <ClInclude Include="control\xml_parser\BlastXMLObject.h" />
     <ClInclude Include="control\xml_parser\BlastXMLParser.h" />
@@ -162,11 +171,14 @@
     <ClInclude Include="player\player_savedata.h" />
     <ClInclude Include="player\player_skill.h" />
     <ClInclude Include="scene\GameScene.h" />
+    <ClInclude Include="scene\GameScene_AuthorList.h" />
     <ClInclude Include="scene\GameScene_FixedScene.h" />
+    <ClInclude Include="scene\GameScene_GameOver.h" />
     <ClInclude Include="scene\GameScene_Menu.h" />
     <ClInclude Include="scene\GameScene_Pause.h" />
     <ClInclude Include="scene\GameScene_Play.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="scene\GameScene_ScoreList.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="unit\crc.hpp" />
@@ -248,10 +260,13 @@
     <ClCompile Include="player\player_property.cpp" />
     <ClCompile Include="player\player_savedata.cpp" />
     <ClCompile Include="player\player_skill.cpp" />
+    <ClCompile Include="scene\GameScene_AuthorList.cpp" />
     <ClCompile Include="scene\GameScene_FixedScene.cpp" />
+    <ClCompile Include="scene\GameScene_GameOver.cpp" />
     <ClCompile Include="scene\GameScene_Menu.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
     <ClCompile Include="scene\GameScene_Play.cpp" />
+    <ClCompile Include="scene\GameScene_ScoreList.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
