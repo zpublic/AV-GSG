@@ -1,9 +1,8 @@
 #pragma once
 #include "control/xml_parser/PlaneXMLObject.h"
 #include "control/xml_parser/WeaponXMLParser.h"
+#include "control\generate\EmitterGenerate.h"
 #include "IPlane.h"
-
-typedef std::string WeaponType;
 
 ///> 主控飞机类
 class CSelfPlane : public PlaneBase
@@ -18,7 +17,11 @@ public:
     virtual void Render(HDC hDC);
     virtual void Update();
 
-    void SetWeapon(WeaponType strWeaponType);
+    void SetWeapon(
+        EmitterType strType,
+        bool bFriend,
+        int nPower,
+        int nSpeed);
 
     void Control(ActionType actionType);
 
@@ -28,7 +31,7 @@ private:
 
 private:
     static CSelfPlane*          pCSelfPlane;
-    WeaponType                  m_WeaponType;
+    std::string                 m_WeaponType;
     int                         m_FirstHP;
     float                       m_fBulletFrequency;
     float                       m_fInvincibletime;  //无敌时间(单位秒)

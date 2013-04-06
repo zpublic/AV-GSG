@@ -1,4 +1,8 @@
 <gameweapon>
 	<weapon id = "goodweapon" bullettype = "emBulletTypeAMMO0" emitter = "aim"  name = "" type = ""/>
-	<weapon id = "yesweapon" bullettype = "emBulletTypeAMMO1" emitter = "aim"  name = "" type = ""/>
+	<weapon id = "yesweapon" bullettype = "emBulletTypeAMMO2" emitter = "curve"  name = "" type = ""/>
+	<weapon id = "line8God" bullettype = "emBulletTypeAMMO3" emitter = "line8"  name = "" type = ""/>
+	<weapon id = "line3God" bullettype = "emBulletTypeAMMO4" emitter = "line3"  name = "" type = ""/>
+	<weapon id = "lineGod" bullettype = "emBulletTypeAMMO4" emitter = "line"  name = "" type = ""/>	
+	<weapon id = "trackGod" bullettype = "emBulletTypeAMMO1" emitter = "track"  name = "" type = ""/>			
 </gameweapon>
