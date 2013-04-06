@@ -18,6 +18,7 @@ bool Player_SaveData::Save()
 {
     SAVE_DATA data;
     data.content.nMaxScore = Player_->gamestatus_.GetMaxScore();
+    Player_->gamestatus_.GetScoreList(data.content.scroeList);
     data.header.Calc(data.content);
     return SaveFile(data);
 }
@@ -28,6 +29,7 @@ bool Player_SaveData::Load()
     if (LoadFile(data))
     {
         Player_->gamestatus_.SetMaxScore(data.content.nMaxScore);
+        Player_->gamestatus_.SetScoreList(data.content.scroeList);
         return true;
     }
     return false;

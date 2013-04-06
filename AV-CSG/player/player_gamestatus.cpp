@@ -7,6 +7,7 @@ Player_GameStatus::Player_GameStatus()
     , m_HP(0)
     , m_nScroe(0)
 {
+    memset(&m_ScoreList, 0, sizeof(m_ScoreList));
 }
 
 Player_GameStatus::~Player_GameStatus()
@@ -102,4 +103,40 @@ void Player_GameStatus::ResetGameStatus()
 {
     m_nLife = Default_Life;
     m_nScroe = 0;
+}
+
+void Player_GameStatus::GetScoreList( ScoreList& list )
+{
+    memcpy(&list, &m_ScoreList, sizeof(m_ScoreList));
+}
+
+void Player_GameStatus::SetScoreList( const ScoreList& list )
+{
+    memcpy(&m_ScoreList, &list, sizeof(m_ScoreList));
+}
+
+bool Player_GameStatus::SetScore2List( int nScore )
+{
+    ///> 规定得分榜数字为增序
+    ///> 从前往后找，得到比输入得分小的数字的个数
+    int i = 0;
+    for (; i < 10; ++i)
+    {
+        if (m_ScoreList.nScore[i] > nScore)
+        {
+            break;
+        }
+    }
+    if (i > 0)
+    {
+        ///> 将比输入得分小的数字往左移，最左的丢弃
+        for (int j = 1; j < i; ++j)
+        {
+            m_ScoreList.nScore[j - 1] = m_ScoreList.nScore[j];
+        }
+        ///> 最后插入输入分数
+        m_ScoreList.nScore[i - 1] = nScore;
+        return true;
+    }
+    return false;
 }

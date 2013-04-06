@@ -2,6 +2,11 @@
 
 #define Default_Life    2
 
+typedef struct _ScoreList
+{
+    int nScore[10];
+}ScoreList;
+
 class Player_GameStatus
 {
 public:
@@ -11,7 +16,7 @@ public:
 public:
     ///> 单局最高得分
     int GetMaxScore();
-    bool SetMaxScore(int nMaxScore);
+    bool SetMaxScore(int nScore);
 
     ///> 剩余生命
     int GetLife();
@@ -29,6 +34,11 @@ public:
     int AddScore(int nAdd);
     int SubScore(int nSub);
 
+    ///> 前十排行榜
+    bool SetScore2List(int nScore);
+    void GetScoreList(ScoreList& list);
+    void SetScoreList(const ScoreList& list);
+
     ///> 重置游戏状态
     void ResetGameStatus();
 
@@ -41,4 +51,6 @@ private:
     int m_HP;
     ///> 剩余生命条数
     int m_nLife;
+    ///> 前十排行榜
+    ScoreList m_ScoreList;
 };
