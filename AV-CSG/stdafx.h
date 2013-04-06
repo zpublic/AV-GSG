@@ -20,6 +20,7 @@
 
 #include <atlbase.h>
 #include <atlconv.h>
+#include <atlstr.h>
 
 #include <time.h>
 #include <math.h>

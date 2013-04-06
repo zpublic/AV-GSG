@@ -5,16 +5,18 @@
 #include "control\stage_player\GameStagePlayer.h"
 #include "control\generate\EnemyGenerate.h"
 #include "scene\GameScene_Play.h"
-#include "..\..\scene\GameScene_AuthorList.h"
+#include "scene\GameScene_AuthorList.h"
+#include "scene\GameScene_ScoreList.h"
 
 class CMenu_Main : public CMenuBase
 {
 public:
     CMenu_Main()
     {
-        AddMenuItem(L"Begin");
-        AddMenuItem(L"神秘");
-        AddMenuItem(L"Exit");
+        AddMenuItem(L"开始游戏");
+        AddMenuItem(L"得分榜");
+        AddMenuItem(L"神秘房间");
+        AddMenuItem(L"退出游戏");
     }
 
     virtual ~CMenu_Main()
@@ -29,9 +31,12 @@ public:
             ClickBegin();
             break;
         case 1:
-            SceneEngine_->Push(new GameScene_AuthorList);
+            SceneEngine_->Push(new GameScene_ScoreList);
             break;
         case 2:
+            SceneEngine_->Push(new GameScene_AuthorList);
+            break;
+        case 3:
             ClickExit();
             break;
         default:
