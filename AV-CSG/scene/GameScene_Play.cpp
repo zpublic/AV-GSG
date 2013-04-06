@@ -4,8 +4,8 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
-#include "GameScene_FixedScene.h"
 #include "GameScene_GameOver.h"
+#include "GameScene_GameWin.h"
 
 GameScene_Play::GameScene_Play(const std::string& strPic)
     : m_Picture(NULL)
@@ -127,7 +127,7 @@ void GameScene_Play::ControlGameTiming()
             //弹出游戏控制器
             SceneEngine_->Pop();
             //载入胜利场景
-            SceneEngine_->Push(new GameScene_FixedScene("gamewin"));
+            SceneEngine_->Push(new GameScene_GameWin);
         }
         else if (CGameStagePlayer::GetInstance().PresentObject())
         {
