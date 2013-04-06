@@ -25,7 +25,7 @@ CGameControler::~CGameControler()
 void CGameControler::SetStageXML(const std::string& strPath)
 {
     CStageXMLParse::GetInstance().LoadXML(strPath);
-    CGameStagePlayer::GetInstance().Stage(&CStageXMLParse::GetInstance());
+    CGameStagePlayer::GetInstance().LoadStageXML(&CStageXMLParse::GetInstance());
 }
 
 void CGameControler::SetPlaneXML(const std::string& strPath)
