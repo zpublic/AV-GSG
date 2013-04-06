@@ -18,7 +18,7 @@ private:
     void CirculationMap();
     void ControlGameTiming();
     void TestGameOver();
-
+    void UpdateScore();
     CPicture* m_Picture;
     int m_nY;
 };
