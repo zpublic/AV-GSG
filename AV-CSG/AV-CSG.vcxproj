@@ -178,6 +178,7 @@
     <ClInclude Include="scene\GameScene_Pause.h" />
     <ClInclude Include="scene\GameScene_Play.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="scene\GameScene_ScoreList.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="unit\crc.hpp" />
@@ -265,6 +266,7 @@
     <ClCompile Include="scene\GameScene_Menu.cpp" />
     <ClCompile Include="scene\GameScene_Pause.cpp" />
     <ClCompile Include="scene\GameScene_Play.cpp" />
+    <ClCompile Include="scene\GameScene_ScoreList.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
