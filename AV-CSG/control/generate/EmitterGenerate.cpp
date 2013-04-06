@@ -17,24 +17,50 @@ CEmitterGenerate::~CEmitterGenerate(void)
 {
 }
 
+bool CEmitterGenerate::_IsEnemy(PlaneIEmitterType type)
+{
+    switch (type)
+    {
+    case IEMITTER_ENEMY:
+        return true;
+    case IEMITTER_SELF:
+        return false;
+    }
+    return true;
+}
+
 IEmitter* CEmitterGenerate::Generate(
     EmitterType strType,
     bool bFriend,
     int nPower,
     int nSpeed,
-    float fAngle )
+    PlaneIEmitterType type)
 {
     IEmitter* pIEmitter = NULL;
     if (LINE_EMITTER == strType)
     {
         CLineEmitter* pEmitter = new CLineEmitter();
-        pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
+        if (_IsEnemy(type))
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, 1.5);
+        }
+        else
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, float(PI * 3 / 2.0));
+        }
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
     else if (LINE3_EMITTER == strType)
     {
         CLine3Emitter* pEmitter = new CLine3Emitter();
-        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        if (_IsEnemy(type))
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, float(0.3));
+        }
+        else
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, 1);
+        }
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
 
@@ -47,7 +73,7 @@ IEmitter* CEmitterGenerate::Generate(
     else if (CURVE_EMITTER == strType)
     {
         CCurveEmitter* pEmitter = new CCurveEmitter();
-        pEmitter->SetParam(bFriend, nPower, nSpeed, fAngle);
+        pEmitter->SetParam(bFriend, nPower, nSpeed, PI / 2.0);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
     else if (BIGBULLET_EMITTER == strType)
@@ -60,18 +86,21 @@ IEmitter* CEmitterGenerate::Generate(
         CSpinEmitter* pEmitter = new CSpinEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
+        pIEmitter->SetFireTimeMax(0.1f);
     }
     else if (AIM_EMITTER == strType)
     {
         CAimEmitter* pEmitter = new CAimEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
+        pIEmitter->SetFireTimeMax(0.3f);
     }
     else if (TRACK_EMITTER == strType)
     {
         CTrackEmitter* pEmitter = new CTrackEmitter();
         pEmitter->SetParam(bFriend, nPower, nSpeed);
         pIEmitter = static_cast<IEmitter *>(pEmitter);
+        pIEmitter->SetFireTimeMax(2.0f);
     }
 
     return pIEmitter;
@@ -81,42 +110,16 @@ IEmitter* CEmitterGenerate::GenerateEnemyEmitter(
     EmitterType strType,
     bool bFriend,
     int nPower,
-    int nSpeed,
-    float fAngle)
+    int nSpeed)
 {
-    return Generate(strType, bFriend, nPower, nSpeed, fAngle);
+    return Generate(strType, bFriend, nPower, nSpeed, IEMITTER_ENEMY);
 }
 
-IEmitter* CEmitterGenerate::SelectSelfEmitter( int nLevel )
+IEmitter* CEmitterGenerate::SelectSelfEmitter(
+    EmitterType strType,
+    bool bFriend,
+    int nPower,
+    int nSpeed)
 {
-    IEmitter* piEmitter = NULL;
-    switch (nLevel)
-    {
-    case 1:
-        piEmitter = CEmitterGenerate::Generate(
-            LINE_EMITTER, true,
-            3, 200, float(PI * 3 / 2.0));
-        break;
-    case 2:
-        piEmitter = CEmitterGenerate::Generate(
-            LINE3_EMITTER, true,
-            3, 200, 0);
-        break;
-    case 3:
-        piEmitter = CEmitterGenerate::Generate(
-            LINE3_EMITTER, true,
-            3, 200, 0);
-        break;
-    case 4:
-        piEmitter = CEmitterGenerate::Generate(
-            LINE3_EMITTER, true,
-            10, 800, 0);
-        break;
-    default:
-        piEmitter = CEmitterGenerate::Generate(
-            LINE_EMITTER, true,
-            3, 200, float(PI * 3 / 2.0));
-        break;
-    }
-    return piEmitter;
+    return CEmitterGenerate::Generate(strType, bFriend,nPower, nSpeed, IEMITTER_SELF);
 }

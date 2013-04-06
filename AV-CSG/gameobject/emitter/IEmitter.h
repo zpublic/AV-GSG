@@ -10,6 +10,12 @@
 #define CURVE_EMITTER "curveemitter"
 #define BIGBULLET_EMITTER "bigbulletemitter"
 
+enum PlaneIEmitterType
+{
+    IEMITTER_ENEMY,
+    IEMITTER_SELF,
+};
+
 ///> ×Óµ¯·¢ÉäÆ÷
 class IEmitter
 {

@@ -13,10 +13,12 @@ public:
     void SetParam(
         bool bFriend,
         int nPower,
-        int nSpeed);
+        int nSpeed,
+        float fAngle);
 
 private:
     bool m_bFriend;
     int m_nPower;
     int m_nSpeed;
+    float m_fAngle;
 };
