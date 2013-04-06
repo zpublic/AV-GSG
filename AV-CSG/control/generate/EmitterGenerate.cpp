@@ -42,7 +42,7 @@ IEmitter* CEmitterGenerate::Generate(
         CLineEmitter* pEmitter = new CLineEmitter();
         if (_IsEnemy(type))
         {
-            pEmitter->SetParam(bFriend, nPower, nSpeed, PI / 2.0);
+            pEmitter->SetParam(bFriend, nPower, nSpeed, 1.5);
         }
         else
         {
@@ -53,7 +53,14 @@ IEmitter* CEmitterGenerate::Generate(
     else if (LINE3_EMITTER == strType)
     {
         CLine3Emitter* pEmitter = new CLine3Emitter();
-        pEmitter->SetParam(bFriend, nPower, nSpeed);
+        if (_IsEnemy(type))
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, float(0.3));
+        }
+        else
+        {
+            pEmitter->SetParam(bFriend, nPower, nSpeed, 1);
+        }
         pIEmitter = static_cast<IEmitter *>(pEmitter);
     }
 
