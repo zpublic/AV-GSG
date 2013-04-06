@@ -18,6 +18,13 @@ bool Player_SaveData::Save()
 {
     SAVE_DATA data;
     data.content.nMaxScore = Player_->gamestatus_.GetMaxScore();
+
+    // nScoreStack低位存储高分数, 高位存储的低分数
+    if(!Player_->gamestatus_.GetScoreStack(data.content.nScoreStack))
+    {
+        return false;
+    }
+
     data.header.Calc(data.content);
     return SaveFile(data);
 }
@@ -28,6 +35,7 @@ bool Player_SaveData::Load()
     if (LoadFile(data))
     {
         Player_->gamestatus_.SetMaxScore(data.content.nMaxScore);
+        Player_->gamestatus_.SetScoreStack(data.content.nScoreStack);
         return true;
     }
     return false;

@@ -8,7 +8,8 @@ typedef struct _SAVE_DATA_CONTENT
 {
     ///> 单局最高得分
     int nMaxScore;
-
+    ///> 存储前10最高得分
+    int nScoreStack[10];
     _SAVE_DATA_CONTENT()
     {
         nMaxScore = 0;

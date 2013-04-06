@@ -143,15 +143,31 @@ void GameScene_Play::TestGameOver()
         SceneEngine_->Push(new GameScene_FixedScene(
             _T("Resource\\gameover.bmp")));
         
-        int nMaxScore = Player_->gamestatus_.GetScore();
-        if(Player_->gamestatus_.SetMaxScore(nMaxScore))
+        int nFinalScore = Player_->gamestatus_.GetScore();
+
+        if(Player_->gamestatus_.SetMaxScore(nFinalScore) |
+            Player_->gamestatus_.PushScore(nFinalScore))
         {
             Player_->savedata_.Save();
         }
     
-        TCHAR szOut[150] = {0};
-        wsprintf(szOut, L"本场最终得分：%d\n玩家最高得分: %d", 
-            nMaxScore, Player_->gamestatus_.GetMaxScore());
+        int nScore[10] = {0};
+        if(!Player_->gamestatus_.GetScoreStack(nScore))
+        {
+            return;
+        }
+
+        TCHAR szOut[300] = {0};
+        TCHAR szCat[30] = {0};
+        wsprintf(
+            szOut, L"本场最终得分：%d\n玩家最高得分: %d\n\n", 
+            nFinalScore, Player_->gamestatus_.GetMaxScore());
+
+        for(int i = 0; i < 10; ++i)
+        {
+            wsprintf(szCat, L"第%d名\t分数: %d\n", i + 1, nScore[i]);
+            wcscat(szOut, szCat);
+        }
         ::MessageBox(0, szOut, L"", 0);
 
     }
