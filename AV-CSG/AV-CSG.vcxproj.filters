@@ -385,6 +385,9 @@
     <ClInclude Include="scene\GameScene_GameOver.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="scene\GameScene_GameWin.h">
+      <Filter>Source Files\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -598,6 +601,9 @@
       <Filter>Source Files\scene</Filter>
     </ClCompile>
     <ClCompile Include="scene\GameScene_GameOver.cpp">
+      <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GameScene_GameWin.cpp">
       <Filter>Source Files\scene</Filter>
     </ClCompile>
   </ItemGroup>
