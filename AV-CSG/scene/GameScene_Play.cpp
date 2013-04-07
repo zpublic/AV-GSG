@@ -65,6 +65,7 @@ void GameScene_Play::Update()
         CEnemyGenerate::CreateEnemy(m_lnSecond);
     }
     m_nDeadPlane = CEnemyGenerate::EnemyNumber();
+    CSelfPlane::GetInstance()->Update();
     FrameUpdate();
 }
 
@@ -80,7 +81,7 @@ void GameScene_Play::Output()
         m_Picture->DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
     }
     FrameRender(g_hMemDC);
-
+    CSelfPlane::GetInstance()->Render(g_hMemDC);
     BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
