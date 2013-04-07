@@ -7,19 +7,29 @@
 #include "GameScene_GameOver.h"
 #include "GameScene_GameWin.h"
 
-GameScene_Play::GameScene_Play(const std::string& strPic)
+GameScene_Play::GameScene_Play()
     : m_Picture(NULL)
     , m_nY(0)
+    , m_nPresentStage(0)
+    , m_nDeadPlane(0)
+    , m_nEnemyPlane(0)
+    , m_lnFrame(0)
+    , m_lnSecond(0)
+    , m_pStage(NULL)
 {
-    m_Picture = CPicturePool::GetInstance()->GetPicture(strPic);
+    m_nPresentStage = CGameStagePlayer::GetInstance().FirstStageId();
+    m_pStage = CGameStagePlayer::GetInstance().GetStage(m_nPresentStage);
+    if (m_pStage)
+    {
+        m_Picture = CPicturePool::GetInstance()->GetPicture(
+            CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
+        m_nEnemyPlane = m_pStage->GetEnemyNumber();
+        CEnemyGenerate::IniEnemy(m_pStage);
+    }
     if (m_Picture)
     {
         m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
     }
-}
-
-GameScene_Play::GameScene_Play()
-{
 }
 
 GameScene_Play::~GameScene_Play()
@@ -47,8 +57,15 @@ void GameScene_Play::Update()
 
     CirculationMap();
     ControlSelfPlane();
-    CGameStagePlayer::GetInstance().Updata(CEnemyGenerate::EnemyNumber());
-    CEnemyGenerate::CreateEnemy(CGameStagePlayer::GetInstance().Stopwatch());
+    m_lnFrame++;
+    if (m_lnFrame == FastenFrameNum_Play)
+    {
+        m_lnSecond++;
+        m_lnFrame = 0;
+        CEnemyGenerate::CreateEnemy(m_lnSecond);
+    }
+    m_nDeadPlane = CEnemyGenerate::EnemyNumber();
+    CSelfPlane::GetInstance()->Update();
     FrameUpdate();
 }
 
@@ -64,7 +81,7 @@ void GameScene_Play::Output()
         m_Picture->DrawBitmap(g_hMemDC, 0, m_nY, SCREEN_WIDTH, SCREEN_HEIGHT - m_nY, 0, 0);
     }
     FrameRender(g_hMemDC);
-
+    CSelfPlane::GetInstance()->Render(g_hMemDC);
     BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
 
@@ -118,28 +135,32 @@ void GameScene_Play::ControlSelfPlane()
 
 void GameScene_Play::ControlGameTiming()
 {
-    if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusNone)
+    if (m_nEnemyPlane == m_nDeadPlane)
     {
-        CGameStagePlayer::GetInstance().NextStage();
-        if (CGameStagePlayer::GetInstance().PresentStatus() == emGameStagePlayStatusWin)
+        m_nPresentStage++;
+        //读取下一个关卡资源
+        m_pStage = CGameStagePlayer::GetInstance().GetStage(m_nPresentStage);
+        if (m_pStage)
         {
-            //完成所有关卡 胜利
-
-            UpdateScore();
-
-            //弹出游戏控制器
-            SceneEngine_->Pop();
-            //载入胜利场景
-            SceneEngine_->Push(new GameScene_GameWin);
+            m_Picture = CPicturePool::GetInstance()->GetPicture(
+                CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
+            CEnemyGenerate::IniEnemy(m_pStage);
+            m_nEnemyPlane = m_pStage->GetEnemyNumber();
+            m_nDeadPlane = 0;
+            m_lnFrame = 0;
+            m_lnSecond = 0;
         }
-        else if (CGameStagePlayer::GetInstance().PresentObject())
-        {
-            CEnemyGenerate::ClearEnemy();
-            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-            SceneEngine_->Pop();
-            SceneEngine_->Push(new GameScene_Play(
-                CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
-        }
+    }
+    if (m_nPresentStage > CGameStagePlayer::GetInstance().StageCount())
+    {
+        //完成所有关卡 胜利
+
+        UpdateScore();
+
+        //弹出游戏控制器
+        SceneEngine_->Pop();
+        //载入胜利场景
+        SceneEngine_->Push(new GameScene_GameWin);
     }
 }
 

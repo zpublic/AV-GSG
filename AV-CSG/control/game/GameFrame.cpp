@@ -33,3 +33,14 @@ void FrameUpdate()
         }
     }
 }
+
+void ClearFrame()
+{
+    ISprite *pTemp = g_pHead;
+    for ( ; pTemp != NULL; )
+    {
+        ISprite *pNext = pTemp->pNext;
+        delete pTemp;
+        pTemp = pNext;
+    }
+}

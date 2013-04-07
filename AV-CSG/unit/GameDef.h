@@ -51,14 +51,6 @@ enum GameStagePlayType
     emGameStagePlayEnemyBoss,
 };
 
-//¿ØÖÆÆ÷×´Ì¬
-enum GameStagePlayStatus
-{
-    emGameStagePlayStatusNone,
-    emGameStagePlayStatusRuning,
-    emGameStagePlayStatusWin,
-};
-
 // Í¼Æ¬ÀàÐÍ
 enum PictureType
 {

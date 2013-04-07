@@ -7,6 +7,7 @@
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_AuthorList.h"
 #include "scene\GameScene_ScoreList.h"
+#include "control\game\GameFrame.h"
 
 class CMenu_Main : public CMenuBase
 {
@@ -47,20 +48,13 @@ public:
 private:
     void ClickBegin()
     {
-        //初始化关卡
-        CGameStagePlayer::GetInstance().FirstStage();
+        //清理精灵链表
+        ClearFrame();
         //载入游戏流程场景
-        if (CGameStagePlayer::GetInstance().PresentObject())
-        {
-            SceneEngine_->Push(new GameScene_Play(
-                CGameStagePlayer::GetInstance().PresentObject()->GetMap()));
-
-            srand((unsigned)time(0));
-            Player_->gamestatus_.ResetGameStatus();
-            CEnemyGenerate::ClearEnemy();
-            CEnemyGenerate::IniEnemy(CGameStagePlayer::GetInstance().PresentObject());
-            CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
-        }
+        SceneEngine_->Push(new GameScene_Play);
+        srand((unsigned)time(0));
+        Player_->gamestatus_.ResetGameStatus();
+        CSelfPlane::GetInstance()->InitGame(CPlaneXMLParse::GetInstance().GetSelfPlane("SuperSpeedTransportation"));
     }
 
     void ClickExit()

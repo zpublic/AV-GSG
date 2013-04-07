@@ -18,7 +18,7 @@ CSelfPlane * CSelfPlane::GetInstance()
 }
 
 CSelfPlane::CSelfPlane(int x, int y)
-    : PlaneBase(x, y)
+    : SelfPlaneBase(x, y)
     , m_FirstHP(0)
 {
 }
