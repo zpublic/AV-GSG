@@ -7,6 +7,7 @@
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_AuthorList.h"
 #include "scene\GameScene_ScoreList.h"
+#include "control\game\GameFrame.h"
 
 class CMenu_Main : public CMenuBase
 {
@@ -47,6 +48,8 @@ public:
 private:
     void ClickBegin()
     {
+        //清理精灵链表
+        ClearFrame();
         //载入游戏流程场景
         SceneEngine_->Push(new GameScene_Play);
         srand((unsigned)time(0));
