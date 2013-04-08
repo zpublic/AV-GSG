@@ -1,16 +1,11 @@
 #include "StdAfx.h"
 #include "Sprite.h"
 
-extern ISprite * g_pHead;
-
-CSprite::CSprite(int x, int y):
+CSpriteBase::CSpriteBase(int x, int y):
     m_nPosX(x),
     m_nPosY(y),
     m_bIsVisible(true)
 {
-    this->pNext = g_pHead;
-    g_pHead = static_cast<ISprite *>(this);
-
     m_nFrameStartX      = 0;
     m_nCurrentFrame     = 0;
     m_nWidth            = 0;
@@ -18,7 +13,7 @@ CSprite::CSprite(int x, int y):
     m_nFrameCount       = 0;
 }
 
-CSprite::~CSprite(void)
+CSpriteBase::~CSpriteBase(void)
 {
     //精灵从画面上删除时，需要更新链表
     //当删除的精灵是表头精灵时
@@ -39,7 +34,7 @@ CSprite::~CSprite(void)
     }
 }
 
-bool CSprite::IsVisible()
+bool CSpriteBase::IsVisible()
 {
     if(false == m_bIsVisible)
     {
