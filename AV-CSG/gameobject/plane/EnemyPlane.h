@@ -2,7 +2,7 @@
 #include "IPlane.h"
 
 ///> µĞ»úÀà
-class CEnemyPlane : public PlaneBase
+class CEnemyPlane : public EnemyPlaneBase
 {
 public:
     CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX = -1);

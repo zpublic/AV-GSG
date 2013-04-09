@@ -28,6 +28,16 @@ void CStageXMLParse::_Close()
     }
 }
 
+int CStageXMLParse::Size() const
+{
+    return m_mapStage.size();
+}
+
+bool CStageXMLParse::Empty() const
+{
+    return m_mapStage.empty();
+}
+
 bool CStageXMLParse::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;

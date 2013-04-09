@@ -118,6 +118,7 @@ bool CEnemyGenerate::IniEnemy(const CStageXMLStage* pStage)
     {
         return false;
     }
+    ClearEnemy();
     for (auto ItEnemy = pStage->EnemyBegin();
         ItEnemy != pStage->EnemyEnd(); ItEnemy++)
     {

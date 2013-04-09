@@ -19,6 +19,9 @@ public:
     const MapStageList::const_iterator Begin() const;
     const MapStageList::const_iterator End() const;
 
+    int Size() const;
+    bool Empty() const;
+
 private:
     void _Close();
     bool _Parse(TiXmlDocument& TinyXML);

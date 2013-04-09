@@ -2,12 +2,14 @@
 #include "ISprite.h"
 #include "data\resourcedata\PicturePool.h"
 
-class CSprite : public ISprite
+extern ISprite * g_pHead;
+
+class CSpriteBase : public ISprite
 {
 public:
     //精灵位置
-    CSprite(int x = 0, int y = 0);
-    virtual ~CSprite(void);
+    CSpriteBase(int x = 0, int y = 0);
+    virtual ~CSpriteBase(void);
 
 public:
     //判断精灵是否可见
@@ -32,3 +34,20 @@ protected:
     bool    m_bIsVisible;
 };
 
+class CNoneSprit : public CSpriteBase
+{
+public:
+    CNoneSprit(int x = 0, int y = 0) : CSpriteBase(x,y) {}
+    virtual ~CNoneSprit() {}
+};
+
+class CSprite : public CSpriteBase
+{
+public:
+    CSprite(int x = 0, int y = 0) : CSpriteBase(x,y)
+    {
+        this->pNext = g_pHead;
+        g_pHead = static_cast<ISprite *>(this);
+    }
+    virtual ~CSprite() {}
+};

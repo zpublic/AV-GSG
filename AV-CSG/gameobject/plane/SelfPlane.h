@@ -5,7 +5,7 @@
 #include "IPlane.h"
 
 ///> Ö÷¿Ø·É»úÀà
-class CSelfPlane : public PlaneBase
+class CSelfPlane : public SelfPlaneBase
 {
 public:
     static CSelfPlane * GetInstance();

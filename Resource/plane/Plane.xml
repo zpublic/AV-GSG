@@ -1,16 +1,16 @@
 <gameplane>
 	<enemyplane>
-		<plane hp = "150" skin = "Enemy1" weapon = "goodweapon" type = "" id = "BloodCattle" speed = "300" name = "血牛战斗机">
+		<plane hp = "150" skin = "Enemy1" weapon = "line3God" type = "" id = "BloodCattle" speed = "300" name = "血牛战斗机">
 		</plane>
-		<plane hp = "20" skin = "Enemy0" weapon = "line3God" type = "" id = "Sword" speed = "200" name = "唆影剑机">
+		<plane hp = "20" skin = "Enemy0" weapon = "line8God" type = "" id = "Sword" speed = "200" name = "唆影剑机">
 		</plane>
 		<plane hp = "5" skin = "Enemy2" weapon = "line8God" type = "" id = "Assassin" speed = "300" name = "魅影刺客">
 		</plane>
-		<plane hp = "1" skin = "Enemy3" weapon = "trackGod" type = "" id = "GrandCannon" speed = "100" name = "黑龙巨炮">
+		<plane hp = "1" skin = "Enemy3" weapon = "goodweapon" type = "" id = "GrandCannon" speed = "100" name = "黑龙巨炮">
 		</plane>
-		<plane hp = "580" skin = "Enemy4" weapon = "yesweapon" type = "" id = "Shadow" speed = "400" name = "影流霸王机">
+		<plane hp = "580" skin = "Enemy4" weapon = "trackGod" type = "" id = "Shadow" speed = "400" name = "影流霸王机">
 		</plane>
-		<plane hp = "3000" skin = "Enemy5" weapon = "yesweapon" type = "" id = "NULLSB" speed = "500" name = "空萌萌">
+		<plane hp = "3000" skin = "Enemy5" weapon = "trackGod" type = "" id = "NULLSB" speed = "500" name = "空萌萌">
 		</plane>
 	</enemyplane>
 	

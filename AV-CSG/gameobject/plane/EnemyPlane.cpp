@@ -8,7 +8,7 @@
 #include "control\generate\EnemyGenerate.h"
 
 CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* = -1 */ )
-    : PlaneBase(0, 0, piEmitter)
+    : EnemyPlaneBase(0, 0, piEmitter)
     , m_nEnemyType(enemyType)
     , m_pEmnemyNext(NULL)
 {
@@ -45,7 +45,7 @@ CEnemyPlane::CEnemyPlane(PlaneType enemyType, IEmitter* piEmitter, int nPosX /* 
     m_nPosY = -m_nHeight + 2; 
 }
 
-CEnemyPlane::CEnemyPlane() : PlaneBase(0, 0)
+CEnemyPlane::CEnemyPlane() : EnemyPlaneBase(0, 0)
 {
 
 }
