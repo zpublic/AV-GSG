@@ -1,9 +1,8 @@
 <xmllist>
-	<xml path = ""/>
-	<xml path = "" />
-	<xml path = "" />
-	<xml path = "" />
-	<xml path = "" />
-	<xml path = "" />
-	<xml path = "" />		
+	<xml path = "Resource\bullet.xml" type = "gamebullet"/>
+	<xml path = "Resource\blast.xml" type = "gameblast"/>
+	<xml path = "Resource\emitter.xml" type = "gameemitter"/>
+	<xml path = "Resource\Plane.xml" type = "gameplane"/>
+	<xml path = "Resource\stage.xml" type = "gamestage"/>
+	<xml path = "Resource\weapon.xml" type = "gameweapon"/>	
 </xmllist>
