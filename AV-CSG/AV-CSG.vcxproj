@@ -128,6 +128,7 @@
     <ClInclude Include="control\xml_parser\WeaponXMLObject.h" />
     <ClInclude Include="control\xml_parser\WeaponXMLParser.h" />
     <ClInclude Include="control\xml_parser\XMLObject.h" />
+    <ClInclude Include="control\xml_parser\xmlresource.h" />
     <ClInclude Include="data\resourcedata\Picture.h" />
     <ClInclude Include="data\resourcedata\PictureMap.h" />
     <ClInclude Include="data\resourcedata\PicturePool.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="control\xml_parser\WeaponXMLObject.cpp" />
     <ClCompile Include="control\xml_parser\WeaponXMLParser.cpp" />
     <ClCompile Include="control\xml_parser\XMLObject.cpp" />
+    <ClCompile Include="control\xml_parser\xmlresource.cpp" />
     <ClCompile Include="data\resourcedata\Picture.cpp" />
     <ClCompile Include="data\resourcedata\PictureMap.cpp" />
     <ClCompile Include="data\resourcedata\PicturePool.cpp" />

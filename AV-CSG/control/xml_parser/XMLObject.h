@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "unit\Unit.h"
 
 typedef struct _PosObject
 {

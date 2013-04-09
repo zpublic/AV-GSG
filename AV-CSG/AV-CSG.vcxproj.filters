@@ -105,6 +105,9 @@
     <Filter Include="Source Files\import\thread_sync">
       <UniqueIdentifier>{0e0bd0d9-6346-4c6d-b416-6d3358d93757}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\xmlresource">
+      <UniqueIdentifier>{d2c64110-e96c-424f-baba-04c51bf9daf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -388,6 +391,9 @@
     <ClInclude Include="scene\GameScene_ScoreList.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="control\xml_parser\xmlresource.h">
+      <Filter>Source Files\control\XmlParser\xmlresource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -605,6 +611,9 @@
     </ClCompile>
     <ClCompile Include="scene\GameScene_ScoreList.cpp">
       <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\xmlresource.cpp">
+      <Filter>Source Files\control\XmlParser\xmlresource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
