@@ -9,7 +9,7 @@ CXMLResource::~CXMLResource()
 {
 }
 
-int CXMLResource::LoadXML(const std::string& strPath)
+bool CXMLResource::LoadXML(const std::string& strPath)
 {
     TiXmlDocument XmlParse;
 
@@ -25,7 +25,39 @@ int CXMLResource::LoadXML(const std::string& strPath)
     return true;
 }
 
-int CXMLResource::_Parse(TiXmlDocument& tiDoc)
+bool CXMLResource::_LoadGameXML(mapXMLList& mapXMLList)
+{
+    for (auto it = mapXMLList.begin(); it != mapXMLList.end(); it++)
+    {
+        if (it->first == PLANE_ROOT_GAME)
+        {
+            CPlaneXMLParse::GetInstance().LoadXML(it->second);
+        }
+        if (it->first == BLAST_ROOT_GAME)
+        {
+            CBlastXMLParse::Instance()->LoadXML(it->second);
+        }
+        if (it->first == BULLET_ROOT_GAME)
+        {
+            CBulletXMLParse::GetInstance().LoadXML(it->second);
+        }
+        if (it->first == EMITTER_ROOT_GAME)
+        {
+            CEmitterXMLParse::Instance()->LoadXML(it->second);
+        }
+        if (it->first == WEAPON_ROOT_GAME)
+        {
+            CWeaponXMLParse::Instance()->LoadXML(it->second);
+        }
+        if (it->first == STAGE_ROOT_GAME)
+        {
+            CStageXMLParse::GetInstance().LoadXML(it->second);
+        }
+    }
+    return true;
+}
+
+bool CXMLResource::_Parse(TiXmlDocument& tiDoc)
 {
     TiXmlElement* tiRoot = tiDoc.RootElement();
     if (!tiRoot)
@@ -55,5 +87,5 @@ int CXMLResource::_Parse(TiXmlDocument& tiDoc)
             m_mapXMLList[strType] = strPath;
         }
     }
-    return true;
+    return _LoadGameXML(m_mapXMLList);
 }

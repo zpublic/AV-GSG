@@ -4,6 +4,7 @@
 #include "Parse_def.h"
 #include "EmitterXMLParser.h"
 #include "BlastXMLParser.h"
+#include "BulletXMLParser.h"
 #include "PlaneXMLParser.h"
 #include "StageXMLParser.h"
 #include "WeaponXMLParser.h"
@@ -16,11 +17,13 @@ public:
     CXMLResource();
     virtual ~CXMLResource();
 
-    int LoadXML(const std::string& strPath);
+    bool LoadXML(const std::string& strPath);
 
 private:
 
-    int _Parse(TiXmlDocument& tiDoc);
+    bool _Parse(TiXmlDocument& tiDoc);
+
+    bool _LoadGameXML(mapXMLList& mapXMLList);
 
     mapXMLList m_mapXMLList;
 };
