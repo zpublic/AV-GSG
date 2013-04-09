@@ -2,6 +2,7 @@
 #define XMLRESOURCE_
 
 #include "Parse_def.h"
+#include "unit\Singleton.h"
 #include "EmitterXMLParser.h"
 #include "BlastXMLParser.h"
 #include "BulletXMLParser.h"
@@ -11,15 +12,18 @@
 
 typedef std::map<std::string, std::string> mapXMLList;
 
-class CXMLResource
+class CXMLResource : public Singleton<CXMLResource>
 {
+    friend Singleton<CXMLResource>;
 public:
-    CXMLResource();
     virtual ~CXMLResource();
 
     bool LoadXML(const std::string& strPath);
 
+    virtual bool Initialize();
+
 private:
+    CXMLResource();
 
     bool _Parse(TiXmlDocument& tiDoc);
 

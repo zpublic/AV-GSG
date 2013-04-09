@@ -1,12 +1,19 @@
 #include "stdafx.h"
 #include "xmlresource.h"
 
+CXMLResource* Singleton<CXMLResource>::m_pInst = NULL;
+
 CXMLResource::CXMLResource()
 {
 }
 
 CXMLResource::~CXMLResource()
 {
+}
+
+bool CXMLResource::Initialize()
+{
+    return true;
 }
 
 bool CXMLResource::LoadXML(const std::string& strPath)
@@ -29,30 +36,35 @@ bool CXMLResource::_LoadGameXML(mapXMLList& mapXMLList)
 {
     for (auto it = mapXMLList.begin(); it != mapXMLList.end(); it++)
     {
+        char filePath[MAX_PATH] = {0};
+        ::GetModuleFileNameA(0, filePath, MAX_PATH);
+        ::PathRemoveFileSpecA(filePath);
+        ::PathAppendA(filePath, it->second.c_str());
         if (it->first == PLANE_ROOT_GAME)
         {
-            CPlaneXMLParse::GetInstance().LoadXML(it->second);
+            CPlaneXMLParse::GetInstance().LoadXML(filePath);
         }
         if (it->first == BLAST_ROOT_GAME)
         {
-            CBlastXMLParse::Instance()->LoadXML(it->second);
+            CBlastXMLParse::Instance()->LoadXML(filePath);
         }
         if (it->first == BULLET_ROOT_GAME)
         {
-            CBulletXMLParse::GetInstance().LoadXML(it->second);
+            CBulletXMLParse::GetInstance().LoadXML(filePath);
         }
         if (it->first == EMITTER_ROOT_GAME)
         {
-            CEmitterXMLParse::Instance()->LoadXML(it->second);
+            CEmitterXMLParse::Instance()->LoadXML(filePath);
         }
         if (it->first == WEAPON_ROOT_GAME)
         {
-            CWeaponXMLParse::Instance()->LoadXML(it->second);
+            CWeaponXMLParse::Instance()->LoadXML(filePath);
         }
         if (it->first == STAGE_ROOT_GAME)
         {
-            CStageXMLParse::GetInstance().LoadXML(it->second);
+            CStageXMLParse::GetInstance().LoadXML(filePath);
         }
+        ::memset(filePath, 0, MAX_PATH);
     }
     return true;
 }
