@@ -104,6 +104,8 @@
     <ClInclude Include="..\Import\thread_sync\thread_sync_def.h" />
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="AV-CSG.h" />
+    <ClInclude Include="control\chat\chat.h" />
+    <ClInclude Include="control\chat\chat_page.h" />
     <ClInclude Include="control\game\GameControler.h" />
     <ClInclude Include="control\game\GameFrame.h" />
     <ClInclude Include="control\generate\EmitterGenerate.h" />
@@ -202,6 +204,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="AV-CSG.cpp" />
+    <ClCompile Include="control\chat\chat.cpp" />
+    <ClCompile Include="control\chat\chat_page.cpp" />
     <ClCompile Include="control\game\GameControler.cpp" />
     <ClCompile Include="control\game\GameFrame.cpp" />
     <ClCompile Include="control\generate\EmitterGenerate.cpp" />
