@@ -9,7 +9,6 @@ CPicturePool * CPicturePool::GetInstance()
     if (NULL == m_pPicturePool)
     {
         m_pPicturePool = new CPicturePool();
-        m_pPicturePool->LoadImage();
     }
     return m_pPicturePool;
 }
@@ -31,15 +30,11 @@ void CPicturePool::FreeImage()
     m_mapPic.clear();
 }
 
-void CPicturePool::LoadImage()
+void CPicturePool::LoadImage(LPCWSTR lpFilePath)
 {
     CPictureMap picMap;
     std::map<std::string, PictureNode> mapPicture;
-    TCHAR filePath[MAX_PATH] = {0};
-    ::GetModuleFileName(0, filePath, MAX_PATH);
-    ::PathRemoveFileSpec(filePath);
-    ::PathAppend(filePath, _T("Resource\\picture.xml"));
-    picMap.LoadXml(filePath, mapPicture);
+    picMap.LoadXml(lpFilePath, mapPicture);
     for (auto i = mapPicture.begin(); i != mapPicture.end(); ++i)
     {
         CPicture* pPic = new CPicture();

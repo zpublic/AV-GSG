@@ -64,6 +64,10 @@ bool CXMLResource::_LoadGameXML(mapXMLList& mapXMLList)
         {
             CStageXMLParse::GetInstance().LoadXML(filePath);
         }
+        if (it->first == XML_ROOT_ELEMENT_NAME)
+        {
+            CPicturePool::GetInstance()->LoadImage(CA2W(filePath));
+        }
         ::memset(filePath, 0, MAX_PATH);
     }
     return true;

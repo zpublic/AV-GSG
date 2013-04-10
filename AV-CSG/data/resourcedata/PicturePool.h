@@ -11,6 +11,8 @@ public:
 
     static CPicturePool * GetInstance();
 
+    void LoadImage(LPCWSTR lpFilePath);
+
 private:
     std::map<std::string, CPicture*> m_mapPic;
 
@@ -18,7 +20,5 @@ private:
 
     CPicturePool(void);
     ~CPicturePool(void);
-
-    void LoadImage();
 };
 

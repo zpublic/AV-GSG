@@ -4,5 +4,6 @@
 	<xml path = "Resource\emitter.xml" type = "gameemitter"/>
 	<xml path = "Resource\Plane.xml" type = "gameplane"/>
 	<xml path = "Resource\stage.xml" type = "gamestage"/>
-	<xml path = "Resource\weapon.xml" type = "gameweapon"/>	
+	<xml path = "Resource\weapon.xml" type = "gameweapon"/>
+	<xml path = "Resource\picture.xml" type = "picture"/>
 </xmllist>

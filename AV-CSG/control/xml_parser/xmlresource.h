@@ -9,6 +9,7 @@
 #include "PlaneXMLParser.h"
 #include "StageXMLParser.h"
 #include "WeaponXMLParser.h"
+#include "data\resourcedata\PicturePool.h"
 
 typedef std::map<std::string, std::string> mapXMLList;
 
