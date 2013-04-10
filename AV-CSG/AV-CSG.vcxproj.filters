@@ -105,6 +105,9 @@
     <Filter Include="Source Files\import\thread_sync">
       <UniqueIdentifier>{0e0bd0d9-6346-4c6d-b416-6d3358d93757}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\chat">
+      <UniqueIdentifier>{3978377d-ab2c-4ba3-ba4b-bb2e24f6f66f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -388,6 +391,12 @@
     <ClInclude Include="scene\GameScene_ScoreList.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="control\chat\chat_page.h">
+      <Filter>Source Files\control\chat</Filter>
+    </ClInclude>
+    <ClInclude Include="control\chat\chat.h">
+      <Filter>Source Files\control\chat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -605,6 +614,12 @@
     </ClCompile>
     <ClCompile Include="scene\GameScene_ScoreList.cpp">
       <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="control\chat\chat_page.cpp">
+      <Filter>Source Files\control\chat</Filter>
+    </ClCompile>
+    <ClCompile Include="control\chat\chat.cpp">
+      <Filter>Source Files\control\chat</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
