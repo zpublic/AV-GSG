@@ -13,7 +13,7 @@ public:
     bool UpdateScence();
 
     void SetWndDC(HDC hDC);
-    void SetStageXML(const std::string& strPath);
+    void LoadXML(const std::string& strPath);
     void SetPlaneXML(const std::string& strPath);
     void SetBulletXML(const std::string& strPath);
     void SetBlastXML(const std::string& strPath);

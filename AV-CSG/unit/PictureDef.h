@@ -1,6 +1,6 @@
 #pragma once
 
-#define XML_ROOT_ELEMENT_NAME   "root"
+#define XML_ROOT_ELEMENT_NAME   "picture"
 #define XML_PIC_ELEMENT_ID      "id"
 #define XML_PIC_ELEMENT_R       "r"
 #define XML_PIC_ELEMENT_G       "g"
