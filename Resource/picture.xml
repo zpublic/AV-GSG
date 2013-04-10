@@ -1,4 +1,4 @@
-<root>
+<picture>
     <item id="emBulletTypeAMMO0_skin" path="Resource\Ammo0.bmp" r="255" g="0" b="255"/>
     <item id="emBulletTypeAMMO1_skin" path="Resource\Ammo1.bmp" r="255" g="0" b="255"/>
     <item id="emBulletTypeAMMO2_skin" path="Resource\Ammo2.bmp" r="255" g="0" b="255"/>
@@ -33,4 +33,4 @@
     <item id="hpbar" path="Resource\\HPBar.bmp" r="255" g="0" b="255" />
     <item id="hpbarside" path="Resource\\HPBarSide.bmp" r="255" g="0" b="255" />
     <item id="num" path="Resource\\Num.bmp" r="0" g="0" b="0" />                  
-</root>
+</picture>

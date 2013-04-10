@@ -63,4 +63,9 @@
 #define WEAPON_BULLETTYPE_OBJECT "bullettype"
 #define WEAPON_EMITTER_OBJCET "emitter"
 
+///> xmllist
+#define XMLLIST_ROOT "xmllist"
+#define XMLLIST_PATH "path"
+#define XMLLIST_XML "xml"
+
 #endif

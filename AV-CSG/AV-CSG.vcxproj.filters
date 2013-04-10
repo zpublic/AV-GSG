@@ -108,6 +108,9 @@
     <Filter Include="Source Files\control\chat">
       <UniqueIdentifier>{3978377d-ab2c-4ba3-ba4b-bb2e24f6f66f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control\XmlParser\xmlresource">
+      <UniqueIdentifier>{d2c64110-e96c-424f-baba-04c51bf9daf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">
@@ -397,6 +400,9 @@
     <ClInclude Include="control\chat\chat.h">
       <Filter>Source Files\control\chat</Filter>
     </ClInclude>
+    <ClInclude Include="control\xml_parser\xmlresource.h">
+      <Filter>Source Files\control\XmlParser\xmlresource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -620,6 +626,9 @@
     </ClCompile>
     <ClCompile Include="control\chat\chat.cpp">
       <Filter>Source Files\control\chat</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\xmlresource.cpp">
+      <Filter>Source Files\control\XmlParser\xmlresource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
