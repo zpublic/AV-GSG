@@ -403,6 +403,9 @@
     <ClInclude Include="control\xml_parser\xmlresource.h">
       <Filter>Source Files\control\XmlParser\xmlresource</Filter>
     </ClInclude>
+    <ClInclude Include="control\chat\chatdef.h">
+      <Filter>Source Files\control\chat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">

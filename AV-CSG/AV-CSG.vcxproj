@@ -105,6 +105,7 @@
     <ClInclude Include="..\Import\tinyxml-2.6.2\tinyxml.h" />
     <ClInclude Include="AV-CSG.h" />
     <ClInclude Include="control\chat\chat.h" />
+    <ClInclude Include="control\chat\chatdef.h" />
     <ClInclude Include="control\chat\chat_page.h" />
     <ClInclude Include="control\game\GameControler.h" />
     <ClInclude Include="control\game\GameFrame.h" />
