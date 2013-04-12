@@ -81,5 +81,19 @@ bool CChatParser::_Parse(TiXmlDocument& tiDoc)
 
 int CChatParser::_ParseContect(const std::string& strContect, ChatPageList& vecContect)
 {
-    return 1;
+    if (strContect.empty())
+    {
+        return 0;
+    }
+    int index = 0;
+    for (; index < strContect.size(); index++)
+    {
+        std::string::size_type pos;
+        pos = strContect.find(',', index);
+        if (pos == std::string::npos)
+        {
+            vecContect.push_back(atoi(strContect.substr(index, pos - 1).c_str()));
+        }
+    }
+    return index;
 }
