@@ -176,6 +176,7 @@
     <ClInclude Include="player\player_skill.h" />
     <ClInclude Include="scene\GameScene.h" />
     <ClInclude Include="scene\GameScene_AuthorList.h" />
+    <ClInclude Include="scene\GameScene_Chat.h" />
     <ClInclude Include="scene\GameScene_GameOver.h" />
     <ClInclude Include="scene\GameScene_GameWin.h" />
     <ClInclude Include="scene\GameScene_Menu.h" />
@@ -268,6 +269,7 @@
     <ClCompile Include="player\player_savedata.cpp" />
     <ClCompile Include="player\player_skill.cpp" />
     <ClCompile Include="scene\GameScene_AuthorList.cpp" />
+    <ClCompile Include="scene\GameScene_Chat.cpp" />
     <ClCompile Include="scene\GameScene_GameOver.cpp" />
     <ClCompile Include="scene\GameScene_GameWin.cpp" />
     <ClCompile Include="scene\GameScene_Menu.cpp" />
