@@ -7,6 +7,7 @@
 #include "scene\GameScene_Play.h"
 #include "scene\GameScene_AuthorList.h"
 #include "scene\GameScene_ScoreList.h"
+#include "scene\GameScene_Chat.h"
 #include "control\game\GameFrame.h"
 
 class CMenu_Main : public CMenuBase

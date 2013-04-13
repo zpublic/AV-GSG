@@ -12,6 +12,8 @@ public:
 
     virtual bool Initialize();
 
+    ChatPage* GetChatPage(int nChatName) const;
+
     virtual bool LoadXML(const std::string& strPath);
 
 private:

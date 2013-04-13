@@ -68,6 +68,14 @@ bool CXMLResource::_LoadGameXML(mapXMLList& mapXMLList)
         {
             CPicturePool::GetInstance()->LoadImage(CA2W(filePath));
         }
+        if (it->first == CHATPAGE_ROOT_GAME)
+        {
+            CChatPageParser::Instance()->LoadXML(filePath);
+        }
+        if (it->first == CHAT_ROOT_GAME)
+        {
+            CChatParser::Instance()->LoadXML(filePath);
+        }
         ::memset(filePath, 0, MAX_PATH);
     }
     return true;

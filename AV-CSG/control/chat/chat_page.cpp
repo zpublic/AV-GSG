@@ -32,6 +32,16 @@ bool CChatPageParser::LoadXML(const std::string& strPath)
     return true;
 }
 
+ChatPage* CChatPageParser::GetChatPage(int nChatName) const
+{
+    auto It = m_PagePool.find(nChatName);
+    if (It == m_PagePool.end())
+    {
+        return NULL;
+    }
+    return It->second;
+}
+
 bool CChatPageParser::_Parse(TiXmlDocument& tiDoc)
 {
     TiXmlElement* tiRoot = tiDoc.RootElement();

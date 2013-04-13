@@ -10,6 +10,8 @@
 #include "StageXMLParser.h"
 #include "WeaponXMLParser.h"
 #include "data\resourcedata\PicturePool.h"
+#include "control\chat\chat_page.h"
+#include "control\chat\chat.h"
 
 typedef std::map<std::string, std::string> mapXMLList;
 
