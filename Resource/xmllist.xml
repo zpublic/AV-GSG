@@ -6,4 +6,6 @@
 	<xml path = "Resource\stage.xml" type = "gamestage"/>
 	<xml path = "Resource\weapon.xml" type = "gameweapon"/>
 	<xml path = "Resource\picture.xml" type = "picture"/>
+	<xml path = "Resource\chatpage.xml" type = "gamechatpage"/>
+	<xml path = "Resource\chat.xml" type = "gamechat"/>
 </xmllist>

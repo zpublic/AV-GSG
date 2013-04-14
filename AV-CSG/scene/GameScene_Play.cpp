@@ -4,6 +4,7 @@
 #include "control\game\GameFrame.h"
 #include "gameobject\plane\SelfPlane.h"
 #include "control\generate\EnemyGenerate.h"
+#include "GameScene_Chat.h"
 #include "GameScene_GameOver.h"
 #include "GameScene_GameWin.h"
 
@@ -16,19 +17,26 @@ GameScene_Play::GameScene_Play()
     , m_lnFrame(0)
     , m_lnSecond(0)
     , m_pStage(NULL)
+    , m_IsChat(false)
 {
     m_nPresentStage = CGameStagePlayer::GetInstance().FirstStageId();
     m_pStage = CGameStagePlayer::GetInstance().GetStage(m_nPresentStage);
     if (m_pStage)
     {
-        m_Picture = CPicturePool::GetInstance()->GetPicture(
-            CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
-        m_nEnemyPlane = m_pStage->GetEnemyNumber();
-        CEnemyGenerate::IniEnemy(m_pStage);
-    }
-    if (m_Picture)
-    {
-        m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+        if (!m_pStage->GetChat().empty())
+        {
+            //m_IsChat = true;
+            //SceneEngine_->Pop();
+            SceneEngine_->Push(new GameScene_Chat(m_pStage->GetChat()));
+            m_Picture = CPicturePool::GetInstance()->GetPicture(
+                CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
+            m_nEnemyPlane = m_pStage->GetEnemyNumber();
+            CEnemyGenerate::IniEnemy(m_pStage);
+            if (m_Picture)
+            {
+                m_Picture->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
+            }
+        }
     }
 }
 
@@ -138,18 +146,27 @@ void GameScene_Play::ControlGameTiming()
     if (m_nEnemyPlane == m_nDeadPlane)
     {
         m_nPresentStage++;
-        //读取下一个关卡资源
         m_pStage = CGameStagePlayer::GetInstance().GetStage(m_nPresentStage);
         if (m_pStage)
         {
+            //读取下一个关卡资源
             m_Picture = CPicturePool::GetInstance()->GetPicture(
                 CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
             CEnemyGenerate::IniEnemy(m_pStage);
             m_nEnemyPlane = m_pStage->GetEnemyNumber();
-            m_nDeadPlane = 0;
-            m_lnFrame = 0;
-            m_lnSecond = 0;
+            if (!m_pStage->GetChat().empty())
+            {
+                m_IsChat = true;
+            }
         }
+        m_nDeadPlane = 0;
+        m_lnFrame = 0;
+        m_lnSecond = 0;
+    }
+    if (m_IsChat)
+    {
+        SceneEngine_->Push(new GameScene_Chat(m_pStage->GetChat()));
+        m_IsChat = false;
     }
     if (m_nPresentStage > CGameStagePlayer::GetInstance().StageCount())
     {

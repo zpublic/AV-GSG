@@ -24,6 +24,7 @@
 #define ITEM_GAME "item"
 #define ENEMY_GAME "enemy"
 #define STAGE_GAME "stage"
+#define STAGE_CHAT "chat"
 
 ///> enemy
 #define ENEMY_APPEAR_OBJECT "appear"
