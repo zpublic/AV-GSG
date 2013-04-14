@@ -27,6 +27,9 @@ public:
     void SetMap(const std::string& strMap);
     const std::string& GetMap() const;
 
+    void SetChat(const std::string& strChat);
+    const std::string& GetChat() const;
+
     void SetDifficulty(long lnMap);
     const long GetDifficulty() const;
 
@@ -39,6 +42,7 @@ private:
 
     int m_Boss;
     long m_Difficulty;
+    std::string m_ChatId;
     std::string m_MapPath;
     ItemObejctMap m_mapItem;
     EnemyObejctMap m_mapEnemy;

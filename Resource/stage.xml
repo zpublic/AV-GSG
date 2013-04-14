@@ -1,5 +1,5 @@
 ﻿<gamestage>
-<stage name = "这是一个C++群" id = "1" map = "map2" difficulty = "200" type = "1">
+<stage name = "这是一个C++群" id = "1" map = "map2" difficulty = "200" type = "1" chat = "nihao">
     <enemy id = "1" type = "Assassin" posx = "1" posy = "1" appear = "5" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
@@ -44,7 +44,7 @@
 	</enemy>
 </stage>
 
-<stage name = "这是一个C++群" id = "2" map = "map1" difficulty = "200" type = "1">
+<stage name = "这是一个C++群" id = "2" map = "map1" difficulty = "200" type = "1" chat = "nihao">
     <enemy id = "1" type = "Assassin" posx = "1" posy = "1" appear = "5" >
 			<item id = "1" type = "12" number = "2" pox = "10" posy = "10" way = "1"/>
 	</enemy>
