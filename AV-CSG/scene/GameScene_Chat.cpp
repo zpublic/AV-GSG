@@ -4,6 +4,11 @@
 
 
 GameScene_Chat::GameScene_Chat(const std::string& strChatId)
+    : m_PictureBackgroud(NULL)
+    , m_PictureMessageRect(NULL)
+    , m_PresentChat(0)
+    , m_ChatPageList(0)
+    , m_ChatPage(NULL)
 {
     m_ChatPageList = CChatParser::Instance()->GetChat(strChatId);
     if (m_ChatPageList)
@@ -22,11 +27,6 @@ GameScene_Chat::GameScene_Chat(const std::string& strChatId)
 
 
 GameScene_Chat::GameScene_Chat()
-    : m_PictureBackgroud(NULL)
-    , m_PictureMessageRect(NULL)
-    , m_PresentChat(0)
-    , m_ChatPageList(0)
-    , m_ChatPage(NULL)
 {
 }
 
@@ -38,9 +38,9 @@ void GameScene_Chat::Update()
 {
     if (InputEngine_->ClickOk())
     {
+        m_PresentChat++;
         if (m_PresentChat < (int)m_ChatPageList->size())
         {
-            m_PresentChat++;
             m_ChatPage = CChatPageParser::Instance()->GetChatPage(
                 m_ChatPageList->at(m_PresentChat));
             if (m_ChatPage)
@@ -50,6 +50,10 @@ void GameScene_Chat::Update()
                 m_PictureMessageRect = CPicturePool::GetInstance()->GetPicture(
                     m_ChatPage->SpeckerID);
             }
+        }
+        else
+        {
+            SceneEngine_->Pop();
         }
     }
 }
@@ -63,7 +67,7 @@ void GameScene_Chat::Reset()
 
 void GameScene_Chat::Output()
 {
-    if (!m_ChatPageList && !m_ChatPage && (m_PresentChat < (int)m_ChatPageList->size()))
+    if ((!m_ChatPageList) && (!m_ChatPage) && (m_PresentChat < (int)m_ChatPageList->size()))
     {
         return;
     }
@@ -78,10 +82,11 @@ void GameScene_Chat::Output()
         m_PictureMessageRect->DrawBitmap(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
     }
 
+    SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
+    Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     RECT textRect;
     ::SetBkMode(g_hMemDC, TRANSPARENT);
     ::SetTextColor(g_hMemDC, RGB(255,0,0));
-
     ::SetRect(&textRect, 180, 150, 200, 250);
     ::DrawText(g_hMemDC, CA2W(m_ChatPage->Content.c_str()), -1, &textRect, DT_NOCLIP);
     ::BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);

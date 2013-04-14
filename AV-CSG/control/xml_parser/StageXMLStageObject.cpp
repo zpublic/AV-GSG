@@ -80,6 +80,16 @@ const std::string& CStageXMLStage::GetMap() const
     return m_MapPath;
 }
 
+void CStageXMLStage::SetChat(const std::string& strChat)
+{
+    m_ChatId = strChat;
+}
+
+const std::string& CStageXMLStage::GetChat() const
+{
+    return m_ChatId;
+}
+
 void CStageXMLStage::SetDifficulty(long lnMap)
 {
     m_Difficulty = lnMap;

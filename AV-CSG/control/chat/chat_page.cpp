@@ -50,7 +50,7 @@ bool CChatPageParser::_Parse(TiXmlDocument& tiDoc)
         return false;
     }
     std::string sRootName = tiRoot->Value();
-    if (sRootName != CHAT_ROOT_GAME)
+    if (sRootName != CHATPAGE_ROOT_GAME)
     {
         return false;
     }
@@ -72,7 +72,7 @@ bool CChatPageParser::_Parse(TiXmlDocument& tiDoc)
             && Unit::GetXmlStrAttributeA(tiElement, CHATPAGE_SKID, pChatPage->SpeckerID)
             && Unit::GetXmlIntAttribute(tiElement, CHAT_ID, nId))
         {
-            pChatPage->Content = tiElement->Value();
+            pChatPage->Content = tiElement->GetText();
             m_PagePool[nId] = pChatPage;
         }
     }

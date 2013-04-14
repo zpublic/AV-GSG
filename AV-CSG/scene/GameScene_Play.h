@@ -33,4 +33,6 @@ private:
     long m_lnSecond;
     //当前关卡
     CStageXMLStage* m_pStage;
+    //是否有对话场景
+    bool m_IsChat;
 };

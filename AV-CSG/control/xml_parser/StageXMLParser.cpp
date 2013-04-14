@@ -90,6 +90,10 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             pStage->SetMap(tiStage->Attribute(STAGE_MAP_OBJECT));
         }
+        if (tiStage->Attribute(STAGE_CHAT) != NULL)
+        {
+            pStage->SetChat(tiStage->Attribute(STAGE_CHAT));
+        }
         if (tiStage->Attribute(STAGE_DIFFICULTY_OBJECT) != NULL)
         {
             pStage->SetDifficulty(::atol(tiStage->Attribute(STAGE_DIFFICULTY_OBJECT)));

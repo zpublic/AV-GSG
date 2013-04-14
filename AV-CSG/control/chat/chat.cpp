@@ -86,13 +86,18 @@ int CChatParser::_ParseContect(const std::string& strContect, ChatPageList& vecC
         return 0;
     }
     int index = 0;
+    std::string::size_type pos = 0;
     for (; index < (int)strContect.size(); index++)
     {
-        std::string::size_type pos;
         pos = strContect.find(',', index);
-        if (pos != std::string::npos)
+        if (pos != std::string::npos && pos < strContect.size())
         {
-            vecContect.push_back(atoi(strContect.substr(index, pos - 1).c_str()));
+            vecContect.push_back(atoi(strContect.substr(index, pos - index).c_str()));
+            index = pos;
+        }
+        else
+        {
+            vecContect.push_back(atoi(strContect.substr(index, pos - index).c_str()));
         }
     }
     return index;
