@@ -25,8 +25,6 @@ GameScene_Play::GameScene_Play()
     {
         if (!m_pStage->GetChat().empty())
         {
-            //m_IsChat = true;
-            //SceneEngine_->Pop();
             SceneEngine_->Push(new GameScene_Chat(m_pStage->GetChat()));
             m_Picture = CPicturePool::GetInstance()->GetPicture(
                 CGameStagePlayer::GetInstance().GetStage(m_nPresentStage)->GetMap());
@@ -79,6 +77,13 @@ void GameScene_Play::Update()
 
 void GameScene_Play::Output()
 {
+    if (m_IsChat && m_pStage)
+    {
+        //加载对话场景 忽视后面绘制
+        SceneEngine_->Push(new GameScene_Chat(m_pStage->GetChat()));
+        m_IsChat = false;
+        return;
+    }
     ///> 清空图像
     SelectObject(g_hMemDC, GetStockObject(BLACK_BRUSH));
     Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -163,15 +168,9 @@ void GameScene_Play::ControlGameTiming()
         m_lnFrame = 0;
         m_lnSecond = 0;
     }
-    if (m_IsChat)
-    {
-        SceneEngine_->Push(new GameScene_Chat(m_pStage->GetChat()));
-        m_IsChat = false;
-    }
     if (m_nPresentStage > CGameStagePlayer::GetInstance().StageCount())
     {
         //完成所有关卡 胜利
-
         UpdateScore();
 
         //弹出游戏控制器
