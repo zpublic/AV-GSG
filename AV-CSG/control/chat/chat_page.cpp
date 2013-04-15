@@ -72,6 +72,11 @@ bool CChatPageParser::_Parse(TiXmlDocument& tiDoc)
             && Unit::GetXmlStrAttributeA(tiElement, CHATPAGE_SKID, pChatPage->SpeckerID)
             && Unit::GetXmlIntAttribute(tiElement, CHAT_ID, nId))
         {
+            Unit::GetXmlIntAttribute(tiElement, CHAT_X, pChatPage->x);
+            Unit::GetXmlIntAttribute(tiElement, CHAT_Y, pChatPage->y);
+            Unit::GetXmlIntAttribute(tiElement, CHAT_R, pChatPage->r);
+            Unit::GetXmlIntAttribute(tiElement, CHAT_G, pChatPage->g);
+            Unit::GetXmlIntAttribute(tiElement, CHAT_B, pChatPage->b);
             pChatPage->Content = tiElement->GetText();
             m_PagePool[nId] = pChatPage;
         }

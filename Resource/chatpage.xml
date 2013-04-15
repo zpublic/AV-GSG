@@ -1,11 +1,11 @@
 <gamechatpage>
-	<chat id = "1" backgroudid = "lala" speckerid = "lalalid">
+	<chat id = "1" backgroudid = "lala" speckerid = "lalalid" x = "10" y = "1" r = "255" g = "" b = "">
 	asd1123!!!!中文呢
 	</chat>
-	<chat id = "2" backgroudid = "lala" speckerid = "lalalid">
+	<chat id = "2" backgroudid = "lala" speckerid = "lalalid" x = "10" y = "200" r = "255" g = "255" b = "">
 	aasdasdsd1123!!!!中文呢
 	</chat>	
-	<chat id = "3" backgroudid = "lala" speckerid = "lalalid">
+	<chat id = "3" backgroudid = "lala" speckerid = "lalalid" x = "10" y = "10" r = "255" g = "" b = "255">
 	asdasdasasd1123!!!!中文呢
 	</chat>						
 </gamechatpage>
