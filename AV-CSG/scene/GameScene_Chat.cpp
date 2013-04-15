@@ -86,8 +86,8 @@ void GameScene_Chat::Output()
     Rectangle(g_hMemDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     RECT textRect;
     ::SetBkMode(g_hMemDC, TRANSPARENT);
-    ::SetTextColor(g_hMemDC, RGB(m_ChatPage->r,m_ChatPage->g,m_ChatPage->b));
-    ::SetRect(&textRect, m_ChatPage->x, m_ChatPage->y, 200, 250);
+    ::SetTextColor(g_hMemDC, RGB(255,0,0));
+    ::SetRect(&textRect, 180, 150, 200, 250);
     ::DrawText(g_hMemDC, CA2W(m_ChatPage->Content.c_str()), -1, &textRect, DT_NOCLIP);
     ::BitBlt(g_hWndDC, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, g_hMemDC, 0, 0, SRCCOPY);
 }
