@@ -2,8 +2,6 @@
 #include "GameScene_Chat.h"
 #include "data\resourcedata\PicturePool.h"
 
-#define DF_FONT_WIDTH 5
-
 GameScene_Chat::GameScene_Chat(const std::string& strChatId)
     : m_PictureBackgroud(NULL)
     , m_PictureMessageRect(NULL)
