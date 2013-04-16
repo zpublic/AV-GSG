@@ -1,6 +1,6 @@
 <gamechat>
 	<chat id = "stage1" contect = "1,2,3,4,5,6,7"/>
-	<chat id = "stage2" contect = "8"/>
+	<chat id = "stage2" contect = "12"/>
 	<chat id = "stage3" contect = "9"/>
 	<chat id = "stage4" contect = "10"/>
 	<chat id = "stage5" contect = "11"/>

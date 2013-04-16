@@ -72,5 +72,9 @@
 	
 	<chat id = "11" backgroudid = "lala" speckerid = "lalalid" x = "10" y = "10" r = "255" g = "160" b = "255">
 	stage5: sum准备跟秩序帝国反着干, 被克斯汀发现了. 克斯汀是秩序帝国某政治高层的女儿. 此处各种矛盾和虐心情节, 下次讲解.
-	</chat>		
+	</chat>
+	<chat id = "12" backgroudid = "lala" speckerid = "lalalid" x = "10" y = "10" r = "255" g = "160" b = "255">
+	stage5: 这只是用来测试的啊阿斯达测试一下边界 看看有没有坑爹 但是好像非常坑爹的样子 算法不太会啊 厄 喂！阿斯达阿斯达的撒的撒阿斯达
+阿斯达阿斯达阿斯达阿斯达阿萨德撒的撒打算的撒的
+	</chat>			
 </gamechatpage>
