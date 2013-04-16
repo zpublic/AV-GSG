@@ -103,7 +103,7 @@ void GameScene_Chat::Output()
     int rectHeight = ::DrawText(
         g_hMemDC, CA2W(m_ChatPage->Content.c_str()),
         -1, &textRect,
-        DT_CENTER | DT_WORDBREAK | DT_CALCRECT | DT_EDITCONTROL);
+        DT_WORDBREAK | DT_CALCRECT | DT_EDITCONTROL);
     if (rectHeight)
     {
         textRect.bottom = rectHeight;
