@@ -36,6 +36,18 @@ bool CXMLParser::BasePos(PosObject* posobj, TiXmlElement* tiElement)
     {
         return false;
     }
-    //Unit::GetXmlIntAttribute(posobj->PosX, , )
-    return false;
+    Unit::GetXmlIntAttribute(tiElement, POSX_OBJECT, posobj->PosX);
+    Unit::GetXmlIntAttribute(tiElement, POSY_OBJECT, posobj->PosY);
+    return true;
+}
+
+bool CXMLParser::BaseShape(ShapeObject* shapeobj, TiXmlElement* tiElement)
+{
+    if (!shapeobj || !tiElement)
+    {
+        return false;
+    }
+    Unit::GetXmlIntAttribute(tiElement, WIDTH_OBJCET, shapeobj->nWidth);
+    Unit::GetXmlIntAttribute(tiElement, HEIGHT_OBJECT, shapeobj->nHeight);
+    return true;
 }

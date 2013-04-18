@@ -69,14 +69,12 @@ bool CWeaponXMLParse::_Parse(TiXmlDocument& TinyXML)
         {
             continue;
         }
-        if (tiElement->Attribute(WEAPON_BULLETTYPE_OBJECT) != NULL)
-        {
-            pWeapon->SetBulletType(tiElement->Attribute(WEAPON_BULLETTYPE_OBJECT));
-        }
-        if (tiElement->Attribute(WEAPON_EMITTER_OBJCET) != NULL)
-        {
-            pWeapon->SetEmitter(tiElement->Attribute(WEAPON_EMITTER_OBJCET));
-        }
+        std::string strBullettype;
+        std::string strEmitter;
+        Unit::GetXmlStrAttributeA(tiElement, WEAPON_BULLETTYPE_OBJECT, strBullettype);
+        Unit::GetXmlStrAttributeA(tiElement, WEAPON_EMITTER_OBJCET, strEmitter);
+        pWeapon->SetBulletType(strBullettype);
+        pWeapon->SetEmitter(strEmitter);
         m_mapWeapon[pWeapon->GetId()] = pWeapon;
     }
     return true;

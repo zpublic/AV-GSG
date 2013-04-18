@@ -21,6 +21,19 @@ public:
     int PosY;
 }PosObject;
 
+typedef struct _ShapeObject
+{
+    _ShapeObject() : nWidth(0), nHeight(0) {}
+    void SetPoint(int iWidth = 0, int iHeight = 0)
+    {
+        nWidth = iWidth;
+        nHeight = iHeight;
+    }
+public:
+    int nWidth;
+    int nHeight;
+}ShapeObject;
+
 class CXMLObject
 {
 public:

@@ -18,6 +18,7 @@ public:
 protected:
     virtual bool BaseParse(CXMLObject* xmlobj, TiXmlElement* tiElement);
     virtual bool BasePos(PosObject* posobj, TiXmlElement* tiElement);
+    virtual bool BaseShape(ShapeObject* shapeobj, TiXmlElement* tiElement);
 };
 
 #endif

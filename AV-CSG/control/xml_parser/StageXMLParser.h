@@ -31,6 +31,8 @@ private:
     CStageXMLParse(CStageXMLParse&);
     CStageXMLParse& operator = (CStageXMLParse&);
 
+    bool _ParseItem(TiXmlElement* pElement, CStageXMLItem* pItem);
+    bool _ParseEnemy(TiXmlElement* pElement, CStageXMLEnemy* pEnemy);
     static CStageXMLParse m_XMLParse;
 
 private:

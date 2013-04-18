@@ -26,6 +26,7 @@ private:
     CPlaneXMLParse& operator = (CPlaneXMLParse&);
     CPlaneXMLParse();
     static CPlaneXMLParse m_Plane;
+    void _ParsePlane(TiXmlElement* tiElement, CPlaneXMLObject* pPlane);
 
 private:
     void _Close();

@@ -65,26 +65,21 @@ bool CBlastXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CBlastXMLObject* pBlast = new CBlastXMLObject;
+        std::string strSkinId;
+        int nFrameCount = 0;
         if (!BaseParse(pBlast, tiElement))
         {
             continue;
         }
-        if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
-        {
-            pBlast->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
-        }
-        if (tiElement->Attribute(FRAMECOUNT_OBJECT) != NULL)
-        {
-            pBlast->SetFrameCount(::atol(tiElement->Attribute(FRAMECOUNT_OBJECT)));
-        }
-        if (tiElement->Attribute(WIDTH_OBJCET) != NULL)
-        {
-            pBlast->SetWidth(::atol(tiElement->Attribute(WIDTH_OBJCET)));
-        }
-        if (tiElement->Attribute(HEIGHT_OBJECT) != NULL)
-        {
-            pBlast->SetHeight(::atol(tiElement->Attribute(HEIGHT_OBJECT)));
-        }
+        Unit::GetXmlStrAttributeA(tiElement ,PLANE_SKIN_OBJECT, strSkinId);
+        Unit::GetXmlIntAttribute(tiElement ,FRAMECOUNT_OBJECT, nFrameCount);
+        pBlast->SetSkinId(strSkinId);
+        pBlast->SetFrameCount(nFrameCount);
+
+        ShapeObject shapeobj;
+        BaseShape(&shapeobj, tiElement);
+        pBlast->SetWidth(shapeobj.nWidth);
+        pBlast->SetHeight(shapeobj.nHeight);
         m_mapBlast[pBlast->GetId()] = pBlast;
     }
     return true;
