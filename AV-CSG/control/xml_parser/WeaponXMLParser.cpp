@@ -65,17 +65,9 @@ bool CWeaponXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CWeaponXMLObject* pWeapon = new CWeaponXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pWeapon, tiElement))
         {
-            pWeapon->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pWeapon->SetName(tiElement->Attribute(NAME_OBJECT));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pWeapon->SetType(tiElement->Attribute(TYPE_OBJECT));
+            continue;
         }
         if (tiElement->Attribute(WEAPON_BULLETTYPE_OBJECT) != NULL)
         {

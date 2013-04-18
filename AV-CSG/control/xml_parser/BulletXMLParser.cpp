@@ -84,13 +84,9 @@ bool CBulletXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CBulletXMLObject* pExplosion = new CBulletXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pExplosion, tiElement))
         {
-            pExplosion->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pExplosion->SetName(tiElement->Attribute(NAME_OBJECT));
+            continue;
         }
         if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
         {
@@ -103,10 +99,6 @@ bool CBulletXMLParse::_Parse(TiXmlDocument& TinyXML)
         if (tiElement->Attribute(BULLET_SPEED_GAME) != NULL)
         {
             pExplosion->SetSpeed(::atoi(tiElement->Attribute(BULLET_SPEED_GAME)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pExplosion->SetType(tiElement->Attribute(TYPE_OBJECT));
         }
         if (tiElement->Attribute(FRAMECOUNT_OBJECT) != NULL)
         {

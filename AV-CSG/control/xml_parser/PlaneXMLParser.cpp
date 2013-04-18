@@ -109,13 +109,9 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CPlaneXMLObject* pEnemy = new CPlaneXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pEnemy, tiElement))
         {
-            pEnemy->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pEnemy->SetName(tiElement->Attribute(NAME_OBJECT));
+            continue;
         }
         if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
         {
@@ -132,10 +128,6 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         if (tiElement->Attribute(PLANE_SPEED_OBJECT) != NULL)
         {
             pEnemy->SetSpeed(::atoi(tiElement->Attribute(PLANE_SPEED_OBJECT)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pEnemy->SetType(tiElement->Attribute(TYPE_OBJECT));
         }
         m_mapEnemy[pEnemy->GetId()] = pEnemy;
     }
@@ -155,13 +147,9 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CPlaneXMLObject* pSelf = new CPlaneXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pSelf, tiElement))
         {
-            pSelf->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pSelf->SetName(tiElement->Attribute(NAME_OBJECT));
+            continue;
         }
         if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
         {
@@ -178,10 +166,6 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         if (tiElement->Attribute(PLANE_SPEED_OBJECT) != NULL)
         {
             pSelf->SetSpeed(::atoi(tiElement->Attribute(PLANE_SPEED_OBJECT)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pSelf->SetType(tiElement->Attribute(TYPE_OBJECT));
         }
         m_mapSelf[pSelf->GetId()] = pSelf;
     }

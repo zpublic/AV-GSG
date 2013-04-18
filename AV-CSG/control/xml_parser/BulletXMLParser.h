@@ -2,7 +2,7 @@
 #define BULLET_XML_PARSE_
 
 #include "Parse_def.h"
-#include "tinyxml.h"
+#include "XMLParser.h"
 #include "BulletXMLObject.h"
 #include <map>
 #include <string>
@@ -10,6 +10,7 @@
 typedef std::map<std::string, CBulletXMLObject*> MapBulletList;
 
 class CBulletXMLParse
+    : public CXMLParser
 {
 public:
     ~CBulletXMLParse();

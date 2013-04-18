@@ -65,21 +65,13 @@ bool CBlastXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CBlastXMLObject* pBlast = new CBlastXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pBlast, tiElement))
         {
-            pBlast->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pBlast->SetName(tiElement->Attribute(NAME_OBJECT));
+            continue;
         }
         if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
         {
             pBlast->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pBlast->SetType(tiElement->Attribute(TYPE_OBJECT));
         }
         if (tiElement->Attribute(FRAMECOUNT_OBJECT) != NULL)
         {

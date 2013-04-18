@@ -2,15 +2,16 @@
 #define EMITTER_XML_PARSE_
 
 #include "unit\Singleton.h"
-#include "tinyxml.h"
-#include "Parse_def.h"
+#include "XMLParser.h"
 #include "EmitterXMLObject.h"
 #include <string>
 #include <map>
 
 typedef std::map<std::string, CEmitterXMLObject*> EmitterList;
 
-class CEmitterXMLParse : public Singleton<CEmitterXMLParse>
+class CEmitterXMLParse
+    : public Singleton<CEmitterXMLParse>
+    , public CXMLParser
 {
     friend Singleton<CEmitterXMLParse>;
 public:

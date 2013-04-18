@@ -409,6 +409,9 @@
     <ClInclude Include="scene\GameScene_Chat.h">
       <Filter>Source Files\scene</Filter>
     </ClInclude>
+    <ClInclude Include="control\xml_parser\XMLParser.h">
+      <Filter>Source Files\control\XmlParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AV-CSG.cpp">
@@ -638,6 +641,9 @@
     </ClCompile>
     <ClCompile Include="scene\GameScene_Chat.cpp">
       <Filter>Source Files\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="control\xml_parser\XMLParser.cpp">
+      <Filter>Source Files\control\XmlParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

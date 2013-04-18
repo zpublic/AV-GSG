@@ -78,13 +78,9 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiStage = tiStage->NextSiblingElement())
     {
         CStageXMLStage* pStage = new CStageXMLStage;
-        if (tiStage->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pStage, tiStage))
         {
-            pStage->SetId(tiStage->Attribute(ID_OBJECT));
-        }
-        if (tiStage->Attribute(NAME_OBJECT) != NULL)
-        {
-            pStage->SetName(tiStage->Attribute(NAME_OBJECT));
+            continue;
         }
         if (tiStage->Attribute(STAGE_MAP_OBJECT) != NULL)
         {
@@ -99,11 +95,6 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
             pStage->SetDifficulty(::atol(tiStage->Attribute(STAGE_DIFFICULTY_OBJECT)));
         }
 
-        if (tiStage->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pStage->SetType(tiStage->Attribute(TYPE_OBJECT));
-        }
-
         TiXmlNode* tiEnemyItem = tiFirst->FirstChild(ITEM_GAME);
         if (tiEnemyItem != NULL)
         {
@@ -112,13 +103,9 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
                 tiItem = tiItem->NextSiblingElement())
             {
                 CStageXMLItem* pItem = new CStageXMLItem(tiItem->Attribute(ITEM_WAY_OBJECT));
-                if (tiItem->Attribute(ID_OBJECT) != NULL)
+                if (!BaseParse(pItem, tiItem))
                 {
-                    pItem->SetId(tiItem->Attribute(ID_OBJECT));
-                }
-                if (tiItem->Attribute(TYPE_OBJECT) != NULL)
-                {
-                    pItem->SetType(tiItem->Attribute(TYPE_OBJECT));
+                    continue;
                 }
                 if (tiItem->Attribute(ITEM_NUMBER_OBJECT) != NULL)
                 {
@@ -148,19 +135,10 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
             tiElementEnemy = tiElementEnemy->NextSiblingElement())
         {
             CStageXMLEnemy* pEnemy = new CStageXMLEnemy;
-            if (tiElementEnemy->Attribute(ID_OBJECT) != NULL)
+            if (!BaseParse(pEnemy, tiElementEnemy))
             {
-                pEnemy->SetId(tiElementEnemy->Attribute(ID_OBJECT));
+                continue;
             }
-            if (tiElementEnemy->Attribute(NAME_OBJECT) != NULL)
-            {
-                pEnemy->SetName(tiElementEnemy->Attribute(NAME_OBJECT));
-            }
-            if (tiElementEnemy->Attribute(TYPE_OBJECT) != NULL)
-            {
-                pEnemy->SetType(tiElementEnemy->Attribute(TYPE_OBJECT));
-            }
-
             int PosX = 0, PosY = 0;
             if (tiElementEnemy->Attribute(POSX_OBJECT) != NULL)
             {
@@ -199,13 +177,9 @@ bool CStageXMLParse::_Parse(TiXmlDocument& TinyXML)
                 tiItem = tiEnemyItem->NextSiblingElement())
             {
                 CStageXMLItem* pItem = new CStageXMLItem(tiItem->Attribute(ITEM_WAY_OBJECT));
-                if (tiItem->Attribute(ID_OBJECT) != NULL)
+                if (!BaseParse(pItem, tiItem))
                 {
-                    pItem->SetId(tiItem->Attribute(ID_OBJECT));
-                }
-                if (tiItem->Attribute(TYPE_OBJECT) != NULL)
-                {
-                    pItem->SetType(tiItem->Attribute(TYPE_OBJECT));
+                    continue;
                 }
                 if (tiItem->Attribute(ITEM_NUMBER_OBJECT) != NULL)
                 {
