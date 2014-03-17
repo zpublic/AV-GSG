@@ -84,42 +84,27 @@ bool CBulletXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CBulletXMLObject* pExplosion = new CBulletXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        std::string strSkinId;
+        int nPower = 0;
+        int nSpeed = 0;
+        int nFrameCount = 0;
+        if (!BaseParse(pExplosion, tiElement))
         {
-            pExplosion->SetId(tiElement->Attribute(ID_OBJECT));
+            continue;
         }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pExplosion->SetName(tiElement->Attribute(NAME_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
-        {
-            pExplosion->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
-        }
-        if (tiElement->Attribute(BULLET_POWER_GAME) != NULL)
-        {
-            pExplosion->SetPower(::atol(tiElement->Attribute(BULLET_POWER_GAME)));
-        }
-        if (tiElement->Attribute(BULLET_SPEED_GAME) != NULL)
-        {
-            pExplosion->SetSpeed(::atoi(tiElement->Attribute(BULLET_SPEED_GAME)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pExplosion->SetType(tiElement->Attribute(TYPE_OBJECT));
-        }
-        if (tiElement->Attribute(FRAMECOUNT_OBJECT) != NULL)
-        {
-            pExplosion->SetFrameCount(::atol(tiElement->Attribute(FRAMECOUNT_OBJECT)));
-        }
-        if (tiElement->Attribute(WIDTH_OBJCET) != NULL)
-        {
-            pExplosion->SetWidth(::atol(tiElement->Attribute(WIDTH_OBJCET)));
-        }
-        if (tiElement->Attribute(HEIGHT_OBJECT) != NULL)
-        {
-            pExplosion->SetHeight(::atol(tiElement->Attribute(HEIGHT_OBJECT)));
-        }
+        Unit::GetXmlStrAttributeA(tiElement ,PLANE_SKIN_OBJECT, strSkinId);
+        Unit::GetXmlIntAttribute(tiElement ,BULLET_POWER_GAME, nPower);
+        Unit::GetXmlIntAttribute(tiElement ,BULLET_SPEED_GAME, nSpeed);
+        Unit::GetXmlIntAttribute(tiElement ,FRAMECOUNT_OBJECT, nFrameCount);
+        pExplosion->SetFrameCount(nFrameCount);
+        pExplosion->SetSkinId(strSkinId);
+        pExplosion->SetPower(nPower);
+        pExplosion->SetSpeed(nSpeed);
+
+        ShapeObject shapeobj;
+        BaseShape(&shapeobj, tiElement);
+        pExplosion->SetWidth(shapeobj.nWidth);
+        pExplosion->SetHeight(shapeobj.nHeight);
         m_mapBullet[pExplosion->GetId()] = pExplosion;
     }
     return true;

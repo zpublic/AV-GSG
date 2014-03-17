@@ -2,15 +2,16 @@
 #define BLAST_XML_PARSE_
 
 #include "unit\Singleton.h"
-#include "tinyxml.h"
-#include "Parse_def.h"
 #include "BlastXMLObject.h"
+#include "XMLParser.h"
 #include <string>
 #include <map>
 
 typedef std::map<std::string, CBlastXMLObject*> BlastList;
 
-class CBlastXMLParse : public Singleton<CBlastXMLParse>
+class CBlastXMLParse
+    : public Singleton<CBlastXMLParse>
+    , public CXMLParser
 {
     friend Singleton<CBlastXMLParse>;
 public:

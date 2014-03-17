@@ -2,15 +2,16 @@
 #define WEAPON_XML_PARSE_
 
 #include "unit\Singleton.h"
-#include "tinyxml.h"
-#include "Parse_def.h"
+#include "XMLParser.h"
 #include "WeaponXMLObject.h"
 #include <string>
 #include <map>
 
 typedef std::map<std::string, CWeaponXMLObject*> WeaponList;
 
-class CWeaponXMLParse : public Singleton<CWeaponXMLParse>
+class CWeaponXMLParse
+    : public Singleton<CWeaponXMLParse>
+    , CXMLParser
 {
     friend Singleton<CWeaponXMLParse>;
 public:

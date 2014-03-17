@@ -1,8 +1,7 @@
 #ifndef PLANE_XML_PARSE_
 #define PLANE_XML_PARSE_
 
-#include "Parse_def.h"
-#include "tinyxml.h"
+#include "XMLParser.h"
 #include "PlaneXMLObject.h"
 #include <map>
 #include <string>
@@ -10,6 +9,7 @@
 typedef std::map<std::string, CPlaneXMLObject*> MapPlane;
 
 class CPlaneXMLParse
+    : public CXMLParser
 {
 public:
     ~CPlaneXMLParse();
@@ -26,6 +26,7 @@ private:
     CPlaneXMLParse& operator = (CPlaneXMLParse&);
     CPlaneXMLParse();
     static CPlaneXMLParse m_Plane;
+    void _ParsePlane(TiXmlElement* tiElement, CPlaneXMLObject* pPlane);
 
 private:
     void _Close();

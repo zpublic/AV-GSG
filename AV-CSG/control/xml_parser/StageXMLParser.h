@@ -1,13 +1,13 @@
 #ifndef STAGE_PARSERXML_
 #define STAGE_PARSERXML_
 
-#include "tinyxml.h"
-#include "Parse_def.h"
+#include "XMLParser.h"
 #include "StageXMLStageObject.h"
 
 typedef std::map<int, CStageXMLStage*> MapStageList;
 
 class CStageXMLParse
+    : public CXMLParser
 {
 public:
     ~CStageXMLParse();
@@ -31,6 +31,8 @@ private:
     CStageXMLParse(CStageXMLParse&);
     CStageXMLParse& operator = (CStageXMLParse&);
 
+    bool _ParseItem(TiXmlElement* pElement, CStageXMLItem* pItem);
+    bool _ParseEnemy(TiXmlElement* pElement, CStageXMLEnemy* pEnemy);
     static CStageXMLParse m_XMLParse;
 
 private:

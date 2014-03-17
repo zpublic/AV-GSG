@@ -81,6 +81,23 @@ bool CPlaneXMLParse::LoadXML(const std::string& strPath)
     return true;
 }
 
+void CPlaneXMLParse::_ParsePlane(TiXmlElement* tiElement, CPlaneXMLObject* pPlane)
+{
+    std::string strSkinId;
+    std::string strWeapon;
+    int nHp = 0;
+    int nSpeed = 0;
+    int nFrameCount = 0;
+    Unit::GetXmlStrAttributeA(tiElement ,PLANE_SKIN_OBJECT, strSkinId);
+    Unit::GetXmlStrAttributeA(tiElement ,PLANE_WEAPON_OBJECT, strWeapon);
+    Unit::GetXmlIntAttribute(tiElement ,PLANE_HP_OBJECT, nHp);
+    Unit::GetXmlIntAttribute(tiElement ,PLANE_SPEED_OBJECT, nSpeed);
+    pPlane->SetWeapon(strWeapon);
+    pPlane->SetSkinId(strSkinId);
+    pPlane->SetHP(nHp);
+    pPlane->SetSpeed(nSpeed);
+}
+
 bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
 {
     TiXmlElement* tiRoot = TinyXML.RootElement();
@@ -109,34 +126,11 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CPlaneXMLObject* pEnemy = new CPlaneXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pEnemy, tiElement))
         {
-            pEnemy->SetId(tiElement->Attribute(ID_OBJECT));
+            continue;
         }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pEnemy->SetName(tiElement->Attribute(NAME_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
-        {
-            pEnemy->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_WEAPON_OBJECT) != NULL)
-        {
-            pEnemy->SetWeapon(tiElement->Attribute(PLANE_WEAPON_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
-        {
-            pEnemy->SetHP(::atol(tiElement->Attribute(PLANE_HP_OBJECT)));
-        }
-        if (tiElement->Attribute(PLANE_SPEED_OBJECT) != NULL)
-        {
-            pEnemy->SetSpeed(::atoi(tiElement->Attribute(PLANE_SPEED_OBJECT)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pEnemy->SetType(tiElement->Attribute(TYPE_OBJECT));
-        }
+        _ParsePlane(tiElement, pEnemy);
         m_mapEnemy[pEnemy->GetId()] = pEnemy;
     }
 
@@ -155,34 +149,11 @@ bool CPlaneXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CPlaneXMLObject* pSelf = new CPlaneXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pSelf, tiElement))
         {
-            pSelf->SetId(tiElement->Attribute(ID_OBJECT));
+            continue;
         }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pSelf->SetName(tiElement->Attribute(NAME_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_SKIN_OBJECT) != NULL)
-        {
-            pSelf->SetSkinId(tiElement->Attribute(PLANE_SKIN_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_WEAPON_OBJECT) != NULL)
-        {
-            pSelf->SetWeapon(tiElement->Attribute(PLANE_WEAPON_OBJECT));
-        }
-        if (tiElement->Attribute(PLANE_HP_OBJECT) != NULL)
-        {
-            pSelf->SetHP(::atol(tiElement->Attribute(PLANE_HP_OBJECT)));
-        }
-        if (tiElement->Attribute(PLANE_SPEED_OBJECT) != NULL)
-        {
-            pSelf->SetSpeed(::atoi(tiElement->Attribute(PLANE_SPEED_OBJECT)));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pSelf->SetType(tiElement->Attribute(TYPE_OBJECT));
-        }
+        _ParsePlane(tiElement, pSelf);
         m_mapSelf[pSelf->GetId()] = pSelf;
     }
     return true;

@@ -65,17 +65,9 @@ bool CEmitterXMLParse::_Parse(TiXmlDocument& TinyXML)
         tiElement = tiElement->NextSiblingElement())
     {
         CEmitterXMLObject* pEmitter = new CEmitterXMLObject;
-        if (tiElement->Attribute(ID_OBJECT) != NULL)
+        if (!BaseParse(pEmitter, tiElement))
         {
-            pEmitter->SetId(tiElement->Attribute(ID_OBJECT));
-        }
-        if (tiElement->Attribute(NAME_OBJECT) != NULL)
-        {
-            pEmitter->SetName(tiElement->Attribute(NAME_OBJECT));
-        }
-        if (tiElement->Attribute(TYPE_OBJECT) != NULL)
-        {
-            pEmitter->SetType(tiElement->Attribute(TYPE_OBJECT));
+            continue;
         }
         m_mapEmitter[pEmitter->GetId()] = pEmitter;
     }
